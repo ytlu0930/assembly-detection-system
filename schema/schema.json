@@ -23,11 +23,11 @@
             "type": "string",
             "enum": [
               "correct", 
-              "missing_part", 
-              "extra_part", 
-              "position_error", 
-              "wrong_part", 
-              "critical_error"
+              "missingpart",    
+              "extrapart",      
+              "positionerror",  
+              "wrongpart",      
+              "criticalerror"   
             ]
           }
         },

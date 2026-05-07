@@ -25,5 +25,13 @@
     "WHITE": ["white", "白色", "白"],
     "BLACK": ["black", "dark", "黑色", "黑"],
     "GREY": ["grey", "gray", "灰色", "灰"]
+  },
+  "error_type": {
+    "correct": ["correct", "normal", "正常", "正確"],
+    "missingpart": ["missingpart", "missing", "缺件", "缺少零件", "missing_part"],
+    "extrapart": ["extrapart", "extra", "多件", "多餘零件", "extra_part"],
+    "positionerror": ["positionerror", "wrong position", "位置錯誤", "position_error"],
+    "wrongpart": ["wrongpart", "wrong brick", "錯件", "wrong_part"],
+    "criticalerror": ["criticalerror", "broken", "畸形", "亂裝", "critical_error"]
   }
 }
