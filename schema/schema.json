@@ -1,22 +1,21 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "step_id": { "type": "string" },
-    "step_name": { "type": "string" },
+    "view_angle": { 
+      "type": "string", 
+      "enum": ["FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM"] 
+    },
     "expected_parts": {
       "type": "array",
       "items": {
-        "type": "object",
         "properties": {
           "part_id": { "type": "string" },
           "color": { "type": "string" },
-          "position": { "type": "string", "enum": ["LEFT", "RIGHT", "TOP", "BOTTOM", "CENTER"] },
-          "orientation": { "type": "string", "enum": ["VERTICAL", "HORIZONTAL"] }
-        },
-        "required": ["part_id", "color", "position", "orientation"]
+          "position": { "type": "string" },
+          "orientation": { "type": "string" }
+        }
       }
     }
-  },
-  "required": ["step_id", "step_name", "expected_parts"]
+  }
 }
