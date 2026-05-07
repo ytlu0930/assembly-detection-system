@@ -1,5 +1,17 @@
 {
-  "LINK_GREY_3HOLE": ["grey connector", "grey bar with 3 holes", "灰色三孔連接條"],
-  "GEAR_BLUE": ["blue gear", "blue wheel", "藍色齒輪"],
-  "AXLE_RED": ["red cross axle", "red stick", "紅色十字軸"]
+  "EYE_BALL": ["eye", "white ball with black pupil", "眼睛"],
+  "JOINT_BLUE_Y": ["blue Y-shaped joint", "Y字接頭", "藍色分叉件"],
+  "PLATE_BLUE_TRIANGLE": ["blue triangular plate with holes", "藍色三角板"],
+  "CONNECTOR_ORANGE": ["orange U-shaped clip", "orange double connector", "橘色雙孔接頭"],
+  "BLOCK_YELLOW_CUBE": ["yellow cube with holes", "黃色正方體", "黃色方塊接頭"],
+  "JOINT_YELLOW_H": ["yellow H-shaped joint", "黃色H型接頭"],
+  "PIN_YELLOW": ["yellow nail", "yellow pin with flat head", "黃色平頭釘", "黃色卡榫"],
+  "WHEEL_BLUE_LARGE": ["large blue wheel", "big blue tire", "大藍色輪胎"],
+  "WHEEL_BLUE_SMALL": ["small blue wheel", "small blue tire", "小藍色輪胎"],
+  "ROD_GREEN_LONG": ["long green cylinder stick", "綠色長圓柱", "綠色長桿"],
+  "PIN_RED_SHORT": ["short red cylinder stick", "紅色短圓柱", "紅色短棒"],
+  "BLOCK_GREEN_PEG": ["green rectangular block with a peg", "綠色單凸塊長方體"],
+  "LINK_RED_3HOLE": ["red flat bar with 3 holes", "紅色三孔條"],
+  "LINK_GREEN_5HOLE": ["green flat bar with 5 holes", "綠色五孔條"],
+  "LINK_BLUE_5HOLE": ["blue flat bar with 5 holes", "藍色五孔條"]
 }
