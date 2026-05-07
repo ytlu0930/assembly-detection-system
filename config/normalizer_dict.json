@@ -1,0 +1,13 @@
+{
+  "position": {
+    "LEFT": ["left", "left side", "on the left"],
+    "RIGHT": ["right", "right side", "to the right"],
+    "TOP": ["top", "above", "upper"],
+    "BOTTOM": ["bottom", "below", "under"],
+    "CENTER": ["center", "middle", "central"]
+  },
+  "orientation": {
+    "VERTICAL": ["vertical", "upright", "standing"],
+    "HORIZONTAL": ["horizontal", "lying", "flat"]
+  }
+}
