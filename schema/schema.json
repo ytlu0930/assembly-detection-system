@@ -1,21 +1,39 @@
 {
   "type": "object",
   "properties": {
+    "model_id": { 
+      "type": "string", 
+      "enum": ["model03", "model08"] 
+    },
     "step_id": { "type": "string" },
     "view_angle": { 
       "type": "string", 
-      "enum": ["FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM"] 
+      "enum": ["top", "bottom", "front", "back", "left", "right"] 
     },
-    "expected_parts": {
+    "detected_parts": {
       "type": "array",
       "items": {
+        "type": "object",
         "properties": {
           "part_id": { "type": "string" },
           "color": { "type": "string" },
           "position": { "type": "string" },
-          "orientation": { "type": "string" }
-        }
+          "orientation": { "type": "string" },
+          "error_type": {
+            "type": "string",
+            "enum": [
+              "correct", 
+              "missing_part", 
+              "extra_part", 
+              "position_error", 
+              "wrong_part", 
+              "critical_error"
+            ]
+          }
+        },
+        "required": ["part_id", "error_type"]
       }
     }
-  }
+  },
+  "required": ["model_id", "step_id", "view_angle", "detected_parts"]
 }

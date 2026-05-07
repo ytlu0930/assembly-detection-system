@@ -4,10 +4,26 @@
     "RIGHT": ["right", "right side", "to the right"],
     "TOP": ["top", "above", "upper"],
     "BOTTOM": ["bottom", "below", "under"],
-    "CENTER": ["center", "middle", "central"]
+    "CENTER": ["center", "middle", "central"],
+    "FRONT": ["front", "in front", "forward", "anterior"],
+    "BACK": ["back", "rear", "behind", "posterior"],
+    "TOP_LEFT": ["top left", "upper left"],
+    "TOP_RIGHT": ["top right", "upper right"],
+    "BOTTOM_LEFT": ["bottom left", "lower left"],
+    "BOTTOM_RIGHT": ["bottom right", "lower right"]
   },
   "orientation": {
-    "VERTICAL": ["vertical", "upright", "standing"],
-    "HORIZONTAL": ["horizontal", "lying", "flat"]
+    "VERTICAL": ["vertical", "upright", "standing", "straight up"],
+    "HORIZONTAL": ["horizontal", "lying", "flat", "laying down"]
+  },
+  "color": {
+    "RED": ["red", "reddish", "紅色", "紅"],
+    "BLUE": ["blue", "bluish", "藍色", "藍"],
+    "GREEN": ["green", "greenish", "綠色", "綠"],
+    "YELLOW": ["yellow", "yellowish", "黃色", "黃"],
+    "ORANGE": ["orange", "橘色", "橘", "橙色"],
+    "WHITE": ["white", "白色", "白"],
+    "BLACK": ["black", "dark", "黑色", "黑"],
+    "GREY": ["grey", "gray", "灰色", "灰"]
   }
 }
