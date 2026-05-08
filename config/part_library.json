@@ -10,7 +10,8 @@
   "WHEEL_BLUE_SMALL": ["small blue wheel", "small blue tire", "小藍色輪胎"],
   "ROD_GREEN_LONG": ["long green cylinder stick", "綠色長圓柱", "綠色長桿"],
   "PIN_RED_SHORT": ["short red cylinder stick", "紅色短圓柱", "紅色短棒"],
-  "BLOCK_GREEN_PEG": ["green rectangular block with a peg", "綠色單凸塊長方體"],
+  "BLOCK_GREEN_4HOLE_2PEG": [
+    "green rectangular block with 4 holes and two pegs","綠色四孔長方體","兩端凸起綠色方塊","綠色四孔洞加兩端凸起"],
   "LINK_RED_3HOLE": ["red flat bar with 3 holes", "紅色三孔條"],
   "LINK_GREEN_5HOLE": ["green flat bar with 5 holes", "綠色五孔條"],
   "LINK_BLUE_5HOLE": ["blue flat bar with 5 holes", "藍色五孔條"]
