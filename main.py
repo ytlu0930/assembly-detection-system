@@ -1,38 +1,58 @@
 import os
 import json
 import base64
-from openai import OpenAI
+from openai import OpenAI, LengthFinishReasonError
 
-# 1. 初始化 OpenAI Client (會自動讀取環境變數中的 OPENAI_API_KEY)
+# 初始化 OpenAI Client
+# 提醒：請確保環境變數 OPENAI_API_KEY 已設定，或在 .env 檔案中定義
 client = OpenAI()
 
 def encode_image(image_path):
     """將圖片轉換為 base64 格式以供 Vision API 讀取"""
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
+    try:
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+    except FileNotFoundError:
+        print(f"[錯誤] 找不到圖片檔案: {image_path}")
+        return None
 
 def load_schema(schema_path="schema/schema.json"):
     """讀取成員 C 定義的 JSON Schema"""
-    with open(schema_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(schema_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"[錯誤] 讀取 Schema 失敗: {e}")
+        return None
 
 def load_prompt(step_id, prompt_path="prompts/vision_v1.txt"):
-    """讀取你寫的 Prompt 範本，並動態帶入目前的步驟 ID"""
-    with open(prompt_path, "r", encoding="utf-8") as f:
-        template = f.read()
-    return template.format(step_id=step_id)
+    """讀取成員 A 撰寫的 Prompt 範本，並動態帶入目前的步驟 ID"""
+    try:
+        with open(prompt_path, "r", encoding="utf-8") as f:
+            template = f.read()
+        return template.format(step_id=step_id)
+    except Exception as e:
+        print(f"[錯誤] 讀取 Prompt 失敗: {e}")
+        return "請分析這張積木圖片的組裝狀態。"
 
-def analyze_lego_assembly(image_path, step_id):
-    """呼叫 OpenAI GPT-4o Vision API 並強制執行結構化輸出"""
-    # 讀取 Prompt 與 Schema
+def analyze_assembly(image_path, step_id):
+    """
+    實作 Structured Outputs API 呼叫 (取代人工 JSON 驗證重試)
+    使用 client.beta.chat.completions.parse() 確保 100% 符合 Schema
+    """
     prompt_content = load_prompt(step_id)
     schema = load_schema()
     base64_image = encode_image(image_path)
     
-    print(f"[Agent] 開始分析步驟: {step_id}, 圖片: {image_path}...")
-    
+    if not base64_image or not schema:
+        return None
+
+    print(f"\n[Agent] 正在啟動 GPT-4o 分析...")
+    print(f"👉 步驟: {step_id}")
+    print(f"👉 視角: 高解析度模式 (detail: high)")
+
     try:
-        # 使用 beta.chat.completions.parse 強制結構化輸出
+        # 核心：使用 parse 確保輸出結構完全符合 schema.json
         response = client.beta.chat.completions.parse(
             model="gpt-4o",
             messages=[
@@ -44,73 +64,84 @@ def analyze_lego_assembly(image_path, step_id):
                             "type": "image_url",
                             "image_url": {
                                 "url": f"data:image/jpeg;base64,{base64_image}",
-                                "detail": "high" # 依據指南，必須使用高解析度模式
+                                "detail": "high"
                             }
                         }
                     ]
                 }
             ],
-            response_format=schema # 直接餵入 schema.json 的結構
+            response_format=schema # 這裡是關鍵！實作 Structured Outputs
         )
         
-        # 解析出完全符合 Schema 的結構化 JSON 結果
-        analysis_result = response.choices[0].message.content
-        return json.loads(analysis_result)
-        
+        # 取得解析後的結構化物件
+        return response.choices[0].message.parsed
+
+    except LengthFinishReasonError:
+        # 指南要求：捕捉原生 API 例外狀況 (當輸出長度超過 Token 限制時)
+        print("[錯誤] API 輸出長度超過限制，JSON 結構可能不完整。")
+        return None
     except Exception as e:
-        print(f"[錯誤] API 呼叫或解析失敗: {e}")
+        print(f"[錯誤] 呼叫 API 時發生未知錯誤: {e}")
         return None
 
-def check_errors(analysis_result):
+def generate_correction_feedback(analysis_result):
     """
-    成員 A 主責的錯誤偵測邏輯。
-    分析 AI 回傳的零件列表中，是否存在任何組裝錯誤。
+    成員 A 主責：錯誤偵測與修正建議生成 (PHASE 03)
+    根據 API 回傳結果比對零件狀態並生成中文指示。
     """
     if not analysis_result:
-        return "無法取得分析結果"
-    
-    parts = analysis_result.get("detected_parts", [])
-    errors_found = []
-    
-    for part in parts:
-        part_id = part.get("part_id")
-        error_type = part.get("error_type", "correct")
-        
-        if error_type != "correct":
-            errors_found.append({
-                "part_id": part_id,
-                "error_type": error_type,
-                "details": f"零件 {part_id} 偵測到錯誤類型: {error_type} (位置: {part.get('position', '未提供')})"
-            })
-            
-    # 輸出診斷報告
-    if errors_found:
-        report = f"❌ 偵測到 {len(errors_found)} 個組裝錯誤：\n"
-        for err in errors_found:
-            report += f"- {err['details']}\n"
-    else:
-        report = "✅ 恭喜！該步驟組裝完全正確，無任何錯誤。"
-        
-    return report
+        return "無法取得分析結果，請檢查網路或 API 金鑰。"
 
-# --- 測試主程式 ---
-if __name__ == "__main__":
-    # 測試用的圖片路徑（可請成員 B 提供一張拍好的測試圖放到 dataset 資料夾）
-    test_image = "dataset/test_step_01.jpg" 
-    test_step = "step_01"
+    detected_parts = getattr(analysis_result, 'detected_parts', [])
+    view_angle = getattr(analysis_result, 'view_angle', '未知')
     
-    # 確保測試目錄存在（如果只是先寫好程式，可以先建立空資料夾）
-    os.makedirs("dataset", exist_ok=True)
+    errors = [p for p in detected_parts if p.error_type != "correct"]
     
-    if os.path.exists(test_image):
-        # 執行辨識
-        result = analyze_lego_assembly(test_image, test_step)
-        print("\n[AI 原始結構化回傳]:")
-        print(json.dumps(result, indent=2, ensure_ascii=False))
+    print(f"\n--- 分析診斷報告 (視角: {view_angle}) ---")
+    
+    if not errors:
+        return "✅ 檢查完成：所有零件組裝正確！請繼續下一個步驟。"
+    
+    feedback = f"❌ 偵測到 {len(errors)} 個組裝問題，請根據以下建議修正：\n"
+    
+    # 對應成員 C 定義的 error_type 進行中文解釋
+    error_mapping = {
+        "missingpart": "缺件",
+        "extrapart": "多件",
+        "positionerror": "位置錯誤",
+        "wrongpart": "零件選用錯誤",
+        "criticalerror": "嚴重錯誤"
+    }
+
+    for idx, err in enumerate(errors, 1):
+        type_zh = error_mapping.get(err.error_type, err.error_type)
+        detail = f"   {idx}. 零件 [{err.part_id}] ({err.color}): {type_zh}"
         
-        # 執行成員 A 的錯誤偵測診斷
-        diagnostic_report = check_errors(result)
-        print("\n[成員 A 錯誤診斷報告]:")
-        print(diagnostic_report)
+        # 針對特定錯誤類型提供更詳細的指示
+        if err.error_type == "positionerror":
+            detail += f" -> 請確認座標位置 {err.position} 是否正確。"
+        elif err.error_type == "missingpart":
+            detail += " -> 請補上對應的零件。"
+            
+        feedback += detail + "\n"
+        
+    return feedback
+
+# --- 測試執行 ---
+if __name__ == "__main__":
+    # 這裡可以修改成成員 B 拍好的測試圖路徑
+    TEST_IMAGE_PATH = "dataset/test_sample.jpg" 
+    CURRENT_STEP = "step_01"
+
+    if os.path.exists(TEST_IMAGE_PATH):
+        # 執行辨識
+        parsed_data = analyze_assembly(TEST_IMAGE_PATH, CURRENT_STEP)
+        
+        # 執行錯誤診斷與修正建議
+        final_feedback = generate_correction_feedback(parsed_data)
+        
+        print("\n[最終回饋給使用者]:")
+        print(final_feedback)
     else:
-        print(f"\n[提示] 主程式架構已就緒！請成員 B 拍攝一張照片並命名為 '{test_image}' 後，即可執行此主程式進行完整測試。")
+        print(f"\n[提示] 核心邏輯已準備就緒！")
+        print(f"請成員 B 將測試照片放入資料夾：{TEST_IMAGE_PATH}")
