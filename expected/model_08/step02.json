@@ -1,0 +1,55 @@
+{
+  "model_id": "model08",
+  "step_id": "step02",
+  "step_name": "8號車-步驟二：組裝底盤側邊框架",
+  "expected_parts": [
+    {
+      "part_id": "BLOCK_YELLOW_CUBE",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "JOINT_YELLOW_H",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "CONNECTOR_ORANGE",
+      "color": "ORANGE",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "color": "GREEN",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "LINK_BLUE_5HOLE",
+      "color": "BLUE",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "LINK_GREEN_5HOLE",
+      "color": "GREEN",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL"
+    }
+  ]
+}
