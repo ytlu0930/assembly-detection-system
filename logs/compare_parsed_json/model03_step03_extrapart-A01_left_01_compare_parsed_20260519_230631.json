@@ -1,0 +1,232 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+    "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_left_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "extrapart",
+    "target_part": "A01",
+    "view_angle": "left",
+    "image_index": "01"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_left_01.jpg",
+    "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_left_01.jpg"
+  },
+  "expected_state": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "step_name": "3號車-步驟三：安裝中段雙眼天線與車頭飾件（28件完全體）",
+    "expected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "color": "GREEN",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "TOP",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "ORANGE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      }
+    ]
+  },
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "left",
+    "is_error": true,
+    "overall_error_type": "positionerror",
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "The white eye ball parts are positioned incorrectly compared to the expected state. They are shifted toward the CENTER instead of being distributed across LEFT, CENTER, and RIGHT.",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "The red pins on the green arm are positioned incorrectly compared to the expected state. Their placement does not align with the LEFT and RIGHT positions.",
+        "confidence": 0.85
+      }
+    ],
+    "missing_parts": [],
+    "extra_parts": [],
+    "uncertain_points": [],
+    "summary": "The assembly contains position errors for the white eye ball parts and red pins on the green arm. Their placement does not match the expected state.",
+    "correction_advice": "Reposition the white eye ball parts to align with LEFT, CENTER, and RIGHT as per the expected state. Adjust the red pins on the green arm to match the LEFT and RIGHT positions."
+  },
+  "evaluation": {
+    "ground_truth": "extrapart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "decision_level": "TP",
+    "max_confidence": 0.9
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_correct-01_left_01.jpg",
+    "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_left_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "correct",
+    "target_part": "01",
+    "view_angle": "left",
+    "image_index": "01"
+  },
+  "part_id_validation": {
+    "valid_part_id_count": 15,
+    "invalid_part_ids": []
+  },
+  "model_response": {
+    "image_quality": {
+      "is_clear": true,
+      "lighting": "good",
+      "background": "clean",
+      "occlusion": "slight",
+      "notes": "The image is clear with good lighting and a clean background. Some parts are slightly occluded by others."
+    },
+    "detected_parts": [
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "blue",
+        "shape": "circular",
+        "approx_position": "top-left and bottom-left",
+        "orientation": "vertical",
+        "visible_features": "central hole with red and green inserts",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "blue",
+        "shape": "rectangular with holes",
+        "approx_position": "center",
+        "orientation": "horizontal",
+        "visible_features": "five holes with colored inserts",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "red",
+        "shape": "short cylinder",
+        "approx_position": "center and bottom-right",
+        "orientation": "vertical",
+        "visible_features": "flat head",
+        "confidence": 0.85
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "orange",
+        "shape": "U-shaped clip",
+        "approx_position": "top-center",
+        "orientation": "vertical",
+        "visible_features": "double connector",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "white",
+        "shape": "spherical",
+        "approx_position": "center-right and bottom-right",
+        "orientation": "horizontal",
+        "visible_features": "black pupil",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "green",
+        "shape": "rectangular with holes",
+        "approx_position": "bottom-right",
+        "orientation": "diagonal",
+        "visible_features": "five holes with red inserts",
+        "confidence": 0.9
+      }
+    ],
+    "assembly_state_summary": "The assembly appears mostly correct, with parts connected in a structured manner. Some parts are slightly occluded, making detailed analysis challenging.",
+    "possible_errors": [
+      {
+        "error_type": "uncertain",
+        "target_part_id": "EYE_BALL",
+        "description": "The orientation of the eye balls is unclear due to occlusion.",
+        "severity": "low",
+        "confidence": 0.7
+      },
+      {
+        "error_type": "uncertain",
+        "target_part_id": "LINK_GREEN_5HOLE",
+        "description": "The exact alignment of the green link is slightly unclear.",
+        "severity": "low",
+        "confidence": 0.7
+      }
+    ],
+    "orientation_analysis": "Most parts are oriented vertically or horizontally, with the green link positioned diagonally. The eye balls' orientation is less clear due to occlusion.",
+    "position_analysis": "Parts are positioned symmetrically, with wheels on the left, links in the center and bottom-right, and eye balls on the right.",
+    "uncertain_points": [
+      "Orientation of the eye balls.",
+      "Alignment of the green link."
+    ],
+    "recommendation_for_next_test": "Capture the image from multiple angles to reduce occlusion and improve visibility of parts' orientation and alignment."
+  }
+}

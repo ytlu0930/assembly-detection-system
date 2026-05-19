@@ -1,0 +1,123 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+    "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_right_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "wrongpart",
+    "target_part": "A01",
+    "view_angle": "right",
+    "image_index": "01"
+  },
+  "part_id_validation": {
+    "valid_part_id_count": 15,
+    "invalid_part_ids": []
+  },
+  "model_response": {
+    "image_quality": {
+      "is_clear": true,
+      "lighting": "good",
+      "background": "clean",
+      "occlusion": "slight",
+      "notes": "The image is clear, but some parts are partially obscured due to overlapping components."
+    },
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "color": "white with black pupil",
+        "shape": "spherical",
+        "approx_position": "front top left and right",
+        "orientation": "facing outward",
+        "visible_features": "black pupil visible",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "red",
+        "shape": "short cylinder",
+        "approx_position": "attached to green rod near eyes",
+        "orientation": "horizontal",
+        "visible_features": "flat ends",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "green",
+        "shape": "long cylinder",
+        "approx_position": "center structure",
+        "orientation": "angled upward",
+        "visible_features": "holes visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "color": "blue",
+        "shape": "triangular plate",
+        "approx_position": "center top",
+        "orientation": "flat horizontal",
+        "visible_features": "holes visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "blue",
+        "shape": "large circular",
+        "approx_position": "bottom left and right",
+        "orientation": "vertical",
+        "visible_features": "white center",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "yellow",
+        "shape": "cube",
+        "approx_position": "rear center",
+        "orientation": "flat horizontal",
+        "visible_features": "holes visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "color": "red",
+        "shape": "flat bar",
+        "approx_position": "rear structure",
+        "orientation": "horizontal",
+        "visible_features": "three holes visible",
+        "confidence": 0.85
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "orange",
+        "shape": "U-shaped clip",
+        "approx_position": "rear center near yellow cube",
+        "orientation": "vertical",
+        "visible_features": "double connector visible",
+        "confidence": 0.85
+      }
+    ],
+    "assembly_state_summary": "The assembly appears mostly correct, with parts connected in a coherent structure. Some parts are slightly obscured, making detailed verification challenging.",
+    "possible_errors": [
+      {
+        "error_type": "uncertain",
+        "target_part_id": "CONNECTOR_ORANGE",
+        "description": "The orientation of the orange connector is unclear due to partial occlusion.",
+        "severity": "low",
+        "confidence": 0.7
+      },
+      {
+        "error_type": "uncertain",
+        "target_part_id": "LINK_RED_3HOLE",
+        "description": "The exact position and alignment of the red link are slightly unclear.",
+        "severity": "low",
+        "confidence": 0.7
+      }
+    ],
+    "orientation_analysis": "Most parts are oriented correctly, with the eyes facing outward and wheels aligned vertically. The orange connector's orientation is uncertain.",
+    "position_analysis": "The parts are positioned in a coherent structure, with the wheels at the base and the triangular plate at the top center. The red link's exact position is slightly unclear.",
+    "uncertain_points": [
+      "Orientation of CONNECTOR_ORANGE",
+      "Position and alignment of LINK_RED_3HOLE"
+    ],
+    "recommendation_for_next_test": "Capture the image from multiple angles to reduce occlusion and clarify the orientation and position of partially obscured parts."
+  }
+}

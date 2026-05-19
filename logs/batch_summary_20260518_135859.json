@@ -1,0 +1,990 @@
+[
+  {
+    "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_back_01_raw_20260518_133738.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_back_01_parsed_20260518_133738.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_bottom_01_raw_20260518_133800.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_bottom_01_parsed_20260518_133800.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_bottom_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_front_01_raw_20260518_133822.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_front_01_parsed_20260518_133822.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_front_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_left_01_raw_20260518_133848.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_left_01_parsed_20260518_133848.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_right_01_raw_20260518_133915.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_right_01_parsed_20260518_133915.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_right_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_top_01_raw_20260518_133937.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_top_01_parsed_20260518_133937.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_top_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_back_01_raw_20260518_133956.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_back_01_parsed_20260518_133956.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_back_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_back_02_raw_20260518_134023.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_back_02_parsed_20260518_134023.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_bottom_01_raw_20260518_134049.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_bottom_01_parsed_20260518_134049.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_bottom_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_front_01_raw_20260518_134116.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_front_01_parsed_20260518_134116.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_front_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_left_01_raw_20260518_134140.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_left_01_parsed_20260518_134140.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_left_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_right_01_raw_20260518_134202.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_right_01_parsed_20260518_134202.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_right_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_top_01_raw_20260518_134221.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_top_01_parsed_20260518_134221.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_top_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_top_02_raw_20260518_134242.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_top_02_parsed_20260518_134242.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_back_01_raw_20260518_134259.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_back_01_parsed_20260518_134259.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_back_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_back_02_raw_20260518_134316.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_back_02_parsed_20260518_134316.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_bottom_01_raw_20260518_134339.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_bottom_01_parsed_20260518_134339.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_bottom_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_front_01_raw_20260518_134401.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_front_01_parsed_20260518_134401.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_front_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_left_01_raw_20260518_134425.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_left_01_parsed_20260518_134425.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_left_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_right_01_raw_20260518_134444.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_right_01_parsed_20260518_134444.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_right_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_top_01_raw_20260518_134459.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_top_01_parsed_20260518_134459.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_top_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_top_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_top_02_raw_20260518_134517.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_top_02_parsed_20260518_134517.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_top_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step01_correct-01_back_01_raw_20260518_134537.json",
+    "parsed_path": "logs\\parsed_json\\model03_step01_correct-01_back_01_parsed_20260518_134537.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step01_correct-01_back_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step01_correct-01_bottom_01_raw_20260518_134556.json",
+    "parsed_path": "logs\\parsed_json\\model03_step01_correct-01_bottom_01_parsed_20260518_134556.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step01_correct-01_bottom_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step01_correct-01_front_01_raw_20260518_134625.json",
+    "parsed_path": "logs\\parsed_json\\model03_step01_correct-01_front_01_parsed_20260518_134625.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step01_correct-01_front_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step01_correct-01_left_01_raw_20260518_134658.json",
+    "parsed_path": "logs\\parsed_json\\model03_step01_correct-01_left_01_parsed_20260518_134658.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step01_correct-01_left_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step01_correct-01_right_01_raw_20260518_134716.json",
+    "parsed_path": "logs\\parsed_json\\model03_step01_correct-01_right_01_parsed_20260518_134716.json",
+    "invalid_part_ids": [
+      "PIN_GREEN_LONG"
+    ],
+    "file_info": {
+      "image_name": "model03_step01_correct-01_right_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step01_correct-01_top_01_raw_20260518_134739.json",
+    "parsed_path": "logs\\parsed_json\\model03_step01_correct-01_top_01_parsed_20260518_134739.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step01_correct-01_top_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step02_correct-01_back_01_raw_20260518_134756.json",
+    "parsed_path": "logs\\parsed_json\\model03_step02_correct-01_back_01_parsed_20260518_134756.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step02_correct-01_back_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step02_correct-01_bottom_01_raw_20260518_134821.json",
+    "parsed_path": "logs\\parsed_json\\model03_step02_correct-01_bottom_01_parsed_20260518_134821.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step02_correct-01_bottom_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step02_correct-01_front_01_raw_20260518_134847.json",
+    "parsed_path": "logs\\parsed_json\\model03_step02_correct-01_front_01_parsed_20260518_134847.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step02_correct-01_front_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step02_correct-01_left_01_raw_20260518_134908.json",
+    "parsed_path": "logs\\parsed_json\\model03_step02_correct-01_left_01_parsed_20260518_134908.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step02_correct-01_left_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step02_correct-01_right_01_raw_20260518_134935.json",
+    "parsed_path": "logs\\parsed_json\\model03_step02_correct-01_right_01_parsed_20260518_134935.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step02_correct-01_right_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step02_correct-01_top_01_raw_20260518_134959.json",
+    "parsed_path": "logs\\parsed_json\\model03_step02_correct-01_top_01_parsed_20260518_134959.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step02_correct-01_top_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_back_01_raw_20260518_135017.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_back_01_parsed_20260518_135017.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_back_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_back_02_raw_20260518_135044.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_back_02_parsed_20260518_135044.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_back_02.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_03.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_back_03_raw_20260518_135105.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_back_03_parsed_20260518_135105.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_back_03.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_back_03.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "03"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_bottom_01_raw_20260518_135126.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_bottom_01_parsed_20260518_135126.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_bottom_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_front_01_raw_20260518_135145.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_front_01_parsed_20260518_135145.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_front_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_left_01_raw_20260518_135207.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_left_01_parsed_20260518_135207.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_left_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_right_01_raw_20260518_135228.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_right_01_parsed_20260518_135228.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_right_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_correct-01_top_01_raw_20260518_135244.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_correct-01_top_01_parsed_20260518_135244.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_correct-01_top_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_back_01_raw_20260518_135303.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_back_01_parsed_20260518_135303.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_back_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_back_02_raw_20260518_135323.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_back_02_parsed_20260518_135323.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_back_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_bottom_01_raw_20260518_135347.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_bottom_01_parsed_20260518_135347.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_bottom_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_front_01_raw_20260518_135415.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_front_01_parsed_20260518_135415.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_front_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_left_01_raw_20260518_135439.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_left_01_parsed_20260518_135439.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_right_01_raw_20260518_135514.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_right_01_parsed_20260518_135514.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_top_01_raw_20260518_135533.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_top_01_parsed_20260518_135533.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_top_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_top_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-A01_top_02_raw_20260518_135557.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-A01_top_02_parsed_20260518_135557.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_top_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_back_01_raw_20260518_135620.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_back_01_parsed_20260518_135620.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_back_02_raw_20260518_135643.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_back_02_parsed_20260518_135643.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_bottom_01_raw_20260518_135712.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_bottom_01_parsed_20260518_135712.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_bottom_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_front_01_raw_20260518_135734.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_front_01_parsed_20260518_135734.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_front_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_left_01_raw_20260518_135753.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_left_01_parsed_20260518_135753.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_left_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_right_01_raw_20260518_135813.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_right_01_parsed_20260518_135813.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_right_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_top_01_raw_20260518_135832.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_top_01_parsed_20260518_135832.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_top_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_top_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_wrongpart-B01_top_02_raw_20260518_135858.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_wrongpart-B01_top_02_parsed_20260518_135858.json",
+    "invalid_part_ids": [],
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_top_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  }
+]

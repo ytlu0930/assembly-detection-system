@@ -1,0 +1,524 @@
+[
+  {
+    "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "extrapart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_extrapart-A01_back_01_compare_raw_20260519_145333.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_extrapart-A01_back_01_compare_parsed_20260519_145333.json"
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "extrapart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_extrapart-A01_bottom_01_compare_raw_20260519_145427.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_extrapart-A01_bottom_01_compare_parsed_20260519_145427.json"
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "extrapart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_extrapart-A01_front_01_compare_raw_20260519_145531.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_extrapart-A01_front_01_compare_parsed_20260519_145531.json"
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "extrapart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_extrapart-A01_left_01_compare_raw_20260519_145640.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_extrapart-A01_left_01_compare_parsed_20260519_145640.json"
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "extrapart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_extrapart-A01_right_01_compare_raw_20260519_145748.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_extrapart-A01_right_01_compare_parsed_20260519_145748.json"
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "extrapart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_extrapart-A01_top_01_compare_raw_20260519_145901.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_extrapart-A01_top_01_compare_parsed_20260519_145901.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_back_01_compare_raw_20260519_145946.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_back_01_compare_parsed_20260519_145946.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "uncertain",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_back_02_compare_raw_20260519_150029.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_back_02_compare_parsed_20260519_150029.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_bottom_01_compare_raw_20260519_150129.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_bottom_01_compare_parsed_20260519_150129.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_front_01_compare_raw_20260519_150231.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_front_01_compare_parsed_20260519_150231.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_left_01_compare_raw_20260519_150330.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_left_01_compare_parsed_20260519_150330.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_right_01_compare_raw_20260519_150444.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_right_01_compare_parsed_20260519_150444.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_top_01_compare_raw_20260519_150542.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_top_01_compare_parsed_20260519_150542.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-A01_top_02_compare_raw_20260519_150646.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-A01_top_02_compare_parsed_20260519_150646.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_back_01_compare_raw_20260519_150754.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_back_01_compare_parsed_20260519_150754.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "missingpart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_back_02_compare_raw_20260519_150828.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_back_02_compare_parsed_20260519_150828.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_bottom_01_compare_raw_20260519_150923.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_bottom_01_compare_parsed_20260519_150923.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_front_01_compare_raw_20260519_151018.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_front_01_compare_parsed_20260519_151018.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_left_01_compare_raw_20260519_151054.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_left_01_compare_parsed_20260519_151054.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_right_01_compare_raw_20260519_151206.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_right_01_compare_parsed_20260519_151206.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_top_01_compare_raw_20260519_151234.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_top_01_compare_parsed_20260519_151234.json"
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_top_02.jpg",
+    "status": "success",
+    "ground_truth": "missingpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_missingpart-B01_top_02_compare_raw_20260519_151314.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_missingpart-B01_top_02_compare_parsed_20260519_151314.json"
+  },
+  {
+    "image_name": "model03_step01_correct-01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step01_correct-01_back_01_compare_raw_20260519_151354.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step01_correct-01_back_01_compare_parsed_20260519_151354.json"
+  },
+  {
+    "image_name": "model03_step01_correct-01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step01_correct-01_bottom_01_compare_raw_20260519_151440.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step01_correct-01_bottom_01_compare_parsed_20260519_151440.json"
+  },
+  {
+    "image_name": "model03_step01_correct-01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step01_correct-01_front_01_compare_raw_20260519_151514.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step01_correct-01_front_01_compare_parsed_20260519_151514.json"
+  },
+  {
+    "image_name": "model03_step01_correct-01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step01_correct-01_left_01_compare_raw_20260519_151607.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step01_correct-01_left_01_compare_parsed_20260519_151607.json"
+  },
+  {
+    "image_name": "model03_step01_correct-01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step01_correct-01_right_01_compare_raw_20260519_151652.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step01_correct-01_right_01_compare_parsed_20260519_151652.json"
+  },
+  {
+    "image_name": "model03_step01_correct-01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step01_correct-01_top_01_compare_raw_20260519_151740.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step01_correct-01_top_01_compare_parsed_20260519_151740.json"
+  },
+  {
+    "image_name": "model03_step02_correct-01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "missingpart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step02_correct-01_back_01_compare_raw_20260519_151829.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step02_correct-01_back_01_compare_parsed_20260519_151829.json"
+  },
+  {
+    "image_name": "model03_step02_correct-01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step02_correct-01_bottom_01_compare_raw_20260519_151923.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step02_correct-01_bottom_01_compare_parsed_20260519_151923.json"
+  },
+  {
+    "image_name": "model03_step02_correct-01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step02_correct-01_front_01_compare_raw_20260519_152005.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step02_correct-01_front_01_compare_parsed_20260519_152005.json"
+  },
+  {
+    "image_name": "model03_step02_correct-01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step02_correct-01_left_01_compare_raw_20260519_152121.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step02_correct-01_left_01_compare_parsed_20260519_152121.json"
+  },
+  {
+    "image_name": "model03_step02_correct-01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step02_correct-01_right_01_compare_raw_20260519_152225.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step02_correct-01_right_01_compare_parsed_20260519_152225.json"
+  },
+  {
+    "image_name": "model03_step02_correct-01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step02_correct-01_top_01_compare_raw_20260519_152306.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step02_correct-01_top_01_compare_parsed_20260519_152306.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "missingpart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_back_01_compare_raw_20260519_152348.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_back_01_compare_parsed_20260519_152348.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_02.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_back_02_compare_raw_20260519_152500.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_back_02_compare_parsed_20260519_152500.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_03.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "missingpart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_back_03_compare_raw_20260519_152550.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_back_03_compare_parsed_20260519_152550.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_bottom_01_compare_raw_20260519_152702.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_bottom_01_compare_parsed_20260519_152702.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_front_01_compare_raw_20260519_152754.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_front_01_compare_parsed_20260519_152754.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_left_01_compare_raw_20260519_152838.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_left_01_compare_parsed_20260519_152838.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_right_01_compare_raw_20260519_152919.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_right_01_compare_parsed_20260519_152919.json"
+  },
+  {
+    "image_name": "model03_step03_correct-01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "correct",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_correct-01_top_01_compare_raw_20260519_152959.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_correct-01_top_01_compare_parsed_20260519_152959.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_back_01_compare_raw_20260519_153035.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_back_01_compare_parsed_20260519_153035.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_back_02.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_back_02_compare_raw_20260519_153115.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_back_02_compare_parsed_20260519_153115.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_bottom_01_compare_raw_20260519_153220.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_bottom_01_compare_parsed_20260519_153220.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_front_01_compare_raw_20260519_153318.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_front_01_compare_parsed_20260519_153318.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_left_01_compare_raw_20260519_153400.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_left_01_compare_parsed_20260519_153400.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_right_01_compare_raw_20260519_153438.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_right_01_compare_parsed_20260519_153438.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_top_01_compare_raw_20260519_153536.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_top_01_compare_parsed_20260519_153536.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_top_02.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-A01_top_02_compare_raw_20260519_153609.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-A01_top_02_compare_parsed_20260519_153609.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_back_01_compare_raw_20260519_153657.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_back_01_compare_parsed_20260519_153657.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_back_02_compare_raw_20260519_153718.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_back_02_compare_parsed_20260519_153718.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_bottom_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_bottom_01_compare_raw_20260519_153809.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_bottom_01_compare_parsed_20260519_153809.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_front_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "correct",
+    "is_error": false,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_front_01_compare_raw_20260519_153905.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_front_01_compare_parsed_20260519_153905.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_left_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_left_01_compare_raw_20260519_153956.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_left_01_compare_parsed_20260519_153956.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_right_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_right_01_compare_raw_20260519_154055.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_right_01_compare_parsed_20260519_154055.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_top_01.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "positionerror",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_top_01_compare_raw_20260519_154154.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_top_01_compare_parsed_20260519_154154.json"
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_top_02.jpg",
+    "status": "success",
+    "ground_truth": "wrongpart",
+    "gpt_result": "extrapart",
+    "is_error": true,
+    "raw_path": "logs\\compare_raw_responses\\model03_step03_wrongpart-B01_top_02_compare_raw_20260519_154256.json",
+    "parsed_path": "logs\\compare_parsed_json\\model03_step03_wrongpart-B01_top_02_compare_parsed_20260519_154256.json"
+  }
+]

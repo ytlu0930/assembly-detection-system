@@ -219,5 +219,7 @@ __marimo__/
 
 # Project local files
 output/
-raw_responses/
-logs/
+
+# Large raw outputs
+logs/raw_responses/
+logs/compare_raw_responses/
