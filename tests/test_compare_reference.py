@@ -28,6 +28,9 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 PARSED_DIR.mkdir(parents=True, exist_ok=True)
 FAILED_DIR.mkdir(parents=True, exist_ok=True)
 
+IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png"]
+
+
 # ============================================================
 # 2. 讀取 .env
 # ============================================================
@@ -43,6 +46,14 @@ print("Endpoint:", endpoint)
 print("GPT4O deployment:", gpt_deployment)
 print("API key loaded:", api_key is not None)
 
+if not endpoint:
+    raise ValueError("找不到 AZURE_OPENAI_ENDPOINT，請檢查 .env")
+if not api_key:
+    raise ValueError("找不到 AZURE_OPENAI_API_KEY，請檢查 .env")
+if not gpt_deployment:
+    raise ValueError("找不到 GPT4O_DEPLOYMENT，請檢查 .env")
+
+
 # ============================================================
 # 3. 建立 Azure OpenAI Client
 # ============================================================
@@ -52,6 +63,7 @@ client = AzureOpenAI(
     azure_endpoint=endpoint,
     api_key=api_key
 )
+
 
 # ============================================================
 # 4. 檔案與 JSON 工具
@@ -64,6 +76,8 @@ def parse_filename(image_path: Path) -> dict:
     建議格式：
     model03_step03_correct-01_front_01.jpg
     model03_step03_extrapart-A01_front_01.jpg
+    model03_step03_missingpart-A01_front_01.jpg
+    model03_step03_positionerror-A01_front_01.jpg
     """
 
     stem = image_path.stem
@@ -121,7 +135,7 @@ def load_expected_state(model_id: str, step_id: str) -> dict:
 
 def load_prompt_template() -> str:
     """
-    讀取 Prompt v1.1。
+    讀取 Prompt v1.2。
     """
 
     if not PROMPT_PATH.exists():
@@ -131,9 +145,9 @@ def load_prompt_template() -> str:
         return f.read()
 
 
-def build_prompt(filename_info: dict, expected_state: dict) -> str:
+def build_prompt(filename_info: dict, expected_state: dict, reference_image_path: Path, test_image_path: Path) -> str:
     """
-    將圖片資訊與 expected_state 塞進 Prompt v1.1。
+    將圖片資訊、reference image 資訊與 expected_state 塞進 Prompt v1.2。
 
     注意：
     不使用 template.format()，因為 Prompt 裡有 JSON 範例，
@@ -155,6 +169,8 @@ def build_prompt(filename_info: dict, expected_state: dict) -> str:
     prompt = prompt.replace("{step_name}", expected_state.get("step_name", ""))
     prompt = prompt.replace("{view_angle}", filename_info["view_angle"])
     prompt = prompt.replace("{expected_state_json}", expected_state_json)
+    prompt = prompt.replace("{reference_image_name}", reference_image_path.name)
+    prompt = prompt.replace("{test_image_name}", test_image_path.name)
 
     return prompt
 
@@ -184,6 +200,16 @@ def get_mime_type(path: Path) -> str:
     raise ValueError(f"不支援的圖片格式：{path}")
 
 
+def image_to_data_url(path: Path) -> str:
+    """
+    圖片轉成 Chat Completions API 可用的 data URL。
+    """
+
+    mime_type = get_mime_type(path)
+    base64_image = encode_image_to_base64(path)
+    return f"data:{mime_type};base64,{base64_image}"
+
+
 def extract_json(text: str) -> dict:
     """
     清理 Markdown code block 後解析 JSON。
@@ -204,11 +230,116 @@ def collect_images(input_dir: Path) -> list[Path]:
     """
 
     image_files = []
-    image_files.extend(input_dir.rglob("*.jpg"))
-    image_files.extend(input_dir.rglob("*.jpeg"))
-    image_files.extend(input_dir.rglob("*.png"))
+
+    for ext in IMAGE_EXTENSIONS:
+        image_files.extend(input_dir.rglob(f"*{ext}"))
 
     return sorted(image_files)
+
+
+def find_reference_image(test_image_path: Path, filename_info: dict) -> Path:
+    """
+    自動尋找 Correct Reference Image。
+
+    原則：
+    1. 優先找 input/normal/{model_id}_{step_id}/ 底下同 model、同 step、同 view_angle 的 correct 圖。
+    2. 若找不到，再擴大到 input/normal/ 底下搜尋。
+    3. 若測試圖本身就是 correct，且找到自己，允許使用自己作為 reference。
+       這在測 correct baseline 時可以確認 prompt 是否能判定一致。
+    """
+
+    model_id = filename_info["model_id"]
+    step_id = filename_info["step_id"]
+    view_angle = filename_info["view_angle"]
+
+    pattern = f"{model_id}_{step_id}_correct-*_{view_angle}_*"
+
+    candidate_dirs = [
+        INPUT_DIR / "normal" / f"{model_id}_{step_id}",
+        INPUT_DIR / "normal"
+    ]
+
+    candidates = []
+
+    for candidate_dir in candidate_dirs:
+        if not candidate_dir.exists():
+            continue
+
+        for ext in IMAGE_EXTENSIONS:
+            candidates.extend(candidate_dir.rglob(f"{pattern}{ext}"))
+
+        if candidates:
+            break
+
+    # 排序，讓每次找到的 reference 穩定一致
+    candidates = sorted(set(candidates))
+
+    if not candidates:
+        raise FileNotFoundError(
+            "找不到 Correct Reference Image。\n"
+            f"搜尋條件：{pattern}\n"
+            f"建議放置位置：{INPUT_DIR / 'normal' / f'{model_id}_{step_id}'}"
+        )
+
+    # 若有多張，優先選 correct-01，其次選排序第一張
+    for candidate in candidates:
+        if "correct-01" in candidate.stem:
+            return candidate
+
+    return candidates[0]
+
+
+def calculate_decision_level(ground_truth: str, is_error) -> str:
+    """
+    依 Ground Truth 與 GPT is_error 自動計算：
+    TP / TN / FP / FN
+
+    correct + is_error false => TN
+    correct + is_error true  => FP
+    error   + is_error true  => TP
+    error   + is_error false => FN
+    """
+
+    gt_is_correct = ground_truth == "correct"
+
+    if isinstance(is_error, str):
+        is_error_bool = is_error.lower() == "true"
+    else:
+        is_error_bool = bool(is_error)
+
+    if gt_is_correct and not is_error_bool:
+        return "TN"
+
+    if gt_is_correct and is_error_bool:
+        return "FP"
+
+    if not gt_is_correct and is_error_bool:
+        return "TP"
+
+    if not gt_is_correct and not is_error_bool:
+        return "FN"
+
+    return ""
+
+
+def max_confidence(parsed_json: dict) -> float:
+    """
+    從 detected_parts 中取最高 confidence。
+    若沒有 detected_parts，回傳 0。
+    """
+
+    confidences = []
+
+    for part in parsed_json.get("detected_parts", []):
+        value = part.get("confidence")
+        if isinstance(value, (int, float)):
+            confidences.append(float(value))
+
+    if not confidences:
+        return 0.0
+
+    return max(confidences)
+
 
 # ============================================================
 # 5. 單張圖片比對分析
@@ -219,9 +350,11 @@ def analyze_single_image(image_path: Path) -> dict:
     單張圖片：
     1. 解析檔名
     2. 讀取 expected_state
-    3. 建立 Prompt
-    4. 呼叫 GPT-4o Vision
-    5. 儲存 raw 與 parsed 結果
+    3. 自動尋找 Correct Reference Image
+    4. 建立 Reference-Guided Prompt
+    5. 同時送出 reference image 與 test image
+    6. 呼叫 GPT-4o Vision
+    7. 儲存 raw 與 parsed 結果
     """
 
     filename_info = parse_filename(image_path)
@@ -234,18 +367,28 @@ def analyze_single_image(image_path: Path) -> dict:
         filename_info["step_id"]
     )
 
-    prompt = build_prompt(filename_info, expected_state)
+    reference_image_path = find_reference_image(image_path, filename_info)
 
-    base64_image = encode_image_to_base64(image_path)
-    mime_type = get_mime_type(image_path)
-    data_url = f"data:{mime_type};base64,{base64_image}"
+    prompt = build_prompt(
+        filename_info=filename_info,
+        expected_state=expected_state,
+        reference_image_path=reference_image_path,
+        test_image_path=image_path
+    )
+
+    reference_data_url = image_to_data_url(reference_image_path)
+    test_data_url = image_to_data_url(image_path)
 
     response = client.chat.completions.create(
         model=gpt_deployment,
         messages=[
             {
                 "role": "system",
-                "content": "你是精準的積木組裝錯誤偵測與 expected_state 比對助手。"
+                "content": (
+                    "你是精準的 Reference-Guided 積木組裝錯誤偵測助手。"
+                    "你必須先比較 Correct Reference Image 與 Test Image 的視覺差異，"
+                    "再輔助參考 expected_state JSON。"
+                )
             },
             {
                 "role": "user",
@@ -255,9 +398,24 @@ def analyze_single_image(image_path: Path) -> dict:
                         "text": prompt
                     },
                     {
+                        "type": "text",
+                        "text": "Image A：Correct Reference Image。這張是正確答案，請作為主要視覺比對基準。"
+                    },
+                    {
                         "type": "image_url",
                         "image_url": {
-                            "url": data_url,
+                            "url": reference_data_url,
+                            "detail": "high"
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": "Image B：Test Image。請判斷這張圖相對於 Image A 是否有組裝錯誤。"
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": test_data_url,
                             "detail": "high"
                         }
                     }
@@ -281,10 +439,26 @@ def analyze_single_image(image_path: Path) -> dict:
     try:
         parsed_json = extract_json(content)
 
+        decision_level = calculate_decision_level(
+            ground_truth=filename_info["ground_truth"],
+            is_error=parsed_json.get("is_error", "")
+        )
+
         output_data = {
             "file_info": filename_info,
+            "reference_image": {
+                "image_name": reference_image_path.name,
+                "relative_path": str(reference_image_path.relative_to(PROJECT_ROOT))
+            },
             "expected_state": expected_state,
-            "model_response": parsed_json
+            "model_response": parsed_json,
+            "evaluation": {
+                "ground_truth": filename_info["ground_truth"],
+                "gpt_result": parsed_json.get("overall_error_type", ""),
+                "is_error": parsed_json.get("is_error", ""),
+                "decision_level": decision_level,
+                "max_confidence": max_confidence(parsed_json)
+            }
         }
 
         with open(parsed_path, "w", encoding="utf-8") as f:
@@ -296,6 +470,9 @@ def analyze_single_image(image_path: Path) -> dict:
             "ground_truth": filename_info["ground_truth"],
             "gpt_result": parsed_json.get("overall_error_type", ""),
             "is_error": parsed_json.get("is_error", ""),
+            "decision_level": decision_level,
+            "confidence": max_confidence(parsed_json),
+            "reference_image": reference_image_path.name,
             "raw_path": str(raw_path.relative_to(PROJECT_ROOT)),
             "parsed_path": str(parsed_path.relative_to(PROJECT_ROOT))
         }
@@ -310,9 +487,11 @@ def analyze_single_image(image_path: Path) -> dict:
             "image_name": image_path.name,
             "status": "parse_failed",
             "ground_truth": filename_info["ground_truth"],
+            "reference_image": reference_image_path.name,
             "raw_path": str(raw_path.relative_to(PROJECT_ROOT)),
             "failed_path": str(failed_path.relative_to(PROJECT_ROOT))
         }
+
 
 # ============================================================
 # 6. 主程式：批次執行
@@ -336,8 +515,11 @@ if __name__ == "__main__":
             summary.append(result)
 
             print(f"狀態：{result['status']}")
+            print(f"Reference：{result.get('reference_image')}")
             print(f"Ground Truth：{result.get('ground_truth')}")
             print(f"GPT Result：{result.get('gpt_result')}")
+            print(f"判定等級：{result.get('decision_level')}")
+            print(f"Confidence：{result.get('confidence')}")
             print(f"Raw：{result.get('raw_path')}")
 
             if result["status"] == "success":
@@ -363,5 +545,5 @@ if __name__ == "__main__":
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
-    print("\nExpected-state comparison 批次測試完成。")
+    print("\nReference-guided comparison 批次測試完成。")
     print(f"總結檔案：{summary_path}")
