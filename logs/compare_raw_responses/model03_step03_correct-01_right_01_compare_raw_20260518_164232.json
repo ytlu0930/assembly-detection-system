@@ -1,0 +1,103 @@
+{
+  "id": "chatcmpl-DgnpayNJymaMsHRtIKUkNZo4CZvD8",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"model_id\": \"model03\",\n  \"step_id\": \"step03\",\n  \"view_angle\": \"right\",\n  \"is_error\": true,\n  \"overall_error_type\": \"positionerror\",\n  \"detected_parts\": [\n    {\n      \"part_id\": \"BLOCK_GREEN_4HOLE_2PEG\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"綠色4孔2插塊在中央位置且方向正確。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"WHEEL_BLUE_LARGE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"藍色大輪子在左側位置且方向正確。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"WHEEL_BLUE_LARGE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"藍色大輪子在右側位置且方向正確。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"EYE_BALL\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"白色眼球在上方位置，但應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"EYE_BALL\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"白色眼球在左側位置，但應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"EYE_BALL\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"白色眼球在右側位置，但應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"JOINT_YELLOW_H\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"黃色H型接頭在中央位置且方向正確。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"CONNECTOR_ORANGE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"橙色連接器在中央位置且方向正確。\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"missing_parts\": [\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"description\": \"藍色5孔連接件應位於左側，但未出現。\"\n    },\n    {\n      \"part_id\": \"LINK_GREEN_5HOLE\",\n      \"description\": \"綠色5孔連接件應位於右側，但未出現。\"\n    },\n    {\n      \"part_id\": \"ROD_GREEN_LONG\",\n      \"description\": \"綠色長桿應位於右側，但未出現。\"\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"description\": \"紅色短插銷應位於左側，但未出現。\"\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"description\": \"紅色短插銷應位於右側，但未出現。\"\n    },\n    {\n      \"part_id\": \"PLATE_BLUE_TRIANGLE\",\n      \"description\": \"藍色三角板應位於中央，但未出現。\"\n    }\n  ],\n  \"extra_parts\": [],\n  \"uncertain_points\": [],\n  \"summary\": \"圖片中部分零件位置與方向不符，且有多個零件缺失。\",\n  \"correction_advice\": \"請重新檢查零件位置，特別是白色眼球應位於中央，並補充缺失的零件如藍色5孔連接件、綠色長桿等。\"\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "protected_material_code": {
+          "detected": false,
+          "filtered": false
+        },
+        "protected_material_text": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1779093698,
+  "model": "gpt-4o-2024-11-20",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_af7f7349a4",
+  "usage": {
+    "completion_tokens": 1043,
+    "prompt_tokens": 2801,
+    "total_tokens": 3844,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 52,
+      "engine_ttft_ms": 215,
+      "engine_ttlt_ms": 54566,
+      "pre_inference_ms": 368,
+      "service_tbt_ms": 52,
+      "service_ttft_ms": 677,
+      "service_ttlt_ms": 55028,
+      "total_duration_ms": 54672,
+      "user_visible_ttft_ms": 309
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "jailbreak": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}

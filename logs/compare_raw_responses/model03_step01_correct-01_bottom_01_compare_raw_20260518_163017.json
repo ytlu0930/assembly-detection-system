@@ -1,0 +1,103 @@
+{
+  "id": "chatcmpl-DgneF8Pe6tK59LfXtLaTvkeTMvzA7",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"model_id\": \"model03\",\n  \"step_id\": \"step01\",\n  \"view_angle\": \"bottom\",\n  \"is_error\": true,\n  \"overall_error_type\": \"positionerror\",\n  \"detected_parts\": [\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"藍色5孔連接件在左側，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"LINK_GREEN_5HOLE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"綠色5孔連接件在右側，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"BLOCK_GREEN_4HOLE_2PEG\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"綠色4孔2插塊在中心，但位置偏移，應位於中心垂直方向。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"BLOCK_YELLOW_CUBE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"黃色方塊在中心，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"JOINT_YELLOW_H\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"黃色H型接頭在中心，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"紅色短插銷在左側，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"紅色短插銷在左側，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"紅色短插銷在右側，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"ROD_GREEN_LONG\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"綠色長杆在右側，方向水平，符合預期。\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"missing_parts\": [],\n  \"extra_parts\": [],\n  \"uncertain_points\": [],\n  \"summary\": \"組裝中綠色4孔2插塊的位置偏移，應位於中心垂直方向，其餘零件均符合預期。\",\n  \"correction_advice\": \"請調整綠色4孔2插塊的位置，使其位於中心垂直方向。\"\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "protected_material_code": {
+          "detected": false,
+          "filtered": false
+        },
+        "protected_material_text": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1779092995,
+  "model": "gpt-4o-2024-11-20",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_af7f7349a4",
+  "usage": {
+    "completion_tokens": 908,
+    "prompt_tokens": 2073,
+    "total_tokens": 2981,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 24,
+      "engine_ttft_ms": 314,
+      "engine_ttlt_ms": 22480,
+      "pre_inference_ms": 855,
+      "service_tbt_ms": 24,
+      "service_ttft_ms": 1385,
+      "service_ttlt_ms": 23551,
+      "total_duration_ms": 22716,
+      "user_visible_ttft_ms": 530
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "jailbreak": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}

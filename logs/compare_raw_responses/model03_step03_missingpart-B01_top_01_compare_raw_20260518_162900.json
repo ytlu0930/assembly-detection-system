@@ -1,0 +1,103 @@
+{
+  "id": "chatcmpl-Dgnd68HBv1T28198kmIyJ4hYKcdmv",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"model_id\": \"model03\",\n  \"step_id\": \"step03\",\n  \"view_angle\": \"top\",\n  \"is_error\": true,\n  \"overall_error_type\": \"positionerror\",\n  \"detected_parts\": [\n    {\n      \"part_id\": \"BLOCK_YELLOW_CUBE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"BLOCK_YELLOW_CUBE 的位置偏移，未位於 CENTER。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"EYE_BALL\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"EYE_BALL 的位置偏移，未正確分布於 LEFT、RIGHT 和 CENTER。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"PIN_RED_SHORT 的位置偏移，未正確分布於 LEFT 和 RIGHT。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"expected\": true,\n      \"observed\": false,\n      \"error_type\": \"missingpart\",\n      \"position_check\": \"not_visible\",\n      \"orientation_check\": \"not_visible\",\n      \"description\": \"LINK_BLUE_5HOLE 缺失。\",\n      \"confidence\": 0.8\n    },\n    {\n      \"part_id\": \"LINK_GREEN_5HOLE\",\n      \"expected\": true,\n      \"observed\": false,\n      \"error_type\": \"missingpart\",\n      \"position_check\": \"not_visible\",\n      \"orientation_check\": \"not_visible\",\n      \"description\": \"LINK_GREEN_5HOLE 缺失。\",\n      \"confidence\": 0.8\n    }\n  ],\n  \"missing_parts\": [\n    \"LINK_BLUE_5HOLE\",\n    \"LINK_GREEN_5HOLE\"\n  ],\n  \"extra_parts\": [],\n  \"uncertain_points\": [],\n  \"summary\": \"組裝中存在位置錯誤，且缺少部分零件（LINK_BLUE_5HOLE 和 LINK_GREEN_5HOLE）。\",\n  \"correction_advice\": \"請重新檢查 BLOCK_YELLOW_CUBE、EYE_BALL 和 PIN_RED_SHORT 的位置，並補充缺少的 LINK_BLUE_5HOLE 和 LINK_GREEN_5HOLE。\"\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "protected_material_code": {
+          "detected": false,
+          "filtered": false
+        },
+        "protected_material_text": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1779092924,
+  "model": "gpt-4o-2024-11-20",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_af7f7349a4",
+  "usage": {
+    "completion_tokens": 601,
+    "prompt_tokens": 2801,
+    "total_tokens": 3402,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 2048
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 26,
+      "engine_ttft_ms": 271,
+      "engine_ttlt_ms": 15764,
+      "pre_inference_ms": 333,
+      "service_tbt_ms": 26,
+      "service_ttft_ms": 782,
+      "service_ttlt_ms": 16469,
+      "total_duration_ms": 16137,
+      "user_visible_ttft_ms": 448
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "jailbreak": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}

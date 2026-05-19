@@ -1,0 +1,887 @@
+[
+  {
+    "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_back_01_raw_20260517_201144.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_back_01_parsed_20260517_201144.json",
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_bottom_01_raw_20260517_201350.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_bottom_01_parsed_20260517_201350.json",
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_bottom_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_front_01_raw_20260517_201517.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_front_01_parsed_20260517_201517.json",
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_front_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_left_01_raw_20260517_201654.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_left_01_parsed_20260517_201654.json",
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_right_01_raw_20260517_202025.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_right_01_parsed_20260517_202025.json",
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_right_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_extrapart-A01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_extrapart-A01_top_01_raw_20260517_202057.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_extrapart-A01_top_01_parsed_20260517_202057.json",
+    "file_info": {
+      "image_name": "model03_step03_extrapart-A01_top_01.jpg",
+      "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "extrapart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_back_01_raw_20260517_202250.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_back_01_parsed_20260517_202250.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_back_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_back_02_raw_20260517_202402.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_back_02_parsed_20260517_202402.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_bottom_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_bottom_01_raw_20260517_202458.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_bottom_01_parsed_20260517_202458.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_bottom_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_front_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_front_01_raw_20260517_202559.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_front_01_parsed_20260517_202559.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_front_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_left_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_left_01_raw_20260517_202656.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_left_01_parsed_20260517_202656.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_left_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_right_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_right_01_raw_20260517_202821.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_right_01_parsed_20260517_202821.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_right_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_top_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_top_01_raw_20260517_202846.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_top_01_parsed_20260517_202846.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_top_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-A01_top_02_raw_20260517_202906.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-A01_top_02_parsed_20260517_202906.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_back_01.jpg",
+    "status": "success",
+    "raw_path": "logs\\raw_responses\\model03_step03_missingpart-B01_back_01_raw_20260517_202926.json",
+    "parsed_path": "logs\\parsed_json\\model03_step03_missingpart-B01_back_01_parsed_20260517_202926.json",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_back_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_bottom_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_bottom_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_front_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_front_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_left_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_left_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_right_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_right_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_top_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_top_01.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_missingpart-B01_top_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_missingpart-B01_top_02.jpg",
+      "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "missingpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_back_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step01_correct-01_back_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_bottom_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step01_correct-01_bottom_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_front_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step01_correct-01_front_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_left_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step01_correct-01_left_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_right_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step01_correct-01_right_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step01_correct-01_top_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step01_correct-01_top_01.jpg",
+      "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step01",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_back_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step02_correct-01_back_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_bottom_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step02_correct-01_bottom_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_front_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step02_correct-01_front_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_left_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step02_correct-01_left_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_right_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step02_correct-01_right_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step02_correct-01_top_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step02_correct-01_top_01.jpg",
+      "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step02",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_back_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_back_02.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_back_03.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_back_03.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_back_03.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "back",
+      "image_index": "03"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_bottom_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_bottom_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_front_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_front_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_left_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_left_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_right_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_right_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_correct-01_top_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_correct-01_top_01.jpg",
+      "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "correct",
+      "target_part": "01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_back_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_back_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_bottom_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_bottom_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_front_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_front_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_top_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_top_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-A01_top_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-A01_top_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "A01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_back_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_back_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "back",
+      "image_index": "02"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_bottom_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_bottom_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_bottom_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "bottom",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_front_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_front_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_front_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "front",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_left_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_left_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_left_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "left",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_right_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_right_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_right_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "right",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_top_01.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_top_01.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_top_01.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "01"
+    }
+  },
+  {
+    "image_name": "model03_step03_wrongpart-B01_top_02.jpg",
+    "status": "api_error",
+    "error": "Connection error.",
+    "file_info": {
+      "image_name": "model03_step03_wrongpart-B01_top_02.jpg",
+      "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_top_02.jpg",
+      "model_id": "model03",
+      "step_id": "step03",
+      "ground_truth": "wrongpart",
+      "target_part": "B01",
+      "view_angle": "top",
+      "image_index": "02"
+    }
+  }
+]

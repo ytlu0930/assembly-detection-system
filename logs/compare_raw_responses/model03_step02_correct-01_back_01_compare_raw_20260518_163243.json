@@ -1,0 +1,103 @@
+{
+  "id": "chatcmpl-DgngWLC1WHM8PxnCO2MnR44eRnbl1",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"model_id\": \"model03\",\n  \"step_id\": \"step02\",\n  \"view_angle\": \"back\",\n  \"is_error\": true,\n  \"overall_error_type\": \"missingpart\",\n  \"detected_parts\": [\n    {\n      \"part_id\": \"EYE_BALL\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"白色球體位於正確位置。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"紅色短釘位於正確位置。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"WHEEL_BLUE_LARGE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"correct\",\n      \"position_check\": \"match\",\n      \"orientation_check\": \"match\",\n      \"description\": \"藍色大輪胎位於正確位置。\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"missing_parts\": [\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"description\": \"藍色五孔連接件缺失，應位於左側。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"LINK_GREEN_5HOLE\",\n      \"description\": \"綠色五孔連接件缺失，應位於右側。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"BLOCK_GREEN_4HOLE_2PEG\",\n      \"description\": \"綠色四孔方塊缺失，應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"BLOCK_YELLOW_CUBE\",\n      \"description\": \"黃色方塊缺失，應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"JOINT_YELLOW_H\",\n      \"description\": \"黃色H型接頭缺失，應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"ROD_GREEN_LONG\",\n      \"description\": \"綠色長桿缺失，應位於右側。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"PIN_YELLOW\",\n      \"description\": \"黃色短釘缺失，應位於中央。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"WHEEL_BLUE_SMALL\",\n      \"description\": \"藍色小輪胎缺失，應位於左右側。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"LINK_RED_3HOLE\",\n      \"description\": \"紅色三孔連接件缺失，應位於中央。\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"extra_parts\": [],\n  \"uncertain_points\": [],\n  \"summary\": \"圖片中缺少多個零件，包括連接件、方塊、接頭、桿及小輪胎。\",\n  \"correction_advice\": \"請根據 expected_state 補充缺失的零件，並確保它們安裝在正確位置與方向。\"\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "protected_material_code": {
+          "detected": false,
+          "filtered": false
+        },
+        "protected_material_text": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "low"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1779093136,
+  "model": "gpt-4o-2024-11-20",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_af7f7349a4",
+  "usage": {
+    "completion_tokens": 781,
+    "prompt_tokens": 2494,
+    "total_tokens": 3275,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 35,
+      "engine_ttft_ms": 829,
+      "engine_ttlt_ms": 28427,
+      "pre_inference_ms": 334,
+      "service_tbt_ms": 35,
+      "service_ttft_ms": 1320,
+      "service_ttlt_ms": 28933,
+      "total_duration_ms": 28610,
+      "user_visible_ttft_ms": 986
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "jailbreak": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}

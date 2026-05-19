@@ -1,0 +1,105 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+    "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_back_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "extrapart",
+    "target_part": "A01",
+    "view_angle": "back",
+    "image_index": "01"
+  },
+  "part_id_validation": {
+    "valid_part_id_count": 15,
+    "invalid_part_ids": []
+  },
+  "model_response": {
+    "image_quality": {
+      "is_clear": true,
+      "lighting": "good",
+      "background": "clean",
+      "occlusion": "slight",
+      "notes": "The image is clear, but some parts are partially occluded due to the angle."
+    },
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "color": "white",
+        "shape": "spherical",
+        "approx_position": "front and top",
+        "orientation": "upright",
+        "visible_features": "black pupil not visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "color": "blue",
+        "shape": "Y-shaped",
+        "approx_position": "top center",
+        "orientation": "upright",
+        "visible_features": "three arms visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "blue",
+        "shape": "circular",
+        "approx_position": "left and right sides",
+        "orientation": "vertical",
+        "visible_features": "tread pattern visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "green",
+        "shape": "cylindrical",
+        "approx_position": "center",
+        "orientation": "horizontal",
+        "visible_features": "smooth surface",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "green",
+        "shape": "flat bar",
+        "approx_position": "center",
+        "orientation": "horizontal",
+        "visible_features": "five holes visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "red",
+        "shape": "cylindrical",
+        "approx_position": "front and center",
+        "orientation": "horizontal",
+        "visible_features": "smooth surface",
+        "confidence": 0.9
+      }
+    ],
+    "assembly_state_summary": "The assembly appears to be mostly correct, with parts connected in a structured manner. Some occlusion makes it difficult to confirm all connections.",
+    "possible_errors": [
+      {
+        "error_type": "uncertain",
+        "target_part_id": "EYE_BALL",
+        "description": "The black pupil of the eye ball is not visible, making orientation confirmation difficult.",
+        "severity": "low",
+        "confidence": 0.7
+      },
+      {
+        "error_type": "uncertain",
+        "target_part_id": "JOINT_BLUE_Y",
+        "description": "The exact connection points of the Y-shaped joint are partially occluded.",
+        "severity": "low",
+        "confidence": 0.7
+      }
+    ],
+    "orientation_analysis": "Most parts appear to be correctly oriented, with wheels vertical and rods horizontal. The orientation of the eye balls is uncertain due to lack of visible pupils.",
+    "position_analysis": "Parts are positioned symmetrically, with wheels on both sides and rods aligned centrally. The exact positioning of the Y-shaped joint is slightly unclear due to occlusion.",
+    "uncertain_points": [
+      "Visibility of the black pupil on the eye balls.",
+      "Connection points of the Y-shaped joint."
+    ],
+    "recommendation_for_next_test": "Capture the assembly from multiple angles to reduce occlusion and confirm the orientation and connection points of all parts."
+  }
+}

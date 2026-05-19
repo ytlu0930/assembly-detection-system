@@ -1,0 +1,253 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+    "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_left_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "wrongpart",
+    "target_part": "A01",
+    "view_angle": "left",
+    "image_index": "01"
+  },
+  "expected_state": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "step_name": "3號車-步驟三：安裝中段雙眼天線與車頭飾件（28件完全體）",
+    "expected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "color": "GREEN",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "TOP",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "ORANGE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      }
+    ]
+  },
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "left",
+    "is_error": true,
+    "overall_error_type": "positionerror",
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "The eye balls are positioned incorrectly. Expected positions include CENTER, LEFT, RIGHT, and TOP, but observed positions do not match.",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "Red pins are not in their expected positions. Expected positions include LEFT and RIGHT, but observed positions do not match.",
+        "confidence": 0.85
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "The blue triangle plate is not positioned correctly. Expected position is CENTER, but observed position does not match.",
+        "confidence": 0.88
+      }
+    ],
+    "missing_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "description": "The blue 5-hole link is missing from the LEFT position.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "description": "The green 5-hole link is missing from the RIGHT position.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "description": "The green block with 4 holes and 2 pegs is missing from the CENTER position.",
+        "confidence": 0.95
+      }
+    ],
+    "extra_parts": [
+      {
+        "part_id": "extrapart",
+        "description": "An orange connector is observed but not expected in this step.",
+        "confidence": 0.9
+      }
+    ],
+    "uncertain_points": [],
+    "summary": "The assembly contains multiple errors, including missing parts, incorrect positions, and extra parts. Key components such as the blue and green links, and the green block are missing. Eye balls, red pins, and the blue triangle plate are positioned incorrectly. An unexpected orange connector is present.",
+    "correction_advice": "Recheck the positions of the eye balls, red pins, and blue triangle plate. Add the missing blue and green links, and the green block. Remove the unexpected orange connector."
+  }
+}

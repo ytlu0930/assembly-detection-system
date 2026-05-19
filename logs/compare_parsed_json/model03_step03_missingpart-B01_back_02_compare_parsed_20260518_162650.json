@@ -1,0 +1,255 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+    "relative_path": "input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_back_02.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "missingpart",
+    "target_part": "B01",
+    "view_angle": "back",
+    "image_index": "02"
+  },
+  "expected_state": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "step_name": "3號車-步驟三：安裝中段雙眼天線與車頭飾件（28件完全體）",
+    "expected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "color": "GREEN",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "TOP",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "ORANGE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      }
+    ]
+  },
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "back",
+    "is_error": true,
+    "overall_error_type": "positionerror",
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "EYE_BALL 的位置應在 CENTER，但目前位於 TOP。",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "expected": true,
+        "observed": false,
+        "error_type": "missingpart",
+        "position_check": "not_visible",
+        "orientation_check": "not_visible",
+        "description": "LINK_BLUE_5HOLE 缺少。",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "expected": true,
+        "observed": false,
+        "error_type": "missingpart",
+        "position_check": "not_visible",
+        "orientation_check": "not_visible",
+        "description": "LINK_GREEN_5HOLE 缺少。",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "expected": true,
+        "observed": false,
+        "error_type": "missingpart",
+        "position_check": "not_visible",
+        "orientation_check": "not_visible",
+        "description": "BLOCK_GREEN_4HOLE_2PEG 缺少。",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "expected": true,
+        "observed": true,
+        "error_type": "positionerror",
+        "position_check": "mismatch",
+        "orientation_check": "match",
+        "description": "PIN_RED_SHORT 的位置應在 LEFT，但目前位於 CENTER。",
+        "confidence": 0.9
+      }
+    ],
+    "missing_parts": [
+      "LINK_BLUE_5HOLE",
+      "LINK_GREEN_5HOLE",
+      "BLOCK_GREEN_4HOLE_2PEG"
+    ],
+    "extra_parts": [],
+    "uncertain_points": [],
+    "summary": "組裝中有多個零件位置錯誤，並且缺少部分零件。",
+    "correction_advice": "請重新檢查零件位置，特別是 EYE_BALL、PIN_RED_SHORT 的位置是否正確，並補充缺少的 LINK_BLUE_5HOLE、LINK_GREEN_5HOLE 和 BLOCK_GREEN_4HOLE_2PEG。"
+  }
+}

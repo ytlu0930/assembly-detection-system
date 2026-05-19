@@ -1,0 +1,114 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+    "relative_path": "input\\extrapart\\model03_step03\\model03_step03_extrapart-A01_left_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "extrapart",
+    "target_part": "A01",
+    "view_angle": "left",
+    "image_index": "01"
+  },
+  "part_id_validation": {
+    "valid_part_id_count": 15,
+    "invalid_part_ids": []
+  },
+  "model_response": {
+    "image_quality": {
+      "is_clear": true,
+      "lighting": "good",
+      "background": "clean",
+      "occlusion": "slight",
+      "notes": "The image is clear with good lighting and a clean background. Some parts are slightly occluded by others."
+    },
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "color": "white with black pupil",
+        "shape": "spherical",
+        "approx_position": "top center",
+        "orientation": "upright",
+        "visible_features": "black pupil visible",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "blue with white and green center",
+        "shape": "circular",
+        "approx_position": "bottom left and right",
+        "orientation": "vertical",
+        "visible_features": "center details visible",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "green",
+        "shape": "flat bar with 5 holes",
+        "approx_position": "rear diagonal",
+        "orientation": "angled upward",
+        "visible_features": "holes visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "red",
+        "shape": "short cylinder",
+        "approx_position": "attached to green link and other parts",
+        "orientation": "horizontal and vertical",
+        "visible_features": "flat ends visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "orange",
+        "shape": "U-shaped clip",
+        "approx_position": "front left",
+        "orientation": "upright",
+        "visible_features": "clip details visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "yellow",
+        "shape": "cube with holes",
+        "approx_position": "front left",
+        "orientation": "upright",
+        "visible_features": "holes visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "color": "blue",
+        "shape": "triangular plate with holes",
+        "approx_position": "center",
+        "orientation": "horizontal",
+        "visible_features": "holes visible",
+        "confidence": 0.85
+      }
+    ],
+    "assembly_state_summary": "The assembly appears mostly correct, with parts connected in a structured manner. Some parts are slightly occluded, making full verification difficult.",
+    "possible_errors": [
+      {
+        "error_type": "uncertain",
+        "target_part_id": "PLATE_BLUE_TRIANGLE",
+        "description": "The orientation of the triangular plate is unclear due to partial occlusion.",
+        "severity": "low",
+        "confidence": 0.7
+      },
+      {
+        "error_type": "uncertain",
+        "target_part_id": "LINK_GREEN_5HOLE",
+        "description": "The exact position and alignment of the green link are slightly unclear.",
+        "severity": "low",
+        "confidence": 0.7
+      }
+    ],
+    "orientation_analysis": "Most parts are oriented correctly, with upright and angled positions matching expected assembly patterns. Some parts have uncertain orientations due to occlusion.",
+    "position_analysis": "Parts are generally positioned correctly relative to each other, with slight uncertainty in the alignment of the green link and triangular plate.",
+    "uncertain_points": [
+      "Orientation of PLATE_BLUE_TRIANGLE",
+      "Position and alignment of LINK_GREEN_5HOLE"
+    ],
+    "recommendation_for_next_test": "Capture additional angles of the assembly to verify the orientation and alignment of occluded parts, especially the triangular plate and green link."
+  }
+}

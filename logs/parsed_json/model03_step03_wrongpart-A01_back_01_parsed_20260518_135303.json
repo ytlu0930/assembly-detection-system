@@ -1,0 +1,96 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+    "relative_path": "input\\wrongpart\\model03_step03\\model03_step03_wrongpart-A01_back_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "wrongpart",
+    "target_part": "A01",
+    "view_angle": "back",
+    "image_index": "01"
+  },
+  "part_id_validation": {
+    "valid_part_id_count": 15,
+    "invalid_part_ids": []
+  },
+  "model_response": {
+    "image_quality": {
+      "is_clear": true,
+      "lighting": "good",
+      "background": "clean",
+      "occlusion": "slight",
+      "notes": "The image is clear, but some parts are partially occluded due to overlapping components."
+    },
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "color": "white with black pupil",
+        "shape": "spherical",
+        "approx_position": "front and top of the assembly",
+        "orientation": "facing outward",
+        "visible_features": "black pupil visible on one eye ball",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "color": "blue",
+        "shape": "Y-shaped",
+        "approx_position": "top center of the assembly",
+        "orientation": "upright",
+        "visible_features": "distinct Y-shape visible",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "color": "green",
+        "shape": "rectangular block with 4 holes and 2 pegs",
+        "approx_position": "center bottom of the assembly",
+        "orientation": "horizontal",
+        "visible_features": "holes and pegs visible",
+        "confidence": 0.85
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "blue",
+        "shape": "circular",
+        "approx_position": "sides of the assembly",
+        "orientation": "vertical",
+        "visible_features": "large blue wheels visible on both sides",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "yellow",
+        "shape": "nail-like",
+        "approx_position": "top center of the assembly",
+        "orientation": "vertical",
+        "visible_features": "flat head visible",
+        "confidence": 0.85
+      }
+    ],
+    "assembly_state_summary": "The assembly appears to be mostly correct, with parts positioned and oriented as expected. Slight occlusion makes it difficult to confirm all connections.",
+    "possible_errors": [
+      {
+        "error_type": "uncertain",
+        "target_part_id": "EYE_BALL",
+        "description": "One eye ball's orientation may be slightly misaligned.",
+        "severity": "low",
+        "confidence": 0.6
+      },
+      {
+        "error_type": "uncertain",
+        "target_part_id": "JOINT_BLUE_Y",
+        "description": "Connection between the Y-joint and other parts is partially occluded, making verification difficult.",
+        "severity": "low",
+        "confidence": 0.7
+      }
+    ],
+    "orientation_analysis": "Most parts are oriented correctly, with the eye balls facing outward and the Y-joint upright. Slight uncertainty exists for the exact alignment of the eye balls.",
+    "position_analysis": "Parts are positioned symmetrically and appear to be connected properly. The green block is centered at the bottom, and the wheels are evenly placed on both sides.",
+    "uncertain_points": [
+      "Connection between the Y-joint and other parts due to occlusion.",
+      "Exact alignment of the eye balls."
+    ],
+    "recommendation_for_next_test": "Capture additional angles of the assembly to verify connections and orientations, especially for the Y-joint and eye balls."
+  }
+}

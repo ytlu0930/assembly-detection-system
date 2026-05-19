@@ -1,0 +1,228 @@
+{
+  "file_info": {
+    "image_name": "model03_step02_correct-01_front_01.jpg",
+    "relative_path": "input\\normal\\model03_step02\\model03_step02_correct-01_front_01.jpg",
+    "model_id": "model03",
+    "step_id": "step02",
+    "ground_truth": "correct",
+    "target_part": "01",
+    "view_angle": "front",
+    "image_index": "01"
+  },
+  "expected_state": {
+    "model_id": "model03",
+    "step_id": "step02",
+    "step_name": "3號車-步驟二：安裝六輪胎與車頭車尾飾件",
+    "expected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "color": "GREEN",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "TOP",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      }
+    ]
+  },
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step02",
+    "view_angle": "front",
+    "is_error": true,
+    "overall_error_type": "missingpart",
+    "detected_parts": [
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "expected": true,
+        "observed": true,
+        "error_type": "correct",
+        "position_check": "match",
+        "orientation_check": "match",
+        "description": "黃色方塊在中央位置，方向正確。",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "expected": true,
+        "observed": true,
+        "error_type": "correct",
+        "position_check": "match",
+        "orientation_check": "match",
+        "description": "紅色三孔連接件在中央位置，方向正確。",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "expected": true,
+        "observed": true,
+        "error_type": "correct",
+        "position_check": "match",
+        "orientation_check": "match",
+        "description": "黃色H型接頭在中央位置，方向正確。",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "expected": true,
+        "observed": true,
+        "error_type": "correct",
+        "position_check": "match",
+        "orientation_check": "match",
+        "description": "藍色大輪胎在左右位置，方向正確。",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "expected": true,
+        "observed": true,
+        "error_type": "correct",
+        "position_check": "match",
+        "orientation_check": "match",
+        "description": "藍色小輪胎在左右位置，方向正確。",
+        "confidence": 0.95
+      }
+    ],
+    "missing_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "description": "白色眼球零件應在上方，但未出現。"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "description": "紅色短針零件應在左右位置，但未出現。"
+      },
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "description": "藍色五孔連接件應在左側，但未出現。"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "description": "綠色五孔連接件應在右側，但未出現。"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "description": "綠色長桿應在右側，但未出現。"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "description": "黃色短針應在中央，但未出現。"
+      }
+    ],
+    "extra_parts": [],
+    "uncertain_points": [],
+    "summary": "圖片中缺少多個零件，包括白色眼球、紅色短針、藍色五孔連接件、綠色五孔連接件、綠色長桿及黃色短針。",
+    "correction_advice": "請檢查並補充缺少的零件，確保所有零件按照 expected_state 的位置和方向安裝。"
+  }
+}

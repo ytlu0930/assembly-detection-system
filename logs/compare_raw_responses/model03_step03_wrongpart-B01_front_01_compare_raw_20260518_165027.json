@@ -1,0 +1,103 @@
+{
+  "id": "chatcmpl-DgnxhvgbXcVZcFzMmUmquM7x6MGvM",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"model_id\": \"model03\",\n  \"step_id\": \"step03\",\n  \"view_angle\": \"front\",\n  \"is_error\": true,\n  \"overall_error_type\": \"positionerror\",\n  \"detected_parts\": [\n    {\n      \"part_id\": \"EYE_BALL\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"眼球零件的位置不符合預期，應位於 LEFT、RIGHT 和 CENTER，但目前位於 TOP。\",\n      \"confidence\": 0.95\n    },\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"藍色5孔連接件的位置不符合預期，應位於 LEFT，但目前位於 CENTER。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"LINK_GREEN_5HOLE\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"綠色5孔連接件的位置不符合預期，應位於 RIGHT，但目前位於 CENTER。\",\n      \"confidence\": 0.9\n    },\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"expected\": true,\n      \"observed\": true,\n      \"error_type\": \"positionerror\",\n      \"position_check\": \"mismatch\",\n      \"orientation_check\": \"match\",\n      \"description\": \"紅色短釘的位置不符合預期，應位於 LEFT 和 RIGHT，但目前位於 CENTER。\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"missing_parts\": [],\n  \"extra_parts\": [],\n  \"uncertain_points\": [],\n  \"summary\": \"圖片中部分零件位置與 expected_state 不符，例如眼球零件、藍色和綠色5孔連接件，以及紅色短釘。\",\n  \"correction_advice\": \"請重新檢查零件的安裝位置，確保眼球零件分別位於 LEFT、RIGHT 和 CENTER，藍色5孔連接件位於 LEFT，綠色5孔連接件位於 RIGHT，紅色短釘分別位於 LEFT 和 RIGHT。\"\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "protected_material_code": {
+          "detected": false,
+          "filtered": false
+        },
+        "protected_material_text": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1779094201,
+  "model": "gpt-4o-2024-11-20",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_af7f7349a4",
+  "usage": {
+    "completion_tokens": 559,
+    "prompt_tokens": 2801,
+    "total_tokens": 3360,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 2048
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 48,
+      "engine_ttft_ms": 186,
+      "engine_ttlt_ms": 27028,
+      "pre_inference_ms": 292,
+      "service_tbt_ms": 48,
+      "service_ttft_ms": 562,
+      "service_ttlt_ms": 27406,
+      "total_duration_ms": 27130,
+      "user_visible_ttft_ms": 269
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "jailbreak": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}

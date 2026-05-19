@@ -1,0 +1,80 @@
+{
+  "file_info": {
+    "image_name": "model03_step01_correct-01_right_01.jpg",
+    "relative_path": "input\\normal\\model03_step01\\model03_step01_correct-01_right_01.jpg",
+    "model_id": "model03",
+    "step_id": "step01",
+    "ground_truth": "correct",
+    "target_part": "01",
+    "view_angle": "right",
+    "image_index": "01"
+  },
+  "part_id_validation": {
+    "valid_part_id_count": 15,
+    "invalid_part_ids": [
+      "PIN_GREEN_LONG"
+    ]
+  },
+  "model_response": {
+    "image_quality": {
+      "is_clear": true,
+      "lighting": "good",
+      "background": "clean",
+      "occlusion": "none",
+      "notes": "The image is clear with good lighting and a clean background. No significant occlusion is observed."
+    },
+    "detected_parts": [
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "green",
+        "shape": "flat bar with 5 holes",
+        "approx_position": "right side, angled upward",
+        "orientation": "angled upward",
+        "visible_features": "5 holes visible",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "blue",
+        "shape": "flat bar with 5 holes",
+        "approx_position": "center, horizontal",
+        "orientation": "horizontal",
+        "visible_features": "5 holes visible",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "yellow",
+        "shape": "cube with holes",
+        "approx_position": "left side, attached to blue bar",
+        "orientation": "horizontal",
+        "visible_features": "hole visible on top",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "red",
+        "shape": "short cylinder stick",
+        "approx_position": "left side, inserted into green bar",
+        "orientation": "horizontal",
+        "visible_features": "flat head visible",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "PIN_GREEN_LONG",
+        "color": "green",
+        "shape": "long cylinder stick",
+        "approx_position": "right side, inserted into green bar",
+        "orientation": "horizontal",
+        "visible_features": "flat head visible",
+        "confidence": 0.95
+      }
+    ],
+    "assembly_state_summary": "The assembly appears to be correctly connected with no visible errors in part placement or orientation. All parts are securely attached and aligned as expected.",
+    "possible_errors": [],
+    "orientation_analysis": "The green bar is angled upward, while the blue bar is horizontal. Pins are inserted horizontally into the green bar on both sides.",
+    "position_analysis": "The parts are positioned symmetrically, with the green bar on the right side and the blue bar in the center. The yellow cube is attached to the left side of the blue bar.",
+    "uncertain_points": [],
+    "recommendation_for_next_test": "Test additional assemblies with more complex configurations to further evaluate detection accuracy and error identification capabilities."
+  }
+}
