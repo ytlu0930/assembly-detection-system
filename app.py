@@ -1,47 +1,43 @@
 import gradio as gr
-import json
 
 
-def analyze_image(image_path, step):
-    result = {
-        "image": image_path,
-        "step": step,
-        "status": "success"
-    }
+def analyze_image(image, step):
+    return f"""
+圖片位置：
+{image}
 
-    return json.dumps(result, indent=4)
+目前步驟：
+{step}
+
+等待 Vision API...
+"""
 
 
-with gr.Blocks() as demo:
+demo = gr.Interface(
+    fn=analyze_image,
 
-    gr.Markdown("# 電容辨識系統")
+    inputs=[
+        gr.Image(type="filepath", label="上傳積木圖片"),
+        gr.Dropdown(
+            choices=[
+                "step_01",
+                "step_02",
+                "step_03",
+                "step_04",
+                "step_05"
+            ],
+            label="選擇步驟"
+        )
+    ],
 
-    image = gr.Image(
-        label="上傳圖片",
-        type="filepath"
-    )
+    outputs=gr.Textbox(
+        lines=10,
+        label="分析結果"
+    ),
 
-    step = gr.Dropdown(
-        choices=[
-            "step_01",
-            "step_02",
-            "step_03",
-            "step_04"
-        ],
-        label="選擇步驟"
-    )
+    title="積木組裝引導系統",
 
-    output = gr.Textbox(
-        label="JSON結果",
-        lines=10
-    )
-
-    btn = gr.Button("開始分析")
-
-    btn.click(
-        fn=analyze_image,
-        inputs=[image, step],
-        outputs=output
-    )
+    description="上傳圖片後，選擇目前步驟，系統將分析積木狀態。"
+)
 
 demo.launch()
