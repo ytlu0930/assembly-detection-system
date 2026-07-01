@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+    "relative_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_back_02.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "wrongpart",
+    "target_part": "B01",
+    "view_angle": "back",
+    "image_index": "02"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+    "relative_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_back_02.jpg"
+  },
+  "expected_state_path": "ground_truth/model03/step03.json",
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "back",
+    "is_error": true,
+    "overall_error_type": "wrongpart",
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "wrongpart",
+        "description": "The central eye ball has a black pupil, which is not present in the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "unknown_extra_part",
+        "error_type": "extrapart",
+        "description": "A yellow horn-like part is visible, which is not present in the reference image.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image contains a wrong part (eye ball with black pupil) and an extra part (yellow horn-like component)."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 19.329,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}

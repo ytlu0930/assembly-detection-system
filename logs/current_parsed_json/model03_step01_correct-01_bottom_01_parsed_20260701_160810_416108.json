@@ -1,0 +1,92 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model03_step01_correct-01_bottom_01.jpg",
+    "relative_path": "input/normal/model03_step01/model03_step01_correct-01_bottom_01.jpg",
+    "model_id": "model03",
+    "step_id": "step01",
+    "ground_truth": "correct",
+    "target_part": "01",
+    "view_angle": "bottom",
+    "image_index": "01"
+  },
+  "reference_image": {
+    "image_name": "model03_step01_correct-01_bottom_01.jpg",
+    "relative_path": "input/normal/model03_step01/model03_step01_correct-01_bottom_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model03_step01_correct-01_bottom_01.jpg",
+    "relative_path": "input/normal/model03_step01/model03_step01_correct-01_bottom_01.jpg"
+  },
+  "expected_state_path": "ground_truth/model03/step01.json",
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step01",
+    "view_angle": "bottom",
+    "is_error": false,
+    "overall_error_type": "correct",
+    "detected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "error_type": "correct",
+        "description": "Part matches the reference image.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image matches the reference image."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 23.335,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}

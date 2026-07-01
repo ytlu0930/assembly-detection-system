@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+    "relative_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_top_02.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "missingpart",
+    "target_part": "A01",
+    "view_angle": "top",
+    "image_index": "02"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_top_01.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+    "relative_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_top_02.jpg"
+  },
+  "expected_state_path": "ground_truth/model03/step03.json",
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "top",
+    "is_error": true,
+    "overall_error_type": "missingpart",
+    "detected_parts": [
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "missingpart",
+        "description": "The center eye ball is missing from the test image.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image is missing the center eye ball part compared to the reference image."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 11.651,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}

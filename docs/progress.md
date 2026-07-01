@@ -90,7 +90,7 @@ Day2測試 - Structured Comparison Test
 
 ---
 
-# Correct Case 測試結果
+## Correct Case 測試結果
 
 ## STEP 1
 
@@ -134,7 +134,7 @@ Accuracy：75%
 
 ---
 
-# Extrapart 測試結果
+## Extrapart 測試結果
 
 測試：
 
@@ -160,7 +160,7 @@ extrapart → positionerror
 
 ---
 
-# MissingPart 測試結果
+## MissingPart 測試結果
 
 測試：
 
@@ -187,7 +187,7 @@ occlusion-induced false negative
 
 ---
 
-# WrongPart 測試結果
+## WrongPart 測試結果
 
 測試：
 
@@ -257,3 +257,169 @@ GPT 仍可能混淆：
 - uncertainty handling
 - camera angle tolerance 改善
 - correction guidance generation
+
+---
+
+# Day 3 Progress — Vision Pipeline Refactoring
+
+日期：2026/06/26-07/01
+
+---
+
+# 今日目標
+
+本次主要目標為完成 Vision Pipeline 模組化重構，建立 Prompt、Schema 與 Analyzer 的統一規格，避免各模組使用不同 JSON 格式造成維護困難。
+
+---
+
+# 今日主要修改
+
+## 一、建立 Single Source of Truth
+
+重新設計整體 Pipeline，將 Prompt 作為唯一 JSON 規格來源。
+
+設計原則：
+
+Prompt
+↓
+Schema
+↓
+current_state_analyzer
+↓
+test_compare_reference
+↓
+evaluate_metrics
+↓
+image_annotator
+
+所有模組皆使用相同 JSON Output，不再各自維護不同格式。
+
+---
+
+## 二、JSON Output Format 統一
+
+重新設計固定 JSON 結構。
+
+統一欄位：
+
+- model_id
+- step_id
+- view_angle
+- is_error
+- overall_error_type
+- detected_parts
+- summary
+
+Prompt 明確要求 GPT：
+
+- 僅輸出 JSON
+- 禁止 Markdown
+- 禁止 errors
+- 禁止 part_differences
+- 禁止額外欄位
+
+Schema 完全依照 Prompt 建立。
+
+---
+
+## 三、current_state_analyzer.py 重構
+
+原本功能：
+
+單張圖片分析
+
+目前改為：
+
+Reference Image
++
+Test Image
++
+expected_state JSON
+↓
+GPT-4o Vision
+↓
+Schema Validation
+
+新增功能：
+
+- Prompt Loading
+- Schema Loading
+- expected_state Loading
+- Reference-guided Comparison
+- GPT API 呼叫
+- JSON Parse
+- Schema Validation
+- Retry 機制
+- Raw Response Log
+- Parsed JSON Log
+- Failed JSON Log
+
+目前已成為整個專案唯一 Vision API 呼叫入口。
+
+---
+
+## 四、test_compare_reference.py 重構
+
+移除：
+
+- AzureOpenAI Client
+- Prompt Loading
+- Schema Loading
+- GPT API 呼叫
+
+目前僅負責：
+
+- 批次掃描圖片
+- 自動尋找 Reference Image
+- 讀取 expected_state
+- 呼叫 current_state_analyzer.analyze_image()
+- 計算 TP/TN/FP/FN
+- 產生 Compare JSON
+- 匯出 CSV Summary
+
+完成 Vision Pipeline 模組化。
+
+---
+
+# 整合測試
+
+已完成：
+
+- current_state_analyzer.py 單元測試
+- test_compare_reference.py 批次測試
+- Compare Summary JSON
+- Compare Summary CSV
+
+目前 Pipeline 已可完成：
+
+Image
+↓
+Reference Comparison
+↓
+GPT Vision
+↓
+JSON Parse
+↓
+Schema Validation
+↓
+Batch Summary
+
+---
+
+# 今日研究發現
+
+目前測試發現：
+
+- Prompt 與 Schema 已統一
+- WrongPart 類別辨識仍可能誤判為 Extrapart
+- Confidence 欄位仍需持續優化
+- Error Type Classification Accuracy 仍有提升空間
+
+---
+
+# 下一步規劃
+
+- image_annotator.py
+- Prompt 持續微調
+- Pipeline Stress Test
+- evaluate_metrics.py 統計分析

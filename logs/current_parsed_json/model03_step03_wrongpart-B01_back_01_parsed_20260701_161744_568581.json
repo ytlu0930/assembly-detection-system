@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+    "relative_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_back_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "wrongpart",
+    "target_part": "B01",
+    "view_angle": "back",
+    "image_index": "01"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+    "relative_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_back_01.jpg"
+  },
+  "expected_state_path": "ground_truth/model03/step03.json",
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "back",
+    "is_error": true,
+    "overall_error_type": "wrongpart",
+    "detected_parts": [
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "error_type": "wrongpart",
+        "description": "An orange connector is present instead of the expected part.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image contains a wrong part (orange connector) that does not match the reference image."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 14.408,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}

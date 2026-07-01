@@ -129,7 +129,7 @@ positionerror
 
 ---
 
-# 目前仍存在問題
+## 目前仍存在問題
 
 ## 1. Camera Alignment Sensitivity
 
@@ -147,7 +147,7 @@ extrapart → positionerror
 
 ---
 
-# 下一版預計改善方向
+## 下一版預計改善方向
 
 預計新增：
 
@@ -156,3 +156,107 @@ extrapart → positionerror
 - multi-view reasoning
 - anomaly-type refinement
 - visual alignment constraints
+
+---
+
+# vision_v2.txt
+
+重大架構重構。
+
+本版本不再只是 Prompt 優化，而是重新定義整個 Vision Pipeline 的 JSON Output Specification。
+
+---
+
+## 核心設計理念
+
+Prompt 作為 Single Source of Truth。
+
+JSON 格式由 Prompt 定義。
+
+Schema 完全依照 Prompt 建立。
+
+Analyzer 僅負責：
+
+- Prompt Loading
+- GPT API
+- JSON Parse
+- Schema Validation
+
+不再進行欄位修補（Field Normalization）。
+
+---
+
+## JSON Output 統一
+
+固定輸出：
+
+- model_id
+- step_id
+- view_angle
+- is_error
+- overall_error_type
+- detected_parts
+- summary
+
+每個 detected_part 包含：
+
+- part_id
+- error_type
+- description
+- confidence
+
+---
+
+## 明確限制
+
+新增：
+
+- 僅允許輸出 JSON
+- 禁止 Markdown
+- 禁止 errors
+- 禁止 part_differences
+- 禁止 detected
+- 禁止額外欄位
+
+避免不同版本 Prompt 產生不同 JSON 結構。
+
+---
+
+## Pipeline 重構
+
+current_state_analyzer.py
+
+成為唯一 GPT API 呼叫模組。
+
+test_compare_reference.py
+
+不再直接呼叫 GPT。
+
+僅負責：
+
+- Batch Test
+- Reference Search
+- Ground Truth Loading
+- 呼叫 Analyzer
+- TP/TN/FP/FN 統計
+- Compare Summary
+
+---
+
+## 本版改善
+
+改善：
+
+- Prompt、Schema、Analyzer 三者規格一致
+- JSON Output 穩定性提升
+- 模組間耦合降低
+- 後續 image_annotator.py、evaluate_metrics.py 可直接共用同一份 JSON
+
+---
+
+## 下一版預計改善
+
+- Error Type Classification Accuracy
+- Confidence Estimation
+- Multi-error Detection
+- Bounding Box Generation（供 image_annotator 使用）

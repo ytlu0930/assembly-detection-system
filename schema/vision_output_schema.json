@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VisionOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "model_id",
+    "step_id",
+    "view_angle",
+    "is_error",
+    "overall_error_type",
+    "detected_parts",
+    "summary"
+  ],
+  "properties": {
+    "model_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "step_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "view_angle": {
+      "type": "string",
+      "enum": [
+        "top",
+        "bottom",
+        "front",
+        "back",
+        "left",
+        "right"
+      ]
+    },
+    "is_error": {
+      "type": "boolean"
+    },
+    "overall_error_type": {
+      "type": "string",
+      "enum": [
+        "correct",
+        "missingpart",
+        "extrapart",
+        "positionerror",
+        "wrongpart",
+        "criticalerror",
+        "uncertain"
+      ]
+    },
+    "detected_parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "part_id",
+          "error_type",
+          "description",
+          "confidence"
+        ],
+        "properties": {
+          "part_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "error_type": {
+            "type": "string",
+            "enum": [
+              "correct",
+              "missingpart",
+              "extrapart",
+              "positionerror",
+              "wrongpart",
+              "criticalerror",
+              "uncertain"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

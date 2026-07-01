@@ -1,0 +1,215 @@
+﻿測試日期,Step ID,View Angle,圖片檔名,Ground Truth,GPT Result,判定等級,Confidence,備註
+2026/06/26,step03,back,model03_step03_extrapart-A01_back_01.jpg,extrapart,extrapart,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,bottom,model03_step03_extrapart-A01_bottom_01.jpg,extrapart,extrapart,TP,0.0,Reference: model03_step03_correct-01_bottom_01.jpg
+2026/06/26,step03,front,model03_step03_extrapart-A01_front_01.jpg,extrapart,extrapart,TP,0.0,Reference: model03_step03_correct-01_front_01.jpg
+2026/06/26,step03,left,model03_step03_extrapart-A01_left_01.jpg,extrapart,extrapart,TP,0.0,Reference: model03_step03_correct-01_left_01.jpg
+2026/06/26,step03,right,model03_step03_extrapart-A01_right_01.jpg,extrapart,extrapart,TP,0.0,Reference: model03_step03_correct-01_right_01.jpg
+2026/06/26,step03,top,model03_step03_extrapart-A01_top_01.jpg,extrapart,,,0.0,"Schema validation failed 'errors_detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'errors_detected'"
+2026/06/26,step03,back,model03_step03_missingpart-A01_back_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,back,model03_step03_missingpart-A01_back_02.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,bottom,model03_step03_missingpart-A01_bottom_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_bottom_01.jpg
+2026/06/26,step03,front,model03_step03_missingpart-A01_front_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_front_01.jpg
+2026/06/26,step03,left,model03_step03_missingpart-A01_left_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_left_01.jpg
+2026/06/26,step03,right,model03_step03_missingpart-A01_right_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_right_01.jpg
+2026/06/26,step03,top,model03_step03_missingpart-A01_top_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_top_01.jpg
+2026/06/26,step03,top,model03_step03_missingpart-A01_top_02.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_top_01.jpg
+2026/06/26,step03,back,model03_step03_missingpart-B01_back_01.jpg,missingpart,positionerror,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,back,model03_step03_missingpart-B01_back_02.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,bottom,model03_step03_missingpart-B01_bottom_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_bottom_01.jpg
+2026/06/26,step03,front,model03_step03_missingpart-B01_front_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_front_01.jpg
+2026/06/26,step03,left,model03_step03_missingpart-B01_left_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_left_01.jpg
+2026/06/26,step03,right,model03_step03_missingpart-B01_right_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_right_01.jpg
+2026/06/26,step03,top,model03_step03_missingpart-B01_top_01.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_top_01.jpg
+2026/06/26,step03,top,model03_step03_missingpart-B01_top_02.jpg,missingpart,missingpart,TP,0.0,Reference: model03_step03_correct-01_top_01.jpg
+2026/06/26,step01,back,model03_step01_correct-01_back_01.jpg,correct,correct,TN,0.0,Reference: model03_step01_correct-01_back_01.jpg
+2026/06/26,step01,bottom,model03_step01_correct-01_bottom_01.jpg,correct,correct,TN,0.0,Reference: model03_step01_correct-01_bottom_01.jpg
+2026/06/26,step01,front,model03_step01_correct-01_front_01.jpg,correct,correct,TN,0.0,Reference: model03_step01_correct-01_front_01.jpg
+2026/06/26,step01,left,model03_step01_correct-01_left_01.jpg,correct,correct,TN,0.0,Reference: model03_step01_correct-01_left_01.jpg
+2026/06/26,step01,right,model03_step01_correct-01_right_01.jpg,correct,correct,TN,0.0,Reference: model03_step01_correct-01_right_01.jpg
+2026/06/26,step01,top,model03_step01_correct-01_top_01.jpg,correct,correct,TN,0.0,Reference: model03_step01_correct-01_top_01.jpg
+2026/06/26,step02,back,model03_step02_correct-01_back_01.jpg,correct,correct,TN,0.0,Reference: model03_step02_correct-01_back_01.jpg
+2026/06/26,step02,bottom,model03_step02_correct-01_bottom_01.jpg,correct,correct,TN,0.0,Reference: model03_step02_correct-01_bottom_01.jpg
+2026/06/26,step02,front,model03_step02_correct-01_front_01.jpg,correct,correct,TN,0.0,Reference: model03_step02_correct-01_front_01.jpg
+2026/06/26,step02,left,model03_step02_correct-01_left_01.jpg,correct,correct,TN,0.0,Reference: model03_step02_correct-01_left_01.jpg
+2026/06/26,step02,right,model03_step02_correct-01_right_01.jpg,correct,correct,TN,0.0,Reference: model03_step02_correct-01_right_01.jpg
+2026/06/26,step02,top,model03_step02_correct-01_top_01.jpg,correct,correct,TN,0.0,Reference: model03_step02_correct-01_top_01.jpg
+2026/06/26,step03,back,model03_step03_correct-01_back_01.jpg,correct,correct,TN,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,back,model03_step03_correct-01_back_02.jpg,correct,uncertain,TN,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,back,model03_step03_correct-01_back_03.jpg,correct,uncertain,TN,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,bottom,model03_step03_correct-01_bottom_01.jpg,correct,correct,TN,0.0,Reference: model03_step03_correct-01_bottom_01.jpg
+2026/06/26,step03,front,model03_step03_correct-01_front_01.jpg,correct,correct,TN,0.0,Reference: model03_step03_correct-01_front_01.jpg
+2026/06/26,step03,left,model03_step03_correct-01_left_01.jpg,correct,correct,TN,0.0,Reference: model03_step03_correct-01_left_01.jpg
+2026/06/26,step03,right,model03_step03_correct-01_right_01.jpg,correct,correct,TN,0.0,Reference: model03_step03_correct-01_right_01.jpg
+2026/06/26,step03,top,model03_step03_correct-01_top_01.jpg,correct,correct,TN,0.0,Reference: model03_step03_correct-01_top_01.jpg
+2026/06/26,step03,back,model03_step03_wrongpart-A01_back_01.jpg,wrongpart,extrapart,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,back,model03_step03_wrongpart-A01_back_02.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,bottom,model03_step03_wrongpart-A01_bottom_01.jpg,wrongpart,uncertain,FN,0.0,Reference: model03_step03_correct-01_bottom_01.jpg
+2026/06/26,step03,front,model03_step03_wrongpart-A01_front_01.jpg,wrongpart,positionerror,TP,0.0,Reference: model03_step03_correct-01_front_01.jpg
+2026/06/26,step03,left,model03_step03_wrongpart-A01_left_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,right,model03_step03_wrongpart-A01_right_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,top,model03_step03_wrongpart-A01_top_01.jpg,wrongpart,positionerror,TP,0.0,Reference: model03_step03_correct-01_top_01.jpg
+2026/06/26,step03,top,model03_step03_wrongpart-A01_top_02.jpg,wrongpart,,,0.0,"Schema validation failed 'minor' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'minor'"
+2026/06/26,step03,back,model03_step03_wrongpart-B01_back_01.jpg,wrongpart,extrapart,TP,0.0,Reference: model03_step03_correct-01_back_01.jpg
+2026/06/26,step03,back,model03_step03_wrongpart-B01_back_02.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,bottom,model03_step03_wrongpart-B01_bottom_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,front,model03_step03_wrongpart-B01_front_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,left,model03_step03_wrongpart-B01_left_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,right,model03_step03_wrongpart-B01_right_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,top,model03_step03_wrongpart-B01_top_01.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"
+2026/06/26,step03,top,model03_step03_wrongpart-B01_top_02.jpg,wrongpart,,,0.0,"Schema validation failed 'detected' is not one of ['correct', 'missingpart', 'extrapart', 'positionerror', 'wrongpart', 'criticalerror', 'uncertain']
+
+Failed validating 'enum' in schema['properties']['overall_error_type']:
+    {'type': 'string',
+     'enum': ['correct',
+              'missingpart',
+              'extrapart',
+              'positionerror',
+              'wrongpart',
+              'criticalerror',
+              'uncertain']}
+
+On instance['overall_error_type']:
+    'detected'"

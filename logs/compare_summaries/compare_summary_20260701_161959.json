@@ -1,0 +1,3019 @@
+{
+  "generated_at": "2026-07-01T16:19:59",
+  "input_dir": "input",
+  "total_images": 58,
+  "success_count": 58,
+  "failed_count": 0,
+  "metrics": {
+    "TP": 38,
+    "TN": 19,
+    "FP": 1,
+    "FN": 0
+  },
+  "results": [
+    {
+      "image_name": "model03_step03_extrapart-A01_back_01.jpg",
+      "image_path": "input/extrapart/model03_step03/model03_step03_extrapart-A01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "extrapart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An extra green horizontal link is visible in the test image but not in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_extrapart-A01_back_01_attempt1_raw_20260701_160141_243320.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_extrapart-A01_back_01_parsed_20260701_160141_243320.json",
+      "response_time_sec": 19.793,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_extrapart-A01_back_01_compare_parsed_20260701_160201_098494.json"
+    },
+    {
+      "image_name": "model03_step03_extrapart-A01_bottom_01.jpg",
+      "image_path": "input/extrapart/model03_step03/model03_step03_extrapart-A01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "ground_truth": "extrapart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.9,
+      "reference_image": "model03_step03_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "bottom",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An extra part is visible in the test image that is not present in the reference image.",
+            "confidence": 0.9
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_extrapart-A01_bottom_01_attempt1_raw_20260701_160202_929103.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_extrapart-A01_bottom_01_parsed_20260701_160202_929103.json",
+      "response_time_sec": 11.89,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_extrapart-A01_bottom_01_compare_parsed_20260701_160214_849365.json"
+    },
+    {
+      "image_name": "model03_step03_extrapart-A01_front_01.jpg",
+      "image_path": "input/extrapart/model03_step03/model03_step03_extrapart-A01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "ground_truth": "extrapart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "front",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An extra red pin is visible on the left side of the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_extrapart-A01_front_01_attempt1_raw_20260701_160216_736096.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_extrapart-A01_front_01_parsed_20260701_160216_736096.json",
+      "response_time_sec": 14.68,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_extrapart-A01_front_01_compare_parsed_20260701_160231_453751.json"
+    },
+    {
+      "image_name": "model03_step03_extrapart-A01_left_01.jpg",
+      "image_path": "input/extrapart/model03_step03/model03_step03_extrapart-A01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "ground_truth": "extrapart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "left",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An additional red rod is visible in the test image that is not present in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_extrapart-A01_left_01_attempt1_raw_20260701_160233_442787.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_extrapart-A01_left_01_parsed_20260701_160233_442787.json",
+      "response_time_sec": 13.25,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_extrapart-A01_left_01_compare_parsed_20260701_160246_720801.json"
+    },
+    {
+      "image_name": "model03_step03_extrapart-A01_right_01.jpg",
+      "image_path": "input/extrapart/model03_step03/model03_step03_extrapart-A01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "ground_truth": "extrapart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "right",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An extra yellow gear-like part is visible in the Test Image but not in the Correct Reference Image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_extrapart-A01_right_01_attempt1_raw_20260701_160248_682409.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_extrapart-A01_right_01_parsed_20260701_160248_682409.json",
+      "response_time_sec": 12.413,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_extrapart-A01_right_01_compare_parsed_20260701_160301_158921.json"
+    },
+    {
+      "image_name": "model03_step03_extrapart-A01_top_01.jpg",
+      "image_path": "input/extrapart/model03_step03/model03_step03_extrapart-A01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "extrapart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An extra red pin is visible in the test image that is not present in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_extrapart-A01_top_01_attempt1_raw_20260701_160303_151559.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_extrapart-A01_top_01_parsed_20260701_160303_151559.json",
+      "response_time_sec": 10.754,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_extrapart-A01_top_01_compare_parsed_20260701_160313_925591.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_back_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "missingpart",
+            "description": "The yellow cube block is missing from the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the yellow cube block compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_back_01_attempt1_raw_20260701_160315_731483.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_back_01_parsed_20260701_160315_731483.json",
+      "response_time_sec": 11.469,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_back_01_compare_parsed_20260701_160327_224995.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_back_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "missingpart",
+            "description": "The yellow cube block is missing from the center position.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the yellow cube block in the center position."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_back_02_attempt1_raw_20260701_160328_983490.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_back_02_parsed_20260701_160328_983490.json",
+      "response_time_sec": 13.883,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_back_02_compare_parsed_20260701_160342_895943.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_bottom_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "bottom",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The left and right eye ball parts are missing.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the left and right eye ball parts compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_bottom_01_attempt1_raw_20260701_160344_653926.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_bottom_01_parsed_20260701_160344_653926.json",
+      "response_time_sec": 12.02,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_bottom_01_compare_parsed_20260701_160356_703501.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_front_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "front",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center eye ball is missing from the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_front_01_attempt1_raw_20260701_160358_542567.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_front_01_parsed_20260701_160358_542567.json",
+      "response_time_sec": 12.229,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_front_01_compare_parsed_20260701_160410_808270.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_left_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "left",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "missingpart",
+            "description": "A red pin is missing from the left side of the green link.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing a red pin on the left side of the green link."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_left_01_attempt1_raw_20260701_160412_542602.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_left_01_parsed_20260701_160412_542602.json",
+      "response_time_sec": 16.297,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_left_01_compare_parsed_20260701_160428_873233.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_right_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "right",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "One of the white spherical parts is missing from the top section.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing one white spherical part (EYE_BALL) from the top section compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_right_01_attempt1_raw_20260701_160430_747899.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_right_01_parsed_20260701_160430_747899.json",
+      "response_time_sec": 12.101,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_right_01_compare_parsed_20260701_160442_868204.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_top_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The bottom white eye ball is missing in the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the bottom white eye ball compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_top_01_attempt1_raw_20260701_160444_703127.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_top_01_parsed_20260701_160444_703127.json",
+      "response_time_sec": 12.266,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_top_01_compare_parsed_20260701_160456_990190.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-A01_top_02.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_top_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center eye ball is missing from the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-A01_top_02_attempt1_raw_20260701_160458_897009.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-A01_top_02_parsed_20260701_160458_897009.json",
+      "response_time_sec": 11.651,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-A01_top_02_compare_parsed_20260701_160510_577046.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_back_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "missingpart",
+            "description": "The yellow cube block is missing from the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the yellow cube block compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_back_01_attempt1_raw_20260701_160512_471567.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_back_01_parsed_20260701_160512_471567.json",
+      "response_time_sec": 12.493,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_back_01_compare_parsed_20260701_160524_987738.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_back_02.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_back_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The top white eye ball part is missing.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the top white eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_back_02_attempt1_raw_20260701_160526_784231.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_back_02_parsed_20260701_160526_784231.json",
+      "response_time_sec": 22.434,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_back_02_compare_parsed_20260701_160549_434118.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_bottom_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "bottom",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The left eye ball is missing in the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the left eye ball compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_bottom_01_attempt1_raw_20260701_160551_335911.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_bottom_01_parsed_20260701_160551_335911.json",
+      "response_time_sec": 12.774,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_bottom_01_compare_parsed_20260701_160604_143310.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_front_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "front",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center white eye ball is missing.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center white eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_front_01_attempt1_raw_20260701_160606_003304.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_front_01_parsed_20260701_160606_003304.json",
+      "response_time_sec": 22.752,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_front_01_compare_parsed_20260701_160628_794088.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_left_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "left",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center white eye ball is missing.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center white eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_left_01_attempt1_raw_20260701_160630_628775.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_left_01_parsed_20260701_160630_628775.json",
+      "response_time_sec": 15.286,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_left_01_compare_parsed_20260701_160645_948030.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_right_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "right",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center white eye ball is missing in the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center white eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_right_01_attempt1_raw_20260701_160647_852857.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_right_01_parsed_20260701_160647_852857.json",
+      "response_time_sec": 13.006,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_right_01_compare_parsed_20260701_160700_890663.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_top_01.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center white eye ball is missing in the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center white eye ball compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_top_01_attempt1_raw_20260701_160702_721502.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_top_01_parsed_20260701_160702_721502.json",
+      "response_time_sec": 23.471,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_top_01_compare_parsed_20260701_160726_228818.json"
+    },
+    {
+      "image_name": "model03_step03_missingpart-B01_top_02.jpg",
+      "image_path": "input/missingpart/model03_step03/model03_step03_missingpart-B01_top_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "missingpart",
+      "gpt_result": "missingpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "missingpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "missingpart",
+            "description": "The center white eye ball is missing.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image is missing the center white eye ball part compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_missingpart-B01_top_02_attempt1_raw_20260701_160728_055404.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_missingpart-B01_top_02_parsed_20260701_160728_055404.json",
+      "response_time_sec": 15.929,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_missingpart-B01_top_02_compare_parsed_20260701_160744_009065.json"
+    },
+    {
+      "image_name": "model03_step01_correct-01_back_01.jpg",
+      "image_path": "input/normal/model03_step01/model03_step01_correct-01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step01",
+      "view_angle": "back",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step01_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step01/model03_step01_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step01.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step01",
+        "view_angle": "back",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step01_correct-01_back_01_attempt1_raw_20260701_160745_930673.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step01_correct-01_back_01_parsed_20260701_160745_930673.json",
+      "response_time_sec": 22.526,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step01_correct-01_back_01_compare_parsed_20260701_160808_491125.json"
+    },
+    {
+      "image_name": "model03_step01_correct-01_bottom_01.jpg",
+      "image_path": "input/normal/model03_step01/model03_step01_correct-01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step01",
+      "view_angle": "bottom",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step01_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step01/model03_step01_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step01.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step01",
+        "view_angle": "bottom",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step01_correct-01_bottom_01_attempt1_raw_20260701_160810_416108.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step01_correct-01_bottom_01_parsed_20260701_160810_416108.json",
+      "response_time_sec": 23.335,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step01_correct-01_bottom_01_compare_parsed_20260701_160833_781721.json"
+    },
+    {
+      "image_name": "model03_step01_correct-01_front_01.jpg",
+      "image_path": "input/normal/model03_step01/model03_step01_correct-01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step01",
+      "view_angle": "front",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step01_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step01/model03_step01_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step01.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step01",
+        "view_angle": "front",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step01_correct-01_front_01_attempt1_raw_20260701_160835_702481.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step01_correct-01_front_01_parsed_20260701_160835_702481.json",
+      "response_time_sec": 24.184,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step01_correct-01_front_01_compare_parsed_20260701_160859_926804.json"
+    },
+    {
+      "image_name": "model03_step01_correct-01_left_01.jpg",
+      "image_path": "input/normal/model03_step01/model03_step01_correct-01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step01",
+      "view_angle": "left",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step01_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step01/model03_step01_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step01.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step01",
+        "view_angle": "left",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step01_correct-01_left_01_attempt1_raw_20260701_160901_974994.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step01_correct-01_left_01_parsed_20260701_160901_974994.json",
+      "response_time_sec": 20.631,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step01_correct-01_left_01_compare_parsed_20260701_160922_639015.json"
+    },
+    {
+      "image_name": "model03_step01_correct-01_right_01.jpg",
+      "image_path": "input/normal/model03_step01/model03_step01_correct-01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step01",
+      "view_angle": "right",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step01_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step01/model03_step01_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step01.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step01",
+        "view_angle": "right",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step01_correct-01_right_01_attempt1_raw_20260701_160924_469868.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step01_correct-01_right_01_parsed_20260701_160924_469868.json",
+      "response_time_sec": 23.163,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step01_correct-01_right_01_compare_parsed_20260701_160947_683784.json"
+    },
+    {
+      "image_name": "model03_step01_correct-01_top_01.jpg",
+      "image_path": "input/normal/model03_step01/model03_step01_correct-01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step01",
+      "view_angle": "top",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step01_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step01/model03_step01_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step01.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step01",
+        "view_angle": "top",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step01_correct-01_top_01_attempt1_raw_20260701_160949_555409.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step01_correct-01_top_01_parsed_20260701_160949_555409.json",
+      "response_time_sec": 21.259,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step01_correct-01_top_01_compare_parsed_20260701_161010_847912.json"
+    },
+    {
+      "image_name": "model03_step02_correct-01_back_01.jpg",
+      "image_path": "input/normal/model03_step02/model03_step02_correct-01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step02",
+      "view_angle": "back",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step02_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step02/model03_step02_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step02.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step02",
+        "view_angle": "back",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step02_correct-01_back_01_attempt1_raw_20260701_161012_906459.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step02_correct-01_back_01_parsed_20260701_161012_906459.json",
+      "response_time_sec": 17.024,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step02_correct-01_back_01_compare_parsed_20260701_161029_966182.json"
+    },
+    {
+      "image_name": "model03_step02_correct-01_bottom_01.jpg",
+      "image_path": "input/normal/model03_step02/model03_step02_correct-01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step02",
+      "view_angle": "bottom",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step02_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step02/model03_step02_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step02.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step02",
+        "view_angle": "bottom",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step02_correct-01_bottom_01_attempt1_raw_20260701_161031_954144.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step02_correct-01_bottom_01_parsed_20260701_161031_954144.json",
+      "response_time_sec": 13.084,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step02_correct-01_bottom_01_compare_parsed_20260701_161045_069110.json"
+    },
+    {
+      "image_name": "model03_step02_correct-01_front_01.jpg",
+      "image_path": "input/normal/model03_step02/model03_step02_correct-01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step02",
+      "view_angle": "front",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step02_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step02/model03_step02_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step02.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step02",
+        "view_angle": "front",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step02_correct-01_front_01_attempt1_raw_20260701_161047_105757.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step02_correct-01_front_01_parsed_20260701_161047_105757.json",
+      "response_time_sec": 11.641,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step02_correct-01_front_01_compare_parsed_20260701_161058_783158.json"
+    },
+    {
+      "image_name": "model03_step02_correct-01_left_01.jpg",
+      "image_path": "input/normal/model03_step02/model03_step02_correct-01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step02",
+      "view_angle": "left",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step02_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step02/model03_step02_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step02.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step02",
+        "view_angle": "left",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step02_correct-01_left_01_attempt1_raw_20260701_161100_619020.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step02_correct-01_left_01_parsed_20260701_161100_619020.json",
+      "response_time_sec": 18.731,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step02_correct-01_left_01_compare_parsed_20260701_161119_386605.json"
+    },
+    {
+      "image_name": "model03_step02_correct-01_right_01.jpg",
+      "image_path": "input/normal/model03_step02/model03_step02_correct-01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step02",
+      "view_angle": "right",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step02_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step02/model03_step02_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step02.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step02",
+        "view_angle": "right",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step02_correct-01_right_01_attempt1_raw_20260701_161121_207601.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step02_correct-01_right_01_parsed_20260701_161121_207601.json",
+      "response_time_sec": 21.871,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step02_correct-01_right_01_compare_parsed_20260701_161143_116376.json"
+    },
+    {
+      "image_name": "model03_step02_correct-01_top_01.jpg",
+      "image_path": "input/normal/model03_step02/model03_step02_correct-01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step02",
+      "view_angle": "top",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step02_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step02/model03_step02_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step02.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step02",
+        "view_angle": "top",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step02_correct-01_top_01_attempt1_raw_20260701_161145_044813.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step02_correct-01_top_01_parsed_20260701_161145_044813.json",
+      "response_time_sec": 21.539,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step02_correct-01_top_01_compare_parsed_20260701_161206_615314.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_back_01.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_BLUE_Y",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PLATE_BLUE_TRIANGLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_back_01_attempt1_raw_20260701_161208_479711.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_back_01_parsed_20260701_161208_479711.json",
+      "response_time_sec": 28.324,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_back_01_compare_parsed_20260701_161236_830273.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_back_02.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_back_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "correct",
+      "gpt_result": "positionerror",
+      "is_error": true,
+      "decision_level": "FP",
+      "confidence": 0.9,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "positionerror",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "positionerror",
+            "description": "The part is incorrectly positioned compared to the reference image.",
+            "confidence": 0.9
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "positionerror",
+            "description": "The part is incorrectly positioned compared to the reference image.",
+            "confidence": 0.9
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "positionerror",
+            "description": "Multiple pins are incorrectly positioned compared to the reference image.",
+            "confidence": 0.85
+          }
+        ],
+        "summary": "The test image shows several parts in incorrect positions compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_back_02_attempt1_raw_20260701_161238_770668.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_back_02_parsed_20260701_161238_770668.json",
+      "response_time_sec": 22.228,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_back_02_compare_parsed_20260701_161301_028292.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_back_03.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_back_03.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_BLUE_Y",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PLATE_BLUE_TRIANGLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_back_03_attempt1_raw_20260701_161302_962734.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_back_03_parsed_20260701_161302_962734.json",
+      "response_time_sec": 28.27,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_back_03_compare_parsed_20260701_161331_265445.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_bottom_01.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "bottom",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_bottom_01_attempt1_raw_20260701_161333_035013.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_bottom_01_parsed_20260701_161333_035013.json",
+      "response_time_sec": 12.906,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_bottom_01_compare_parsed_20260701_161345_973353.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_front_01.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "front",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_BLUE_Y",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PLATE_BLUE_TRIANGLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_front_01_attempt1_raw_20260701_161347_889722.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_front_01_parsed_20260701_161347_889722.json",
+      "response_time_sec": 31.443,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_front_01_compare_parsed_20260701_161419_359955.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_left_01.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "left",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "BLOCK_YELLOW_CUBE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_YELLOW_H",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "JOINT_BLUE_Y",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "PLATE_BLUE_TRIANGLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_left_01_attempt1_raw_20260701_161421_329142.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_left_01_parsed_20260701_161421_329142.json",
+      "response_time_sec": 29.086,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_left_01_compare_parsed_20260701_161450_467223.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_right_01.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "right",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_right_01_attempt1_raw_20260701_161452_267699.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_right_01_parsed_20260701_161452_267699.json",
+      "response_time_sec": 16.846,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_right_01_compare_parsed_20260701_161509_145034.json"
+    },
+    {
+      "image_name": "model03_step03_correct-01_top_01.jpg",
+      "image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "correct",
+      "gpt_result": "correct",
+      "is_error": false,
+      "decision_level": "TN",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": false,
+        "overall_error_type": "correct",
+        "detected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "error_type": "correct",
+            "description": "Part matches the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image matches the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_correct-01_top_01_attempt1_raw_20260701_161510_947276.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_correct-01_top_01_parsed_20260701_161510_947276.json",
+      "response_time_sec": 17.309,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_correct-01_top_01_compare_parsed_20260701_161528_290069.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_back_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "wrongpart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An additional white spherical part is present in the center front of the assembly.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra part not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_back_01_attempt1_raw_20260701_161530_266772.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_back_01_parsed_20260701_161530_266772.json",
+      "response_time_sec": 15.904,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_back_01_compare_parsed_20260701_161546_211791.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_back_02.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_back_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "wrongpart",
+            "description": "The central eye ball has a black circle marking, which is not present in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: the central eye ball has a black marking that does not match the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_back_02_attempt1_raw_20260701_161548_047475.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_back_02_parsed_20260701_161548_047475.json",
+      "response_time_sec": 12.38,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_back_02_compare_parsed_20260701_161600_464843.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_bottom_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "bottom",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "wrongpart",
+            "description": "The Test Image contains two white eye ball parts instead of one as shown in the Correct Reference Image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an incorrect part configuration with two white eye ball parts instead of one."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_bottom_01_attempt1_raw_20260701_161602_298999.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_bottom_01_parsed_20260701_161602_298999.json",
+      "response_time_sec": 17.504,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_bottom_01_compare_parsed_20260701_161619_823284.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_front_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "ground_truth": "wrongpart",
+      "gpt_result": "extrapart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "front",
+        "is_error": true,
+        "overall_error_type": "extrapart",
+        "detected_parts": [
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "An additional vertical green rod with extra white and red components is present in the test image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an extra vertical green rod with additional white and red components not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_front_01_attempt1_raw_20260701_161621_697563.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_front_01_parsed_20260701_161621_697563.json",
+      "response_time_sec": 16.951,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_front_01_compare_parsed_20260701_161638_682622.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_left_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.9,
+      "reference_image": "model03_step03_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "left",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "PLATE_BLUE_TRIANGLE",
+            "error_type": "wrongpart",
+            "description": "The triangular plate is incorrectly positioned or replaced with a different part.",
+            "confidence": 0.9
+          },
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "positionerror",
+            "description": "The eye ball parts are positioned differently compared to the reference image.",
+            "confidence": 0.85
+          }
+        ],
+        "summary": "The test image contains assembly errors, including a wrong part and position errors for the eye ball components."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_left_01_attempt1_raw_20260701_161640_578787.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_left_01_parsed_20260701_161640_578787.json",
+      "response_time_sec": 15.524,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_left_01_compare_parsed_20260701_161656_136760.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_right_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "right",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "PLATE_BLUE_TRIANGLE",
+            "error_type": "wrongpart",
+            "description": "The triangular plate is incorrect compared to the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: the triangular plate does not match the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_right_01_attempt1_raw_20260701_161658_131795.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_right_01_parsed_20260701_161658_131795.json",
+      "response_time_sec": 13.266,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_right_01_compare_parsed_20260701_161711_429659.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_top_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "wrongpart",
+            "description": "The eye balls in the test image have black pupils, which are not present in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains eye balls with black pupils, which differ from the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_top_01_attempt1_raw_20260701_161713_307713.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_top_01_parsed_20260701_161713_307713.json",
+      "response_time_sec": 12.887,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_top_01_compare_parsed_20260701_161726_228169.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-A01_top_02.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-A01_top_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "wrongpart",
+            "description": "One of the white eye ball parts has a black marking, which is not present in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: one of the eye ball parts has a black marking that is not present in the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-A01_top_02_attempt1_raw_20260701_161728_160835.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-A01_top_02_parsed_20260701_161728_160835.json",
+      "response_time_sec": 14.519,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-A01_top_02_compare_parsed_20260701_161742_712203.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_back_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_back_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "wrongpart",
+            "description": "An orange connector is present instead of the expected part.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part (orange connector) that does not match the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_back_01_attempt1_raw_20260701_161744_568581.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_back_01_parsed_20260701_161744_568581.json",
+      "response_time_sec": 14.408,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_back_01_compare_parsed_20260701_161759_012964.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_back_02.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_back_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_back_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "back",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "EYE_BALL",
+            "error_type": "wrongpart",
+            "description": "The central eye ball has a black pupil, which is not present in the reference image.",
+            "confidence": 0.95
+          },
+          {
+            "part_id": "unknown_extra_part",
+            "error_type": "extrapart",
+            "description": "A yellow horn-like part is visible, which is not present in the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part (eye ball with black pupil) and an extra part (yellow horn-like component)."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_back_02_attempt1_raw_20260701_161800_807732.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_back_02_parsed_20260701_161800_807732.json",
+      "response_time_sec": 19.329,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_back_02_compare_parsed_20260701_161820_170094.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_bottom_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_bottom_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_bottom_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_bottom_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "bottom",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "PIN_YELLOW",
+            "error_type": "wrongpart",
+            "description": "Yellow pin is incorrectly placed instead of the expected red pin.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: a yellow pin is used instead of the expected red pin."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_bottom_01_attempt1_raw_20260701_161822_189152.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_bottom_01_parsed_20260701_161822_189152.json",
+      "response_time_sec": 12.192,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_bottom_01_compare_parsed_20260701_161834_474391.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_front_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_front_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_front_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_front_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "front",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "PIN_RED_SHORT",
+            "error_type": "wrongpart",
+            "description": "The red pin in the center is incorrect; it should be a yellow pin.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: the central pin is red instead of yellow."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_front_01_attempt1_raw_20260701_161836_346785.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_front_01_parsed_20260701_161836_346785.json",
+      "response_time_sec": 13.965,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_front_01_compare_parsed_20260701_161850_338831.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_left_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_left_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_left_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_left_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "left",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "wrongpart",
+            "description": "The orange connector part is incorrect compared to the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part (orange connector) compared to the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_left_01_attempt1_raw_20260701_161852_237688.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_left_01_parsed_20260701_161852_237688.json",
+      "response_time_sec": 15.289,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_left_01_compare_parsed_20260701_161907_558459.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_right_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_right_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_right_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_right_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "right",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "wrongpart",
+            "description": "An orange connector is present instead of the expected yellow joint.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: an orange connector instead of the expected yellow joint."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_right_01_attempt1_raw_20260701_161909_525907.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_right_01_parsed_20260701_161909_525907.json",
+      "response_time_sec": 19.765,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_right_01_compare_parsed_20260701_161929_328523.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_top_01.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_top_01.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "wrongpart",
+            "description": "The orange connector part is incorrect compared to the reference image.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains an incorrect orange connector part that does not match the reference image."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_top_01_attempt1_raw_20260701_161931_152080.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_top_01_parsed_20260701_161931_152080.json",
+      "response_time_sec": 12.007,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_top_01_compare_parsed_20260701_161943_194036.json"
+    },
+    {
+      "image_name": "model03_step03_wrongpart-B01_top_02.jpg",
+      "image_path": "input/wrongpart/model03_step03/model03_step03_wrongpart-B01_top_02.jpg",
+      "status": "success",
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "ground_truth": "wrongpart",
+      "gpt_result": "wrongpart",
+      "is_error": true,
+      "decision_level": "TP",
+      "confidence": 0.95,
+      "reference_image": "model03_step03_correct-01_top_01.jpg",
+      "reference_image_path": "input/normal/model03_step03/model03_step03_correct-01_top_01.jpg",
+      "expected_state_path": "ground_truth/model03/step03.json",
+      "model_response": {
+        "model_id": "model03",
+        "step_id": "step03",
+        "view_angle": "top",
+        "is_error": true,
+        "overall_error_type": "wrongpart",
+        "detected_parts": [
+          {
+            "part_id": "CONNECTOR_ORANGE",
+            "error_type": "wrongpart",
+            "description": "The orange connector part is replaced with a red connector part.",
+            "confidence": 0.95
+          }
+        ],
+        "summary": "The test image contains a wrong part: the orange connector is replaced with a red connector."
+      },
+      "raw_response_path": "logs/current_raw_responses/model03_step03_wrongpart-B01_top_02_attempt1_raw_20260701_161945_138285.txt",
+      "current_parsed_json_path": "logs/current_parsed_json/model03_step03_wrongpart-B01_top_02_parsed_20260701_161945_138285.json",
+      "response_time_sec": 12.954,
+      "attempt": 1,
+      "compare_parsed_json_path": "logs/compare_parsed_json/model03_step03_wrongpart-B01_top_02_compare_parsed_20260701_161958_122438.json"
+    }
+  ]
+}

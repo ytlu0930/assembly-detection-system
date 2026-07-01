@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+    "relative_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_back_02.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "missingpart",
+    "target_part": "A01",
+    "view_angle": "back",
+    "image_index": "02"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model03_step03_missingpart-A01_back_02.jpg",
+    "relative_path": "input/missingpart/model03_step03/model03_step03_missingpart-A01_back_02.jpg"
+  },
+  "expected_state_path": "ground_truth/model03/step03.json",
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "back",
+    "is_error": true,
+    "overall_error_type": "missingpart",
+    "detected_parts": [
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "error_type": "missingpart",
+        "description": "The yellow cube block is missing from the center position.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image is missing the yellow cube block in the center position."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 13.883,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}

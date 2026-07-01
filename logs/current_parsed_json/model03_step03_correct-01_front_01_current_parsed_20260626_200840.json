@@ -1,0 +1,321 @@
+{
+  "file_info": {
+    "image_name": "model03_step03_correct-01_front_01.jpg",
+    "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "correct",
+    "target_part": "01",
+    "view_angle": "front",
+    "image_index": "01"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_front_01.jpg",
+    "relative_path": "input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg"
+  },
+  "expected_state": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "step_name": "3號車-步驟三：安裝中段雙眼天線與車頭飾件（28件完全體）",
+    "expected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "color": "GREEN",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "color": "GREEN",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "TOP",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "LEFT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "color": "BLUE",
+        "position": "RIGHT",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "LEFT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "RIGHT",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "color": "WHITE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "color": "BLUE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "color": "ORANGE",
+        "position": "CENTER",
+        "orientation": "HORIZONTAL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "color": "YELLOW",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "color": "RED",
+        "position": "CENTER",
+        "orientation": "VERTICAL"
+      }
+    ]
+  },
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "step_name": "3號車-步驟三：安裝中段雙眼天線與車頭飾件（28件完全體）",
+    "view_angle": "front",
+    "overall_error_type": "correct",
+    "part_differences": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "JOINT_BLUE_Y",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PLATE_BLUE_TRIANGLE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "CONNECTOR_ORANGE",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "error_type": "correct"
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "correct"
+      }
+    ],
+    "detected_parts": [],
+    "summary": "",
+    "is_error": false
+  },
+  "runtime": {
+    "response_time_sec": 101.82,
+    "attempt": 1,
+    "prompt_path": "prompts\\vision_v2.txt",
+    "schema_path": "schema\\vision_output_schema.json"
+  }
+}

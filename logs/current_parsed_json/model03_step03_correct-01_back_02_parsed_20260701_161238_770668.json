@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model03_step03_correct-01_back_02.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_back_02.jpg",
+    "model_id": "model03",
+    "step_id": "step03",
+    "ground_truth": "correct",
+    "target_part": "01",
+    "view_angle": "back",
+    "image_index": "02"
+  },
+  "reference_image": {
+    "image_name": "model03_step03_correct-01_back_01.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_back_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model03_step03_correct-01_back_02.jpg",
+    "relative_path": "input/normal/model03_step03/model03_step03_correct-01_back_02.jpg"
+  },
+  "expected_state_path": "ground_truth/model03/step03.json",
+  "model_response": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "back",
+    "is_error": true,
+    "overall_error_type": "positionerror",
+    "detected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "error_type": "positionerror",
+        "description": "The part is incorrectly positioned compared to the reference image.",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "BLOCK_YELLOW_CUBE",
+        "error_type": "positionerror",
+        "description": "The part is incorrectly positioned compared to the reference image.",
+        "confidence": 0.9
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "positionerror",
+        "description": "Multiple pins are incorrectly positioned compared to the reference image.",
+        "confidence": 0.85
+      }
+    ],
+    "summary": "The test image shows several parts in incorrect positions compared to the reference image."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 22.228,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}
