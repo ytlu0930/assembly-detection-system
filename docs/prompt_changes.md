@@ -260,3 +260,33 @@ test_compare_reference.py
 - Confidence Estimation
 - Multi-error Detection
 - Bounding Box Generation（供 image_annotator 使用）
+
+---
+
+# vision_v2_1.txt (或當前實戰重構演進)
+
+基於 `model08_step05` 實拍資料集（40–50張測試圖）的大規模導入與「自動化交叉防呆檢查機制」的建立，對整體 Vision Pipeline 的 Error Type 邊界進行了歷史性的嚴謹重構與對齊。
+
+## 核心改動與正名
+
+### 1. 嚴重結構錯誤（criticalerror）正式解開封印
+* **新增支援**：正式啟用 Schema 中的 `"criticalerror"` 標籤，用以歸類「歪歪斜斜、卡榫沒對上、嚴重變形」等無法單純以缺件/錯件定義的**畸形嚴重結構錯誤**。
+* **規格對齊**：徹底打通了雲端實拍檔名、`schema.json` 的 Enum 限制、以及 `current_state_analyzer.py` 的解析泛化度，實現三維一體的 100% 完美對齊。
+
+### 2. 「wrongpart」與「positionerror」的本質剝離
+為解決過往 GPT Vision 在辨識組裝積木時對這兩者的界線模糊與混淆，在實戰標註中建立了嚴格的「防呆操作定義」，並由 `generate_mid_report.py` 進行路徑強卡控：
+* **`wrongpart` (物料錯誤)**：定義為「零件本身拿錯」。如：大小輪子裝反。
+* **`positionerror` (方向/孔位錯誤)**：定義為「零件拿對，但角度旋轉或插錯孔位」。如：後側紅桿旋轉90度、黃釘插錯孔。
+
+### 3. 變體代號（Variant ID）防呆鬆綁
+* 驗證並確認系統完美兼容「非連續性、跳躍式」的變體命名法（如跨類別直接使用 `B01`、`D01`），程式碼字串切割（`split("-")`）完全通關，大幅提升了多標註者間的防呆卡控與特徵唯一性。
+
+## 本版改善
+
+* 成功透過自動化交叉比對腳本，達成實拍照片分類與檔名內嵌標籤的 **100% 一致性**。
+* 一鍵全自動生成標準 `ground_truth.csv` 與結構化中期報告（`data_status.md`），大幅降低人工檢驗的 False Positive / 誤放口袋率。
+
+## 下一版預計改善（配合 v2 既定目標進階）
+
+* **Error Type Classification Accuracy**：利用本階段精準剝離的五大口袋實拍資料集（特別是 `criticalerror` 與 `positionerror`），進行 GPT-4o Vision 的精準度邊界壓測與少樣本（Few-Shot）提示優化。
+* **Multi-error Detection**：測試單張影像同時出現 `missingpart` 與 `positionerror` 時的信心度（Confidence）表現。
