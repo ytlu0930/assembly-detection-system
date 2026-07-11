@@ -32,6 +32,15 @@
     "extrapart": ["extrapart", "extra", "多件", "多餘零件", "extra_part"],
     "positionerror": ["positionerror", "wrong position", "位置錯誤", "position_error"],
     "wrongpart": ["wrongpart", "wrong brick", "錯件", "wrong_part"],
-    "criticalerror": ["criticalerror", "broken", "畸形", "亂裝", "critical_error"]
+    "criticalerror": ["criticalerror", "broken", "畸形", "亂裝", "critical_error"],
+    "uncertain": ["uncertain", "not sure", "無法確定", "不確定"]
+  },
+  "view_angle": {
+    "top": ["top", "top view", "俯視", "上面"],
+    "bottom": ["bottom", "bottom view", "仰視", "下面"],
+    "front": ["front", "front view", "正視", "正面"],
+    "back": ["back", "back view", "後視", "背面"],
+    "left": ["left", "left view", "左視", "左面"],
+    "right": ["right", "right view", "右視", "右面"]
   }
 }
