@@ -1,0 +1,37 @@
+{
+  "model_id": "model08",
+  "step_id": "step01",
+  "step_name": "8號車-步驟一：組裝基礎連桿與接頭",
+  "expected_parts": [
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "BLOCK_YELLOW_CUBE",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "JOINT_YELLOW_H",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "color": "GREEN",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "part_id": "CONNECTOR_ORANGE",
+      "color": "ORANGE",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL"
+    }
+  ]
+}
