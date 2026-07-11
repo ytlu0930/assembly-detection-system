@@ -447,3 +447,4 @@ Batch Summary
 
 #### 4. Git 雲端同步
 * 全數高畫質圖像（約 384.91 MiB）及全自動生成之 CSV、MD 報告，已成功全面 Push 至 GitHub 倉庫 `main` 分支。資料完整性、安全性封印完成。
+* **規格書架構大對齊**：為配合分析代碼（`current_state_analyzer.py`）之讀取路徑，正式將 `expected/model08/` 中的 Step 01~05 規格書內容，完整全選複製並同步至 `ground_truth/model08/` 底下。實現「預期狀態」與「真實答案」的雙胞胎規格合體，徹底消除明天組員 A、B 執行時可能引發的 `FileNotFoundError` 潛在風險。

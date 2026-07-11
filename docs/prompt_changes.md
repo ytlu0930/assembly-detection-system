@@ -290,3 +290,4 @@ test_compare_reference.py
 
 * **Error Type Classification Accuracy**：利用本階段精準剝離的五大口袋實拍資料集（特別是 `criticalerror` 與 `positionerror`），進行 GPT-4o Vision 的精準度邊界壓測與少樣本（Few-Shot）提示優化。
 * **Multi-error Detection**：測試單張影像同時出現 `missingpart` 與 `positionerror` 時的信心度（Confidence）表現。
+* **Ground Truth 規格同步**：全面完成 `model08` Step 01 至 Step 05 的 JSON Output Specification 定義，並同步至 `ground_truth/` 目錄，確保 GPT Vision Pipeline 在進行批次比對與精準度統計（TP/TN/FP/FN）時，擁有最嚴謹且一致的單一事實來源（Single Source of Truth）。
