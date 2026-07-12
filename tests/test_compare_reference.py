@@ -11,6 +11,7 @@ import csv
 import json
 import sys
 import time
+import argparse
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -35,6 +36,7 @@ LOGS_DIR = PROJECT_ROOT / "logs"
 COMPARE_PARSED_DIR = LOGS_DIR / "compare_parsed_json"
 COMPARE_FAILED_DIR = LOGS_DIR / "compare_parse_failed"
 SUMMARY_DIR = LOGS_DIR / "compare_summaries"
+REFERENCE_ROOT = PROJECT_ROOT / "input"
 
 
 def collect_images(input_dir: Path) -> list[Path]:
@@ -53,11 +55,11 @@ def find_reference_image(filename_info: dict[str, str]) -> Path:
     if not model_id or not step_id or not view_angle:
         raise ValueError("Cannot find reference image because filename info is incomplete.")
 
-    normal_dir = INPUT_DIR / "normal" / f"{model_id}_{step_id}"
+    normal_dir = REFERENCE_ROOT / "normal" / f"{model_id}_{step_id}"
     pattern = f"{model_id}_{step_id}_correct-*_{view_angle}_*"
     candidates: list[Path] = []
 
-    search_roots = [normal_dir, INPUT_DIR / "normal"]
+    search_roots = [normal_dir, REFERENCE_ROOT/ "normal"]
     for root in search_roots:
         if not root.exists():
             continue
@@ -91,6 +93,19 @@ def expected_state_path(filename_info: dict[str, str]) -> Path:
 def compare_log_path(directory: Path, image_path: Path, suffix: str) -> Path:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
     return directory / f"{image_path.stem}_{suffix}_{timestamp}.json"
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Run reference-guided batch comparison tests."
+    )
+    parser.add_argument(
+        "--input-dir",
+        type=Path,
+        default=REFERENCE_ROOT,
+        help="Directory containing test images. Default: input/",
+    )
+    return parser.parse_args()
 
 
 def build_compare_result(
@@ -260,12 +275,18 @@ def main() -> None:
     for directory in (COMPARE_PARSED_DIR, COMPARE_FAILED_DIR, SUMMARY_DIR):
         directory.mkdir(parents=True, exist_ok=True)
 
-    image_files = collect_images(INPUT_DIR)
+    args = parse_args()
+    test_input_dir = args.input_dir.resolve()
+
+    image_files = collect_images(test_input_dir)        
     if not image_files:
-        raise FileNotFoundError(f"No jpg/png images found under {INPUT_DIR}")
+        raise FileNotFoundError(f"No jpg/png images found under {test_input_dir}")
 
     results: list[dict[str, Any]] = []
-    print(f"Found {len(image_files)} images under input/.")
+    print(
+    f"Found {len(image_files)} images under "
+    f"{test_input_dir}."
+    )
 
     for index, image_path in enumerate(image_files, start=1):
         print(f"[{index}/{len(image_files)}] {safe_relative_path(image_path)}")
@@ -293,7 +314,7 @@ def main() -> None:
     counts = metric_counts(results)
     summary_payload = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "input_dir": safe_relative_path(INPUT_DIR),
+        "input_dir": safe_relative_path(test_input_dir),
         "total_images": len(results),
         "success_count": sum(1 for item in results if item.get("status") == "success"),
         "failed_count": sum(1 for item in results if item.get("status") != "success"),
