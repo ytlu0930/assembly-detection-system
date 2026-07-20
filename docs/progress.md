@@ -424,7 +424,7 @@ Batch Summary
 - Pipeline Stress Test
 - evaluate_metrics.py 統計分析
 
-### 📅 2026-07-11 | Phase 03 資料集擴充、標註一致性重構與自動化雙重校對
+# 2026-07-11 | Phase 03 資料集擴充、標註一致性重構與自動化雙重校對
 
 #### 1. 現狀盤點與核心痛點排解
 * **實拍資料集入庫**：全面導入 `model08_step05` 之實拍測試圖，總計完成 40-50 張高畫質圖像之正名與分類。
@@ -448,3 +448,203 @@ Batch Summary
 #### 4. Git 雲端同步
 * 全數高畫質圖像（約 384.91 MiB）及全自動生成之 CSV、MD 報告，已成功全面 Push 至 GitHub 倉庫 `main` 分支。資料完整性、安全性封印完成。
 * **規格書架構大對齊**：為配合分析代碼（`current_state_analyzer.py`）之讀取路徑，正式將 `expected/model08/` 中的 Step 01~05 規格書內容，完整全選複製並同步至 `ground_truth/model08/` 底下。實現「預期狀態」與「真實答案」的雙胞胎規格合體，徹底消除明天組員 A、B 執行時可能引發的 `FileNotFoundError` 潛在風險。
+
+# 2026/07/12 | Phase 03 — Pipeline Regression Test & Image Annotator
+
+---
+
+## 今日目標
+
+本次主要目標為確認最新版 Schema、Normalizer 與 Part Library 更新後的 Pipeline 相容性，並完成 `image_annotator.py` 獨立繪圖模組的開發與基本功能驗證。
+
+主要工作包含：
+
+- 進行小規模回歸測試
+- 驗證新版 Schema 與設定檔相容性
+- 完成 `image_annotator.py` 獨立繪圖模組
+- 驗證 Bounding Box、紅綠框、文字標籤與圖片輸出功能
+
+---
+
+## 一、小規模回歸測試
+
+為確認最新版 Schema、Normalizer 與 Part Library 更新後的 Pipeline 相容性，本次建立 `regression_subset/`，挑選 10 張代表性圖片進行小規模回歸測試。
+
+### 測試涵蓋範圍
+
+錯誤類型：
+
+- correct
+- extrapart
+- missingpart
+- wrongpart
+
+視角：
+
+- front
+- back
+- left
+- right
+- top
+
+### 測試結果
+
+- 成功執行：10／10
+- TP：9
+- TN：1
+- FP：0
+- FN：0
+- JSON Parse Error：0
+- Schema Validation Error：0
+
+本次回歸測試子集之執行成功率為 100%，且未發生 JSON Parse Error 或 Schema Validation Error。
+
+### 相容性驗證結果
+
+本次測試確認：
+
+- `schema/schema.json` 與 `schema/vision_output_schema.json` 目前內容一致
+- `uncertain` 已正確納入 Schema 與 Normalizer 規格
+- `view_angle` 可正規化為 `top`、`bottom`、`front`、`back`、`left`、`right`
+- 最新設定檔可正常配合 `current_state_analyzer.py`
+- 批次測試可正常輸出 JSON 與 CSV Summary
+- 最新 Schema、Normalizer 與 Part Library 更新未造成目前測試案例的 Pipeline 錯誤
+
+### 輸出檔案
+
+- `logs/compare_summaries/compare_summary_20260712_174706.json`
+- `logs/compare_summaries/compare_summary_20260712_174706.csv`
+
+### 測試限制
+
+本次為小規模回歸測試，主要目的為驗證 Pipeline 相容性，尚未涵蓋所有錯誤類型與視角。
+
+目前未涵蓋：
+
+- positionerror
+- criticalerror
+- uncertain
+- bottom 視角
+- API Rate Limit
+- Retry 機制
+- 長時間連續執行穩定性
+
+因此，本次測試結果不代表完整資料集之最終準確率。
+
+---
+
+## 二、Image Annotator Module
+
+完成 `utils/image_annotator.py` 獨立繪圖模組，用於在原始圖片上根據 Annotation 資訊繪製積木位置框與文字標籤。
+
+### 函式介面
+
+```python
+annotate_image(
+    image_path: str,
+    annotations: list
+) -> str
+```
+
+Annotation 基本格式：
+
+{
+  "part_id": "part_01",
+  "bbox": [60, 60, 220, 190],
+  "status": "correct",
+  "error_type": "correct"
+}
+
+### 已實作功能
+
+- annotate_image(image_path, annotations) -> str
+- bbox 格式與座標驗證
+- bbox 超出圖片範圍時進行座標限制
+- correct 狀態使用綠色矩形框
+- error 狀態使用紅色矩形框
+- 正確積木顯示 part_id 標籤
+- 錯誤積木顯示 part_id 與 error_type 標籤
+- 自動建立 output/annotated/ 輸出資料夾
+- 自動產生標記後圖片
+- 回傳標記後圖片路徑
+- 圖片不存在時的錯誤處理
+- 圖片無法解碼時的錯誤處理
+- Annotation 格式錯誤處理
+- 無效 status 與 bbox 格式驗證
+
+### 獨立測試結果
+
+已使用實際積木圖片與人工設定的 bbox 座標進行獨立測試。
+
+測試結果：
+* OpenCV 圖片讀取成功
+* 綠色矩形框繪製成功
+* 紅色矩形框繪製成功
+* 文字標籤顯示成功
+* 標記後圖片輸出成功
+* 輸出路徑回傳成功
+
+測試輸出位置：output/annotated/
+
+目前可確認 image_annotator.py 的獨立繪圖功能已正常運作。
+
+## 三、目前限制
+
+現行 Vision Output Schema 的 detected_parts 結構包含：
+
+* part_id
+* error_type
+* description
+* confidence
+
+目前尚未包含：
+
+* bbox
+* status
+
+因此，雖然 image_annotator.py 已能根據 Annotation 資訊正常繪製 Bounding Box 與標籤，但目前使用的是人工設定的測試座標，尚未與 GPT Vision 的實際定位結果完成端到端整合。
+
+目前 Pipeline 狀態：
+
+Test Image
+    ↓
+current_state_analyzer.py
+    ↓
+detected_parts
+    ↓
+目前缺少 bbox 定位資訊
+    ↓
+image_annotator.py
+
+後續需確認 bbox 的來源與定位策略，再決定是否：
+
+- 調整 Prompt，使模型輸出 bbox
+- 調整 Vision Output Schema
+- 使用其他視覺定位模組
+- 採用獨立 Object Detection／Segmentation 方法提供定位資訊
+
+若後續修改 Prompt、Schema 或 JSON Output Structure，需先通知其他成員並同步確認相關模組相容性。
+
+## 四、今日完成項目
+* 完成最新版 Repository Pull 與相容性確認
+* 確認 schema/schema.json 與 schema/ vision_output_schema.json 內容一致
+* 確認 uncertain Schema 與 Normalizer 規格一致
+* 確認 view_angle 正規化設定正確
+* 完成 10 張代表性圖片的小規模回歸測試
+* 完成 utils/image_annotator.py 獨立繪圖模組
+* 完成 Bounding Box、紅綠框與文字標籤功能驗證
+* 確認標記圖片可正常輸出至 output/annotated/
+
+## 五、下一步規劃
+
+預計進行：
+* 優化拍攝規範文件 v2.0
+* 新增常見拍攝失誤案例
+* 新增正確與錯誤拍攝範例對照
+* 新增拍攝前 5 項檢查清單
+* 確認 bbox 來源與定位策略
+* 檢查 API Timeout 與 Retry 機制
+* 記錄每次 API 呼叫耗時
+* 進行全 Pipeline 壓力測試
+* 連續測試 10 張圖片，確認系統穩定性
+* 統計平均、最短與最長 API 回應時間
