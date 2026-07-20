@@ -1,0 +1,7 @@
+digraph Flowchart {
+	A [label="開始"]
+	B [label="分析圖片"]
+	C [label="輸出結果"]
+	A -> B
+	B -> C
+}
