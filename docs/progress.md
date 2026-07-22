@@ -846,7 +846,7 @@ Batch Experiment：
 
 ## 五、成果
 
-指定 Phase 7 PoC case 可成功由 selector 選出中央 lime-green block，
+指定 PoC case 可成功由 selector 選出中央 lime-green block，
 改善原先 top-1 偏向整體模型 bbox 的問題。
 
 實驗結果輸出：
@@ -870,7 +870,7 @@ Batch Experiment：
 
 ## 七、最終評估
 
-Phase 8 評級：B
+評級：B
 
 原因：
 
@@ -880,7 +880,7 @@ Phase 8 評級：B
 - 尚不適合直接整合 SAM 2。
 
 
-## 八、後續規劃（Phase 8.1）
+## 八、後續規劃
 
 預計完成：
 
@@ -889,4 +889,29 @@ Phase 8 評級：B
 - 建立 view-specific selection rule
 - IoU / localization accuracy 評估
 
-完成上述項目後，再評估是否進入 Phase 9（SAM 2）。
+完成上述項目後，再評估是否進入 SAM 2。
+
+# 2026/07/22 | Phase 03 - Output 結構統一與現有資料集盤點凍結
+
+## 一、目標
+
+本階段針對執行後產生的零散輸出資料夾進行整理，建立統一且可追溯的 output 結構。
+
+同時，在不重新拍攝、不修改原始圖片的前提下，盤點目前專案中的完整資料集，檢查檔名、錯誤類型、重複檔案與 Correct Reference 配對狀況，並建立 freeze manifest，將現有資料集凍結為本專題後續測試使用的固定版本。
+
+本階段未安裝或執行 SAM 2。
+
+
+## 二、Output 結構統一
+
+### 原始問題
+
+執行後，`output/` 根目錄存在多個不同命名方式的資料夾：
+
+```text
+output/
+├── annotated/
+├── bbox_selection_experiments/
+├── grounding/
+├── grounding_experiments/
+└── localization_pipeline/
