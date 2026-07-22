@@ -1,5 +1,41 @@
 # Phase 8：BBox Candidate Selector 與 Localization Pipeline
 
+## Phase 8.1 標準 output 管理
+
+`utils/output_manager.py` 提供 `create_run_output()`／`resolve_run_output()`，使用 `pathlib.Path` 建立 collision-safe 的 `YYYYMMDD_HHMMSS` run。相同 run id 不會覆寫，會依序加入 `_01`、`_02`。每個實際執行保留 `run_summary.json`；模型結果原有欄位不變，摘要是額外 metadata。
+
+Phase 對應：
+
+| 執行項目 | category | experiment |
+|---|---|---|
+| Grounding DINO 單張 PoC | `localization` | `phase07_grounding_poc` |
+| Grounding DINO batch | `localization` | `phase07_grounding_experiments` |
+| Phase 8 bbox selector | `localization` | `phase08_bbox_selection` |
+| Localization pipeline CLI | `pipeline` | `localization_pipeline` |
+| Vision annotation | `vision` | `annotations` |
+
+預設範例：
+
+```text
+output/localization/phase08_bbox_selection/20260722_153000/
+├── images/
+│   ├── detections/
+│   └── selected_bbox/
+├── results.json
+├── results.csv
+└── run_summary.json
+```
+
+CLI 的 `--output-dir` 仍保留：明確指定時，該目錄就是 run directory；未指定時才使用上述標準路徑。`output/` 持續由 `.gitignore` 排除，不應 `git add`。
+
+舊輸出只可先預覽：
+
+```powershell
+& .\venv\Scripts\python.exe scripts\migrate_legacy_output.py
+```
+
+只有人工確認後才可另行使用 `--apply`。Phase 8.1 本次只執行 dry-run，沒有搬移 `output/grounding`、`grounding_experiments`、`bbox_selection_experiments`、`localization_pipeline` 或 `annotated`。
+
 ## 目標與架構界線
 
 Phase 8 建立獨立、可測試且可解釋的 bbox 候選篩選流程，並把它組合成獨立 localization PoC：

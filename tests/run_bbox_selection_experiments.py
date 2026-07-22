@@ -8,6 +8,8 @@ from pathlib import Path
 from time import perf_counter
 from typing import Any
 
+import torch
+import transformers
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -18,6 +20,7 @@ from PIL import Image
 from utils.bbox_candidate_selector import BBoxCandidateSelector
 from utils.grounding_detector import DEFAULT_MODEL_ID, GroundingDetector
 from utils.image_annotator import annotate_image
+from utils.output_manager import resolve_run_output, write_run_summary
 
 
 DEFAULT_INPUT_DIR = PROJECT_ROOT / "regression_subset"
@@ -61,7 +64,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=PROJECT_ROOT / "output" / "bbox_selection_experiments",
     )
     return parser
 
@@ -100,9 +102,15 @@ def _write_annotation(
 
 def main() -> int:
     args = build_parser().parse_args()
-    output_dir = args.output_dir.expanduser().resolve()
-    image_output_dir = output_dir / "images"
-    image_output_dir.mkdir(parents=True, exist_ok=True)
+    paths = resolve_run_output(
+        "localization",
+        "phase08_bbox_selection",
+        output_dir=args.output_dir,
+        output_root=PROJECT_ROOT / "output",
+        image_subdirs=["detections", "selected_bbox"],
+    )
+    detection_output_dir = paths.image_subdirs["detections"]
+    selection_output_dir = paths.image_subdirs["selected_bbox"]
 
     device = None if args.device.strip().lower() == "auto" else args.device
     detector = GroundingDetector(model_id=args.model_id, device=device)
@@ -155,7 +163,7 @@ def main() -> int:
                     image_path,
                     top1["bbox"],
                     "top1",
-                    image_output_dir,
+                    detection_output_dir,
                     f"{image_path.stem}_top1",
                 )
 
@@ -176,7 +184,7 @@ def main() -> int:
                     image_path,
                     selected["bbox"],
                     f"selector_{selected['candidate_index']}",
-                    image_output_dir,
+                    selection_output_dir,
                     f"{image_path.stem}_selector",
                 )
                 row["status"] = "success"
@@ -190,8 +198,8 @@ def main() -> int:
             f"detections={row['detection_count']} selected={row['selected_candidate_index']}"
         )
 
-    json_path = output_dir / "bbox_selection_results.json"
-    csv_path = output_dir / "bbox_selection_results.csv"
+    json_path = paths.json_path
+    csv_path = paths.csv_path
     with json_path.open("w", encoding="utf-8") as handle:
         json.dump(rows, handle, ensure_ascii=False, indent=2)
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
@@ -203,8 +211,61 @@ def main() -> int:
             csv_row["selected_bbox"] = json.dumps(row["selected_bbox"])
             writer.writerow(csv_row)
 
+    failure_count = sum(row["status"] == "error" for row in rows)
+    inference_times = [
+        float(row["inference_time"])
+        for row in rows
+        if row["inference_time"] is not None
+    ]
+    selection_times = [
+        float(row["selection_time"])
+        for row in rows
+        if row["selection_time"] is not None
+    ]
+    selector_changed = sum(
+        row["selected_candidate_index"] not in {None, 0} for row in rows
+    )
+    write_run_summary(
+        paths,
+        status="completed" if not failure_count else "partial",
+        input_count=len(rows),
+        success_count=len(rows) - failure_count,
+        failure_count=failure_count,
+        parameters={
+            "prompt": args.prompt,
+            "box_threshold": args.box_threshold,
+            "text_threshold": args.text_threshold,
+            "target_position": args.target_position,
+            "max_detections": args.max_detections,
+        },
+        timing={
+            "average_inference_seconds": (
+                sum(inference_times) / len(inference_times) if inference_times else None
+            ),
+            "average_selection_milliseconds": (
+                1000 * sum(selection_times) / len(selection_times)
+                if selection_times
+                else None
+            ),
+        },
+        runtime={
+            "torch_version": torch.__version__,
+            "transformers_version": transformers.__version__,
+            "cuda_available": torch.cuda.is_available(),
+            "device": detector.device,
+            "selector_changed_top1_count": selector_changed,
+        },
+        output_paths={
+            "results_json": str(json_path),
+            "results_csv": str(csv_path),
+            "detections": str(detection_output_dir),
+            "selected_bbox": str(selection_output_dir),
+        },
+    )
+
     print(f"json_results: {json_path}")
     print(f"csv_results: {csv_path}")
+    print(f"run_summary: {paths.summary_path}")
     return 0 if all(row["status"] != "error" for row in rows) else 1
 
 

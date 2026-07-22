@@ -5,6 +5,9 @@ import sys
 from pathlib import Path
 from time import perf_counter
 
+import torch
+import transformers
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -12,6 +15,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from utils.grounding_detector import DEFAULT_MODEL_ID, GroundingDetector
 from utils.image_annotator import annotate_image
+from utils.output_manager import resolve_run_output, write_run_summary
 
 
 DEFAULT_IMAGE = (
@@ -28,12 +32,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-detections", type=int, default=5)
     parser.add_argument("--model-id", default=DEFAULT_MODEL_ID)
     parser.add_argument("--device", default=None)
-    parser.add_argument("--output-dir", type=Path, default=PROJECT_ROOT / "output" / "grounding")
+    parser.add_argument("--output-dir", type=Path)
     return parser
 
 
 def main() -> int:
     args = build_parser().parse_args()
+    paths = resolve_run_output(
+        "localization",
+        "phase07_grounding_poc",
+        output_dir=args.output_dir,
+        output_root=PROJECT_ROOT / "output",
+    )
     detector = GroundingDetector(model_id=args.model_id, device=args.device)
     inference_started = perf_counter()
     detections = detector.detect(
@@ -63,6 +73,27 @@ def main() -> int:
 
     if not detections:
         print("No object detected; no annotated image was written.")
+        write_run_summary(
+            paths,
+            status="completed",
+            input_count=1,
+            success_count=1,
+            failure_count=0,
+            parameters={
+                "prompt": args.prompt,
+                "box_threshold": args.box_threshold,
+                "text_threshold": args.text_threshold,
+                "max_detections": args.max_detections,
+            },
+            timing={"inference_seconds": inference_time},
+            runtime={
+                "torch_version": torch.__version__,
+                "transformers_version": transformers.__version__,
+                "cuda_available": torch.cuda.is_available(),
+                "device": detector.device,
+            },
+            notes=["No detections; no annotated image was written."],
+        )
         return 0
 
     annotations = [
@@ -77,9 +108,31 @@ def main() -> int:
     output_image = annotate_image(
         image_path=str(args.image),
         annotations=annotations,
-        output_dir=str(args.output_dir),
+        output_dir=str(paths.images_dir),
+    )
+    write_run_summary(
+        paths,
+        status="completed",
+        input_count=1,
+        success_count=1,
+        failure_count=0,
+        parameters={
+            "prompt": args.prompt,
+            "box_threshold": args.box_threshold,
+            "text_threshold": args.text_threshold,
+            "max_detections": args.max_detections,
+        },
+        timing={"inference_seconds": inference_time},
+        runtime={
+            "torch_version": torch.__version__,
+            "transformers_version": transformers.__version__,
+            "cuda_available": torch.cuda.is_available(),
+            "device": detector.device,
+        },
+        output_paths={"annotated_image": output_image},
     )
     print(f"output_image: {output_image}")
+    print(f"run_summary: {paths.summary_path}")
     return 0
 
 

@@ -5,9 +5,10 @@ from typing import Any
 
 import cv2
 
+from utils.output_manager import create_run_output, write_run_summary
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "output" / "annotated"
 
 VALID_STATUSES = {"correct", "error"}
 
@@ -149,7 +150,7 @@ def annotate_image(
 
         output_dir:
             Optional output directory.
-            Defaults to output/annotated/.
+            Defaults to a standard output/vision/annotations/<run_id>/images run.
 
     Returns:
         Absolute path of the annotated image.
@@ -217,17 +218,33 @@ def annotate_image(
         )
         _draw_label(image, label, x1, y1, color)
 
-    target_dir = (
-        Path(output_dir).expanduser().resolve()
-        if output_dir
-        else DEFAULT_OUTPUT_DIR.resolve()
-    )
+    run_paths = None
+    if output_dir:
+        target_dir = Path(output_dir).expanduser().resolve()
+    else:
+        run_paths = create_run_output(
+            "vision",
+            "annotations",
+            output_root=PROJECT_ROOT / "output",
+        )
+        target_dir = run_paths.images_dir
     target_dir.mkdir(parents=True, exist_ok=True)
 
     output_path = target_dir / f"{source_path.stem}_annotated{source_path.suffix}"
 
     if not cv2.imwrite(str(output_path), image):
         raise OSError(f"Failed to write annotated image: {output_path}")
+
+    if run_paths is not None:
+        write_run_summary(
+            run_paths,
+            status="completed",
+            input_count=1,
+            success_count=1,
+            failure_count=0,
+            parameters={"annotation_count": len(annotations)},
+            output_paths={"annotated_image": str(output_path)},
+        )
 
     return str(output_path)
 

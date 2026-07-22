@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import sys
 from pathlib import Path
@@ -15,6 +16,7 @@ import transformers
 
 from utils.grounding_detector import DEFAULT_MODEL_ID
 from utils.localization_pipeline import LocalizationPipeline
+from utils.output_manager import resolve_run_output, write_run_summary
 
 
 DEFAULT_IMAGE = (
@@ -37,13 +39,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=PROJECT_ROOT / "output" / "localization_pipeline",
     )
     return parser
 
 
 def main() -> int:
     args = build_parser().parse_args()
+    paths = resolve_run_output(
+        "pipeline",
+        "localization_pipeline",
+        output_dir=args.output_dir,
+        output_root=PROJECT_ROOT / "output",
+    )
     pipeline = LocalizationPipeline(model_id=args.model_id, device=args.device)
     result = pipeline.localize(
         image_path=str(args.image),
@@ -52,7 +59,60 @@ def main() -> int:
         text_threshold=args.text_threshold,
         target_position=args.target_position,
         max_detections=args.max_detections,
-        output_dir=str(args.output_dir),
+        output_dir=str(paths.images_dir),
+    )
+
+    with paths.json_path.open("w", encoding="utf-8") as handle:
+        json.dump(result, handle, ensure_ascii=False, indent=2)
+    with paths.csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(result))
+        writer.writeheader()
+        writer.writerow(
+            {
+                key: json.dumps(value, ensure_ascii=False)
+                if isinstance(value, (dict, list))
+                else value
+                for key, value in result.items()
+            }
+        )
+
+    failed = result["status"] not in {"success", "no_detection"}
+    write_run_summary(
+        paths,
+        status="failed" if failed else "completed",
+        input_count=1,
+        success_count=0 if failed else 1,
+        failure_count=1 if failed else 0,
+        parameters={
+            "image": str(args.image.expanduser().resolve()),
+            "prompt": args.prompt,
+            "box_threshold": args.box_threshold,
+            "text_threshold": args.text_threshold,
+            "target_position": args.target_position,
+            "max_detections": args.max_detections,
+        },
+        timing={
+            "model_load_seconds": result["model_load_time"],
+            "inference_seconds": result["inference_time"],
+            "selection_milliseconds": (
+                result["selection_time"] * 1000
+                if result["selection_time"] is not None
+                else None
+            ),
+            "total_seconds": result["total_time"],
+        },
+        runtime={
+            "torch_version": torch.__version__,
+            "transformers_version": transformers.__version__,
+            "cuda_available": torch.cuda.is_available(),
+            "device": pipeline.detector.device,
+        },
+        output_paths={
+            "results_json": str(paths.json_path),
+            "results_csv": str(paths.csv_path),
+            "annotated_image": result["annotated_image_path"],
+        },
+        notes=[result["error_message"]] if result["error_message"] else [],
     )
 
     detections = result["all_detections"]
@@ -82,6 +142,9 @@ def main() -> int:
     print(f"inference_time: {result['inference_time']}")
     print(f"selection_time: {result['selection_time']}")
     print(f"output_image: {result['annotated_image_path']}")
+    print(f"results_json: {paths.json_path}")
+    print(f"results_csv: {paths.csv_path}")
+    print(f"run_summary: {paths.summary_path}")
     print(f"status: {result['status']}")
     print(f"error_message: {result['error_message']}")
     return 0 if result["status"] in {"success", "no_detection"} else 1

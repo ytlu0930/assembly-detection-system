@@ -1,3 +1,60 @@
+# 2026/07/22 | Phase 8.1：Output 結構統一與資料集凍結
+
+## 為什麼需要統一 output
+
+Phase 7 Grounding DINO、Phase 8 bbox selector、localization pipeline 與 Vision annotation 原本各自把輸出寫入 `output/` 下不同的硬編碼資料夾，執行批次、結果檔與圖片之間缺少共同 run id。Phase 8.1 新增 `utils/output_manager.py`，以 `YYYYMMDD_HHMMSS` run id、collision-safe 後綴和每次執行的 `run_summary.json` 統一管理未來輸出；使用者明確傳入 `--output-dir` 時仍優先使用該路徑。
+
+舊資料夾保留不動：
+
+- `output/grounding/`：1 file，7,677,395 bytes
+- `output/grounding_experiments/`：14 files，92,170,366 bytes
+- `output/bbox_selection_experiments/`：22 files，174,426,616 bytes
+- `output/localization_pipeline/`：1 file，7,636,366 bytes
+- `output/annotated/`：1 file，7,630,772 bytes
+
+未來預設輸出改為：
+
+- `output/localization/phase07_grounding_poc/<run_id>/`
+- `output/localization/phase07_grounding_experiments/<run_id>/`
+- `output/localization/phase08_bbox_selection/<run_id>/`
+- `output/pipeline/localization_pipeline/<run_id>/`
+- `output/vision/annotations/<run_id>/`
+- `output/dataset_audit/<run_id>/`
+
+`scripts/migrate_legacy_output.py` 已完成 dry-run。五個舊資料夾均為 `planned`，未執行 `--apply`，所以沒有移動、覆蓋或刪除舊輸出。dry-run manifest 位於 `output/pipeline/legacy_output_migration/20260722_164932/migration_manifest.json`。
+
+## 資料集盤點與凍結
+
+- 掃描來源：`input/`、`regression_subset/`
+- 資料集檔案：158（`input` 148；`regression_subset` 10）
+- 合法影像副檔名：156 個 `.jpg`
+- 另有 2 個內容為 JPEG、但副檔名為 `.jpg_` 的檔案；保留原名並列為 invalid
+- correct label：61（其中 59 個有合法影像副檔名）
+- error：97
+- position：12，涵蓋 1 個 step
+- orientation：0，涵蓋 0 個 step
+- missing：36，涵蓋 2 個 step
+- extra：15，涵蓋 2 個 step
+- wrongpart：28，涵蓋 2 個 step
+- unknown `criticalerror`：6，涵蓋 1 個 step；保留原 label，未強制映射
+- 有效檔名：150；無效檔名：8（6 個 unknown label、2 個 unsupported extension）
+- duplicate：12 groups／24 participating files；10 groups 為 expected regression copy，2 groups 為 input 內重複
+- 缺少 correct reference：0
+- 沒有任一 error type 涵蓋至少 3 個 step
+
+目標判定：correct 30 與 error 80 已達成；missing 20 已達成；position 20、orientation 20、extra 20 未達成；wrongpart 沒有附件指定的獨立 target，判定 `not_applicable`；unknown 判定 `unknown`。
+
+正式 freeze manifest：`output/dataset_audit/20260722_170328/freeze_manifest.json`。凍結只建立 SHA-256 不可變基準，沒有修改 Windows 權限，也沒有新增拍攝、重新命名、移動、編輯或刪除來源圖片。Phase 9 仍未開始，SAM 2 未安裝或執行。
+
+## 限制
+
+- 現有命名規則沒有 `orientationerror` 樣本。
+- `criticalerror` 不在本次標準 mapping 中，只能如實列為 unknown。
+- 部分類型只涵蓋一至兩個 step，無法宣稱跨 step coverage。
+- audit 不包含 ground-truth bbox，也不評估 localization IoU。
+
+---
+
 # 2026/07/22 | Phase 8 - BBox Candidate Selector & Localization Pipeline
 
 ## 完成項目
