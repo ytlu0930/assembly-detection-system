@@ -36,6 +36,7 @@ Error type mapping：
 
 完全相同的 SHA-256 才視為 duplicate。分類包括 `expected_regression_copy`、`duplicate_within_input`、`duplicate_within_regression`、`cross_source_duplicate`，不會刪除任何檔案。`freeze_manifest.json` 記錄來源、相對路徑、大小與 SHA-256；freeze 是基準清單，不會鎖定 Windows 權限。
 
+
 ## 2026-07-22 實際結果
 
 - 158 dataset files：input 148、regression subset 10
@@ -49,6 +50,30 @@ Error type mapping：
 - targets：correct 30、error 80、missing 20 已達成；position 20、orientation 20、extra 20 未達成
 
 正式 audit 位於 `output/dataset_audit/20260722_170322/`；正式 freeze 位於 `output/dataset_audit/20260722_170328/`。每個 run 包含 `dataset_inventory.csv`、`dataset_summary.json`、三份異常清單與 `run_summary.json`，freeze run 另含 `freeze_manifest.json`。
+
+### 資料集限制
+
+本研究未建立 Orientation Error 類型資料，因此本次資料集不包含方向錯誤案例。
+
+後續所有實驗與評估僅涵蓋：
+
+- Position Error
+- Missing Part
+- Extra Part
+- Wrong Part
+
+Orientation Error 不列入本次實驗範圍。
+
+### Orientation Error
+
+本次資料集未建立 Orientation Error 樣本。
+
+因此：
+
+- Orientation Count = 0
+- Step Coverage = 0
+
+此結果並非資料遺失或盤點錯誤，而是資料集建立時未納入此類型。
 
 ## 已知限制
 
