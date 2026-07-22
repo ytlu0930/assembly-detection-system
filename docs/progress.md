@@ -1,3 +1,29 @@
+# 2026/07/22 | Phase 8 - BBox Candidate Selector & Localization Pipeline
+
+## 完成項目
+
+- 新增 `utils/bbox_candidate_selector.py`：使用 confidence、position、area、oversized 與 boundary 指標做 deterministic bbox selection。
+- 新增 11 個 selector 單元測試，涵蓋中心偏好、過大框、空 detections、非法 bbox、缺少欄位、`target_position=any` 與 deterministic behavior。
+- 新增 `utils/localization_pipeline.py`，串接既有 `GroundingDetector`、`BBoxCandidateSelector` 與 `image_annotator`。
+- 新增 localization CLI 與 bbox selection batch experiments。
+- 使用專案既有 `venv\Scripts\python.exe` 完成單張 PoC 與 `regression_subset` 10 張比較實驗。
+- JSON、CSV、score-only 圖與 selector 圖輸出至 `output/bbox_selection_experiments/`。
+- 未修改 Vision prompt、Vision schema、`current_state_analyzer.py`、GPT Vision pipeline 或 `main.py`。
+- 未安裝、未執行 SAM 2；未進入 Phase 9。
+
+## 實驗摘要
+
+- 單張 Phase 7 正面影像：top-1 框住接近整體組裝物；selector 選到中央 lime-green rectangular block。
+- 10 張 batch：10/10 執行成功；selector 在 9/10 張選擇不同於 top-1。
+- CPU 平均 inference 約 6.889 s/image；selection 約 0.107 ms/image。
+- 跨視角人工檢視仍有誤選白球、車輪區與背景的案例；目前無 bbox ground truth，未計算 IoU。
+
+## Phase 8 判定
+
+**B**：selector 已改善指定 case，但跨視角仍需要更多標註與視角別 prompt／position／area 規則。Phase 8 到此停止，不進 SAM 2 或 Phase 9。
+
+---
+
 # Day 2 Progress — Structured Comparison Test
 
 日期：2026/05/19
@@ -692,3 +718,118 @@ PoC 判定為 B：Grounding DINO 具備文字引導定位能力，但需加入 b
 3. 使用多張不同角度及不同錯誤類型圖片驗證
 4. 篩選穩定後，再建立獨立 localization pipeline
 5. 若定位目標正確但邊界仍過粗，再評估 SAM 2
+
+# 2026/07/22 | Phase 03 - BBox Candidate Selection Pipeline（完成）
+
+## 一、目標
+
+Grounding DINO 在部分案例中會將最高分 bbox 指向整體組裝物，而非欲定位的積木零件。
+本階段目標為建立 bbox candidate selector，自多個 detections 中挑選較符合目標區域的 bbox，
+改善單純採用 top-1 detection 的定位結果。
+
+
+## 二、實作內容
+
+新增模組：
+
+- utils/bbox_candidate_selector.py
+- utils/localization_pipeline.py
+
+新增測試：
+
+- tests/test_bbox_candidate_selector.py
+- tests/test_localization_pipeline.py
+- tests/run_bbox_selection_experiments.py
+
+新增文件：
+
+- docs/localization_pipeline.md
+
+
+## 三、Selector 規則
+
+目前採用加權評分方式：
+
+- Detection confidence
+- Center position
+- Bounding box area
+
+由 selector 對所有 candidate bbox 重新排序，
+取代直接使用 Grounding DINO top-1 detection。
+
+
+## 四、驗證結果
+
+環境：
+
+- Python 3.12.10
+- PyTorch 2.13.0+cpu
+- CPU inference
+- CUDA unavailable
+
+測試結果：
+
+- Selector unit tests：11 / 11 PASS
+- compileall：PASS
+- CLI smoke test：PASS
+- import smoke test：PASS
+- git diff --check：PASS
+
+Batch Experiment：
+
+- 測試圖片：10 張
+- 成功完成：10 / 10
+- Selector 與 top-1 選擇不同：9 / 10
+
+平均時間：
+
+- Grounding DINO inference：約 6.889 sec / image
+- BBox selection：約 0.107 ms / image
+
+
+## 五、成果
+
+指定 Phase 7 PoC case 可成功由 selector 選出中央 lime-green block，
+改善原先 top-1 偏向整體模型 bbox 的問題。
+
+實驗結果輸出：
+
+- output/bbox_selection_experiments/
+    - bbox_selection_results.json
+    - bbox_selection_results.csv
+    - images/
+
+
+## 六、限制
+
+目前 selector 在部分視角仍可能誤選：
+
+- 白色球體
+- 車輪區域
+- 背景區域
+
+跨視角泛化能力仍不足。
+
+
+## 七、最終評估
+
+Phase 8 評級：B
+
+原因：
+
+- 指定 PoC case 改善明顯。
+- 尚未建立 bbox ground truth。
+- 尚未完成 view-specific prompt 與 position / area 規則。
+- 尚不適合直接整合 SAM 2。
+
+
+## 八、後續規劃（Phase 8.1）
+
+預計完成：
+
+- 建立 bbox ground truth
+- 增加 view-specific prompt
+- 建立 view-specific selection rule
+- IoU / localization accuracy 評估
+
+完成上述項目後，再評估是否進入 Phase 9（SAM 2）。
