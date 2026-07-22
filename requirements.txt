@@ -3,3 +3,7 @@ opencv-python
 Pillow
 jsonschema
 gradio
+torch
+torchvision
+transformers
+accelerate

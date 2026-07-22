@@ -151,6 +151,7 @@ activemq-data/
 .env
 .envrc
 .venv
+.python312/
 env/
 venv/
 ENV/
@@ -219,6 +220,10 @@ __marimo__/
 
 # Project local files
 output/
+logs/
+.cache/
+huggingface/
+groundingdino_cache/
 
 # Large raw outputs
 logs/raw_responses/

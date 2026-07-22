@@ -648,3 +648,47 @@ image_annotator.py
 * 進行全 Pipeline 壓力測試
 * 連續測試 10 張圖片，確認系統穩定性
 * 統計平均、最短與最長 API 回應時間
+
+# 2026/07/22 | Phase 03 - Grounding DINO 文字定位 PoC
+
+## 一、完成項目
+
+- 建立 `utils/grounding_detector.py`
+- 建立單張定位測試 `tests/test_grounding_detector.py`
+- 建立 Prompt × Threshold 實驗工具
+  `tests/run_grounding_experiments.py`
+- 成功串接既有 `utils/image_annotator.py`
+- 完成 5 個 Prompt × 3 組 Threshold，共 15 組實驗
+- 在正式 `project/venv` 補齊 PyTorch 與相關套件
+- 在正式專案環境中成功重現單張測試與完整實驗
+- 未修改既有 Vision Prompt、Schema、Analyzer 與主流程
+- 未建立 localization pipeline
+- 未安裝 SAM 2
+
+## 二、實驗結果
+
+- 模型：Grounding DINO Base
+- 建議 Prompt：
+  `lime green rectangular block in the center`
+- 建議 box threshold：`0.15`
+- 建議 text threshold：`0.10`
+- 正確中央零件候選 score：`0.2183`
+- 15／15 組實驗均正常完成
+- Grounding DINO bbox 可正常交由 `image_annotator.py` 產生標記圖片
+
+## 三、判定
+
+PoC 判定為 B：Grounding DINO 具備文字引導定位能力，但需加入 bbox
+候選篩選機制。
+
+目前最高分 bbox 經常包覆整組積木，因此不能直接取 top-1 detection。
+下一階段應優先研究中心距離、bbox 面積比例與目標位置條件，不需立即
+導入 SAM 2。
+
+## 四、下一步規劃
+
+1. 設計 bbox candidate selector
+2. 比較 score-only 與多條件篩選結果
+3. 使用多張不同角度及不同錯誤類型圖片驗證
+4. 篩選穩定後，再建立獨立 localization pipeline
+5. 若定位目標正確但邊界仍過粗，再評估 SAM 2
