@@ -1,99 +1,11 @@
-# 2026/07/22 | Phase 8.1：Output 結構統一與資料集凍結
-
-## 為什麼需要統一 output
-
-Phase 7 Grounding DINO、Phase 8 bbox selector、localization pipeline 與 Vision annotation 原本各自把輸出寫入 `output/` 下不同的硬編碼資料夾，執行批次、結果檔與圖片之間缺少共同 run id。Phase 8.1 新增 `utils/output_manager.py`，以 `YYYYMMDD_HHMMSS` run id、collision-safe 後綴和每次執行的 `run_summary.json` 統一管理未來輸出；使用者明確傳入 `--output-dir` 時仍優先使用該路徑。
-
-舊資料夾保留不動：
-
-- `output/grounding/`：1 file，7,677,395 bytes
-- `output/grounding_experiments/`：14 files，92,170,366 bytes
-- `output/bbox_selection_experiments/`：22 files，174,426,616 bytes
-- `output/localization_pipeline/`：1 file，7,636,366 bytes
-- `output/annotated/`：1 file，7,630,772 bytes
-
-未來預設輸出改為：
-
-- `output/localization/phase07_grounding_poc/<run_id>/`
-- `output/localization/phase07_grounding_experiments/<run_id>/`
-- `output/localization/phase08_bbox_selection/<run_id>/`
-- `output/pipeline/localization_pipeline/<run_id>/`
-- `output/vision/annotations/<run_id>/`
-- `output/dataset_audit/<run_id>/`
-
-`scripts/migrate_legacy_output.py` 已完成 dry-run。五個舊資料夾均為 `planned`，未執行 `--apply`，所以沒有移動、覆蓋或刪除舊輸出。dry-run manifest 位於 `output/pipeline/legacy_output_migration/20260722_164932/migration_manifest.json`。
-
-## 資料集盤點與凍結
-
-- 掃描來源：`input/`、`regression_subset/`
-- 資料集檔案：158（`input` 148；`regression_subset` 10）
-- 合法影像副檔名：156 個 `.jpg`
-- 另有 2 個內容為 JPEG、但副檔名為 `.jpg_` 的檔案；保留原名並列為 invalid
-- correct label：61（其中 59 個有合法影像副檔名）
-- error：97
-- position：12，涵蓋 1 個 step
-- orientation：0，涵蓋 0 個 step
-- missing：36，涵蓋 2 個 step
-- extra：15，涵蓋 2 個 step
-- wrongpart：28，涵蓋 2 個 step
-- unknown `criticalerror`：6，涵蓋 1 個 step；保留原 label，未強制映射
-- 有效檔名：150；無效檔名：8（6 個 unknown label、2 個 unsupported extension）
-- duplicate：12 groups／24 participating files；10 groups 為 expected regression copy，2 groups 為 input 內重複
-- 缺少 correct reference：0
-- 沒有任一 error type 涵蓋至少 3 個 step
-
-目標判定：correct 30 與 error 80 已達成；missing 20 已達成；position 20、orientation 20、extra 20 未達成；wrongpart 沒有附件指定的獨立 target，判定 `not_applicable`；unknown 判定 `unknown`。
-
-正式 freeze manifest：`output/dataset_audit/20260722_170328/freeze_manifest.json`。凍結只建立 SHA-256 不可變基準，沒有修改 Windows 權限，也沒有新增拍攝、重新命名、移動、編輯或刪除來源圖片。Phase 9 仍未開始，SAM 2 未安裝或執行。
-
-## 限制
-
-- 現有命名規則沒有 `orientationerror` 樣本。
-- `criticalerror` 不在本次標準 mapping 中，只能如實列為 unknown。
-- 部分類型只涵蓋一至兩個 step，無法宣稱跨 step coverage。
-- audit 不包含 ground-truth bbox，也不評估 localization IoU。
-
----
-
-# 2026/07/22 | Phase 8 - BBox Candidate Selector & Localization Pipeline
-
-## 完成項目
-
-- 新增 `utils/bbox_candidate_selector.py`：使用 confidence、position、area、oversized 與 boundary 指標做 deterministic bbox selection。
-- 新增 11 個 selector 單元測試，涵蓋中心偏好、過大框、空 detections、非法 bbox、缺少欄位、`target_position=any` 與 deterministic behavior。
-- 新增 `utils/localization_pipeline.py`，串接既有 `GroundingDetector`、`BBoxCandidateSelector` 與 `image_annotator`。
-- 新增 localization CLI 與 bbox selection batch experiments。
-- 使用專案既有 `venv\Scripts\python.exe` 完成單張 PoC 與 `regression_subset` 10 張比較實驗。
-- JSON、CSV、score-only 圖與 selector 圖輸出至 `output/bbox_selection_experiments/`。
-- 未修改 Vision prompt、Vision schema、`current_state_analyzer.py`、GPT Vision pipeline 或 `main.py`。
-- 未安裝、未執行 SAM 2；未進入 Phase 9。
-
-## 實驗摘要
-
-- 單張 Phase 7 正面影像：top-1 框住接近整體組裝物；selector 選到中央 lime-green rectangular block。
-- 10 張 batch：10/10 執行成功；selector 在 9/10 張選擇不同於 top-1。
-- CPU 平均 inference 約 6.889 s/image；selection 約 0.107 ms/image。
-- 跨視角人工檢視仍有誤選白球、車輪區與背景的案例；目前無 bbox ground truth，未計算 IoU。
-
-## Phase 8 判定
-
-**B**：selector 已改善指定 case，但跨視角仍需要更多標註與視角別 prompt／position／area 規則。Phase 8 到此停止，不進 SAM 2 或 Phase 9。
-
----
-
 # Day 2 Progress — Structured Comparison Test
 
 日期：2026/05/19
 
----
 
-# 今日目標
+## 今日目標
 
 今日主要目標為改善先前 JSON-only comparison 所產生的大量 False Positive 問題，並提升 GPT-4o Vision 對積木組裝狀態的穩定辨識能力。
-
----
-
-# 今日主要修改
 
 ## 一、Comparison Pipeline 重構
 
@@ -118,7 +30,6 @@ Correct Reference Image
 
 以降低 spatial hallucination。
 
----
 
 ## 二、更新 Prompt
 
@@ -135,7 +46,6 @@ prompts/vision_v1_2.txt
 - uncertain handling
 - structured comparison output
 
----
 
 ## 三、更新 test_compare.py
 
@@ -151,9 +61,8 @@ tests/test_compare.py
 - structured JSON output
 - decision level 判定（TP / TN / FP / FN）
 
----
 
-# Structured Comparison Test
+## 四、Structured Comparison Test
 
 Google Sheet：
 
@@ -171,11 +80,10 @@ Day2測試 - Structured Comparison Test
 - Confidence
 - 備註
 
----
 
-## Correct Case 測試結果
+## 五、Correct Case 測試結果
 
-## STEP 1
+### STEP 1
 
 Accuracy：100%
 
@@ -185,9 +93,7 @@ Accuracy：100%
 - 消除 false missingpart
 - 消除 orientation hallucination
 
----
-
-## STEP 2
+### STEP 2
 
 Accuracy：100%
 
@@ -197,9 +103,7 @@ Accuracy：100%
 - side-view hallucination 大幅降低
 - occlusion robustness 提升
 
----
-
-## STEP 3
+### STEP 3
 
 Accuracy：75%
 
@@ -215,9 +119,8 @@ Accuracy：75%
 
 仍可能因拍攝角度差異而產生誤判。
 
----
 
-## Extrapart 測試結果
+## 六、Extrapart 測試結果
 
 測試：
 
@@ -227,23 +130,14 @@ Accuracy：75%
 
 Detection Rate：83.3%
 
-發現：
-
-系統已能穩定察覺異常，但目前仍容易：
+發現：系統已能穩定察覺異常，但目前仍容易：
 
 extrapart → positionerror
 
-代表 GPT 傾向將：
+代表 GPT 傾向將：「新增零件」理解為：「既有零件位置偏移」。
 
-「新增零件」
 
-理解為：
-
-「既有零件位置偏移」。
-
----
-
-## MissingPart 測試結果
+## 七、MissingPart 測試結果
 
 測試：
 
@@ -268,9 +162,8 @@ extrapart → positionerror
 
 occlusion-induced false negative
 
----
 
-## WrongPart 測試結果
+## 八、WrongPart 測試結果
 
 測試：
 
@@ -293,9 +186,9 @@ occlusion-induced false negative
 
 ---
 
-# 今日研究發現
+## 九、今日研究發現
 
-## 1. Reference-guided comparison 有效降低 hallucination
+### 1. Reference-guided comparison 有效降低 hallucination
 
 相較 JSON-only baseline：
 
@@ -304,9 +197,7 @@ occlusion-induced false negative
 - wheel counting error 改善
 - side-view stability 提升
 
----
-
-## 2. Camera Alignment Sensitivity
+### 2. Camera Alignment Sensitivity
 
 當 reference 與 test image 的拍攝角度不完全一致時，仍可能產生：
 
@@ -317,9 +208,7 @@ pseudo-positionerror
 - back view
 - 結構密集區域
 
----
-
-## 3. Part Identity Ambiguity
+### 3. Part Identity Ambiguity
 
 GPT 仍可能混淆：
 
@@ -328,9 +217,8 @@ GPT 仍可能混淆：
 
 代表目前 anomaly type classification 仍需進一步優化。
 
----
 
-# 下一步規劃
+## 十、下一步規劃
 
 預計進行：
 
@@ -341,21 +229,18 @@ GPT 仍可能混淆：
 - camera angle tolerance 改善
 - correction guidance generation
 
----
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
 
 # Day 3 Progress — Vision Pipeline Refactoring
 
 日期：2026/06/26-07/01
 
----
-
-# 今日目標
+## 今日目標
 
 本次主要目標為完成 Vision Pipeline 模組化重構，建立 Prompt、Schema 與 Analyzer 的統一規格，避免各模組使用不同 JSON 格式造成維護困難。
 
----
-
-# 今日主要修改
 
 ## 一、建立 Single Source of Truth
 
@@ -462,9 +347,8 @@ Schema Validation
 
 完成 Vision Pipeline 模組化。
 
----
 
-# 整合測試
+## 五、整合測試
 
 已完成：
 
@@ -487,9 +371,8 @@ Schema Validation
 ↓
 Batch Summary
 
----
 
-# 今日研究發現
+## 六、今日研究發現
 
 目前測試發現：
 
@@ -498,29 +381,33 @@ Batch Summary
 - Confidence 欄位仍需持續優化
 - Error Type Classification Accuracy 仍有提升空間
 
----
 
-# 下一步規劃
+## 七、下一步規劃
 
 - image_annotator.py
 - Prompt 持續微調
 - Pipeline Stress Test
 - evaluate_metrics.py 統計分析
 
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+
 # 2026-07-11 | Phase 03 資料集擴充、標註一致性重構與自動化雙重校對
 
-#### 1. 現狀盤點與核心痛點排解
+## 1. 現狀盤點與核心痛點排解
 * **實拍資料集入庫**：全面導入 `model08_step05` 之實拍測試圖，總計完成 40-50 張高畫質圖像之正名與分類。
 * **發現隱藏架構衝突**：在將「畸形」案例導入資料庫時，及時發現舊版分析代碼（`current_state_analyzer.py`）之 `if-elif` 條件分支與最新版憲法（`schema.json`）存在 Enum 衝突（原代碼缺少對 `criticalerror` 的硬編碼兼容）。
 * **架構對齊評估**：經審視 `current_state_analyzer.py` 第 57 行的 `parse_filename` 動態切字串邏輯後，確認其具備良好的泛用性與遠見，能直接解耦硬編碼，從而順利讓 `criticalerror` 機制「原地復活」，達成 **Schema - 代碼 - 實拍檔名** 100% 鐵三角對齊。
 
-#### 2. 嚴格落實「無底線四/五大口袋」錯誤分類
+## 2. 嚴格落實「無底線四/五大口袋」錯誤分類
 為確保資料集嚴謹度超越審查指標，拒絕向模糊分類妥協，正式將「物料拿錯（`wrongpart`）」與「位置/角度裝錯（`positionerror`）」進行本質上的嚴格剝離：
 * **`wrongpart` (錯件錯誤)**：零件本體錯誤。如「後輪大小輪裝反（`wrongpart-A01`）」。
 * **`positionerror` (位置/方向錯誤)**：零件正確但孔位、角度有誤。如「後側紅桿旋轉90度（`positionerror-B01`）」、「黃色釘子移位至眼睛後方（`positionerror-D01`）」。
 * **變體代號防呆**：採用跳躍式/順延式變體命名（如直接使用 `B01`、`D01`），確保跨資料夾之錯誤特徵唯一性。系統經測試，完全兼容非連續性變體代號。
 
-#### 3. 部署「自動化交叉防呆檢查機制」
+## 3. 部署「自動化交叉防呆檢查機制」
 * 為徹底落實成員 C「確認每張圖標註正確」之 KPI，於根目錄新建並部署 **`generate_mid_report.py`** 終極檢查腳本。
 * **核心邏輯**：腳本全域遞迴掃描 `input/`，強制比對每張圖片的「實際存放資料夾路徑」與其「檔名內嵌標籤（`error_type`）」。
 * **攔截實錄**：首次執行時，腳本成功發揮威力，精準攔截並警報了 12 張手滑誤放至 `wrongpart` 資料夾的 `positionerror` 照片。
@@ -528,9 +415,11 @@ Batch Summary
     1.  **`ground_truth.csv`** (標準標註對照表)
     2.  **`docs/data_status.md`** (中期資料整理報告)
 
-#### 4. Git 雲端同步
+## 4. Git 雲端同步
 * 全數高畫質圖像（約 384.91 MiB）及全自動生成之 CSV、MD 報告，已成功全面 Push 至 GitHub 倉庫 `main` 分支。資料完整性、安全性封印完成。
 * **規格書架構大對齊**：為配合分析代碼（`current_state_analyzer.py`）之讀取路徑，正式將 `expected/model08/` 中的 Step 01~05 規格書內容，完整全選複製並同步至 `ground_truth/model08/` 底下。實現「預期狀態」與「真實答案」的雙胞胎規格合體，徹底消除明天組員 A、B 執行時可能引發的 `FileNotFoundError` 潛在風險。
+
+
 
 # 2026/07/12 | Phase 03 — Pipeline Regression Test & Image Annotator
 
@@ -732,6 +621,11 @@ image_annotator.py
 * 連續測試 10 張圖片，確認系統穩定性
 * 統計平均、最短與最長 API 回應時間
 
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+
 # 2026/07/22 | Phase 03 - Grounding DINO 文字定位 PoC
 
 ## 一、完成項目
@@ -775,6 +669,11 @@ PoC 判定為 B：Grounding DINO 具備文字引導定位能力，但需加入 b
 3. 使用多張不同角度及不同錯誤類型圖片驗證
 4. 篩選穩定後，再建立獨立 localization pipeline
 5. 若定位目標正確但邊界仍過粗，再評估 SAM 2
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
 
 # 2026/07/22 | Phase 03 - BBox Candidate Selection Pipeline（完成）
 
@@ -891,23 +790,10 @@ Batch Experiment：
 
 完成上述項目後，再評估是否進入 SAM 2。
 
-## 2026-07-25 | Phase 8.1 Ground Truth finalization
 
-- Added canonical `data/ground_truth.csv`, generated from the frozen
-  `20260722_170328` inventory.
-- Added centralized taxonomy, deterministic builder, validated loader, and a
-  minimal compatibility adapter for the existing batch comparison contract.
-- Preserved all 158 inventory records with unique source-qualified image IDs:
-  61 correct and 97 errors.
-- Formal counts: missing 36, wrongpart 28, extra 15, position 12,
-  criticalerror 6, orientation 0.
-- Kept `criticalerror` unchanged and in scope because the Vision schema
-  supports it. Kept orientation in the taxonomy but out of scope.
-- Aggregate 30-correct/80-error targets are met; all per-class and three-step
-  coverage targets are not met.
-- No source image, schema, prompt, analyzer, main entry point, or legacy
-  repository-root `ground_truth.csv` was modified.
-- Phase 9 and SAM 2 remain explicitly excluded.
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
 
 # 2026/07/22 | Phase 03 - Output 結構統一與現有資料集盤點凍結
 
@@ -934,6 +820,40 @@ output/
 ├── grounding_experiments/
 └── localization_pipeline/
 ```
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+# 2026/07/22 | Phase 03 - BBox Candidate Selector & Localization Pipeline
+
+## 一、完成項目
+
+- 新增 `utils/bbox_candidate_selector.py`：使用 confidence、position、area、oversized 與 boundary 指標做 deterministic bbox selection。
+- 新增 11 個 selector 單元測試，涵蓋中心偏好、過大框、空 detections、非法 bbox、缺少欄位、`target_position=any` 與 deterministic behavior。
+- 新增 `utils/localization_pipeline.py`，串接既有 `GroundingDetector`、`BBoxCandidateSelector` 與 `image_annotator`。
+- 新增 localization CLI 與 bbox selection batch experiments。
+- 使用專案既有 `venv\Scripts\python.exe` 完成單張 PoC 與 `regression_subset` 10 張比較實驗。
+- JSON、CSV、score-only 圖與 selector 圖輸出至 `output/bbox_selection_experiments/`。
+- 未修改 Vision prompt、Vision schema、`current_state_analyzer.py`、GPT Vision pipeline 或 `main.py`。
+- 未安裝、未執行 SAM 2；未進入 Phase 9。
+
+## 二、實驗摘要
+
+- 單張 Phase 7 正面影像：top-1 框住接近整體組裝物；selector 選到中央 lime-green rectangular block。
+- 10 張 batch：10/10 執行成功；selector 在 9/10 張選擇不同於 top-1。
+- CPU 平均 inference 約 6.889 s/image；selection 約 0.107 ms/image。
+- 跨視角人工檢視仍有誤選白球、車輪區與背景的案例；目前無 bbox ground truth，未計算 IoU。
+
+## 三、判定
+
+**B**：selector 已改善指定 case，但跨視角仍需要更多標註與視角別 prompt／position／area 規則。Phase 8 到此停止，不進 SAM 2 或 Phase 9。
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
 
 # 2026/07/25 | Phase 04 Ground Truth 正式化與 Google Sheets 整理
 
