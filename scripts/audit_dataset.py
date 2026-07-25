@@ -18,18 +18,10 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from utils.output_manager import resolve_run_output, write_run_summary
+from utils.taxonomy import FORMAL_ERROR_TYPES, VIEW_ANGLES, normalize_error_type
 
 
 LEGAL_EXTENSIONS = {".jpg", ".jpeg", ".png"}
-VIEW_ANGLES = {"top", "bottom", "front", "back", "left", "right"}
-ERROR_TYPE_MAP = {
-    "correct": "correct",
-    "positionerror": "position",
-    "orientationerror": "orientation",
-    "missingpart": "missing",
-    "extrapart": "extra",
-    "wrongpart": "wrongpart",
-}
 TARGETS = {
     "correct": 30,
     "error": 80,
@@ -89,8 +81,11 @@ def parse_dataset_filename(path: str | Path) -> dict[str, Any]:
     else:
         label, error_variant = label_field, ""
     label = label.lower()
-    if label not in ERROR_TYPE_MAP:
+    try:
+        error_type = normalize_error_type(label)
+    except ValueError:
         errors.append("unknown_label")
+        error_type = "unknown"
 
     if view_angle not in VIEW_ANGLES:
         errors.append("missing_or_invalid_view_angle")
@@ -99,7 +94,6 @@ def parse_dataset_filename(path: str | Path) -> dict[str, Any]:
     if extension not in LEGAL_EXTENSIONS:
         errors.append("unsupported_extension")
 
-    error_type = ERROR_TYPE_MAP.get(label, "unknown")
     is_error: bool | None = False if label == "correct" else (True if label else None)
     return {
         "filename": file_path.name,
@@ -370,7 +364,7 @@ def audit_dataset(
         row["error_type"] for row in rows if row["is_error"] is True
     )
     coverage: dict[str, Any] = {}
-    for error_type in sorted(set(error_type_counts) | {"position", "orientation", "missing", "extra", "wrongpart", "unknown"}):
+    for error_type in sorted(set(error_type_counts) | set(FORMAL_ERROR_TYPES) | {"unknown"}):
         matching = [row for row in rows if row["error_type"] == error_type]
         model_ids = sorted({row["model_id"] for row in matching if row["model_id"]})
         step_ids = sorted({row["step_id"] for row in matching if row["step_id"]})
@@ -393,6 +387,7 @@ def audit_dataset(
         "missing": error_type_counts.get("missing", 0),
         "extra": error_type_counts.get("extra", 0),
         "wrongpart": error_type_counts.get("wrongpart", 0),
+        "criticalerror": error_type_counts.get("criticalerror", 0),
         "unknown": error_type_counts.get("unknown", 0),
     }
     summary = {
@@ -416,8 +411,8 @@ def audit_dataset(
         "duplicate_file_count": len(duplicate_rows),
         "duplicate_group_count": len(duplicate_groups),
         "missing_reference_count": len(missing_rows),
-        "unknown_label_count": sum(row["label"] not in ERROR_TYPE_MAP for row in rows),
-        "unknown_labels": sorted({row["label"] for row in rows if row["label"] not in ERROR_TYPE_MAP}),
+        "unknown_label_count": sum(row["error_type"] == "unknown" for row in rows),
+        "unknown_labels": sorted({row["label"] for row in rows if row["error_type"] == "unknown"}),
         "target_comparison": {
             "correct_target": 30,
             "error_target": 80,

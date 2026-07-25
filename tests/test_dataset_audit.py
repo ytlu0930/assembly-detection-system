@@ -29,6 +29,7 @@ class DatasetFilenameTests(unittest.TestCase):
             "missingpart": "missing",
             "extrapart": "extra",
             "wrongpart": "wrongpart",
+            "criticalerror": "criticalerror",
         }
         for label, expected in cases.items():
             with self.subTest(label=label):
