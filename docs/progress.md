@@ -933,3 +933,154 @@ output/
 ├── grounding/
 ├── grounding_experiments/
 └── localization_pipeline/
+```
+
+# 2026/07/25 | Phase 04 Ground Truth 正式化與 Google Sheets 整理
+
+## 一、本次完成內容
+
+### Ground Truth 正式化
+
+- 建立正式 Ground Truth：
+  - `data/ground_truth.csv`
+- Ground Truth 共 158 筆，與 frozen dataset 一致。
+- 正式 taxonomy：
+  - correct
+  - position
+  - missing
+  - extra
+  - wrongpart
+  - criticalerror
+  - orientation（0 筆，保留於 taxonomy，不納入本次評估）
+- 建立：
+  - `utils/taxonomy.py`
+  - `utils/ground_truth_loader.py`
+- 建立 Ground Truth 產生器：
+  - `scripts/build_ground_truth.py`
+- 新增 Ground Truth 與 taxonomy 測試。
+- Batch compatibility 驗證通過。
+
+
+### Legacy Ground Truth 版本辨識
+
+確認專案存在兩份 Ground Truth：
+
+- `ground_truth.csv`
+  - Legacy（146 筆）
+- `data/ground_truth.csv`
+  - 正式版本（158 筆）
+
+完成：
+
+- Ground Truth 差異比較
+- Legacy 引用盤點
+- 建立版本說明文件
+
+正式規範：
+
+- `data/ground_truth.csv` 為唯一正式 Ground Truth。
+- 根目錄 `ground_truth.csv` 保留為 Legacy，不作為正式 batch evaluation 使用。
+- image_id 採用包含 split 的專案相對路徑作為唯一識別，避免 regression subset 與 input 發生同名衝突。
+
+
+### Google Sheets 匯入資料建立
+
+新增：
+
+`data/google_sheets_import/`
+
+包含：
+
+- 01_ground_truth.csv
+- 02_dataset_summary.csv
+- 03_step_coverage.csv
+- 04_batch_results_template.csv
+- 05_failure_analysis_template.csv
+
+新增：
+
+- `scripts/export_google_sheets_csv.py`
+
+可直接重新產生 Google Sheets 匯入資料。
+
+
+## 二、Dataset Summary
+
+正式資料集統計：
+
+| 類型 | 數量 |
+|------|-----:|
+| Correct | 61 |
+| Error | 97 |
+| Position | 12 |
+| Orientation | 0 |
+| Missing | 36 |
+| Extra | 15 |
+| Wrongpart | 28 |
+| Criticalerror | 6 |
+
+Step Coverage：
+
+- Position：1
+- Orientation：0（Out of Scope）
+- Missing：2
+- Extra：2
+- Wrongpart：2
+- Criticalerror：1
+
+補充：
+
+- Correct 30 張、Error 80 張目標已達成。
+- 未達成目標為：
+  - Position 未達 20 張
+  - Extra 未達 20 張
+  - 各錯誤類型未完全涵蓋至少 3 個 Step
+- Orientation 為研究未建立之資料類型，不納入本次正式評估。
+
+
+
+## 三、 驗證結果
+
+完成：
+
+- Ground Truth 驗證
+- Batch compatibility
+- Google Sheets CSV 匯出
+- Ground Truth Loader
+- Taxonomy 驗證
+- compileall
+- pytest
+- git diff --check
+
+結果：
+
+- Pytest：49 passed，19 subtests passed
+- compileall：PASS
+- git diff --check：PASS
+- image_id 唯一性：158 / 158
+- Ground Truth SHA-256 驗證通過
+- Frozen dataset SHA-256 驗證通過
+- 所有來源圖片皆未修改。
+
+
+## 四、Git
+
+完成：
+
+- Ground Truth 正式化功能提交
+- Google Sheets 匯出功能提交
+- Dataset Audit taxonomy 更新提交
+
+目前正式版本已同步至 GitHub。
+
+
+## 五、Remaining
+
+待完成：
+
+- Google Sheets 匯入與人工整理
+- Member A 完整 pipeline 整合
+- Backend End-to-End Batch Test
+- Batch Results 建立
+- Failure Analysis
+- 專題論文撰寫與整理
