@@ -1,0 +1,10 @@
+category,image_count,target_count,target_applicable,target_status,evaluation_scope,notes
+correct,61,30,true,achieved,in_scope,Correct target: 30 images.
+position,12,20,true,not_achieved,in_scope,Per-class target: 20 images.
+orientation,0,,false,out_of_scope,out_of_scope,No collected samples; excluded from evaluation.
+missing,36,20,true,achieved,in_scope,Per-class target: 20 images.
+extra,15,20,true,not_achieved,in_scope,Per-class target: 20 images.
+wrongpart,28,,false,not_applicable,in_scope,Formal taxonomy class; no numeric collection target was defined.
+criticalerror,6,,false,not_applicable,in_scope,Retained as its own schema-supported class.
+all_error,97,80,true,achieved,in_scope,All-error target: 80 images.
+all_images,158,,false,not_applicable,in_scope,Includes input and regression_subset records.

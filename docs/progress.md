@@ -891,6 +891,24 @@ Batch Experiment：
 
 完成上述項目後，再評估是否進入 SAM 2。
 
+## 2026-07-25 | Phase 8.1 Ground Truth finalization
+
+- Added canonical `data/ground_truth.csv`, generated from the frozen
+  `20260722_170328` inventory.
+- Added centralized taxonomy, deterministic builder, validated loader, and a
+  minimal compatibility adapter for the existing batch comparison contract.
+- Preserved all 158 inventory records with unique source-qualified image IDs:
+  61 correct and 97 errors.
+- Formal counts: missing 36, wrongpart 28, extra 15, position 12,
+  criticalerror 6, orientation 0.
+- Kept `criticalerror` unchanged and in scope because the Vision schema
+  supports it. Kept orientation in the taxonomy but out of scope.
+- Aggregate 30-correct/80-error targets are met; all per-class and three-step
+  coverage targets are not met.
+- No source image, schema, prompt, analyzer, main entry point, or legacy
+  repository-root `ground_truth.csv` was modified.
+- Phase 9 and SAM 2 remain explicitly excluded.
+
 # 2026/07/22 | Phase 03 - Output 結構統一與現有資料集盤點凍結
 
 ## 一、目標

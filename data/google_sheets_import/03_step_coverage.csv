@@ -1,0 +1,8 @@
+error_type,image_count,covered_step_count,covered_steps,target_step_count,target_applicable,target_status,notes
+correct,61,8,model03-step01; model03-step02; model03-step03; model08-step01; model08-step02; model08-step03; model08-step04; model08-step05,,false,not_applicable,No 3-step coverage target was defined for this category.
+position,12,1,model08-step05,3,true,not_achieved,Target: coverage across at least 3 unique model-step pairs.
+orientation,0,0,,,false,out_of_scope,No collected samples; no coverage target is applied.
+missing,36,2,model03-step03; model08-step05,3,true,not_achieved,Target: coverage across at least 3 unique model-step pairs.
+extra,15,2,model03-step03; model08-step05,3,true,not_achieved,Target: coverage across at least 3 unique model-step pairs.
+wrongpart,28,2,model03-step03; model08-step05,,false,not_applicable,No 3-step coverage target was defined for this category.
+criticalerror,6,1,model08-step05,,false,not_applicable,No 3-step coverage target was defined for this category.

@@ -89,4 +89,18 @@ Orientation Error 不列入本次實驗範圍。
 & .\venv\Scripts\python.exe scripts\audit_dataset.py --freeze
 ```
 
+## Phase 8.1 taxonomy clarification (2026-07-25)
+
+The audit now imports the shared taxonomy in `utils/taxonomy.py`. In particular,
+`criticalerror` is a valid, schema-supported type and is no longer classified
+as `unknown`. The frozen inventory under `20260722_170328` is retained
+unchanged for reproducibility, so its historical `filename_valid` and
+`validation_errors` values still reflect the older audit rule. The formal
+semantic correction is recorded in `data/ground_truth.csv`; no source image or
+frozen audit artifact was rewritten.
+
+`orientation` is retained in the taxonomy but remains out of evaluation scope:
+the current Vision schema has no orientation enum and the frozen dataset
+contains zero orientation samples.
+
 若要驗證資料集是否變更，重新執行 `--freeze`，比較兩個 freeze manifest 的 `total_files`、`total_bytes` 與逐檔 `source_root + relative_path + sha256 + file_size_bytes`。只要任一值不同，就代表凍結基準後來源曾發生變更。

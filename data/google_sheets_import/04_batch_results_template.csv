@@ -1,0 +1,1 @@
+test_date,run_id,image_id,file_name,model_id,step_id,view_angle,gt_is_error,gt_error_type,evaluation_scope,pred_is_error,pred_error_type,confidence,result_class,type_match,localization_success,schema_valid,parse_success,response_time_sec,status,failure_stage,failure_reason,notes
