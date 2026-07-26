@@ -1,6 +1,9 @@
 import os
+import sys
 import platform
 import graphviz
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 def get_system_chinese_font():
     """自動判斷作業系統並回傳對應的中文字型名稱"""
@@ -12,69 +15,162 @@ def get_system_chinese_font():
     else:
         return "WenQuanYi Zen Hei"  # Linux 文泉驛正黑
 
-def generate_flowchart(step_id: str, error_reports: list, output_dir: str = "output/flowcharts/") -> str:
-    """
-    生成積木組裝分析狀態的動態流程圖 (具備中文字型防亂碼機制)
-    :param step_id: 當前步驟 ID
-    :param error_reports: 偵測到的錯誤清單 (空陣列代表完全正確)
-    :param output_dir: 圖片輸出目錄
-    :return: 儲存的圖片路徑
-    """
-    os.makedirs(output_dir, exist_ok=True)
-    font_name = get_system_chinese_font()
-    
-    # 建立有向圖並統一設定中文字型
-    dot = graphviz.Digraph(comment=f'Lego Assembly Pipeline - {step_id}')
-    dot.attr(
-        rankdir='TB', 
-        size='8,8', 
-        fontname=font_name, 
-        node_attr={'fontname': font_name},
-        edge_attr={'fontname': font_name}
-    )
-    
-    # --- 定義節點 (Nodes) ---
-    dot.node('A', '開始分析\n(Image Input)', shape='ellipse', style='filled', fillcolor='lightblue')
-    dot.node('B', 'GPT-4o Vision 分析\n(Structured Output)', shape='box')
-    dot.node('C', 'JSON Schema 驗證\n(Format Check)', shape='box')
-    dot.node('D', '邏輯比對與錯誤偵測\n(Error Detection)', shape='box')
-    
-    # 根據是否有錯誤，決定最後節點的顏色與文字
-    if not error_reports:
-        dot.node('E', '✅ 狀態：完全正確\n(All Correct)', shape='ellipse', style='filled', fillcolor='lightgreen')
-        edge_color = 'green'
-        detect_label = '無錯誤'
-    else:
-        error_text = f'❌ 狀態：偵測到錯誤\n(發現 {len(error_reports)} 個問題)'
-        dot.node('E', error_text, shape='ellipse', style='filled', fillcolor='lightpink')
-        edge_color = 'red'
-        detect_label = '發現錯誤'
+def setup_graphviz_environment():
+    """自動搜尋常見的 Graphviz 安裝路徑並寫入環境變數"""
+    if platform.system() == "Windows":
+        possible_paths = [
+            r"C:\Program Files\Graphviz\bin",
+            r"C:\Program Files (x86)\Graphviz\bin",
+            os.path.expanduser(r"~\AppData\Local\Programs\Graphviz\bin")
+        ]
+        for p in possible_paths:
+            if os.path.exists(p) and p not in os.environ["PATH"]:
+                os.environ["PATH"] += os.pathsep + p
 
-    # --- 定義連線 (Edges) ---
-    dot.edge('A', 'B')
-    dot.edge('B', 'C')
-    dot.edge('C', 'D')
-    dot.edge('D', 'E', label=detect_label, color=edge_color, fontcolor=edge_color)
-
-    # --- 儲存與渲染 ---
-    file_name = f"{step_id}_flowchart"
-    output_path_base = os.path.join(output_dir, file_name)
-    
+def generate_flowchart_matplotlib(step_id: str, error_reports: list, target_path: str) -> bool:
+    """備援機制：當 Graphviz 無法輸出圖片時，使用 Matplotlib 直接繪製流程圖"""
     try:
-        dot.render(output_path_base, format='png', cleanup=True)
-        final_path = f"{output_path_base}.png"
-        print(f"[Agent] ✅ 流程圖已成功生成 (字型: {font_name})：{final_path}")
-        return final_path
-    except graphviz.backend.execute.ExecutableNotFound:
-        print("[錯誤] 系統找不到 Graphviz 執行檔，請確認已安裝 Graphviz 軟體。")
-        return ""
+        font_name = get_system_chinese_font()
+        plt.rcParams['font.sans-serif'] = [font_name, 'DejaVu Sans']
+        plt.rcParams['axes.unicode_minus'] = False
 
-# --- 測試執行 ---
+        fig, ax = plt.subplots(figsize=(7, 9))
+        ax.axis('off')
+
+        # 節點定義 (X, Y, 寬度, 高度, 文字, 顏色, 形狀)
+        nodes = [
+            (0.5, 0.88, 0.65, 0.1, "開始分析\n(Image Input)", "#E1F5FE", "ellipse"),
+            (0.5, 0.70, 0.65, 0.1, "GPT-4o Vision 分析\n(Structured Output)", "#F3E5F5", "box"),
+            (0.5, 0.52, 0.65, 0.1, "JSON Schema 驗證\n(Format Check)", "#E8EAF6", "box"),
+            (0.5, 0.34, 0.65, 0.1, "邏輯比對與錯誤偵測\n(Error Detection)", "#FFF3E0", "box"),
+        ]
+
+        if not error_reports:
+            status_text = "✅ 狀態：完全正確\n(All Correct)"
+            status_color = "#E8F5E9"
+            border_color = "#2E7D32"
+        else:
+            status_text = f"❌ 狀態：偵測到錯誤\n(發現 {len(error_reports)} 個問題)"
+            status_color = "#FFEBEE"
+            border_color = "#C62828"
+
+        nodes.append((0.5, 0.16, 0.65, 0.1, status_text, status_color, "ellipse"))
+
+        # 繪製節點
+        for idx, (x, y, w, h, text, color, shape) in enumerate(nodes):
+            edge_c = border_color if idx == len(nodes)-1 else "#424242"
+            if shape == "ellipse":
+                patch = patches.Ellipse((x, y), w, h, facecolor=color, edgecolor=edge_c, linewidth=1.8)
+            else:
+                patch = patches.FancyBboxPatch((x - w/2, y - h/2), w, h, boxstyle="round,pad=0.02", facecolor=color, edgecolor=edge_c, linewidth=1.5)
+            ax.add_patch(patch)
+            ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color="#212121")
+
+        # 繪製箭頭與標籤
+        for i in range(len(nodes) - 1):
+            y_start = nodes[i][1] - nodes[i][3]/2
+            y_end = nodes[i+1][1] + nodes[i+1][3]/2
+            
+            line_color = border_color if i == len(nodes) - 2 else "#616161"
+            ax.annotate('', xy=(0.5, y_end), xytext=(0.5, y_start),
+                        arrowprops=dict(arrowstyle="->", color=line_color, lw=2))
+            
+            # 最後一條線的標籤（偏移避免重疊）
+            if i == len(nodes) - 2:
+                lbl = "無錯誤" if not error_reports else "發現錯誤"
+                lbl_color = "#2E7D32" if not error_reports else "#C62828"
+                ax.text(0.53, (y_start + y_end) / 2, lbl, color=lbl_color, fontweight='bold', fontsize=10)
+
+        plt.tight_layout()
+        plt.savefig(target_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        return os.path.exists(target_path)
+    except Exception as e:
+        print(f"[錯誤] Matplotlib 繪圖亦失敗: {e}")
+        return False
+
+def generate_flowchart(step_id: str, error_reports: list, output_dir: str = "output/flowcharts") -> str:
+    """
+    生成積木組裝分析狀態的動態流程圖 (視覺優化雙引擎)
+    """
+    setup_graphviz_environment()
+
+    # 確保輸出目錄為絕對路徑
+    abs_output_dir = os.path.abspath(output_dir)
+    os.makedirs(abs_output_dir, exist_ok=True)
+    
+    target_png_path = os.path.join(abs_output_dir, f"{step_id}_flowchart.png")
+    font_name = get_system_chinese_font()
+
+    # 嘗試引擎一：Graphviz Direct Pipe
+    try:
+        dot = graphviz.Digraph(comment=f'Lego Assembly Pipeline - {step_id}')
+        dot.attr(rankdir='TB', size='8,8', dpi='300')
+        
+        # 全域樣式設定
+        dot.attr('node', fontname=font_name, fontsize='11', shape='box', style='filled,rounded', 
+                 color='#424242', fillcolor='#F5F5F5', margin='0.2,0.1')
+        dot.attr('edge', fontname=font_name, fontsize='10', color='#616161', penwidth='1.5')
+
+        # 節點定義
+        dot.node('A', '開始分析\n(Image Input)', shape='ellipse', fillcolor='#E1F5FE', color='#0288D1')
+        dot.node('B', 'GPT-4o Vision 分析\n(Structured Output)', fillcolor='#F3E5F5', color='#7B1FA2')
+        dot.node('C', 'JSON Schema 驗證\n(Format Check)', fillcolor='#E8EAF6', color='#3F51B5')
+        dot.node('D', '邏輯比對與錯誤偵測\n(Error Detection)', fillcolor='#FFF3E0', color='#F57C00')
+
+        if not error_reports:
+            dot.node('E', '✅ 狀態：完全正確\n(All Correct)', shape='ellipse', fillcolor='#E8F5E9', color='#2E7D32', fontcolor='#1B5E20')
+            edge_color = '#2E7D32'
+            detect_label = '  無錯誤  '
+        else:
+            error_text = f'❌ 狀態：偵測到錯誤\n(發現 {len(error_reports)} 個問題)'
+            dot.node('E', error_text, shape='ellipse', fillcolor='#FFEBEE', color='#C62828', fontcolor='#B71C1C')
+            edge_color = '#C62828'
+            detect_label = '  發現錯誤  '
+
+        dot.edge('A', 'B')
+        dot.edge('B', 'C')
+        dot.edge('C', 'D')
+        dot.edge('D', 'E', label=detect_label, color=edge_color, fontcolor=edge_color)
+
+        png_bytes = dot.pipe(format='png')
+        with open(target_png_path, 'wb') as f:
+            f.write(png_bytes)
+
+        if os.path.exists(target_png_path) and os.path.getsize(target_png_path) > 0:
+            print(f"[Agent] ✅ Graphviz 繪圖成功產出 (美化版)：\n👉 {target_png_path}")
+            return target_png_path
+
+    except Exception as e:
+        print(f"[訊息] Graphviz 引擎無法產出圖檔 ({e})，自動切換至 Matplotlib 繪圖引擎...")
+
+    # 嘗試引擎二：Matplotlib 自動接手繪製
+    success = generate_flowchart_matplotlib(step_id, error_reports, target_png_path)
+    if success:
+        print(f"[Agent] ✅ Matplotlib 備援引擎繪圖成功產出 (美化版)：\n👉 {target_png_path}")
+        return target_png_path
+
+    print(f"[錯誤] 無法生成流程圖：{target_png_path}")
+    return ""
+
 if __name__ == "__main__":
-    generate_flowchart("step_01", [])
-    generate_flowchart("step_02", [{"part_id": "P01", "error_type": "positionerror"}])
-```
-eof
-
-### 💡 建議說明：
-更新這個檔案並重新執行後，`graphviz_flowchart.png` 裡面的亂碼方框就會變成清晰的「開始分析」、「GPT-4o Vision 分析」等繁體中文字了！
+    print("=" * 60)
+    print(f"📍 當前 Terminal 執行目錄 (CWD): {os.getcwd()}")
+    print("=" * 60)
+    
+    path1 = generate_flowchart("step_01", [])
+    path2 = generate_flowchart("step_02", [{"part_id": "P01", "error_type": "positionerror"}])
+    
+    target_dir = os.path.abspath("output/flowcharts")
+    print("\n" + "=" * 60)
+    print(f"📂 實體資料夾檢查: {target_dir}")
+    if os.path.exists(target_dir):
+        files = os.listdir(target_dir)
+        print(f"📄 目前資料夾內的檔案數量: {len(files)}")
+        for f in files:
+            file_full = os.path.join(target_dir, f)
+            size = os.path.getsize(file_full)
+            print(f"   └── 🖼️ {f} (檔案大小: {size} bytes)")
+    else:
+        print("❌ 目錄尚未建立！")
+    print("=" * 60)
