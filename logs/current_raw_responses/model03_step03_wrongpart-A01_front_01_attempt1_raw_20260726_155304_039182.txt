@@ -1,0 +1,16 @@
+{
+  "model_id": "model03",
+  "step_id": "step03",
+  "view_angle": "front",
+  "is_error": true,
+  "overall_error_type": "extrapart",
+  "detected_parts": [
+    {
+      "part_id": "unknown_extra_part",
+      "error_type": "extrapart",
+      "description": "An additional green rod with three white eye balls and two red pins is present in the test image but not in the reference image.",
+      "confidence": 0.95
+    }
+  ],
+  "summary": "The test image contains an extra part that is not present in the reference image."
+}

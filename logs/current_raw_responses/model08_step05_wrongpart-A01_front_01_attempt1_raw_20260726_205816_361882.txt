@@ -1,0 +1,16 @@
+{
+  "model_id": "model08",
+  "step_id": "step05",
+  "view_angle": "front",
+  "is_error": true,
+  "overall_error_type": "wrongpart",
+  "detected_parts": [
+    {
+      "part_id": "JOINT_YELLOW_H",
+      "error_type": "wrongpart",
+      "description": "The yellow joint part is incorrect compared to the reference image.",
+      "confidence": 0.9
+    }
+  ],
+  "summary": "The test image contains a wrong part in the assembly."
+}

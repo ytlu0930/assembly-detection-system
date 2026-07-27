@@ -4,123 +4,285 @@ from pathlib import Path
 import gradio as gr
 
 from utils.current_state_analyzer import (
-    analyze_image as vision_analyze_image,
+    analyze_image,
     parse_filename,
-    GROUND_TRUTH_DIR,
     PROJECT_ROOT,
+    GROUND_TRUTH_DIR,
 )
 
-
-def find_reference_image(info):
-    """
-    根據 model_id、step_id 自動找到 correct 參考圖
-    """
-
-    folder = (
-        PROJECT_ROOT
-        / "input"
-        / "normal"
-        / f"{info['model_id']}_{info['step_id']}"
-    )
-
-    if not folder.exists():
-        raise FileNotFoundError(f"找不到資料夾：{folder}")
-
-    extensions = ("*.jpg", "*.jpeg", "*.png")
-
-    for ext in extensions:
-        for img in folder.glob(ext):
-            if "correct" in img.name.lower():
-                return str(img)
-
-    raise FileNotFoundError("找不到 Reference Image")
+# 如果 flowchart_generator.py 在專案根目錄
+from flowchart_generator import generate_flowchart
 
 
-def run_analysis(image_path, step):
-    if image_path is None:
-        return "請先上傳圖片"
+def run_analysis(image, step):
+
+    if image is None:
+        flowchart = generate_flowchart(
+            step_id=step,
+            error_reports=[]
+        )
+
+        return (
+            None,
+            flowchart,
+            "請先上傳圖片",
+            {}
+        )
 
     try:
-        # 顯示提示
-        gr.Info("分析中，請稍候...")
 
+        # ------------------------
         # 解析圖片名稱
-        info = parse_filename(image_path)
+        # ------------------------
 
-        # 找 Reference Image
-        reference_image = find_reference_image(info)
+        info = parse_filename(image)
 
-        # 找 Expected State JSON
+        # ------------------------
+        # Ground Truth JSON
+        # ------------------------
+
         expected_state = (
             GROUND_TRUTH_DIR
             / info["model_id"]
             / f"{info['step_id']}.json"
         )
 
+        # ------------------------
+        # Reference Image
+        # ------------------------
+
+        reference_image = (
+            PROJECT_ROOT
+            / "input"
+            / "normal"
+            / f"{info['model_id']}_{info['step_id']}"
+            / (
+                f"{info['model_id']}_{info['step_id']}"
+                f"_correct-01_{info['view_angle']}_01.jpg"
+            )
+        )
+
+        # ------------------------
+        # Reference 不存在
+        # ------------------------
+
+        if not reference_image.exists():
+
+            flowchart = generate_flowchart(
+                step_id=step,
+                error_reports=[]
+            )
+
+            return (
+                image,
+                flowchart,
+                f"找不到 Reference Image：\n{reference_image}",
+                {}
+            )
+
+        # ------------------------
+        # Ground Truth 不存在
+        # ------------------------
+
+        if not expected_state.exists():
+
+            flowchart = generate_flowchart(
+                step_id=step,
+                error_reports=[]
+            )
+
+            return (
+                image,
+                flowchart,
+                f"找不到 Ground Truth：\n{expected_state}",
+                {}
+            )
+
+        # ------------------------
         # 呼叫 Vision API
-        result = vision_analyze_image(
-            image_path=image_path,
-            reference_image_path=reference_image,
+        # ------------------------
+
+        result = analyze_image(
+            image_path=image,
+            reference_image_path=str(reference_image),
             expected_state_path=str(expected_state),
             filename_info=info,
         )
 
-        if result["success"]:
-            return json.dumps(
-                result["model_response"],
-                ensure_ascii=False,
-                indent=2,
+        # ------------------------
+        # Vision API 失敗
+        # ------------------------
+
+        if not result["success"]:
+
+            flowchart = generate_flowchart(
+                step_id=step,
+                error_reports=[]
             )
 
-        return json.dumps(
-            result,
-            ensure_ascii=False,
-            indent=2,
+            return (
+                image,
+                flowchart,
+                json.dumps(result, ensure_ascii=False, indent=2),
+                {}
+            )
+
+        # ------------------------
+        # Vision 回傳結果
+        # ------------------------
+
+        model = result["model_response"]
+
+        summary = model["summary"]
+
+        confidence = {}
+
+        for part in model["detected_parts"]:
+
+            confidence[part["part_id"]] = part["confidence"]
+
+        # ------------------------
+        # 找出真正錯誤
+        # ------------------------
+
+        error_reports = []
+
+        for part in model["detected_parts"]:
+
+            if part["error_type"] != "correct":
+
+                error_reports.append(
+                    {
+                        "part_id": part["part_id"],
+                        "error_type": part["error_type"],
+                        "confidence": part["confidence"],
+                    }
+                )
+
+        # ------------------------
+        # 產生流程圖
+        # ------------------------
+
+        flowchart = generate_flowchart(
+            step_id=model["step_id"],
+            error_reports=error_reports,
+        )
+
+        # ------------------------
+        # 目前先顯示原圖
+        # (之後再接 image_annotator)
+        # ------------------------
+
+        annotated_image = image
+
+        return (
+            annotated_image,
+            flowchart,
+            summary,
+            confidence,
         )
 
     except Exception as e:
-        return f"❌ 發生錯誤\n\n{e}"
 
+        flowchart = generate_flowchart(
+            step_id=step,
+            error_reports=[]
+        )
 
-demo = gr.Interface(
-    fn=run_analysis,
+        return (
+            image,
+            flowchart,
+            str(e),
+            {}
+        )
+with gr.Blocks(title="積木組裝引導系統") as demo:
 
-    inputs=[
-        gr.Image(
-            type="filepath",
-            label="上傳積木圖片"
-        ),
+    gr.Markdown("# 🧩 積木組裝引導系統")
 
-        gr.Dropdown(
-            choices=[
-                "step_01",
-                "step_02",
-                "step_03",
-                "step_04",
-                "step_05",
-            ],
-            value="step_01",
-            label="目前步驟（暫時保留）"
-        ),
-    ],
+    with gr.Row():
 
-    outputs=gr.Textbox(
-        label="Vision API JSON",
-        lines=20,
-    ),
+        # ==========================
+        # 左側：圖片上傳
+        # ==========================
 
-    title="積木組裝引導系統",
+        with gr.Column(scale=1):
 
-    description="""
-上傳待測圖片後，
-系統會自動：
+            image_input = gr.Image(
+                type="filepath",
+                label="上傳積木圖片",
+            )
 
-1. 解析圖片名稱
-2. 尋找 Reference Image
-3. 載入 Ground Truth JSON
-4. 呼叫 GPT-4o Vision
-5. 顯示 JSON 分析結果
-""",
-)
+            step = gr.Dropdown(
+                choices=[
+                    "step_01",
+                    "step_02",
+                    "step_03",
+                    "step_04",
+                    "step_05",
+                ],
+                value="step_01",
+                label="目前步驟",
+            )
+
+            analyze_btn = gr.Button(
+                "開始分析",
+                variant="primary",
+            )
+
+        # ==========================
+        # 中間：標記圖片
+        # ==========================
+
+        with gr.Column(scale=1):
+
+            annotated_output = gr.Image(
+                label="標記後圖片",
+                interactive=False,
+                height=450,
+            )
+
+        # ==========================
+        # 右側：流程圖
+        # ==========================
+
+        with gr.Column(scale=1):
+
+            flowchart_output = gr.Image(
+                label="流程圖",
+                interactive=False,
+                height=450,
+            )
+
+    gr.Markdown("---")
+
+    with gr.Row():
+
+        with gr.Column(scale=2):
+
+            suggestion_output = gr.Textbox(
+                label="修正建議",
+                lines=8,
+                interactive=False,
+            )
+
+        with gr.Column(scale=1):
+
+            confidence_output = gr.Label(
+                label="信心分數",
+            )
+
+    analyze_btn.click(
+        fn=run_analysis,
+        inputs=[
+            image_input,
+            step,
+        ],
+        outputs=[
+            annotated_output,
+            flowchart_output,
+            suggestion_output,
+            confidence_output,
+        ],
+    )
 
 demo.launch()

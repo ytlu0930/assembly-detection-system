@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "file_info": {
+    "image_name": "model08_step05_wrongpart-A01_front_01.jpg",
+    "relative_path": "C:\\Users\\l0978\\AppData\\Local\\Temp\\gradio\\57a6d00d2dedd3e6f3233ee32c139ed5bee693f9de28e8ad5ae0d723d062a15f\\model08_step05_wrongpart-A01_front_01.jpg",
+    "model_id": "model08",
+    "step_id": "step05",
+    "ground_truth": "wrongpart",
+    "target_part": "A01",
+    "view_angle": "front",
+    "image_index": "01"
+  },
+  "reference_image": {
+    "image_name": "model08_step05_correct-01_front_01.jpg",
+    "relative_path": "input/normal/model08_step05/model08_step05_correct-01_front_01.jpg"
+  },
+  "test_image": {
+    "image_name": "model08_step05_wrongpart-A01_front_01.jpg",
+    "relative_path": "C:\\Users\\l0978\\AppData\\Local\\Temp\\gradio\\57a6d00d2dedd3e6f3233ee32c139ed5bee693f9de28e8ad5ae0d723d062a15f\\model08_step05_wrongpart-A01_front_01.jpg"
+  },
+  "expected_state_path": "ground_truth/model08/step05.json",
+  "model_response": {
+    "model_id": "model08",
+    "step_id": "step05",
+    "view_angle": "front",
+    "is_error": true,
+    "overall_error_type": "wrongpart",
+    "detected_parts": [
+      {
+        "part_id": "JOINT_YELLOW_H",
+        "error_type": "wrongpart",
+        "description": "The yellow joint part is incorrect compared to the reference image.",
+        "confidence": 0.9
+      }
+    ],
+    "summary": "The test image contains a wrong part in the assembly."
+  },
+  "runtime": {
+    "attempt": 1,
+    "response_time_sec": 16.259,
+    "prompt_path": "prompts/vision_v2.txt",
+    "schema_path": "schema/vision_output_schema.json"
+  }
+}

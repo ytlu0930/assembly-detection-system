@@ -1,0 +1,103 @@
+{
+  "id": "chatcmpl-E5nxxVWlRGDwd58uAl6eKPJN19xdP",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"model_id\": \"model03\",\n  \"step_id\": \"step03\",\n  \"view_angle\": \"front\",\n  \"is_error\": true,\n  \"overall_error_type\": \"extrapart\",\n  \"detected_parts\": [\n    {\n      \"part_id\": \"unknown_extra_part\",\n      \"error_type\": \"extrapart\",\n      \"description\": \"An additional green rod with three white eye balls and two red pins is present in the test image but not in the reference image.\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"summary\": \"The test image contains an extra part that is not present in the reference image.\"\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "protected_material_code": {
+          "detected": false,
+          "filtered": false
+        },
+        "protected_material_text": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1785052417,
+  "model": "gpt-4o-2024-11-20",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_6ef6b02e87",
+  "usage": {
+    "completion_tokens": 141,
+    "prompt_tokens": 3186,
+    "total_tokens": 3327,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "latency_checkpoint": {
+      "engine_tbt_ms": 8,
+      "engine_ttft_ms": 320,
+      "engine_ttlt_ms": 1454,
+      "pre_inference_ms": 582,
+      "service_tbt_ms": 8,
+      "service_ttft_ms": 1108,
+      "service_ttlt_ms": 2242,
+      "total_duration_ms": 1716,
+      "user_visible_ttft_ms": 526
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "jailbreak": {
+          "detected": false,
+          "filtered": false
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}
