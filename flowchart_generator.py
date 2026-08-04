@@ -1,9 +1,18 @@
 import os
 import sys
 import platform
-import graphviz
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+try:
+    import graphviz
+except ImportError:  # Matplotlib remains the supported offline fallback.
+    graphviz = None
+try:
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as patches
+except ImportError:  # Pillow fallback below keeps the module usable offline.
+    plt = None
+    patches = None
+from pathlib import Path
+from PIL import Image, ImageDraw
 
 def get_system_chinese_font():
     """自動判斷作業系統並回傳對應的中文字型名稱"""
@@ -104,6 +113,10 @@ def generate_flowchart(step_id: str, error_reports: list, output_dir: str = "out
 
     # 嘗試引擎一：Graphviz Direct Pipe
     try:
+        if plt is None or patches is None:
+            return False
+        if graphviz is None:
+            raise RuntimeError("python-graphviz is not installed")
         dot = graphviz.Digraph(comment=f'Lego Assembly Pipeline - {step_id}')
         dot.attr(rankdir='TB', size='8,8', dpi='300')
         
@@ -152,6 +165,86 @@ def generate_flowchart(step_id: str, error_reports: list, output_dir: str = "out
 
     print(f"[錯誤] 無法生成流程圖：{target_png_path}")
     return ""
+
+
+def generate_sop_flowchart(
+    correction_sop: dict,
+    output_dir: str = "output/flowcharts",
+) -> str:
+    """Generate the optional overview from structured SOP, not Vision JSON.
+
+    This intentionally remains separate from per-step instruction images, which
+    are the primary repair output.
+    """
+    if not isinstance(correction_sop, dict):
+        raise TypeError("correction_sop must be a dictionary")
+    steps = correction_sop.get("steps", [])
+    if not isinstance(steps, list):
+        raise ValueError("correction_sop.steps must be a list")
+
+    output = Path(output_dir).resolve()
+    output.mkdir(parents=True, exist_ok=True)
+    step_id = str(correction_sop.get("source_step_id", "step"))
+    target = output / f"{step_id}_sop_flowchart.png"
+
+    if plt is None or patches is None:
+        width = 1200
+        height = max(360, (len(steps) + 2) * 150)
+        canvas = Image.new("RGB", (width, height), "white")
+        draw = ImageDraw.Draw(canvas)
+        labels = ["START LOCAL REPAIR"]
+        labels.extend(
+            f"STEP {item.get('step_number', index)} - {item.get('action', 'repair')}"
+            for index, item in enumerate(steps, 1) if isinstance(item, dict)
+        )
+        labels.append("VERIFY AGAINST REFERENCE" if steps else "ASSEMBLY CORRECT")
+        for index, label in enumerate(labels):
+            top = 40 + index * 130
+            draw.rounded_rectangle((180, top, 1020, top + 75), radius=20, outline="#424242", width=4, fill="#FFF3E0")
+            draw.text((230, top + 25), label, fill="black")
+            if index < len(labels) - 1:
+                draw.line((600, top + 75, 600, top + 125), fill="#616161", width=5)
+                draw.polygon([(600, top + 125), (585, top + 105), (615, top + 105)], fill="#616161")
+        canvas.save(target)
+        return str(target)
+
+    font_name = get_system_chinese_font()
+    plt.rcParams["font.sans-serif"] = [font_name, "DejaVu Sans"]
+    plt.rcParams["axes.unicode_minus"] = False
+    node_count = max(2, len(steps) + 2)
+    fig_height = max(4.5, node_count * 1.3)
+    fig, ax = plt.subplots(figsize=(9, fig_height))
+    ax.axis("off")
+    labels = ["開始局部修正"]
+    if steps:
+        labels.extend(
+            f"步驟 {item.get('step_number', index)}｜{item.get('action', 'repair')}\n"
+            f"{item.get('instruction', '')}"
+            for index, item in enumerate(steps, 1)
+            if isinstance(item, dict)
+        )
+        labels.append("完成並對照正確參考圖")
+    else:
+        labels.append("組裝正確，無需修正")
+
+    ys = list(reversed([(index + 1) / (len(labels) + 1) for index in range(len(labels))]))
+    for index, (label, y_value) in enumerate(zip(labels, ys)):
+        color = "#E8F5E9" if index in {0, len(labels) - 1} else "#FFF3E0"
+        box = patches.FancyBboxPatch(
+            (0.12, y_value - 0.035), 0.76, 0.07,
+            boxstyle="round,pad=0.012", facecolor=color, edgecolor="#424242", linewidth=1.5,
+        )
+        ax.add_patch(box)
+        ax.text(0.5, y_value, label, ha="center", va="center", fontsize=10)
+        if index < len(labels) - 1:
+            next_y = ys[index + 1]
+            ax.annotate(
+                "", xy=(0.5, next_y + 0.04), xytext=(0.5, y_value - 0.04),
+                arrowprops=dict(arrowstyle="->", color="#616161", lw=1.8),
+            )
+    fig.savefig(target, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+    return str(target)
 
 if __name__ == "__main__":
     print("=" * 60)

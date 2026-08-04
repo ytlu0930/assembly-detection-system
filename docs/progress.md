@@ -1004,3 +1004,15 @@ Step Coverage：
 - Batch Results 建立
 - Failure Analysis
 - 專題論文撰寫與整理
+
+## 2026-08-04 Vision Part / SOP Integration
+
+- GitHub sync confirmed `32375ae` is still `origin/main`; no pull delta.
+- Isolated work is on `mirror-vision-part-sop-integration-20260804`.
+- 2026-07-01 baseline: 58 unique images, error-type accuracy 55/58, affected-part at-least-one hit 8/32, composite full recall 0/16, unknown-part rate 9/43.
+- Production Prompt and Schema were not changed because a controlled paid A/B has not been approved or run.
+- Added a backward-compatible all-parts ErrorReport adapter, structured local-first SOP generator, provider-neutral step prompt/image interfaces, SOP-driven flowchart, full pipeline, and fixed UI adapter contract.
+- Gradio now calls the UI adapter instead of rebuilding reports and flowcharts.
+- Existing API smoke modules now require explicit `--execute`; pytest performs no paid calls.
+- Validation: 66 tests and 19 subtests passed. Representative four-case offline full-pipeline and UI mock smoke tests passed.
+- Remaining: human review of six extrapart views and wrongpart-A01 multiplicity; choose an image provider; approve a small Prompt/Schema A/B before production contract changes.

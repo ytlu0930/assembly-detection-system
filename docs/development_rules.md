@@ -400,3 +400,15 @@ Push 前：確認沒有遺漏重要文件。
 * 每位成員皆可快速理解最新專案狀態
 
 請所有成員遵守以上規範，共同維護專案品質與協作品質。
+
+---
+
+# 十五、完整整合與 UI 規範
+
+* UI 僅可呼叫 `utils.ui_pipeline_adapter`，不可自行讀取 Vision Schema 或 bbox。
+* Vision 輸出先經 `utils.error_report_adapter` 轉為完整 `ErrorReport[]`，不得只取 index 0。
+* bbox 由 localization 回填，不加入 Vision Schema。
+* 修正核心是結構化 SOP 與逐步說明圖片；flowchart 僅為 SOP 總覽。
+* optional stage 失敗須降級回傳，不得丟失已完成的 Vision 與文字 SOP。
+* 單元測試不得在 import/collection 時呼叫付費 API、下載模型或載入 GPU；真實 smoke test 必須顯式 opt-in 並記錄呼叫數。
+* Prompt 或 Schema 升版須先保存 baseline、建立小型 A/B、使用新版本檔案與 backward-compatible adapter，不可直接覆蓋正式契約。

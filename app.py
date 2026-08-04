@@ -1,200 +1,31 @@
-import json
-from pathlib import Path
-
 import gradio as gr
 
-from utils.current_state_analyzer import (
-    analyze_image,
-    parse_filename,
-    PROJECT_ROOT,
-    GROUND_TRUTH_DIR,
-)
-
-# 如果 flowchart_generator.py 在專案根目錄
-from flowchart_generator import generate_flowchart
+from utils.current_state_analyzer import parse_filename
+from utils.ui_pipeline_adapter import run_analysis_for_ui
 
 
 def run_analysis(image, step):
-
     if image is None:
-        flowchart = generate_flowchart(
-            step_id=step,
-            error_reports=[]
-        )
-
-        return (
-            None,
-            flowchart,
-            "請先上傳圖片",
-            {}
-        )
+        return None, None, "請先上傳圖片", {}
 
     try:
-
-        # ------------------------
-        # 解析圖片名稱
-        # ------------------------
-
         info = parse_filename(image)
-
-        # ------------------------
-        # Ground Truth JSON
-        # ------------------------
-
-        expected_state = (
-            GROUND_TRUTH_DIR
-            / info["model_id"]
-            / f"{info['step_id']}.json"
-        )
-
-        # ------------------------
-        # Reference Image
-        # ------------------------
-
-        reference_image = (
-            PROJECT_ROOT
-            / "input"
-            / "normal"
-            / f"{info['model_id']}_{info['step_id']}"
-            / (
-                f"{info['model_id']}_{info['step_id']}"
-                f"_correct-01_{info['view_angle']}_01.jpg"
-            )
-        )
-
-        # ------------------------
-        # Reference 不存在
-        # ------------------------
-
-        if not reference_image.exists():
-
-            flowchart = generate_flowchart(
-                step_id=step,
-                error_reports=[]
-            )
-
-            return (
-                image,
-                flowchart,
-                f"找不到 Reference Image：\n{reference_image}",
-                {}
-            )
-
-        # ------------------------
-        # Ground Truth 不存在
-        # ------------------------
-
-        if not expected_state.exists():
-
-            flowchart = generate_flowchart(
-                step_id=step,
-                error_reports=[]
-            )
-
-            return (
-                image,
-                flowchart,
-                f"找不到 Ground Truth：\n{expected_state}",
-                {}
-            )
-
-        # ------------------------
-        # 呼叫 Vision API
-        # ------------------------
-
-        result = analyze_image(
+        if not all(info.get(key) for key in ("model_id", "step_id", "view_angle")):
+            raise ValueError("圖片檔名無法解析 model、step 或 view angle")
+        result = run_analysis_for_ui(
             image_path=image,
-            reference_image_path=str(reference_image),
-            expected_state_path=str(expected_state),
-            filename_info=info,
+            model_id=info["model_id"],
+            step_id=info["step_id"],
+            view_angle=info["view_angle"],
         )
-
-        # ------------------------
-        # Vision API 失敗
-        # ------------------------
-
-        if not result["success"]:
-
-            flowchart = generate_flowchart(
-                step_id=step,
-                error_reports=[]
-            )
-
-            return (
-                image,
-                flowchart,
-                json.dumps(result, ensure_ascii=False, indent=2),
-                {}
-            )
-
-        # ------------------------
-        # Vision 回傳結果
-        # ------------------------
-
-        model = result["model_response"]
-
-        summary = model["summary"]
-
-        confidence = {}
-
-        for part in model["detected_parts"]:
-
-            confidence[part["part_id"]] = part["confidence"]
-
-        # ------------------------
-        # 找出真正錯誤
-        # ------------------------
-
-        error_reports = []
-
-        for part in model["detected_parts"]:
-
-            if part["error_type"] != "correct":
-
-                error_reports.append(
-                    {
-                        "part_id": part["part_id"],
-                        "error_type": part["error_type"],
-                        "confidence": part["confidence"],
-                    }
-                )
-
-        # ------------------------
-        # 產生流程圖
-        # ------------------------
-
-        flowchart = generate_flowchart(
-            step_id=model["step_id"],
-            error_reports=error_reports,
-        )
-
-        # ------------------------
-        # 目前先顯示原圖
-        # (之後再接 image_annotator)
-        # ------------------------
-
-        annotated_image = image
-
-        return (
-            annotated_image,
-            flowchart,
-            summary,
-            confidence,
-        )
-
-    except Exception as e:
-
-        flowchart = generate_flowchart(
-            step_id=step,
-            error_reports=[]
-        )
-
-        return (
-            image,
-            flowchart,
-            str(e),
-            {}
-        )
+        message = result["correction_text"]
+        if result["warnings"]:
+            message += "\n\n警告：\n" + "\n".join(result["warnings"])
+        if result["error_message"]:
+            message = result["error_message"]
+        return result["annotated_image"], result["flowchart"], message, {"confidence": result["confidence"]}
+    except Exception as exc:
+        return image, None, str(exc), {}
 with gr.Blocks(title="積木組裝引導系統") as demo:
 
     gr.Markdown("# 🧩 積木組裝引導系統")

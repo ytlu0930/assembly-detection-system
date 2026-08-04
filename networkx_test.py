@@ -1,24 +1,16 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+"""Manual NetworkX rendering check; optional dependencies are loaded lazily."""
 
-G = nx.DiGraph()
 
-G.add_edge("開始", "分析圖片")
-G.add_edge("分析圖片", "輸出結果")
+def main() -> int:
+    import matplotlib.pyplot as plt
+    import networkx as nx
+    graph = nx.DiGraph()
+    graph.add_edge("Start", "Analyze image")
+    graph.add_edge("Analyze image", "Output result")
+    nx.draw(graph, nx.spring_layout(graph, seed=1), with_labels=True, node_size=2500, arrows=True)
+    plt.savefig("networkx_flowchart.png")
+    return 0
 
-plt.figure(figsize=(6,4))
 
-pos = nx.spring_layout(G, seed=1)
-
-nx.draw(
-    G,
-    pos,
-    with_labels=True,
-    node_size=2500,
-    font_size=12,
-    arrows=True
-)
-
-plt.savefig("networkx_flowchart.png")
-
-plt.show()
+if __name__ == "__main__":
+    raise SystemExit(main())
