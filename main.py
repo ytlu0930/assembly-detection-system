@@ -1,147 +1,709 @@
-import os
+"""
+main.py
+
+單張圖片的正式完整 Pipeline 入口。
+
+流程
+----
+既有 Vision parsed JSON
+    ↓
+pipeline_smoke_test.process_one()
+    ↓
+results.json
+    ↓
+CorrectionSOPGenerator
+    ↓
+correction_sop.json
+    ↓
+StepPromptBuilderV2
+    ↓
+step_prompts_v2.json
+    ↓
+step_image_generator_v2.py
+    ↓
+generated_steps_v2/
+    ↓
+InstructionBookGenerator
+    ↓
+assembly_instruction_book.png
+
+本程式不再使用舊版 flowchart_generator，也不在 main.py 內直接呼叫 Vision。
+Vision 與 Localization 模組由組員程式負責；本程式負責把它們的既有結果
+串接到 SOP、Prompt、GPT Image 與最終說明書。
+
+單張測試
+--------
+指定 parsed JSON：
+
+python main.py ^
+  --parsed-json "logs\\current_parsed_json\\xxx_parsed_*.json"
+
+只測前處理，不呼叫圖片 API：
+
+python main.py ^
+  --parsed-json "logs\\current_parsed_json\\xxx.json"
+
+做圖片 dry-run：
+
+python main.py ^
+  --parsed-json "logs\\current_parsed_json\\xxx.json" ^
+  --image-dry-run
+
+正式生圖：
+
+python main.py ^
+  --parsed-json "logs\\current_parsed_json\\xxx.json" ^
+  --generate-images ^
+  --allow-manual-review
+
+只測第一個生圖任務：
+
+python main.py ^
+  --parsed-json "logs\\current_parsed_json\\xxx.json" ^
+  --generate-images ^
+  --allow-manual-review ^
+  --image-max-tasks 1
+"""
+
+from __future__ import annotations
+
+import argparse
 import json
-import base64
-from openai import OpenAI, LengthFinishReasonError
+import subprocess
+import sys
+import time
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Optional
 
-# 初始化 OpenAI Client
-# 提醒：請確保環境變數 OPENAI_API_KEY 已設定，或在 .env 檔案中定義
-client = OpenAI()
+from correction_sop_generator import CorrectionSOPGenerator
+from instruction_book_generator import InstructionBookGenerator
+from pipeline_smoke_test import (
+    find_latest_parsed_json,
+    image_stem_from_parsed_json,
+    process_one,
+)
+from step_prompt_builder_v2 import StepPromptBuilderV2
 
-def encode_image(image_path):
-    """將圖片轉換為 base64 格式以供 Vision API 讀取"""
-    try:
-        with open(image_path, "rb") as image_file:
-            return base64.b64encode(image_file.read()).decode('utf-8')
-    except FileNotFoundError:
-        print(f"[錯誤] 找不到圖片檔案: {image_path}")
-        return None
 
-def load_schema(schema_path="schema/schema.json"):
-    """讀取成員 C 定義的 JSON Schema"""
-    try:
-        with open(schema_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"[錯誤] 讀取 Schema 失敗: {e}")
-        return None
+PROJECT_ROOT = Path(__file__).resolve().parent
+DEFAULT_OUTPUT_ROOT = PROJECT_ROOT / "output" / "single_runs"
+STEP_IMAGE_GENERATOR_PATH = PROJECT_ROOT / "step_image_generator_v2.py"
 
-def load_prompt(step_id, prompt_path="prompts/vision_v1.txt"):
-    """讀取成員 A 撰寫的 Prompt 範本，並動態帶入目前的步驟 ID"""
-    try:
-        with open(prompt_path, "r", encoding="utf-8") as f:
-            template = f.read()
-        return template.format(step_id=step_id)
-    except Exception as e:
-        print(f"[錯誤] 讀取 Prompt 失敗: {e}")
-        return "請分析這張積木圖片的組裝狀態。"
 
-def analyze_assembly(image_path, step_id):
-    """
-    實作 Structured Outputs API 呼叫 (取代人工 JSON 驗證重試)
-    使用 client.beta.chat.completions.parse() 確保 100% 符合 Schema
-    """
-    prompt_content = load_prompt(step_id)
-    schema = load_schema()
-    base64_image = encode_image(image_path)
-    
-    if not base64_image or not schema:
-        return None
+@dataclass
+class StageRecord:
+    name: str
+    status: str
+    output_path: Optional[str] = None
+    elapsed_seconds: float = 0.0
+    error_type: Optional[str] = None
+    error_message: Optional[str] = None
 
-    print(f"\n[Agent] 正在啟動 GPT-4o 分析...")
-    print(f"👉 步驟: {step_id}")
-    print(f"👉 視角: 高解析度模式 (detail: high)")
 
-    try:
-        # 核心：使用 parse 確保輸出結構完全符合 schema.json
-        response = client.beta.chat.completions.parse(
-            model="gpt-4o",
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": prompt_content},
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/jpeg;base64,{base64_image}",
-                                "detail": "high"
-                            }
-                        }
-                    ]
-                }
-            ],
-            response_format=schema # 這裡是關鍵！實作 Structured Outputs
+@dataclass
+class PipelineManifest:
+    schema_version: str
+    created_at: str
+    finished_at: Optional[str]
+    parsed_json_path: str
+    image_stem: str
+    output_dir: str
+    generate_images: bool
+    image_dry_run: bool
+    allow_manual_review: bool
+    overwrite: bool
+    status: str
+    final_instruction_path: Optional[str]
+    elapsed_seconds: float
+    stages: list[StageRecord] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+def save_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            indent=2,
+            default=str,
+        ),
+        encoding="utf-8",
+    )
+
+
+def stage_success(
+    name: str,
+    output_path: Optional[Path],
+    started_at: float,
+    *,
+    status: str = "success",
+) -> StageRecord:
+    return StageRecord(
+        name=name,
+        status=status,
+        output_path=str(output_path) if output_path else None,
+        elapsed_seconds=round(time.perf_counter() - started_at, 3),
+    )
+
+
+def stage_failure(
+    name: str,
+    exc: Exception,
+    started_at: float,
+) -> StageRecord:
+    return StageRecord(
+        name=name,
+        status="failed",
+        elapsed_seconds=round(time.perf_counter() - started_at, 3),
+        error_type=type(exc).__name__,
+        error_message=str(exc),
+    )
+
+
+def run_step_image_generator(
+    *,
+    prompts_json_path: Path,
+    output_dir: Path,
+    dry_run: bool,
+    allow_manual_review: bool,
+    overwrite: bool,
+    quality: str,
+    size: str,
+    max_tasks: Optional[int],
+    continue_on_error: bool,
+) -> Path:
+    if not STEP_IMAGE_GENERATOR_PATH.is_file():
+        raise FileNotFoundError(
+            f"step_image_generator_v2.py not found: {STEP_IMAGE_GENERATOR_PATH}"
         )
-        
-        # 取得解析後的結構化物件
-        return response.choices[0].message.parsed
 
-    except LengthFinishReasonError:
-        # 指南要求：捕捉原生 API 例外狀況 (當輸出長度超過 Token 限制時)
-        print("[錯誤] API 輸出長度超過限制，JSON 結構可能不完整。")
-        return None
-    except Exception as e:
-        print(f"[錯誤] 呼叫 API 時發生未知錯誤: {e}")
-        return None
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-def generate_correction_feedback(analysis_result):
-    """
-    成員 A 主責：錯誤偵測與修正建議生成 (PHASE 03)
-    根據 API 回傳結果比對零件狀態並生成中文指示。
-    """
-    if not analysis_result:
-        return "無法取得分析結果，請檢查網路或 API 金鑰。"
+    command = [
+        sys.executable,
+        str(STEP_IMAGE_GENERATOR_PATH),
+        "--prompts-json",
+        str(prompts_json_path),
+        "--output-dir",
+        str(output_dir),
+        "--quality",
+        quality,
+        "--size",
+        size,
+    ]
 
-    detected_parts = getattr(analysis_result, 'detected_parts', [])
-    view_angle = getattr(analysis_result, 'view_angle', '未知')
-    
-    errors = [p for p in detected_parts if p.error_type != "correct"]
-    
-    print(f"\n--- 分析診斷報告 (視角: {view_angle}) ---")
-    
-    if not errors:
-        return "✅ 檢查完成：所有零件組裝正確！請繼續下一個步驟。"
-    
-    feedback = f"❌ 偵測到 {len(errors)} 個組裝問題，請根據以下建議修正：\n"
-    
-    # 對應成員 C 定義的 error_type 進行中文解釋
-    error_mapping = {
-        "missingpart": "缺件",
-        "extrapart": "多件",
-        "positionerror": "位置錯誤",
-        "wrongpart": "零件選用錯誤",
-        "criticalerror": "嚴重錯誤"
-    }
+    if dry_run:
+        command.append("--dry-run")
 
-    for idx, err in enumerate(errors, 1):
-        type_zh = error_mapping.get(err.error_type, err.error_type)
-        detail = f"   {idx}. 零件 [{err.part_id}] ({err.color}): {type_zh}"
-        
-        # 針對特定錯誤類型提供更詳細的指示
-        if err.error_type == "positionerror":
-            detail += f" -> 請確認座標位置 {err.position} 是否正確。"
-        elif err.error_type == "missingpart":
-            detail += " -> 請補上對應的零件。"
-            
-        feedback += detail + "\n"
-        
-    return feedback
+    if allow_manual_review:
+        command.append("--allow-manual-review")
 
-# --- 測試執行 ---
-if __name__ == "__main__":
-    # 這裡可以修改成成員 B 拍好的測試圖路徑
-    TEST_IMAGE_PATH = "dataset/test_sample.jpg" 
-    CURRENT_STEP = "step_01"
+    if overwrite:
+        command.append("--overwrite")
 
-    if os.path.exists(TEST_IMAGE_PATH):
-        # 執行辨識
-        parsed_data = analyze_assembly(TEST_IMAGE_PATH, CURRENT_STEP)
-        
-        # 執行錯誤診斷與修正建議
-        final_feedback = generate_correction_feedback(parsed_data)
-        
-        print("\n[最終回饋給使用者]:")
-        print(final_feedback)
+    if max_tasks is not None:
+        command.extend(["--max-tasks", str(max_tasks)])
+
+    if continue_on_error:
+        command.append("--continue-on-error")
+
+    completed = subprocess.run(
+        command,
+        cwd=PROJECT_ROOT,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+        check=False,
+    )
+
+    stdout_path = output_dir / "main_image_generator_stdout.txt"
+    stderr_path = output_dir / "main_image_generator_stderr.txt"
+
+    stdout_path.write_text(completed.stdout, encoding="utf-8")
+    stderr_path.write_text(completed.stderr, encoding="utf-8")
+
+    if completed.stdout.strip():
+        print(completed.stdout)
+
+    if completed.returncode != 0:
+        error_tail = completed.stderr.strip()[-2500:]
+        raise RuntimeError(
+            "step_image_generator_v2.py failed with "
+            f"exit code {completed.returncode}.\n{error_tail}"
+        )
+
+    manifest_path = output_dir / "generation_manifest_v2.json"
+
+    if not manifest_path.is_file():
+        raise FileNotFoundError(
+            "Image generator completed, but generation_manifest_v2.json "
+            f"was not created: {manifest_path}"
+        )
+
+    return manifest_path
+
+
+def run_pipeline(
+    *,
+    parsed_json_path: str | Path,
+    output_dir: str | Path,
+    generate_images: bool = False,
+    image_dry_run: bool = False,
+    allow_manual_review: bool = False,
+    overwrite: bool = False,
+    image_quality: str = "medium",
+    image_size: str = "1024x1024",
+    image_max_tasks: Optional[int] = None,
+    image_continue_on_error: bool = False,
+    book_columns: int = 1,
+    create_book_with_placeholders: bool = False,
+) -> PipelineManifest:
+    if generate_images and image_dry_run:
+        raise ValueError(
+            "generate_images and image_dry_run cannot both be enabled."
+        )
+
+    parsed_path = Path(parsed_json_path).expanduser().resolve()
+    case_dir = Path(output_dir).expanduser().resolve()
+    case_dir.mkdir(parents=True, exist_ok=True)
+
+    image_stem = image_stem_from_parsed_json(parsed_path)
+    manifest_path = case_dir / "pipeline_manifest.json"
+
+    manifest = PipelineManifest(
+        schema_version="1.0",
+        created_at=datetime.now().astimezone().isoformat(),
+        finished_at=None,
+        parsed_json_path=str(parsed_path),
+        image_stem=image_stem,
+        output_dir=str(case_dir),
+        generate_images=generate_images,
+        image_dry_run=image_dry_run,
+        allow_manual_review=allow_manual_review,
+        overwrite=overwrite,
+        status="running",
+        final_instruction_path=None,
+        elapsed_seconds=0.0,
+        stages=[],
+    )
+
+    pipeline_started = time.perf_counter()
+
+    try:
+        # --------------------------------------------------
+        # Stage 1: 組員既有 Vision JSON + Localization
+        # --------------------------------------------------
+        started = time.perf_counter()
+        try:
+            results_path = process_one(
+                parsed_json_path=parsed_path,
+                output_dir=case_dir,
+                overwrite=overwrite,
+            )
+            manifest.stages.append(
+                stage_success(
+                    "pipeline_smoke_test",
+                    results_path,
+                    started,
+                )
+            )
+        except Exception as exc:
+            manifest.stages.append(
+                stage_failure(
+                    "pipeline_smoke_test",
+                    exc,
+                    started,
+                )
+            )
+            raise
+
+        # --------------------------------------------------
+        # Stage 2: Correction SOP
+        # --------------------------------------------------
+        started = time.perf_counter()
+        sop_path = case_dir / "correction_sop.json"
+
+        try:
+            if sop_path.is_file() and not overwrite:
+                manifest.stages.append(
+                    stage_success(
+                        "correction_sop_generator",
+                        sop_path,
+                        started,
+                        status="existing",
+                    )
+                )
+            else:
+                sop_generator = CorrectionSOPGenerator()
+                sop = sop_generator.generate_from_results(results_path)
+                sop_path, _ = sop_generator.save(sop, case_dir)
+
+                manifest.stages.append(
+                    stage_success(
+                        "correction_sop_generator",
+                        sop_path,
+                        started,
+                    )
+                )
+        except Exception as exc:
+            manifest.stages.append(
+                stage_failure(
+                    "correction_sop_generator",
+                    exc,
+                    started,
+                )
+            )
+            raise
+
+        # --------------------------------------------------
+        # Stage 3: Step Prompt Builder V2
+        # --------------------------------------------------
+        started = time.perf_counter()
+        prompts_path = case_dir / "step_prompts_v2.json"
+
+        try:
+            if prompts_path.is_file() and not overwrite:
+                manifest.stages.append(
+                    stage_success(
+                        "step_prompt_builder_v2",
+                        prompts_path,
+                        started,
+                        status="existing",
+                    )
+                )
+            else:
+                prompt_builder = StepPromptBuilderV2(
+                    block_on_manual_review=not allow_manual_review
+                )
+                package = prompt_builder.build_from_sop(sop_path)
+                prompts_path, _ = prompt_builder.save(package, case_dir)
+
+                manifest.stages.append(
+                    stage_success(
+                        "step_prompt_builder_v2",
+                        prompts_path,
+                        started,
+                    )
+                )
+        except Exception as exc:
+            manifest.stages.append(
+                stage_failure(
+                    "step_prompt_builder_v2",
+                    exc,
+                    started,
+                )
+            )
+            raise
+
+        # --------------------------------------------------
+        # Stage 4: GPT Image 2 / Dry Run
+        # --------------------------------------------------
+        generated_dir = case_dir / "generated_steps_v2"
+
+        if generate_images or image_dry_run:
+            started = time.perf_counter()
+
+            try:
+                image_manifest_path = run_step_image_generator(
+                    prompts_json_path=prompts_path,
+                    output_dir=generated_dir,
+                    dry_run=image_dry_run,
+                    allow_manual_review=allow_manual_review,
+                    overwrite=overwrite,
+                    quality=image_quality,
+                    size=image_size,
+                    max_tasks=image_max_tasks,
+                    continue_on_error=image_continue_on_error,
+                )
+
+                manifest.stages.append(
+                    stage_success(
+                        "step_image_generator_v2",
+                        image_manifest_path,
+                        started,
+                        status="dry_run" if image_dry_run else "success",
+                    )
+                )
+
+            except Exception as exc:
+                manifest.stages.append(
+                    stage_failure(
+                        "step_image_generator_v2",
+                        exc,
+                        started,
+                    )
+                )
+                raise
+        else:
+            manifest.stages.append(
+                StageRecord(
+                    name="step_image_generator_v2",
+                    status="skipped",
+                    output_path=str(generated_dir),
+                    error_message=(
+                        "Image generation disabled. Use --generate-images "
+                        "or --image-dry-run."
+                    ),
+                )
+            )
+
+        # --------------------------------------------------
+        # Stage 5: 一頁式說明書
+        # --------------------------------------------------
+        should_generate_book = (
+            generate_images
+            or create_book_with_placeholders
+            or (generated_dir / "generation_manifest_v2.json").is_file()
+        )
+
+        if should_generate_book:
+            started = time.perf_counter()
+            book_path = case_dir / "assembly_instruction_book.png"
+
+            try:
+                if book_path.is_file() and not overwrite:
+                    manifest.stages.append(
+                        stage_success(
+                            "instruction_book_generator",
+                            book_path,
+                            started,
+                            status="existing",
+                        )
+                    )
+                else:
+                    book_generator = InstructionBookGenerator(
+                        columns=book_columns
+                    )
+                    book_path = book_generator.generate(
+                        prompts_json_path=prompts_path,
+                        output_path=book_path,
+                        overwrite=overwrite,
+                    )
+
+                    manifest.stages.append(
+                        stage_success(
+                            "instruction_book_generator",
+                            book_path,
+                            started,
+                        )
+                    )
+
+                manifest.final_instruction_path = str(book_path)
+
+            except Exception as exc:
+                manifest.stages.append(
+                    stage_failure(
+                        "instruction_book_generator",
+                        exc,
+                        started,
+                    )
+                )
+                raise
+        else:
+            manifest.stages.append(
+                StageRecord(
+                    name="instruction_book_generator",
+                    status="skipped",
+                    error_message=(
+                        "No generated images. Use "
+                        "--create-book-with-placeholders to preview layout."
+                    ),
+                )
+            )
+
+        manifest.status = "success"
+
+    except Exception:
+        manifest.status = "failed"
+
+    finally:
+        manifest.finished_at = (
+            datetime.now()
+            .astimezone()
+            .isoformat()
+        )
+        manifest.elapsed_seconds = round(
+            time.perf_counter() - pipeline_started,
+            3,
+        )
+        save_json(manifest_path, manifest.to_dict())
+
+    return manifest
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Run the complete single-image assembly instruction pipeline."
+        )
+    )
+
+    parser.add_argument(
+        "--parsed-json",
+        type=Path,
+        default=None,
+        help="Path to one existing *_parsed_*.json file.",
+    )
+
+    parser.add_argument(
+        "--image-stem",
+        type=str,
+        default=None,
+        help=(
+            "Find the latest parsed JSON matching this original image stem."
+        ),
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help=(
+            "Case output directory. Default: "
+            "output/single_runs/<image_stem>/"
+        ),
+    )
+
+    parser.add_argument(
+        "--generate-images",
+        action="store_true",
+        help="Actually call gpt-image-2.",
+    )
+
+    parser.add_argument(
+        "--image-dry-run",
+        action="store_true",
+        help="Validate image prompts and paths without calling the API.",
+    )
+
+    parser.add_argument(
+        "--allow-manual-review",
+        action="store_true",
+        help=(
+            "Override generation_allowed=false after manual confirmation."
+        ),
+    )
+
+    parser.add_argument(
+        "--image-quality",
+        choices=["low", "medium", "high", "auto"],
+        default="medium",
+    )
+
+    parser.add_argument(
+        "--image-size",
+        choices=[
+            "1024x1024",
+            "1024x1536",
+            "1536x1024",
+            "auto",
+        ],
+        default="1024x1024",
+    )
+
+    parser.add_argument(
+        "--image-max-tasks",
+        type=int,
+        default=None,
+    )
+
+    parser.add_argument(
+        "--image-continue-on-error",
+        action="store_true",
+    )
+
+    parser.add_argument(
+        "--book-columns",
+        type=int,
+        choices=[1, 2],
+        default=1,
+    )
+
+    parser.add_argument(
+        "--create-book-with-placeholders",
+        action="store_true",
+    )
+
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+    )
+
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+
+    if args.parsed_json is not None:
+        parsed_path = args.parsed_json.expanduser().resolve()
     else:
-        print(f"\n[提示] 核心邏輯已準備就緒！")
-        print(f"請成員 B 將測試照片放入資料夾：{TEST_IMAGE_PATH}")
+        parsed_path = find_latest_parsed_json(
+            image_stem=args.image_stem
+        )
+
+    image_stem = image_stem_from_parsed_json(parsed_path)
+
+    output_dir = (
+        args.output_dir.expanduser().resolve()
+        if args.output_dir is not None
+        else DEFAULT_OUTPUT_ROOT / image_stem
+    )
+
+    manifest = run_pipeline(
+        parsed_json_path=parsed_path,
+        output_dir=output_dir,
+        generate_images=args.generate_images,
+        image_dry_run=args.image_dry_run,
+        allow_manual_review=args.allow_manual_review,
+        overwrite=args.overwrite,
+        image_quality=args.image_quality,
+        image_size=args.image_size,
+        image_max_tasks=args.image_max_tasks,
+        image_continue_on_error=args.image_continue_on_error,
+        book_columns=args.book_columns,
+        create_book_with_placeholders=(
+            args.create_book_with_placeholders
+        ),
+    )
+
+    print("=" * 78)
+    print("SINGLE-IMAGE PIPELINE FINISHED")
+    print("=" * 78)
+    print(f"Image stem:       {manifest.image_stem}")
+    print(f"Status:           {manifest.status}")
+    print(f"Output directory: {manifest.output_dir}")
+    print(f"Final instruction:{manifest.final_instruction_path}")
+    print(f"Elapsed:          {manifest.elapsed_seconds:.1f}s")
+    print("=" * 78)
+
+    for stage in manifest.stages:
+        print(
+            f"{stage.name:<30} "
+            f"{stage.status:<10} "
+            f"{stage.output_path or ''}"
+        )
+        if stage.error_message:
+            print(
+                f"  {stage.error_type}: "
+                f"{stage.error_message}"
+            )
+
+    return 0 if manifest.status == "success" else 1
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except Exception as exc:
+        print(
+            f"[ERROR] {type(exc).__name__}: {exc}",
+            file=sys.stderr,
+        )
+        raise
