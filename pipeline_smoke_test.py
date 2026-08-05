@@ -1,37 +1,51 @@
 """
 pipeline_smoke_test.py
 
-用途：
-1. 不重新呼叫 Azure OpenAI Vision。
-2. 直接讀取組員 B 已產生的 logs/current_parsed_json。
-3. 從 Vision JSON 取得主要錯誤。
-4. 依錯誤類型決定定位測試圖或正確參考圖。
-5. 呼叫 LocalizationPipeline 定位目標區域。
-6. 輸出 results.json、annotated image 與 run_summary.json。
+批次友善版 Vision JSON -> Error-aware Localization 執行入口。
 
-目前用途仍是 Smoke Test：
-只驗證 Vision JSON -> Error-aware Localization -> Output Manager 是否可串接。
-尚未包含 Correction SOP 與 OpenAI 圖片生成。
+重點：
+- 不重新呼叫 Azure OpenAI Vision。
+- 直接讀取 logs/current_parsed_json 中既有的 *_parsed_*.json。
+- process_one(parsed_json_path, output_dir) 可由 batch_pipeline.py 呼叫。
+- 每張圖片使用自己的 output_dir，因此不互相覆蓋。
+- 單獨執行時可指定 --parsed-json；未指定時可用 --image-stem 找最新一份。
 """
 
 from __future__ import annotations
 
+import argparse
 import json
+import re
+import sys
+from dataclasses import asdict, dataclass
+from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 from utils.localization_pipeline import LocalizationPipeline
-from utils.output_manager import create_run_output, write_run_summary
 
 
 ROOT_DIR = Path(__file__).resolve().parent
 PARSED_JSON_DIR = ROOT_DIR / "logs" / "current_parsed_json"
 OUTPUT_ROOT = ROOT_DIR / "output"
+DEFAULT_SINGLE_RUN_ROOT = OUTPUT_ROOT / "single_runs"
 
-TEST_IMAGE_STEM = "model03_step03_missingpart-A01_front_01"
+PARSED_TS_RE = re.compile(r"_parsed_(\d{8})_(\d{6})_(\d+)$")
 
 
-def load_json(path: Path) -> dict[str, Any]:
+@dataclass
+class RunPaths:
+    run_dir: Path
+    results_json: Path
+    run_summary_json: Path
+    annotated_dir: Path
+
+    def to_dict(self) -> dict[str, str]:
+        return {key: str(value) for key, value in asdict(self).items()}
+
+
+def load_json(path: str | Path) -> dict[str, Any]:
+    path = Path(path)
     if not path.is_file():
         raise FileNotFoundError(f"JSON file not found: {path}")
     with path.open("r", encoding="utf-8") as file:
@@ -41,24 +55,50 @@ def load_json(path: Path) -> dict[str, Any]:
     return data
 
 
-def find_latest_parsed_json(image_stem: str) -> Path:
-    pattern = f"{image_stem}_parsed_*.json"
-    files = sorted(
-        PARSED_JSON_DIR.glob(pattern),
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
-    if not files:
-        raise FileNotFoundError(
-            "No parsed JSON matched:\n"
-            f"{PARSED_JSON_DIR / pattern}"
+def save_json(path: str | Path, data: Any) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as file:
+        json.dump(data, file, ensure_ascii=False, indent=2, default=str)
+
+
+def image_stem_from_parsed_json(path: str | Path) -> str:
+    name = Path(path).stem
+    return name.split("_parsed_", 1)[0] if "_parsed_" in name else name
+
+
+def parsed_timestamp_key(path: Path) -> tuple[int, int, int, float]:
+    match = PARSED_TS_RE.search(path.stem)
+    if match:
+        return (
+            int(match.group(1)),
+            int(match.group(2)),
+            int(match.group(3)),
+            path.stat().st_mtime,
         )
-    return files[0]
+    return (0, 0, 0, path.stat().st_mtime)
 
 
-def resolve_project_path(relative_path: str) -> Path:
-    normalized = str(relative_path).replace("\\", "/")
-    path = ROOT_DIR / Path(normalized)
+def find_latest_parsed_json(
+    image_stem: Optional[str] = None,
+    *,
+    parsed_json_dir: Path = PARSED_JSON_DIR,
+) -> Path:
+    parsed_json_dir = parsed_json_dir.expanduser().resolve()
+    if not parsed_json_dir.is_dir():
+        raise FileNotFoundError(f"Parsed JSON directory not found: {parsed_json_dir}")
+
+    pattern = f"{image_stem}_parsed_*.json" if image_stem else "*_parsed_*.json"
+    files = [path for path in parsed_json_dir.glob(pattern) if path.is_file()]
+    if not files:
+        raise FileNotFoundError(f"No parsed JSON matched: {parsed_json_dir / pattern}")
+    return max(files, key=parsed_timestamp_key)
+
+
+def resolve_project_path(path_value: str | Path) -> Path:
+    raw_path = Path(str(path_value).replace("\\", "/"))
+    path = raw_path if raw_path.is_absolute() else ROOT_DIR / raw_path
+    path = path.resolve()
     if not path.is_file():
         raise FileNotFoundError(f"Project file not found: {path}")
     return path
@@ -74,16 +114,14 @@ def resolve_test_image(parsed_result: dict[str, Any]) -> Path:
             "Parsed JSON does not contain test_image.relative_path "
             "or file_info.relative_path."
         )
-    return resolve_project_path(str(relative_path))
+    return resolve_project_path(relative_path)
 
 
 def resolve_reference_image(parsed_result: dict[str, Any]) -> Path:
     relative_path = parsed_result.get("reference_image", {}).get("relative_path")
     if not relative_path:
-        raise KeyError(
-            "Parsed JSON does not contain reference_image.relative_path."
-        )
-    return resolve_project_path(str(relative_path))
+        raise KeyError("Parsed JSON does not contain reference_image.relative_path.")
+    return resolve_project_path(relative_path)
 
 
 def resolve_expected_state(
@@ -91,28 +129,29 @@ def resolve_expected_state(
 ) -> tuple[Path, dict[str, Any]]:
     relative_path = parsed_result.get("expected_state_path")
     if relative_path:
-        expected_path = ROOT_DIR / Path(str(relative_path).replace("\\", "/"))
+        raw = Path(str(relative_path).replace("\\", "/"))
+        expected_path = raw if raw.is_absolute() else ROOT_DIR / raw
     else:
-        file_info = parsed_result.get("file_info", {})
-        model_id = file_info.get("model_id")
-        step_id = file_info.get("step_id")
+        info = parsed_result.get("file_info", {})
+        model_id = info.get("model_id")
+        step_id = info.get("step_id")
         if not model_id or not step_id:
-            raise KeyError(
-                "Cannot infer expected-state path because model_id or step_id is missing."
-            )
-        expected_path = ROOT_DIR / "ground_truth" / model_id / f"{step_id}.json"
-    expected_state = load_json(expected_path)
-    return expected_path, expected_state
+            raise KeyError("Cannot infer expected-state path: model_id or step_id missing.")
+        expected_path = ROOT_DIR / "ground_truth" / str(model_id) / f"{step_id}.json"
+
+    expected_path = expected_path.resolve()
+    return expected_path, load_json(expected_path)
 
 
-def extract_error_parts(
-    parsed_result: dict[str, Any],
-) -> list[dict[str, Any]]:
-    detected_parts = (
-        parsed_result.get("model_response", {}).get("detected_parts", [])
-    )
+def extract_error_parts(parsed_result: dict[str, Any]) -> list[dict[str, Any]]:
+    model_response = parsed_result.get("model_response", {})
+    if not isinstance(model_response, dict):
+        raise TypeError("model_response must be a JSON object.")
+
+    detected_parts = model_response.get("detected_parts", [])
     if not isinstance(detected_parts, list):
         raise TypeError("model_response.detected_parts must be a list.")
+
     return [
         part
         for part in detected_parts
@@ -121,17 +160,32 @@ def extract_error_parts(
     ]
 
 
+def choose_primary_error(
+    error_parts: list[dict[str, Any]],
+) -> Optional[dict[str, Any]]:
+    if not error_parts:
+        return None
+
+    def score(part: dict[str, Any]) -> float:
+        try:
+            return float(part.get("confidence", 0.0))
+        except (TypeError, ValueError):
+            return 0.0
+
+    return max(error_parts, key=score)
+
+
 def find_expected_part(
     expected_state: dict[str, Any],
     part_id: str,
-) -> dict[str, Any] | None:
+) -> Optional[dict[str, Any]]:
     for part in expected_state.get("expected_parts", []):
-        if isinstance(part, dict) and part.get("part_id") == part_id:
+        if isinstance(part, dict) and str(part.get("part_id", "")) == part_id:
             return part
     return None
 
 
-def convert_target_position(position: str | None) -> str:
+def convert_target_position(position: Optional[str]) -> str:
     mapping = {
         "LEFT": "left",
         "RIGHT": "right",
@@ -146,8 +200,36 @@ def convert_target_position(position: str | None) -> str:
     return mapping.get(str(position).upper(), "center")
 
 
+def load_part_library() -> dict[str, list[str]]:
+    path = ROOT_DIR / "config" / "part_library.json"
+    if not path.is_file():
+        return {}
+    payload = load_json(path)
+    return {
+        str(part_id): [str(alias) for alias in aliases]
+        if isinstance(aliases, list)
+        else [str(aliases)]
+        for part_id, aliases in payload.items()
+    }
+
+
+PART_LIBRARY = load_part_library()
+
+
+def contains_chinese(text: str) -> bool:
+    return any("\u4e00" <= char <= "\u9fff" for char in text)
+
+
 def readable_part_prompt(part_id: str) -> str:
-    aliases = {
+    english_aliases = [
+        alias.strip()
+        for alias in PART_LIBRARY.get(part_id, [])
+        if alias.strip() and not contains_chinese(alias)
+    ]
+    if english_aliases:
+        return max(english_aliases, key=lambda value: (len(value.split()), len(value)))
+
+    fallback = {
         "EYE_BALL": "white ball with black pupil",
         "JOINT_BLUE_Y": "blue Y shaped joint",
         "PLATE_BLUE_TRIANGLE": "blue triangular plate",
@@ -158,16 +240,17 @@ def readable_part_prompt(part_id: str) -> str:
         "WHEEL_BLUE_LARGE": "large blue wheel",
         "WHEEL_BLUE_SMALL": "small blue wheel",
         "ROD_GREEN_LONG": "long green rod",
-        "PIN_RED_SHORT": "short red pin",
-        "BLOCK_GREEN_4HOLE_2PEG": "green rectangular four hole block",
+        "PIN_RED_SHORT": "short red cylinder pin",
+        "BLOCK_GREEN_4HOLE_2PEG": "green rectangular four hole block with two pegs",
         "LINK_RED_3HOLE": "red three hole link",
         "LINK_GREEN_5HOLE": "green five hole link",
         "LINK_BLUE_5HOLE": "blue five hole link",
     }
-    return aliases.get(part_id, part_id.replace("_", " ").lower())
+    return fallback.get(part_id, part_id.replace("_", " ").lower())
 
 
 def choose_localization_strategy(
+    *,
     error_part: dict[str, Any],
     test_image_path: Path,
     reference_image_path: Path,
@@ -193,14 +276,15 @@ def choose_localization_strategy(
         }
 
     if error_type == "extrapart":
-        if part_id and not part_id.startswith("unknown"):
-            prompt = part_prompt
-        else:
-            prompt = "extra construction toy part"
+        prompt = (
+            part_prompt
+            if part_id and not part_id.startswith("unknown")
+            else description or "extra construction toy part"
+        )
         return {
             "image_path": str(test_image_path),
             "prompt": prompt,
-            "target_position": "center",
+            "target_position": target_position,
             "localization_role": "test_extra_part_location",
             "expected_part": expected_part,
         }
@@ -226,60 +310,102 @@ def choose_localization_strategy(
             if part_id and not part_id.startswith("unknown")
             else description or "incorrect construction toy part"
         ),
-        "target_position": "center",
+        "target_position": target_position,
         "localization_role": "uncertain",
         "expected_part": expected_part,
     }
 
 
-def save_json(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as file:
-        json.dump(data, file, ensure_ascii=False, indent=2)
+def create_run_paths(output_dir: str | Path) -> RunPaths:
+    run_dir = Path(output_dir).expanduser().resolve()
+    annotated_dir = run_dir / "images" / "annotated"
+    annotated_dir.mkdir(parents=True, exist_ok=True)
+    return RunPaths(
+        run_dir=run_dir,
+        results_json=run_dir / "results.json",
+        run_summary_json=run_dir / "run_summary.json",
+        annotated_dir=annotated_dir,
+    )
 
 
-def main() -> None:
-    print("RUNNING ERROR-AWARE PIPELINE SMOKE TEST")
-    print(f"FILE: {Path(__file__).resolve()}")
+def write_run_summary(
+    *,
+    paths: RunPaths,
+    parsed_json_path: Path,
+    image_stem: str,
+    success: bool,
+    error_parts: list[dict[str, Any]],
+    localization_strategy: dict[str, Any],
+    localization_result: dict[str, Any],
+    notes: Optional[list[str]] = None,
+) -> None:
+    payload = {
+        "schema_version": "1.0",
+        "created_at": datetime.now().astimezone().isoformat(),
+        "status": "completed" if success else "partial",
+        "source": "current_parsed_json",
+        "image_stem": image_stem,
+        "parsed_json_path": str(parsed_json_path),
+        "success": success,
+        "error_part_count": len(error_parts),
+        "parameters": {
+            "localization_role": localization_strategy.get("localization_role"),
+            "target_position": localization_strategy.get("target_position"),
+            "localization_prompt": localization_strategy.get("prompt"),
+        },
+        "outputs": {
+            "results_json": str(paths.results_json),
+            "annotated_image": localization_result.get("annotated_image_path"),
+        },
+        "notes": notes or [],
+    }
+    save_json(paths.run_summary_json, payload)
 
-    parsed_json_path = find_latest_parsed_json(TEST_IMAGE_STEM)
 
-    print("=" * 70)
-    print("1. Load existing Vision JSON")
-    print("=" * 70)
-    print(f"Parsed JSON: {parsed_json_path}")
+def process_one(
+    parsed_json_path: str | Path,
+    output_dir: str | Path,
+    *,
+    box_threshold: float = 0.15,
+    text_threshold: float = 0.10,
+    max_detections: int = 10,
+    device: str = "auto",
+    overwrite: bool = False,
+) -> Path:
+    """處理一份既有 Vision parsed JSON，回傳 results.json 路徑。"""
+    parsed_path = Path(parsed_json_path).expanduser().resolve()
+    paths = create_run_paths(output_dir)
 
-    parsed_result = load_json(parsed_json_path)
-    if not parsed_result.get("success", False):
-        raise RuntimeError(
-            "The selected parsed JSON is not a successful Vision result."
-        )
+    if paths.results_json.is_file() and not overwrite:
+        print(f"[INFO] Existing results found; skipped: {paths.results_json}")
+        return paths.results_json
+
+    parsed_result = load_json(parsed_path)
+    if not bool(parsed_result.get("success", False)):
+        raise RuntimeError("The selected parsed JSON is not a successful Vision result.")
 
     model_response = parsed_result.get("model_response", {})
-    print(json.dumps(model_response, ensure_ascii=False, indent=2))
+    if not isinstance(model_response, dict):
+        raise TypeError("model_response must be a JSON object.")
 
     test_image_path = resolve_test_image(parsed_result)
     reference_image_path = resolve_reference_image(parsed_result)
     expected_state_path, expected_state = resolve_expected_state(parsed_result)
 
-    output_paths = create_run_output(
-        category="pipeline",
-        experiment="error_aware_localization_smoke_test",
-        output_root=OUTPUT_ROOT,
-        image_subdirs=["annotated"],
-    )
-
     error_parts = extract_error_parts(parsed_result)
-    localization_result: dict[str, Any] = {}
+    primary_error = choose_primary_error(error_parts)
+
     localization_strategy: dict[str, Any] = {}
+    localization_result: dict[str, Any] = {}
 
-    if not error_parts:
-        print("=" * 70)
-        print("No error detected; localization skipped.")
-        print("=" * 70)
+    if primary_error is None:
+        localization_result = {
+            "status": "skipped",
+            "reason": "no_error_parts",
+            "annotated_image_path": None,
+            "error_message": None,
+        }
     else:
-        primary_error = error_parts[0]
-
         localization_strategy = choose_localization_strategy(
             error_part=primary_error,
             test_image_path=test_image_path,
@@ -292,88 +418,136 @@ def main() -> None:
         target_position = str(localization_strategy["target_position"])
 
         print("=" * 70)
-        print("2. Error-aware Localization")
+        print("Error-aware localization")
         print("=" * 70)
-        print(f"Error type: {primary_error.get('error_type')}")
-        print("Localization role:", localization_strategy["localization_role"])
-        print(f"Test image: {test_image_path}")
-        print(f"Reference image: {reference_image_path}")
-        print(f"Localization image: {localization_image}")
-        print(f"Prompt: {localization_prompt}")
-        print(f"Target position: {target_position}")
+        print(f"Parsed JSON:       {parsed_path}")
+        print(f"Primary part:      {primary_error.get('part_id')}")
+        print(f"Error type:        {primary_error.get('error_type')}")
+        print(f"Localization image:{localization_image}")
+        print(f"Prompt:            {localization_prompt}")
+        print(f"Target position:   {target_position}")
 
-        localization_pipeline = LocalizationPipeline(device="auto")
-
-        localization_result = localization_pipeline.localize(
+        pipeline = LocalizationPipeline(device=device)
+        localization_result = pipeline.localize(
             image_path=str(localization_image),
             text_prompt=localization_prompt,
-            box_threshold=0.15,
-            text_threshold=0.10,
+            box_threshold=box_threshold,
+            text_threshold=text_threshold,
             target_position=target_position,
-            max_detections=10,
-            output_dir=str(output_paths.image_subdirs["annotated"]),
+            max_detections=max_detections,
+            output_dir=str(paths.annotated_dir),
         )
+        if not isinstance(localization_result, dict):
+            raise TypeError("LocalizationPipeline.localize() must return a dict.")
 
-        localization_result["localization_role"] = localization_strategy[
+        localization_result["localization_role"] = localization_strategy.get(
             "localization_role"
-        ]
+        )
         localization_result["localization_source_image"] = str(localization_image)
         localization_result["localization_prompt"] = localization_prompt
         localization_result["target_position"] = target_position
 
-        print(json.dumps(localization_result, ensure_ascii=False, indent=2))
-
     payload = {
-        "parsed_json_path": str(parsed_json_path),
+        "schema_version": "1.1",
+        "source_mode": "existing_parsed_json",
+        "parsed_json_path": str(parsed_path),
+        "image_stem": image_stem_from_parsed_json(parsed_path),
         "test_image_path": str(test_image_path),
         "reference_image_path": str(reference_image_path),
         "expected_state_path": str(expected_state_path),
         "vision_result": parsed_result,
+        "model_response": model_response,
         "error_parts": error_parts,
+        "primary_error": primary_error,
         "localization_strategy": localization_strategy,
         "localization": localization_result,
     }
+    save_json(paths.results_json, payload)
 
-    save_json(output_paths.json_path, payload)
+    localization_status = str(localization_result.get("status", "unknown"))
+    success = primary_error is None or localization_status in {
+        "success",
+        "no_detection",
+        "skipped",
+    }
 
-    localization_status = (
-        localization_result.get("status") if error_parts else "skipped"
-    )
-    success = (
-        not error_parts
-        or localization_status in {"success", "no_detection"}
-    )
+    notes: list[str] = []
+    if localization_result.get("error_message"):
+        notes.append(str(localization_result["error_message"]))
+    if len(error_parts) > 1:
+        notes.append(
+            "Multiple error parts were present; localization used the highest-confidence part."
+        )
 
     write_run_summary(
-        output_paths,
-        status="completed" if success else "partial",
-        input_count=1,
-        success_count=1 if success else 0,
-        failure_count=0 if success else 1,
-        parameters={
-            "source": "current_parsed_json",
-            "test_image_stem": TEST_IMAGE_STEM,
-            "box_threshold": 0.15,
-            "text_threshold": 0.10,
-            "localization_role": localization_strategy.get("localization_role"),
-            "target_position": localization_strategy.get("target_position"),
-        },
-        output_paths={
-            "results_json": str(output_paths.json_path),
-            "annotated_image": localization_result.get("annotated_image_path"),
-        },
-        notes=(
-            [localization_result["error_message"]]
-            if localization_result.get("error_message")
-            else []
-        ),
+        paths=paths,
+        parsed_json_path=parsed_path,
+        image_stem=image_stem_from_parsed_json(parsed_path),
+        success=success,
+        error_parts=error_parts,
+        localization_strategy=localization_strategy,
+        localization_result=localization_result,
+        notes=notes,
     )
 
     print("=" * 70)
-    print("Smoke test finished")
-    print(f"Output: {output_paths.run_dir}")
+    print("Pipeline smoke test finished")
+    print(f"Results JSON: {paths.results_json}")
+    print(f"Run summary:  {paths.run_summary_json}")
     print("=" * 70)
+    return paths.results_json
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Run localization from an existing Vision parsed JSON."
+    )
+    parser.add_argument("--parsed-json", type=Path, default=None)
+    parser.add_argument("--image-stem", type=str, default=None)
+    parser.add_argument("--parsed-json-dir", type=Path, default=PARSED_JSON_DIR)
+    parser.add_argument("--output-dir", type=Path, default=None)
+    parser.add_argument("--box-threshold", type=float, default=0.15)
+    parser.add_argument("--text-threshold", type=float, default=0.10)
+    parser.add_argument("--max-detections", type=int, default=10)
+    parser.add_argument("--device", default="auto")
+    parser.add_argument("--overwrite", action="store_true")
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+
+    if args.parsed_json is not None:
+        parsed_path = args.parsed_json.expanduser().resolve()
+    else:
+        parsed_path = find_latest_parsed_json(
+            image_stem=args.image_stem,
+            parsed_json_dir=args.parsed_json_dir,
+        )
+
+    image_stem = image_stem_from_parsed_json(parsed_path)
+    output_dir = (
+        args.output_dir.expanduser().resolve()
+        if args.output_dir is not None
+        else DEFAULT_SINGLE_RUN_ROOT / image_stem
+    )
+
+    result_path = process_one(
+        parsed_json_path=parsed_path,
+        output_dir=output_dir,
+        box_threshold=args.box_threshold,
+        text_threshold=args.text_threshold,
+        max_detections=args.max_detections,
+        device=args.device,
+        overwrite=args.overwrite,
+    )
+    print(f"[SUCCESS] {result_path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        raise SystemExit(main())
+    except Exception as exc:
+        print(f"[ERROR] {type(exc).__name__}: {exc}", file=sys.stderr)
+        raise
