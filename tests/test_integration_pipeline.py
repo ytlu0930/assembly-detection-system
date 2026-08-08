@@ -4,6 +4,7 @@ from pathlib import Path
 from PIL import Image
 
 from utils.integration_pipeline import run_full_pipeline
+from utils.openai_image_provider import DISABLED_MESSAGE, OpenAIImageProvider
 
 
 def _inputs(tmp_path):
@@ -55,3 +56,29 @@ def test_correct_case_has_no_repair_steps(tmp_path):
     result = run_full_pipeline(str(test), str(reference), str(expected), "model03", "step03", "front", analysis_result=_analysis([], "correct"), localizer=lambda **kwargs: {}, generate_flowchart=False, output_dir=tmp_path / "out")
     assert result["error_reports"] == []
     assert result["correction_sop"]["steps"] == []
+
+
+def test_disabled_openai_provider_preserves_text_outputs(tmp_path):
+    test, reference, expected = _inputs(tmp_path)
+    result = run_full_pipeline(
+        str(test), str(reference), str(expected), "model03", "step03", "front",
+        analysis_result=_analysis(), localizer=lambda **kwargs: {"selected_bbox": None},
+        image_provider=OpenAIImageProvider(), generate_flowchart=False, output_dir=tmp_path / "out",
+    )
+    steps = result["correction_sop"]["steps"]
+    assert result["success"] is True and steps
+    assert steps[0]["image_generation_status"] == "disabled"
+    assert all(step["generated_image"] is None for step in steps)
+    assert any(DISABLED_MESSAGE in warning for warning in result["warnings"])
+
+
+def test_pipeline_named_provider_remains_disabled_without_execute_flag(tmp_path):
+    test, reference, expected = _inputs(tmp_path)
+    result = run_full_pipeline(
+        str(test), str(reference), str(expected), "model03", "step03", "front",
+        analysis_result=_analysis(), localizer=lambda **kwargs: {"selected_bbox": None},
+        step_image_provider="openai", execute_image_api=False,
+        generate_flowchart=False, output_dir=tmp_path / "out",
+    )
+    assert result["success"] is True
+    assert result["correction_sop"]["steps"][0]["image_generation_status"] == "disabled"

@@ -123,7 +123,32 @@ class CorrectionSOP:
     warnings: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        payload = asdict(self)
+        normalized_steps = []
+        targets: list[str] = []
+        for raw in payload["correction_plan"]:
+            part_id = raw.get("target_part_id")
+            affected = [value for value in str(part_id).split("|") if value] if part_id else []
+            for value in affected:
+                if value not in targets:
+                    targets.append(value)
+            raw.update({
+                "step_number": raw["step_no"],
+                "visual_instruction": raw["instruction"],
+                "affected_parts": affected,
+                "preserve_parts": [],
+                "requires_generated_image": raw["requires_image_generation"],
+            })
+            normalized_steps.append(raw)
+        payload.update({
+            "repair_scope": "full_rollback" if self.overall_error_type == "criticalerror" else "local",
+            "source_step_id": self.step_id,
+            "rollback_to_step": "step01" if self.overall_error_type == "criticalerror" else None,
+            "target_parts": targets,
+            "steps": normalized_steps,
+        })
+        payload["correction_plan"] = normalized_steps
+        return payload
 
 
 class CorrectionSOPGenerator:
@@ -156,7 +181,7 @@ class CorrectionSOPGenerator:
         expected_state_path = self._resolve_expected_state_path(payload, model_id, step_id)
         expected_state = self._load_json(expected_state_path)
 
-        error_parts = payload.get("error_parts")
+        error_parts = payload.get("error_reports") or payload.get("error_parts")
         if not isinstance(error_parts, list):
             error_parts = self._extract_error_parts(model_response)
 
@@ -211,6 +236,23 @@ class CorrectionSOPGenerator:
             warnings.append("Vision 判定為錯誤，但沒有可用的 detected_parts。")
             identity_flags.append(False)
         else:
+            wrong_parts = [item for item in error_parts if isinstance(item, dict) and str(item.get("error_type", overall_error_type)).lower() == "wrongpart"]
+            if len(wrong_parts) >= 2:
+                pair_ids = [str(item.get("part_id", "unknown_part")) for item in wrong_parts[:2]]
+                identity_flags.extend(
+                    self._part_identity_reliable(part_id, self._to_float(item.get("confidence")))
+                    for part_id, item in zip(pair_ids, wrong_parts[:2])
+                )
+                steps.append(self._step(
+                    "swap_parts",
+                    f"Swap the positions of {pair_ids[0]} and {pair_ids[1]} to match the correct reference.",
+                    "|".join(pair_ids),
+                    f"{pair_ids[0]} and {pair_ids[1]}",
+                    "wrongpart",
+                    evidence,
+                    verification="Verify both parts match the reference positions without changing surrounding bricks.",
+                ))
+                error_parts = [item for item in error_parts if item not in wrong_parts[:2]]
             for index, part in enumerate(error_parts):
                 if not isinstance(part, dict):
                     continue
@@ -234,9 +276,11 @@ class CorrectionSOPGenerator:
                     identity_reliable,
                 )
 
-                current_evidence = evidence if index == 0 else Evidence(
-                    source_image=test_image,
-                    reference_image=reference_image,
+                current_evidence = self._build_evidence(
+                    part.get("localization", {}) if isinstance(part.get("localization"), dict) else {},
+                    part.get("localization_strategy", {}) if isinstance(part.get("localization_strategy"), dict) else {},
+                    test_image,
+                    reference_image,
                 )
 
                 if not identity_reliable:

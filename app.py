@@ -1,119 +1,94 @@
+"""Gradio UI for the canonical ``main.run_pipeline`` contract."""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any, Callable
+
 import gradio as gr
 
+from main import run_pipeline
 from utils.current_state_analyzer import parse_filename
-from utils.ui_pipeline_adapter import run_analysis_for_ui
 
 
-def run_analysis(image, step):
-    if image is None:
-        return None, None, "請先上傳圖片", {}
+PROJECT_ROOT = Path(__file__).resolve().parent
 
-    try:
-        info = parse_filename(image)
-        if not all(info.get(key) for key in ("model_id", "step_id", "view_angle")):
-            raise ValueError("圖片檔名無法解析 model、step 或 view angle")
-        result = run_analysis_for_ui(
-            image_path=image,
-            model_id=info["model_id"],
-            step_id=info["step_id"],
-            view_angle=info["view_angle"],
-        )
-        message = result["correction_text"]
-        if result["warnings"]:
-            message += "\n\n警告：\n" + "\n".join(result["warnings"])
-        if result["error_message"]:
-            message = result["error_message"]
-        return result["annotated_image"], result["flowchart"], message, {"confidence": result["confidence"]}
-    except Exception as exc:
-        return image, None, str(exc), {}
-with gr.Blocks(title="積木組裝引導系統") as demo:
 
-    gr.Markdown("# 🧩 積木組裝引導系統")
-
-    with gr.Row():
-
-        # ==========================
-        # 左側：圖片上傳
-        # ==========================
-
-        with gr.Column(scale=1):
-
-            image_input = gr.Image(
-                type="filepath",
-                label="上傳積木圖片",
-            )
-
-            step = gr.Dropdown(
-                choices=[
-                    "step_01",
-                    "step_02",
-                    "step_03",
-                    "step_04",
-                    "step_05",
-                ],
-                value="step_01",
-                label="目前步驟",
-            )
-
-            analyze_btn = gr.Button(
-                "開始分析",
-                variant="primary",
-            )
-
-        # ==========================
-        # 中間：標記圖片
-        # ==========================
-
-        with gr.Column(scale=1):
-
-            annotated_output = gr.Image(
-                label="標記後圖片",
-                interactive=False,
-                height=450,
-            )
-
-        # ==========================
-        # 右側：流程圖
-        # ==========================
-
-        with gr.Column(scale=1):
-
-            flowchart_output = gr.Image(
-                label="流程圖",
-                interactive=False,
-                height=450,
-            )
-
-    gr.Markdown("---")
-
-    with gr.Row():
-
-        with gr.Column(scale=2):
-
-            suggestion_output = gr.Textbox(
-                label="修正建議",
-                lines=8,
-                interactive=False,
-            )
-
-        with gr.Column(scale=1):
-
-            confidence_output = gr.Label(
-                label="信心分數",
-            )
-
-    analyze_btn.click(
-        fn=run_analysis,
-        inputs=[
-            image_input,
-            step,
-        ],
-        outputs=[
-            annotated_output,
-            flowchart_output,
-            suggestion_output,
-            confidence_output,
-        ],
+def _parsed_json_for_upload(image: str, analyzer: Callable[..., dict[str, Any]] | None = None) -> Path:
+    image_path = Path(image).resolve()
+    if image_path.suffix.lower() == ".json":
+        return image_path
+    info = parse_filename(image_path)
+    if not all(info.get(key) for key in ("model_id", "step_id", "view_angle")):
+        raise ValueError("Uploaded filename must contain model, step, and view angle.")
+    normal_dir = PROJECT_ROOT / "input" / "normal" / f"{info['model_id']}_{info['step_id']}"
+    candidates = sorted(normal_dir.glob(f"*correct*_{info['view_angle']}_*.jpg"))
+    if not candidates:
+        raise FileNotFoundError("Correct reference image was not found for the uploaded filename.")
+    expected = PROJECT_ROOT / "ground_truth" / info["model_id"] / f"{info['step_id']}.json"
+    if analyzer is None:
+        from utils.current_state_analyzer import analyze_image
+        analyzer = analyze_image
+    analysis = analyzer(
+        image_path=str(image_path), reference_image_path=str(candidates[0]),
+        expected_state_path=str(expected), filename_info=info,
     )
+    if not analysis.get("success") or not analysis.get("parsed_json_path"):
+        raise RuntimeError(str(analysis.get("error") or "Vision analysis failed"))
+    parsed = Path(str(analysis["parsed_json_path"]))
+    return parsed if parsed.is_absolute() else PROJECT_ROOT / parsed
 
-demo.launch()
+
+def run_analysis(
+    image: str | None,
+    step: str | None = None,
+    *,
+    pipeline_runner: Callable[..., Any] = run_pipeline,
+    analyzer: Callable[..., dict[str, Any]] | None = None,
+):
+    if image is None:
+        return None, None, "Please upload an image.", {}
+    try:
+        parsed = _parsed_json_for_upload(image, analyzer=analyzer)
+        output = PROJECT_ROOT / "output" / "ui_runs" / parsed.stem
+        manifest = pipeline_runner(parsed_json_path=parsed, output_dir=output, image_provider="mock")
+        message = "Pipeline completed."
+        if manifest.warnings:
+            message += "\n\nWarnings:\n" + "\n".join(manifest.warnings)
+        if manifest.errors:
+            message = "\n".join(manifest.errors)
+        return (
+            manifest.annotated_image_path or image,
+            manifest.final_instruction_path,
+            message,
+            {"status": manifest.status},
+        )
+    except Exception as exc:
+        return image, None, f"{type(exc).__name__}: {exc}", {}
+
+
+def build_demo() -> gr.Blocks:
+    with gr.Blocks(title="Assembly Correction SOP") as demo:
+        gr.Markdown("# Assembly Correction SOP")
+        with gr.Row():
+            with gr.Column():
+                image_input = gr.Image(type="filepath", label="Assembly image")
+                step = gr.Dropdown(choices=[f"step_{value:02d}" for value in range(1, 6)], value="step_01", label="Step")
+                analyze_btn = gr.Button("Analyze", variant="primary")
+            annotated_output = gr.Image(label="Localized / annotated image", interactive=False)
+            final_output = gr.Image(label="Final assembly instruction book", interactive=False)
+        suggestion_output = gr.Textbox(label="Pipeline result", lines=8, interactive=False)
+        status_output = gr.Label(label="Status")
+        analyze_btn.click(
+            fn=run_analysis,
+            inputs=[image_input, step],
+            outputs=[annotated_output, final_output, suggestion_output, status_output],
+        )
+    return demo
+
+
+demo = build_demo()
+
+
+if __name__ == "__main__":
+    demo.launch()

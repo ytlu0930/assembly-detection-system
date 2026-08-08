@@ -159,6 +159,7 @@ class StepPromptBuilderV2:
         "insert_part", "remove_part", "detach_part", "replace_part",
         "reposition_part", "reorient_part", "disassemble_local_area",
         "rebuild_local_area", "verify_local_result", "compare_reference",
+        "swap_parts",
     }
 
     def __init__(self, *, block_on_manual_review: bool = True, prompt_version: str = "2.1") -> None:
@@ -169,7 +170,7 @@ class StepPromptBuilderV2:
     def build_from_sop(self, sop_json_path: str | Path) -> PromptPackageV2:
         sop_path = Path(sop_json_path).expanduser().resolve()
         sop = self._load_json(sop_path)
-        correction_plan = sop.get("correction_plan", [])
+        correction_plan = sop.get("steps", sop.get("correction_plan", []))
         if not isinstance(correction_plan, list):
             raise TypeError("correction_plan must be a list.")
 
@@ -475,11 +476,12 @@ class StepPromptBuilderV2:
         draw_arrow = action in {
             "locate_installation_point", "insert_part", "remove_part",
             "reposition_part", "reorient_part", "disassemble_local_area",
+            "swap_parts",
         }
         arrow_type = None
         if action == "locate_installation_point":
             arrow_type = "pointer"
-        elif action in {"insert_part", "remove_part", "reposition_part", "disassemble_local_area"}:
+        elif action in {"insert_part", "remove_part", "reposition_part", "disassemble_local_area", "swap_parts"}:
             arrow_type = "linear"
         elif action == "reorient_part":
             arrow_type = "curved"
@@ -568,6 +570,13 @@ class StepPromptBuilderV2:
                     "Preserve all non-target parts.", "Do not copy the full reference scene.",
                 ],
             ),
+            "swap_parts": InstructionStructure(
+                f"Swap the two target components represented by {visual_part_name}.",
+                "Both target components occupy the opposite, reference-correct connectors while all surrounding bricks remain unchanged.",
+                localization_hint_en,
+                "Realistic local swap instruction with clear directional arrows.",
+                ["Move only the two target parts.", "Preserve all non-target bricks.", "Do not duplicate either target part."],
+            ),
             "reposition_part": InstructionStructure(
                 f"Move the {visual_part_name} to the correct position.",
                 f"The target part is shown moving toward {position} while remaining mechanically aligned.",
@@ -649,6 +658,13 @@ class StepPromptBuilderV2:
             f"EDIT REGION\n{instruction_structure.edit_region}\n\n"
             f"VISUAL STYLE\n{instruction_structure.visual_style}\n\n"
             f"INPUT IMAGE ROLES\n{image_roles}\n\n"
+            "EDITING CONTRACT\n"
+            "Image 1 is the current/source assembly state. Image 2 is the correct reference state. "
+            f"The current action is {action}; output only the next correction state. "
+            f"Modify only the target component ({visual_part_name}) to reach the expected visual state. "
+            "Preserve every non-target brick, camera angle, lighting, background, brick colors, geometry, "
+            "shapes, and part counts. Show a clear operation direction when the action requires it. "
+            "Do not add unrelated parts and do not show people or hands.\n\n"
             f"OPERATION CONSTRAINTS\n{constraints}\n\n"
             "Return exactly one image for this task."
         )

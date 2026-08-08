@@ -1015,4 +1015,35 @@ Step Coverage：
 - Gradio now calls the UI adapter instead of rebuilding reports and flowcharts.
 - Existing API smoke modules now require explicit `--execute`; pytest performs no paid calls.
 - Validation: 66 tests and 19 subtests passed. Representative four-case offline full-pipeline and UI mock smoke tests passed.
-- Remaining: human review of six extrapart views and wrongpart-A01 multiplicity; choose an image provider; approve a small Prompt/Schema A/B before production contract changes.
+- Remaining: human review of six extrapart views and wrongpart-A01 multiplicity; validate the selected image provider; approve a small Prompt/Schema A/B before production contract changes.
+
+## 2026-08-04 Post-Commit Review Preparation
+
+- Integration branch committed and pushed at `8a59f85`; `main` was not merged.
+- Draft PR body prepared locally; GitHub CLI is not installed, so the Draft PR must be created manually.
+- A 39-row affected-parts annotation workflow and review guide were created. Extrapart canonical identity and wrongpart-A01 multiplicity remain pending review.
+- Formal image provider selected: OpenAI Image API / GPT Image 2 (model id: `gpt-image-2`), using Image Editing at `/v1/images/edits`.
+- A disabled `OpenAIImageProvider` stub and explicit provider factory were implemented. Runtime remains `MockStepImageProvider`.
+- No OpenAI client was initialized, no API key was read, and no image API request was executed. Real integration and formal image-quality evaluation remain pending.
+- Experimental Prompt and Schema candidates were created under `experiments/`; neither is production and formal analyzer defaults are unchanged.
+- The A/B runner defaults to dry-run and refuses API execution without a separately approved adapter. No Vision or image API experiment was executed.
+- These post-commit review artifacts remain a second, uncommitted working-tree batch for human inspection.
+
+## 2026-08-04 GPT Image 2 Adapter Implementation
+
+- Replaced the disabled stub with a guarded `gpt-image-2` Images Edit adapter using ordered current-state and correct-reference inputs.
+- Runtime remains `MockStepImageProvider`; selecting OpenAI cannot execute without two environment confirmations plus explicit code-level execution.
+- Added lazy client creation, dependency injection, input/output validation, Base64/Pillow verification, redaction, finite 2/4-second retry backoff, request/step budgets, and structured provider statuses.
+- Step generation is sequential and stops after a disabled/failed edit while preserving text SOP, annotation, flowchart, and the unchanged UI contract.
+- Added a one-request smoke CLI that defaults to dry-run and writes standard output-manager artifacts.
+- Adapter implemented: yes. API configured: not asserted. API smoke tested: no. Image quality validated: no.
+- Production Vision Prompt/Schema, Ground Truth, input images, and `main` remain unchanged. No commit/push/merge was performed for this batch.
+
+## 2026-08-08 Pipeline Convergence
+
+- Safely stashed the second batch, fetched A's main at `e4646adc7b35b3eddea47b5d137475c90f0482a6`, rebased without conflict, and restored the stash without conflict.
+- Established `main.run_pipeline` as the only formal full-pipeline entry.
+- Integrated multi-ErrorReport Localization, canonical SOP aliases/swap support, V2 editing prompts, provider-backed V2 image generation, and instruction-book output.
+- Replaced duplicated batch orchestration with calls to `run_pipeline` and changed Gradio to display `manifest.final_instruction_path`.
+- Marked `flowchart_generator.py` and `utils.integration_pipeline.py` deprecated for runtime purposes.
+- Added malformed API-key preflight; Mock remains default and no real API request was made.
