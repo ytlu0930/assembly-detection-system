@@ -1,0 +1,148 @@
+{
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "logical_request_id": "EXP-003",
+  "request_id": "4d116096-314d-4d81-961a-aa05a941792f",
+  "api_request_id": "chatcmpl-EAxDSvas34nilxUzA2JX4QaMf2iB2",
+  "method": "roi_direct",
+  "case_id": "missingpart-B01",
+  "raw_response": {
+    "id": "chatcmpl-EAxDSvas34nilxUzA2JX4QaMf2iB2",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\n  \"error_type\": \"missingpart\",\n  \"affected_parts\": [\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"confidence\": 0.85,\n      \"evidence_summary\": \"The red pin visible in the Reference ROI is absent in the Test ROI.\"\n    }\n  ],\n  \"confidence\": 0.85,\n  \"evidence_summary\": \"The red pin expected in the center position is missing in the Test ROI compared to the Reference ROI.\"\n}",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": [],
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "content_filter_results": {
+          "hate": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "protected_material_code": {
+            "detected": false,
+            "filtered": false
+          },
+          "protected_material_text": {
+            "detected": false,
+            "filtered": false
+          },
+          "self_harm": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "sexual": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "violence": {
+            "filtered": false,
+            "severity": "safe"
+          }
+        }
+      }
+    ],
+    "created": 1786279614,
+    "model": "gpt-4o-2024-11-20",
+    "object": "chat.completion",
+    "moderation": null,
+    "service_tier": "default",
+    "system_fingerprint": "fp_1bb99812b9",
+    "usage": {
+      "completion_tokens": 101,
+      "prompt_tokens": 3975,
+      "total_tokens": 4076,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": null,
+        "cached_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 568,
+        "engine_ttlt_ms": 1470,
+        "pre_inference_ms": 1543,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 2507,
+        "service_ttlt_ms": 3432,
+        "total_duration_ms": 1909,
+        "user_visible_ttft_ms": 964
+      }
+    },
+    "prompt_filter_results": [
+      {
+        "prompt_index": 0,
+        "content_filter_results": {
+          "hate": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "jailbreak": {
+            "detected": false,
+            "filtered": false
+          },
+          "self_harm": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "sexual": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "violence": {
+            "filtered": false,
+            "severity": "safe"
+          }
+        }
+      }
+    ]
+  },
+  "parsed_response": {
+    "error_type": "missingpart",
+    "affected_parts": [
+      {
+        "part_id": "PIN_RED_SHORT",
+        "confidence": 0.85,
+        "evidence_summary": "The red pin visible in the Reference ROI is absent in the Test ROI."
+      }
+    ],
+    "confidence": 0.85,
+    "evidence_summary": "The red pin expected in the center position is missing in the Test ROI compared to the Reference ROI."
+  },
+  "schema_validation_result": {
+    "status": "valid",
+    "sanitized_metadata_keys": []
+  },
+  "candidate_membership_result": {
+    "status": "valid",
+    "violations": [],
+    "missing_or_duplicate_candidate_checks": []
+  },
+  "rule_engine_result": null,
+  "verifier_result": {
+    "verifier_status": "conflict",
+    "verified_part_ids": [],
+    "requires_manual_review": true,
+    "reason": "frozen_roi_package_requires_manual_review"
+  },
+  "request_duration_seconds": 52.66,
+  "http_api_error_type": null,
+  "usage": {
+    "input_tokens": 3975,
+    "output_tokens": 101,
+    "total_tokens": 4076
+  }
+}

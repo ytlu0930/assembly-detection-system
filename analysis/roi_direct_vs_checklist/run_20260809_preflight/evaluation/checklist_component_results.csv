@@ -1,0 +1,17 @@
+case_id,part_id,gt_status,reference_present,test_present,reference_count,test_count,spatial_match,appearance_match,predicted_status,confidence,correct,uncertain,analysis_recovered
+missingpart-A01,PIN_RED_SHORT,MISMATCH,True,False,6,0,False,False,FAIL,0.9,True,False,True
+missingpart-A01,PIN_YELLOW,NORMAL,True,True,2,2,True,True,PASS,0.9,True,False,True
+missingpart-A01,ROD_GREEN_LONG,NORMAL,,,,,,,UNCERTAIN,0.3,,True,True
+missingpart-A01,LINK_RED_3HOLE,NORMAL,,,,,,,UNCERTAIN,0.3,,True,True
+missingpart-A01,LINK_BLUE_5HOLE,NORMAL,True,True,1,1,True,True,PASS,0.9,True,False,True
+missingpart-B01,ROD_GREEN_LONG,NORMAL,,,,,,,UNCERTAIN,0.0,,True,True
+missingpart-B01,PIN_YELLOW,NORMAL,True,True,2,2,True,True,PASS,0.9,True,False,True
+missingpart-B01,WHEEL_BLUE_LARGE,NORMAL,,,,,,,UNCERTAIN,0.0,,True,True
+missingpart-B01,WHEEL_BLUE_SMALL,MISMATCH,,,,,,,UNCERTAIN,0.0,,True,True
+missingpart-B01,PIN_RED_SHORT,NORMAL,,,,,,,UNCERTAIN,0.0,,True,True
+wrongpart-B01,LINK_BLUE_5HOLE,NORMAL,True,False,1,,False,False,FAIL,0.9,False,False,True
+wrongpart-B01,PIN_RED_SHORT,MISMATCH,True,False,6,,False,False,FAIL,0.9,True,False,True
+wrongpart-B01,LINK_GREEN_5HOLE,NORMAL,False,True,,1,False,False,FAIL,0.9,False,False,True
+wrongpart-B01,ROD_GREEN_LONG,NORMAL,False,True,,1,False,False,FAIL,0.9,False,False,True
+wrongpart-B01,LINK_RED_3HOLE,NORMAL,False,True,,1,False,False,FAIL,0.9,False,False,True
+wrongpart-B01,PIN_YELLOW,MISMATCH,True,False,2,,False,False,FAIL,0.9,True,False,True

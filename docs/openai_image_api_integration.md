@@ -1,5 +1,7 @@
 # OpenAI Image API Integration
 
+This document covers the alternate OpenAI Platform provider. The formal teacher-supplied deployment provider is now Azure-hosted GPT Image 2; see `docs/azure_gpt_image_2_integration.md`. The Platform adapter remains supported and tested but is not the credential target for the first Azure smoke.
+
 ## Current status
 
 - Provider/model: OpenAI Image API, `gpt-image-2`

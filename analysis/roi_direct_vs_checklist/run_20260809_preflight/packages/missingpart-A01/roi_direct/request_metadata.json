@@ -1,0 +1,144 @@
+{
+  "case_id": "missingpart-A01",
+  "method": "roi_direct",
+  "model_id": "model03",
+  "step_id": "step03",
+  "view_angle": "front",
+  "error_type": "missingpart",
+  "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_front_01.jpg",
+  "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+  "test_roi_images": [],
+  "reference_roi_images": [
+    "roi_images/reference_roi_01.png",
+    "roi_images/reference_roi_02.png",
+    "roi_images/reference_roi_03.png"
+  ],
+  "bbox_evidence": [
+    {
+      "role": "reference",
+      "bbox": [
+        2789,
+        1715,
+        4079,
+        2382
+      ],
+      "color": "BLUE",
+      "score": 0.7906677974875143,
+      "candidate_part_id": "LINK_BLUE_5HOLE"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        3412,
+        5343,
+        3629,
+        5508
+      ],
+      "color": "RED",
+      "score": 0.682322415852461,
+      "candidate_part_id": "PIN_RED_SHORT"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        2970,
+        2866,
+        3958,
+        3239
+      ],
+      "color": "YELLOW",
+      "score": 0.6677825244247227,
+      "candidate_part_id": "PIN_YELLOW"
+    }
+  ],
+  "localization_score": 0.7906677974875143,
+  "localization_status": "success",
+  "localization_requires_manual_review": true,
+  "candidate_part_ids": [
+    "PIN_RED_SHORT",
+    "PIN_YELLOW",
+    "ROD_GREEN_LONG",
+    "LINK_RED_3HOLE",
+    "LINK_BLUE_5HOLE"
+  ],
+  "candidate_count": 5,
+  "full_candidate_count": 15,
+  "candidate_reduction_ratio": 0.6666666666666667,
+  "expected_state_summary": [
+    {
+      "part_id": "LINK_BLUE_5HOLE",
+      "color": "BLUE",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "LINK_RED_3HOLE",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 3
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 2
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "color": "GREEN",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    }
+  ],
+  "paired_roi_supported": false,
+  "inference_label_source": "frozen_roi_poc_expected_state_part_library_local_evidence",
+  "evaluation_labels_included": false,
+  "test_image_sha256": "089fd4cd95e41995c73c2309e7a6c662b9471275d0f49e62440da4b2d8731de4",
+  "reference_image_sha256": "ea82588ca423fb7c6f640e29b56791e0cb4d7943da425711af44dfff65641abc",
+  "roi_image_sha256": {
+    "roi_images/reference_roi_01.png": "6da61ed5676e01d5b6e03b7e64dc2c85e875f9fcfd9145aac375d950f8a8c6eb",
+    "roi_images/reference_roi_02.png": "2fdc124ddbcdcb327cad35b0c2d2a4e21966f1c8f26273b45cc130f8d5c56a80",
+    "roi_images/reference_roi_03.png": "1776ce8156d10d2d1bf598d22c79a476510ebf71133ac9f70d3daf6f2e27406a"
+  },
+  "logical_request_id": "EXP-001",
+  "sequence": 1,
+  "prompt_source": "experiments/prompts/vision_roi_direct_identity.txt",
+  "prompt_sha256": "8697544b119a3b1e50f102c126721bb06f72ae5fa3e4ccbb661be864b7a4ce65",
+  "schema_source": "experiments/schema/vision_roi_direct_output_schema.json",
+  "schema_sha256": "653f6d77375a0ffd9558a01c34680e8f04db474aa35456ad338e3164a5b75bdc",
+  "source_roi_package_sha256": "1970f94f511a0326c14300855a3a97029c10fb941d4e1c1b5b4fb969a56ea436",
+  "automatic_retry": 0,
+  "contains_api_key": false
+}

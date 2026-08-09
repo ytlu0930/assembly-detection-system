@@ -1,0 +1,8 @@
+metric,value,sample_size,notes
+exact_match,0.08,25,Baseline frozen evaluation; metric-specific part denominator may differ.
+at_least_one_recall,0.125,25,Baseline frozen evaluation; metric-specific part denominator may differ.
+all_parts_recall,0.041666666666666664,25,Baseline frozen evaluation; metric-specific part denominator may differ.
+precision,0.12,25,Baseline frozen evaluation; metric-specific part denominator may differ.
+recall,0.09375,25,Baseline frozen evaluation; metric-specific part denominator may differ.
+f1,0.10526315789473684,25,Baseline frozen evaluation; metric-specific part denominator may differ.
+false_confident_080,0.88,25,Baseline frozen evaluation; metric-specific part denominator may differ.

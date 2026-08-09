@@ -1,0 +1,169 @@
+{
+  "logical_request_id": "EXP-006",
+  "case_id": "wrongpart-B01",
+  "source_raw_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\responses\\EXP-006_wrongpart-B01_roi_checklist.json",
+  "normalization_status": "normalized",
+  "normalized_response": {
+    "checks": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "reference_present": true,
+        "test_present": false,
+        "reference_count": 1,
+        "test_count": null,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "reference_present": true,
+        "test_present": false,
+        "reference_count": 6,
+        "test_count": null,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "reference_present": false,
+        "test_present": true,
+        "reference_count": null,
+        "test_count": 1,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "reference_present": false,
+        "test_present": true,
+        "reference_count": null,
+        "test_count": 1,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "reference_present": false,
+        "test_present": true,
+        "reference_count": null,
+        "test_count": 1,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "reference_present": true,
+        "test_present": false,
+        "reference_count": 2,
+        "test_count": null,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      }
+    ]
+  },
+  "checks": [
+    {
+      "part_id": "LINK_BLUE_5HOLE",
+      "reference_present": true,
+      "test_present": false,
+      "reference_count": 1,
+      "test_count": null,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "reference_present": true,
+      "test_present": false,
+      "reference_count": 6,
+      "test_count": null,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "LINK_GREEN_5HOLE",
+      "reference_present": false,
+      "test_present": true,
+      "reference_count": null,
+      "test_count": 1,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "reference_present": false,
+      "test_present": true,
+      "reference_count": null,
+      "test_count": 1,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "LINK_RED_3HOLE",
+      "reference_present": false,
+      "test_present": true,
+      "reference_count": null,
+      "test_count": 1,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "reference_present": true,
+      "test_present": false,
+      "reference_count": 2,
+      "test_count": null,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    }
+  ],
+  "transformations_applied": [
+    "check_result->status",
+    "missing_evidence_summary->deterministic_fallback",
+    "results->checks",
+    "string_confidence->float"
+  ],
+  "failure_reason": null,
+  "raw_sha256": "bffdf7ccd04ba223d9d070d86c5a180716ab9d7035efc3cbefc41ad5fa122836",
+  "normalized_sha256": "6630d4759f4993c123807594f4b46d035aee75a340619f2f631a6982871a7ca4",
+  "schema_valid_after_normalization": true,
+  "gt_used": false,
+  "candidate_membership_valid": true,
+  "input_mutated": false
+}

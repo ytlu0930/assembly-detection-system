@@ -1,0 +1,4 @@
+variant,status,predicted_part_ids,confidence,identity_correct,unknown,verifier_status,verified_part_id
+baseline,success,EYE_BALL,0.950000,False,false,conflict,
+reference,failed,,,,,not_evaluated,
+reference_candidate,success,EYE_BALL,0.950000,False,false,conflict,

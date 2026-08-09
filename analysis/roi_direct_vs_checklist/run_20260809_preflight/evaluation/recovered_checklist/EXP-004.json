@@ -1,0 +1,81 @@
+{
+  "logical_request_id": "EXP-004",
+  "case_id": "missingpart-B01",
+  "original_schema_valid": false,
+  "status": "recovered",
+  "checks": [
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "reference_present": true,
+      "test_present": true,
+      "reference_count": 2,
+      "test_count": 2,
+      "spatial_match": true,
+      "appearance_match": true,
+      "status": "PASS",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "WHEEL_BLUE_LARGE",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "WHEEL_BLUE_SMALL",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    }
+  ],
+  "changes": [
+    "check_result->status",
+    "missing_evidence_summary->deterministic_fallback",
+    "results->checks",
+    "string_confidence->float"
+  ],
+  "membership_status": "valid",
+  "schema_valid": true,
+  "schema_error": null,
+  "recovered_for_analysis": true,
+  "excluded_from_original_schema_valid_rate": true,
+  "labels_used_for_recovery": false,
+  "input_mutated": false
+}

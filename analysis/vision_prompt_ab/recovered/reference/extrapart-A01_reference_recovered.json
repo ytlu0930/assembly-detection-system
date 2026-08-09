@@ -1,0 +1,27 @@
+{
+  "recovered_for_analysis": true,
+  "excluded_from_primary_metrics": true,
+  "source_result": "analysis/vision_prompt_ab/results/raw/08_extrapart-A01_reference.json",
+  "case_id": "extrapart-A01",
+  "variant": "reference",
+  "original_raw_response_available": false,
+  "original_parsed_output_available": false,
+  "recovery_source": "jsonschema ValidationError On instance payload",
+  "recovered_schema_validation": "valid",
+  "recovered_output": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "front",
+    "is_error": true,
+    "overall_error_type": "extrapart",
+    "detected_parts": [
+      {
+        "part_id": "PIN_RED_SHORT",
+        "error_type": "extrapart",
+        "description": "An additional red pin is present on the left side of the blue eye structure, which is not present in the reference image.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image contains an extra red pin on the left side of the blue eye structure, which is not part of the expected configuration in the reference image."
+  }
+}

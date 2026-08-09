@@ -1,0 +1,10 @@
+{
+  "provider": "azure_openai_chat_completions",
+  "model": "gpt-4o",
+  "api_version": "2024-12-01-preview",
+  "endpoint_configured": true,
+  "key_configured": true,
+  "deployment_configured": true,
+  "ready": true,
+  "api_requests_made": 0
+}

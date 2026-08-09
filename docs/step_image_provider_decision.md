@@ -2,10 +2,11 @@
 
 ## Formal Provider Selected
 
-- **Selected:** OpenAI Image API / GPT Image 2 (model id: `gpt-image-2`)
+- **Selected deployment provider:** Azure-hosted OpenAI GPT Image 2
+- Deployment/model: `gpt-image-2` / `gpt-image-2` (teacher deployment version `2026-04-21`)
 - Operation: Image Editing
-- Endpoint: `/v1/images/edits`
-- Status: **Selected / Adapter Implemented**
+- Endpoint: `{azure_endpoint}/openai/deployments/gpt-image-2/images/edits?api-version=2024-02-01`
+- Status: **Adapter implementation / Smoke pending**
 - Runtime default: `MockStepImageProvider`
 - Real API execution: not performed
 - API key: not read, requested, or validated by this task
@@ -13,7 +14,7 @@
 
 The selected provider supports image editing and multiple image inputs, making it suitable for the planned “previous-step image + correct reference image + current SOP step” flow. High-fidelity image inputs can reinforce appearance and viewpoint, and the existing `StepImageProvider` contract already supplies source, reference, prompt, output, and metadata. This fits a ShowHowTo-style sequence while keeping each step independently reviewable.
 
-Selection does not mean API or quality validation. `OpenAIImageProvider` now implements a guarded `client.images.edit(...)` adapter with lazy client creation, source/reference ordering, finite retry, budgets, response validation, and structured statuses. CI, offline replay, and UI smoke tests continue to use `MockStepImageProvider`; this implementation task made no real request.
+Selection does not mean API or quality validation. `AzureOpenAIImageProvider` implements the teacher-provided single-image multipart contract through `httpx`. The correct-reference path remains metadata and prompt context; it is not sent as a second binary input until the deployment capability is verified. The OpenAI Platform provider remains an alternate provider. CI, offline replay, and UI continue to use Mock.
 
 ## Candidate comparison
 
@@ -37,4 +38,5 @@ The provider satisfies `utils/step_image_provider_contract.py` with status, mode
 
 ## Canonical V2 integration
 
-The formal consumer is `step_image_generator_v2.StepImageGeneratorV2`. It receives a provider through dependency injection or the explicit factory and contains no direct OpenAI SDK request path. Mock remains the default for `main.py`, batch, UI, tests, and `--generate-images` unless OpenAI and every execution/cost gate are separately selected.
+The formal consumer is `step_image_generator_v2.StepImageGeneratorV2`. It supports `mock`, `openai`, and `azure_openai` through the same provider contract. Mock remains the safe default. Azure requires provider selection, execute and cost confirmation, both environment gates, valid configuration, and request budget.
+| Azure-hosted OpenAI / `gpt-image-2` | Selected deployment editing operation | First adapter intentionally single-image | Prompt-guided; requires smoke and quality validation | Implemented sequentially | Supported semantically | Hosted API | Teacher Azure credential | Medium | Medium | Formal deployment provider | **Adapter implemented / Smoke pending** |

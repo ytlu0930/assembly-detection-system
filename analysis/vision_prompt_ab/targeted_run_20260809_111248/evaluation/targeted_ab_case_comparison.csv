@@ -1,0 +1,7 @@
+case_id,variant,ground_truth_part_ids,predicted_part_ids,confidence,exact_match,at_least_one_match,all_parts_match,candidate_count,candidate_constraint_status,verifier_status,verified_part_id,requires_manual_review,schema_valid
+missingpart-A01,reference,PIN_RED_SHORT,EYE_BALL,0.950000,False,False,False,0,not_applicable,not_run,,,false
+missingpart-A01,reference_candidate,PIN_RED_SHORT,EYE_BALL,0.950000,False,False,False,15,valid,conflict,,True,true
+missingpart-B01,reference,WHEEL_BLUE_SMALL,PIN_YELLOW,0.950000,False,False,False,0,not_applicable,not_run,,,false
+missingpart-B01,reference_candidate,WHEEL_BLUE_SMALL,EYE_BALL,0.950000,False,False,False,15,valid,uncertain,,True,true
+wrongpart-B01,reference,PIN_RED_SHORT|PIN_YELLOW,PIN_RED_SHORT,0.950000,False,True,False,0,not_applicable,not_run,,,false
+wrongpart-B01,reference_candidate,PIN_RED_SHORT|PIN_YELLOW,PIN_RED_SHORT,0.950000,False,True,False,15,valid,uncertain,,True,true

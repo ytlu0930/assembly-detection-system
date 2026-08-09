@@ -1,0 +1,153 @@
+{
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "logical_request_id": "EXP-005",
+  "request_id": "eadf4ec6-324c-4c50-b600-0d1ca7dc4d3c",
+  "api_request_id": "chatcmpl-EAxFrf4ZaVufTvR7oG8yvhtsQCfWg",
+  "method": "roi_direct",
+  "case_id": "wrongpart-B01",
+  "raw_response": {
+    "id": "chatcmpl-EAxFrf4ZaVufTvR7oG8yvhtsQCfWg",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\n  \"error_type\": \"wrongpart\",\n  \"affected_parts\": [\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"confidence\": 0.8,\n      \"evidence_summary\": \"Reference ROI 1 shows a blue part, while Test ROI 1 shows a green part in the same position.\"\n    },\n    {\n      \"part_id\": \"LINK_GREEN_5HOLE\",\n      \"confidence\": 0.8,\n      \"evidence_summary\": \"Test ROI 1 shows a green part replacing the expected blue part from Reference ROI 1.\"\n    }\n  ],\n  \"confidence\": 0.8,\n  \"evidence_summary\": \"Mismatch between blue part in Reference ROI 1 and green part in Test ROI 1.\"\n}",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": [],
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "content_filter_results": {
+          "hate": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "protected_material_code": {
+            "detected": false,
+            "filtered": false
+          },
+          "protected_material_text": {
+            "detected": false,
+            "filtered": false
+          },
+          "self_harm": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "sexual": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "violence": {
+            "filtered": false,
+            "severity": "safe"
+          }
+        }
+      }
+    ],
+    "created": 1786279763,
+    "model": "gpt-4o-2024-11-20",
+    "object": "chat.completion",
+    "moderation": null,
+    "service_tier": "default",
+    "system_fingerprint": "fp_1bb99812b9",
+    "usage": {
+      "completion_tokens": 162,
+      "prompt_tokens": 6722,
+      "total_tokens": 6884,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": null,
+        "cached_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 732,
+        "engine_ttlt_ms": 2098,
+        "pre_inference_ms": 2222,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 3386,
+        "service_ttlt_ms": 4749,
+        "total_duration_ms": 2538,
+        "user_visible_ttft_ms": 1164
+      }
+    },
+    "prompt_filter_results": [
+      {
+        "prompt_index": 0,
+        "content_filter_results": {
+          "hate": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "jailbreak": {
+            "detected": false,
+            "filtered": false
+          },
+          "self_harm": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "sexual": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "violence": {
+            "filtered": false,
+            "severity": "safe"
+          }
+        }
+      }
+    ]
+  },
+  "parsed_response": {
+    "error_type": "wrongpart",
+    "affected_parts": [
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "confidence": 0.8,
+        "evidence_summary": "Reference ROI 1 shows a blue part, while Test ROI 1 shows a green part in the same position."
+      },
+      {
+        "part_id": "LINK_GREEN_5HOLE",
+        "confidence": 0.8,
+        "evidence_summary": "Test ROI 1 shows a green part replacing the expected blue part from Reference ROI 1."
+      }
+    ],
+    "confidence": 0.8,
+    "evidence_summary": "Mismatch between blue part in Reference ROI 1 and green part in Test ROI 1."
+  },
+  "schema_validation_result": {
+    "status": "valid",
+    "sanitized_metadata_keys": []
+  },
+  "candidate_membership_result": {
+    "status": "valid",
+    "violations": [],
+    "missing_or_duplicate_candidate_checks": []
+  },
+  "rule_engine_result": null,
+  "verifier_result": {
+    "verifier_status": "conflict",
+    "verified_part_ids": [],
+    "requires_manual_review": true,
+    "reason": "frozen_roi_package_requires_manual_review"
+  },
+  "request_duration_seconds": 91.486,
+  "http_api_error_type": null,
+  "usage": {
+    "input_tokens": 6722,
+    "output_tokens": 162,
+    "total_tokens": 6884
+  }
+}

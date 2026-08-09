@@ -1,0 +1,10 @@
+{
+  "recommended_variant": null,
+  "decision": "NO_CLEAR_IMPROVEMENT",
+  "reasons": [
+    "No experimental variant met all safety gates on the confirmed subset."
+  ],
+  "safety_tradeoffs": [
+    "Keep production prompt unchanged."
+  ]
+}

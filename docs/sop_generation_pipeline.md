@@ -11,3 +11,5 @@ The formal provider is OpenAI Image API / GPT Image 2 (`gpt-image-2`) using Imag
 Per-step instruction images are the core project output. `generate_sop_flowchart` is only a compact overview and consumes the structured SOP, never raw Vision JSON.
 
 As of 2026-08-08, root `correction_sop_generator.py` is canonical. Its JSON exposes `repair_scope`, `source_step_id`, `rollback_to_step`, `target_parts`, and `steps`, while retaining `correction_plan` aliases for A-version compatibility. `step_prompt_builder_v2.py` is the sole formal prompt builder. `instruction_book_generator.py`, not the deprecated flowchart, is the formal visual output.
+
+For Azure image editing, V2 prompts must carry the correct target part, target location, and expected visual state because the first Azure adapter sends only the current/source image as multipart binary. The reference path remains provider metadata and is not silently added as another image field.

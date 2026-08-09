@@ -1,0 +1,14 @@
+{
+  "logical_request_limit": 6,
+  "physical_request_hard_ceiling": 6,
+  "automatic_retry": 0,
+  "pid_lock": {
+    "status": "PASS",
+    "second_process_blocked": true
+  },
+  "reservation_before_transport": true,
+  "reserved_completed_resume_policy": "skip_or_fail_closed_no_resend",
+  "seventh_request_policy": "fail_before_transport",
+  "schema_validation_retry": false,
+  "api_requests_made": 0
+}

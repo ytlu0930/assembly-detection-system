@@ -1,0 +1,145 @@
+{
+  "logical_request_id": "EXP-004",
+  "case_id": "missingpart-B01",
+  "source_raw_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\responses\\EXP-004_missingpart-B01_roi_checklist.json",
+  "normalization_status": "normalized",
+  "normalized_response": {
+    "checks": [
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "status": "UNCERTAIN",
+        "confidence": 0.0,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "reference_present": true,
+        "test_present": true,
+        "reference_count": 2,
+        "test_count": 2,
+        "spatial_match": true,
+        "appearance_match": true,
+        "status": "PASS",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "WHEEL_BLUE_LARGE",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "status": "UNCERTAIN",
+        "confidence": 0.0,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "WHEEL_BLUE_SMALL",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "status": "UNCERTAIN",
+        "confidence": 0.0,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "PIN_RED_SHORT",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "status": "UNCERTAIN",
+        "confidence": 0.0,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      }
+    ]
+  },
+  "checks": [
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "reference_present": true,
+      "test_present": true,
+      "reference_count": 2,
+      "test_count": 2,
+      "spatial_match": true,
+      "appearance_match": true,
+      "status": "PASS",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "WHEEL_BLUE_LARGE",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "WHEEL_BLUE_SMALL",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.0,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    }
+  ],
+  "transformations_applied": [
+    "check_result->status",
+    "missing_evidence_summary->deterministic_fallback",
+    "results->checks",
+    "string_confidence->float"
+  ],
+  "failure_reason": null,
+  "raw_sha256": "4285a3245a2e0d72e7ccc96ff1b65f6cc1cb7ba8ca3869315af7174ee9d6a75d",
+  "normalized_sha256": "bacfaa1aa36bf98b46757ded65b5e058f46bc1898c977b633c1f887d2ff94126",
+  "schema_valid_after_normalization": true,
+  "gt_used": false,
+  "candidate_membership_valid": true,
+  "input_mutated": false
+}

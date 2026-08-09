@@ -1,0 +1,7 @@
+variant,case_id,status,prediction,confidence,candidate_list,verifier_result,EXCLUDED_FROM_PRIMARY_METRICS
+baseline,extrapart-A01,success,UNKNOWN_EXTRA_PART,0.950000,[],unresolved,True
+reference,extrapart-A01,failed,,,[],not_evaluated,True
+reference_candidate,extrapart-A01,success,UNKNOWN_EXTRA_PART,0.950000,"['BLOCK_GREEN_4HOLE_2PEG', 'BLOCK_YELLOW_CUBE', 'CONNECTOR_ORANGE', 'EYE_BALL', 'JOINT_BLUE_Y', 'JOINT_YELLOW_H', 'LINK_BLUE_5HOLE', 'LINK_GREEN_5HOLE', 'LINK_RED_3HOLE', 'PIN_RED_SHORT', 'PIN_YELLOW', 'PLATE_BLUE_TRIANGLE', 'ROD_GREEN_LONG', 'WHEEL_BLUE_LARGE', 'WHEEL_BLUE_SMALL', 'UNKNOWN_EXTRA_PART']",unresolved,True
+baseline,wrongpart-A01,success,EYE_BALL|ROD_GREEN_LONG,0.950000|0.900000,[],uncertain,True
+reference,wrongpart-A01,failed,,,[],not_evaluated,True
+reference_candidate,wrongpart-A01,success,BLOCK_GREEN_4HOLE_2PEG,0.950000,"['BLOCK_GREEN_4HOLE_2PEG', 'BLOCK_YELLOW_CUBE', 'CONNECTOR_ORANGE', 'EYE_BALL', 'JOINT_BLUE_Y', 'JOINT_YELLOW_H', 'LINK_BLUE_5HOLE', 'LINK_GREEN_5HOLE', 'LINK_RED_3HOLE', 'PIN_RED_SHORT', 'PIN_YELLOW', 'PLATE_BLUE_TRIANGLE', 'ROD_GREEN_LONG', 'WHEEL_BLUE_LARGE', 'WHEEL_BLUE_SMALL']",uncertain,True

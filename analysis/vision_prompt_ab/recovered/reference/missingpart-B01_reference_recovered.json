@@ -1,0 +1,27 @@
+{
+  "recovered_for_analysis": true,
+  "excluded_from_primary_metrics": true,
+  "source_result": "analysis/vision_prompt_ab/results/raw/05_missingpart-B01_reference.json",
+  "case_id": "missingpart-B01",
+  "variant": "reference",
+  "original_raw_response_available": false,
+  "original_parsed_output_available": false,
+  "recovery_source": "jsonschema ValidationError On instance payload",
+  "recovered_schema_validation": "valid",
+  "recovered_output": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "front",
+    "is_error": true,
+    "overall_error_type": "missingpart",
+    "detected_parts": [
+      {
+        "part_id": "PIN_YELLOW",
+        "error_type": "missingpart",
+        "description": "The yellow pin located at the center of the model is missing in the test image compared to the reference image.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image is missing the yellow pin located at the center of the model, which is present in the reference image."
+  }
+}

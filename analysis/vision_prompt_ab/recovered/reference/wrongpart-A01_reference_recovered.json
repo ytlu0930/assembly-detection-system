@@ -1,0 +1,33 @@
+{
+  "recovered_for_analysis": true,
+  "excluded_from_primary_metrics": true,
+  "source_result": "analysis/vision_prompt_ab/results/raw/11_wrongpart-A01_reference.json",
+  "case_id": "wrongpart-A01",
+  "variant": "reference",
+  "original_raw_response_available": false,
+  "original_parsed_output_available": false,
+  "recovery_source": "jsonschema ValidationError On instance payload",
+  "recovered_schema_validation": "valid",
+  "recovered_output": {
+    "model_id": "model03",
+    "step_id": "step03",
+    "view_angle": "front",
+    "is_error": true,
+    "overall_error_type": "wrongpart",
+    "detected_parts": [
+      {
+        "part_id": "BLOCK_GREEN_4HOLE_2PEG",
+        "error_type": "wrongpart",
+        "description": "The green vertical block in the center of the test image is replaced with a tall green rod, which is not part of the expected assembly.",
+        "confidence": 0.95
+      },
+      {
+        "part_id": "EYE_BALL",
+        "error_type": "extrapart",
+        "description": "Two additional white eye ball parts are attached to the green rod in the test image, which are not present in the reference image.",
+        "confidence": 0.95
+      }
+    ],
+    "summary": "The test image contains a tall green rod in the center instead of the expected green block with 4 holes and 2 pegs. Additionally, two extra white eye ball parts are attached to the green rod, which are not part of the expected assembly."
+  }
+}

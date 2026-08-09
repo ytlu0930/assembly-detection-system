@@ -15,7 +15,7 @@
 | `warnings` | list[string] | Recoverable localization/image/review issues |
 | `errors` | list[string] | Fatal pipeline errors |
 | `manual_review_required` | boolean | SOP-level manual-review flag |
-| `image_provider` | string | `mock` or `openai` |
+| `image_provider` | string | `mock`, `openai`, or `azure_openai` |
 | `execute_image_api` | boolean | Whether all code-level execution conditions were met |
 | `stages` | list[StageRecord] | Stage status, artifact path, timing, and error data |
 

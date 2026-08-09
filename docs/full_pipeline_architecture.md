@@ -13,3 +13,11 @@ The selected formal step-image provider is OpenAI Image API / `gpt-image-2` in i
 ## Canonical architecture after convergence (2026-08-08)
 
 The sole formal entry is `main.run_pipeline`. Parsed Vision JSON flows through multi-ErrorReport Localization, the root correction SOP generator, Step Prompt Builder V2, provider-backed Step Image Generator V2, Instruction Book Generator, and PipelineManifest. `batch_pipeline.py` and `app.py` delegate to this entry. `utils.integration_pipeline` is deprecated compatibility code, and `flowchart_generator.py` is not a formal runtime dependency. The instruction book replaces the flowchart as the final visual SOP.
+
+The provider layer now contains Mock, alternate OpenAI Platform, and formal Azure-hosted OpenAI adapters. `azure_openai` uses the teacher deployment's single-image multipart edit contract. Sequential source chaining remains in Step Image Generator V2, while reference paths stay in metadata and prompt context until Azure multi-image support is verified.
+
+## Affected-part identity gate (2026-08-08)
+
+The canonical flow now inserts `AffectedPartIdentityVerifier` after paired test/reference localization and before Correction SOP generation. Extended ErrorReports carry `identity_status`, `identity_confidence`, `identity_evidence`, `verified_part_id`, and `alternative_candidates`. A known taxonomy ID, high Vision confidence, or expected-inventory membership is not sufficient verification.
+
+Only a `verified` identity can create named repair/image tasks. `conflict`, `uncertain`, and `unresolved` identities force manual review, remove the predicted identity from formal SOP targets, set `identity_verification_blocked=true`, and block Step Prompt/Image generation even when a manual-review override is supplied. The verifier never reads case-specific human answers as inference input.

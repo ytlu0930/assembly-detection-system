@@ -1,0 +1,437 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "logical_requests": 6,
+  "physical_requests": 6,
+  "retry_requests": 0,
+  "successful_requests": 6,
+  "schema_valid_requests": 3,
+  "requests": [
+    {
+      "logical_request_id": "EXP-001",
+      "case_id": "missingpart-A01",
+      "method": "roi_direct",
+      "reserved": true,
+      "sent": true,
+      "response_received": true,
+      "raw_response_saved": true,
+      "parsed_response_saved": true,
+      "schema_validation": "valid",
+      "candidate_membership_validation": "valid",
+      "rule_engine_result_saved": false,
+      "verifier_result_saved": true,
+      "ledger_status": "completed",
+      "explicit_retry": false,
+      "request_id": "7d289013-9956-4633-a9b7-9970a90b3cc9",
+      "api_response_id": "chatcmpl-EAxAfvbIg5Tvcp4wxRIyzUIEzexkE",
+      "http_api_error_type": null,
+      "latency_seconds": 91.625,
+      "candidate_ids": [
+        "PIN_RED_SHORT",
+        "PIN_YELLOW",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "LINK_BLUE_5HOLE"
+      ],
+      "localization_score": 0.7906677974875143,
+      "raw_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/responses/EXP-001_missingpart-A01_roi_direct.json",
+      "frozen_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/evaluation/frozen_responses/EXP-001_missingpart-A01_roi_direct.json",
+      "response_sha256": "4b6d8aebc5f9ae770e90d1e110fba326124fe5542f744f42dad4e81f4ea31409",
+      "frozen_sha256": "4b6d8aebc5f9ae770e90d1e110fba326124fe5542f744f42dad4e81f4ea31409",
+      "parsed_response": {
+        "error_type": "missingpart",
+        "affected_parts": [
+          {
+            "part_id": "PIN_RED_SHORT",
+            "confidence": 0.68,
+            "evidence_summary": "The red pin visible in the reference image (Reference ROI 1) is missing in the test image."
+          }
+        ],
+        "confidence": 0.68,
+        "evidence_summary": "The red pin visible in the reference ROI is absent in the test ROI, indicating a missing part."
+      }
+    },
+    {
+      "logical_request_id": "EXP-002",
+      "case_id": "missingpart-A01",
+      "method": "roi_checklist",
+      "reserved": true,
+      "sent": true,
+      "response_received": true,
+      "raw_response_saved": true,
+      "parsed_response_saved": true,
+      "schema_validation": "invalid",
+      "candidate_membership_validation": "violation",
+      "rule_engine_result_saved": false,
+      "verifier_result_saved": true,
+      "ledger_status": "completed",
+      "explicit_retry": false,
+      "request_id": "e5af6de1-1635-47df-80ae-b52a164bb3ed",
+      "api_response_id": "chatcmpl-EAxCZ0oG7euAiDCEK3X4saeycZMgD",
+      "http_api_error_type": null,
+      "latency_seconds": 119.372,
+      "candidate_ids": [
+        "PIN_RED_SHORT",
+        "PIN_YELLOW",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "LINK_BLUE_5HOLE"
+      ],
+      "localization_score": 0.7906677974875143,
+      "raw_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/responses/EXP-002_missingpart-A01_roi_checklist.json",
+      "frozen_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/evaluation/frozen_responses/EXP-002_missingpart-A01_roi_checklist.json",
+      "response_sha256": "4473ccfc7b2deb5bee0c92ace0cd1995e73c55b1f751f75ee4823b66489913b1",
+      "frozen_sha256": "4473ccfc7b2deb5bee0c92ace0cd1995e73c55b1f751f75ee4823b66489913b1",
+      "parsed_response": {
+        "results": [
+          {
+            "part_id": "PIN_RED_SHORT",
+            "reference_present": true,
+            "test_present": false,
+            "reference_count": 6,
+            "test_count": 0,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "CHECK": "FAIL"
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "reference_present": true,
+            "test_present": true,
+            "reference_count": 2,
+            "test_count": 2,
+            "spatial_match": true,
+            "appearance_match": true,
+            "confidence": "high",
+            "CHECK": "PASS"
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "reference_present": null,
+            "test_present": null,
+            "reference_count": null,
+            "test_count": null,
+            "spatial_match": null,
+            "appearance_match": null,
+            "confidence": "low",
+            "CHECK": "UNCERTAIN"
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "reference_present": null,
+            "test_present": null,
+            "reference_count": null,
+            "test_count": null,
+            "spatial_match": null,
+            "appearance_match": null,
+            "confidence": "low",
+            "CHECK": "UNCERTAIN"
+          },
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "reference_present": true,
+            "test_present": true,
+            "reference_count": 1,
+            "test_count": 1,
+            "spatial_match": true,
+            "appearance_match": true,
+            "confidence": "high",
+            "CHECK": "PASS"
+          }
+        ]
+      }
+    },
+    {
+      "logical_request_id": "EXP-003",
+      "case_id": "missingpart-B01",
+      "method": "roi_direct",
+      "reserved": true,
+      "sent": true,
+      "response_received": true,
+      "raw_response_saved": true,
+      "parsed_response_saved": true,
+      "schema_validation": "valid",
+      "candidate_membership_validation": "valid",
+      "rule_engine_result_saved": false,
+      "verifier_result_saved": true,
+      "ledger_status": "completed",
+      "explicit_retry": false,
+      "request_id": "4d116096-314d-4d81-961a-aa05a941792f",
+      "api_response_id": "chatcmpl-EAxDSvas34nilxUzA2JX4QaMf2iB2",
+      "http_api_error_type": null,
+      "latency_seconds": 52.66,
+      "candidate_ids": [
+        "ROD_GREEN_LONG",
+        "PIN_YELLOW",
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL",
+        "PIN_RED_SHORT"
+      ],
+      "localization_score": 0.8028466342873746,
+      "raw_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/responses/EXP-003_missingpart-B01_roi_direct.json",
+      "frozen_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/evaluation/frozen_responses/EXP-003_missingpart-B01_roi_direct.json",
+      "response_sha256": "850d8574ce15d968a3cd9743f13b6e8962fa80a51d0d19d7794a6b4c7224878d",
+      "frozen_sha256": "850d8574ce15d968a3cd9743f13b6e8962fa80a51d0d19d7794a6b4c7224878d",
+      "parsed_response": {
+        "error_type": "missingpart",
+        "affected_parts": [
+          {
+            "part_id": "PIN_RED_SHORT",
+            "confidence": 0.85,
+            "evidence_summary": "The red pin visible in the Reference ROI is absent in the Test ROI."
+          }
+        ],
+        "confidence": 0.85,
+        "evidence_summary": "The red pin expected in the center position is missing in the Test ROI compared to the Reference ROI."
+      }
+    },
+    {
+      "logical_request_id": "EXP-004",
+      "case_id": "missingpart-B01",
+      "method": "roi_checklist",
+      "reserved": true,
+      "sent": true,
+      "response_received": true,
+      "raw_response_saved": true,
+      "parsed_response_saved": true,
+      "schema_validation": "invalid",
+      "candidate_membership_validation": "violation",
+      "rule_engine_result_saved": false,
+      "verifier_result_saved": true,
+      "ledger_status": "completed",
+      "explicit_retry": false,
+      "request_id": "a4728f82-efc4-4988-b61a-b74525247f25",
+      "api_response_id": "chatcmpl-EAxELVw5qdxeeOzWG11gDudnij1pT",
+      "http_api_error_type": null,
+      "latency_seconds": 58.139,
+      "candidate_ids": [
+        "ROD_GREEN_LONG",
+        "PIN_YELLOW",
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL",
+        "PIN_RED_SHORT"
+      ],
+      "localization_score": 0.8028466342873746,
+      "raw_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/responses/EXP-004_missingpart-B01_roi_checklist.json",
+      "frozen_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/evaluation/frozen_responses/EXP-004_missingpart-B01_roi_checklist.json",
+      "response_sha256": "04ad08df3c892a0af6968d0d4731ddfefb57dc71d09329497f8bf92614c0218c",
+      "frozen_sha256": "04ad08df3c892a0af6968d0d4731ddfefb57dc71d09329497f8bf92614c0218c",
+      "parsed_response": {
+        "results": [
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "reference_present": null,
+            "test_present": null,
+            "reference_count": null,
+            "test_count": null,
+            "spatial_match": null,
+            "appearance_match": null,
+            "confidence": "UNCERTAIN",
+            "check_result": "UNCERTAIN"
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "reference_present": true,
+            "test_present": true,
+            "reference_count": 2,
+            "test_count": 2,
+            "spatial_match": true,
+            "appearance_match": true,
+            "confidence": "HIGH",
+            "check_result": "PASS"
+          },
+          {
+            "part_id": "WHEEL_BLUE_LARGE",
+            "reference_present": null,
+            "test_present": null,
+            "reference_count": null,
+            "test_count": null,
+            "spatial_match": null,
+            "appearance_match": null,
+            "confidence": "UNCERTAIN",
+            "check_result": "UNCERTAIN"
+          },
+          {
+            "part_id": "WHEEL_BLUE_SMALL",
+            "reference_present": null,
+            "test_present": null,
+            "reference_count": null,
+            "test_count": null,
+            "spatial_match": null,
+            "appearance_match": null,
+            "confidence": "UNCERTAIN",
+            "check_result": "UNCERTAIN"
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "reference_present": null,
+            "test_present": null,
+            "reference_count": null,
+            "test_count": null,
+            "spatial_match": null,
+            "appearance_match": null,
+            "confidence": "UNCERTAIN",
+            "check_result": "UNCERTAIN"
+          }
+        ]
+      }
+    },
+    {
+      "logical_request_id": "EXP-005",
+      "case_id": "wrongpart-B01",
+      "method": "roi_direct",
+      "reserved": true,
+      "sent": true,
+      "response_received": true,
+      "raw_response_saved": true,
+      "parsed_response_saved": true,
+      "schema_validation": "valid",
+      "candidate_membership_validation": "valid",
+      "rule_engine_result_saved": false,
+      "verifier_result_saved": true,
+      "ledger_status": "completed",
+      "explicit_retry": false,
+      "request_id": "eadf4ec6-324c-4c50-b600-0d1ca7dc4d3c",
+      "api_response_id": "chatcmpl-EAxFrf4ZaVufTvR7oG8yvhtsQCfWg",
+      "http_api_error_type": null,
+      "latency_seconds": 91.486,
+      "candidate_ids": [
+        "LINK_BLUE_5HOLE",
+        "PIN_RED_SHORT",
+        "LINK_GREEN_5HOLE",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "PIN_YELLOW"
+      ],
+      "localization_score": 0.8540774542467293,
+      "raw_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/responses/EXP-005_wrongpart-B01_roi_direct.json",
+      "frozen_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/evaluation/frozen_responses/EXP-005_wrongpart-B01_roi_direct.json",
+      "response_sha256": "a8043bf92608e3c695cad178cfaeffc3f0cf54433ddaffc8f9755d38ca42cf61",
+      "frozen_sha256": "a8043bf92608e3c695cad178cfaeffc3f0cf54433ddaffc8f9755d38ca42cf61",
+      "parsed_response": {
+        "error_type": "wrongpart",
+        "affected_parts": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "confidence": 0.8,
+            "evidence_summary": "Reference ROI 1 shows a blue part, while Test ROI 1 shows a green part in the same position."
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "confidence": 0.8,
+            "evidence_summary": "Test ROI 1 shows a green part replacing the expected blue part from Reference ROI 1."
+          }
+        ],
+        "confidence": 0.8,
+        "evidence_summary": "Mismatch between blue part in Reference ROI 1 and green part in Test ROI 1."
+      }
+    },
+    {
+      "logical_request_id": "EXP-006",
+      "case_id": "wrongpart-B01",
+      "method": "roi_checklist",
+      "reserved": true,
+      "sent": true,
+      "response_received": true,
+      "raw_response_saved": true,
+      "parsed_response_saved": true,
+      "schema_validation": "invalid",
+      "candidate_membership_validation": "violation",
+      "rule_engine_result_saved": false,
+      "verifier_result_saved": true,
+      "ledger_status": "completed",
+      "explicit_retry": false,
+      "request_id": "46adf2b2-b090-4d2b-8c52-87437fed0695",
+      "api_response_id": "chatcmpl-EAxHmPvARoLC4MkeXsCJLxs3J9Oyw",
+      "http_api_error_type": null,
+      "latency_seconds": 122.59,
+      "candidate_ids": [
+        "LINK_BLUE_5HOLE",
+        "PIN_RED_SHORT",
+        "LINK_GREEN_5HOLE",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "PIN_YELLOW"
+      ],
+      "localization_score": 0.8540774542467293,
+      "raw_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/responses/EXP-006_wrongpart-B01_roi_checklist.json",
+      "frozen_response_path": "C:/Users/mirro/OneDrive/Desktop/project/analysis/roi_direct_vs_checklist/run_20260809_preflight/evaluation/frozen_responses/EXP-006_wrongpart-B01_roi_checklist.json",
+      "response_sha256": "d4ae79a8e01d22aed163c77e9f746f4ba2aab01c64e0ca2a43ec945bee281bca",
+      "frozen_sha256": "d4ae79a8e01d22aed163c77e9f746f4ba2aab01c64e0ca2a43ec945bee281bca",
+      "parsed_response": {
+        "results": [
+          {
+            "part_id": "LINK_BLUE_5HOLE",
+            "reference_present": true,
+            "test_present": false,
+            "reference_count": 1,
+            "test_count": null,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "check_result": "FAIL"
+          },
+          {
+            "part_id": "PIN_RED_SHORT",
+            "reference_present": true,
+            "test_present": false,
+            "reference_count": 6,
+            "test_count": null,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "check_result": "FAIL"
+          },
+          {
+            "part_id": "LINK_GREEN_5HOLE",
+            "reference_present": false,
+            "test_present": true,
+            "reference_count": null,
+            "test_count": 1,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "check_result": "FAIL"
+          },
+          {
+            "part_id": "ROD_GREEN_LONG",
+            "reference_present": false,
+            "test_present": true,
+            "reference_count": null,
+            "test_count": 1,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "check_result": "FAIL"
+          },
+          {
+            "part_id": "LINK_RED_3HOLE",
+            "reference_present": false,
+            "test_present": true,
+            "reference_count": null,
+            "test_count": 1,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "check_result": "FAIL"
+          },
+          {
+            "part_id": "PIN_YELLOW",
+            "reference_present": true,
+            "test_present": false,
+            "reference_count": 2,
+            "test_count": null,
+            "spatial_match": false,
+            "appearance_match": false,
+            "confidence": "high",
+            "check_result": "FAIL"
+          }
+        ]
+      }
+    }
+  ],
+  "api_requests_during_audit": 0,
+  "labels_loaded": false
+}

@@ -1,0 +1,118 @@
+{
+  "missingpart-A01:roi_direct": {
+    "ground_truth_parts": [
+      "PIN_RED_SHORT"
+    ],
+    "predicted_parts": [
+      "PIN_RED_SHORT"
+    ],
+    "confidence": 0.68,
+    "verifier_status": "conflict",
+    "checklist_fail_parts": [],
+    "checklist_uncertain_parts": [],
+    "rule_engine_prediction": [],
+    "manual_review": true
+  },
+  "missingpart-A01:roi_checklist": {
+    "ground_truth_parts": [
+      "PIN_RED_SHORT"
+    ],
+    "predicted_parts": [
+      "PIN_RED_SHORT"
+    ],
+    "confidence": 0.9,
+    "verifier_status": "conflict",
+    "checklist_fail_parts": [
+      "PIN_RED_SHORT"
+    ],
+    "checklist_uncertain_parts": [
+      "ROD_GREEN_LONG",
+      "LINK_RED_3HOLE"
+    ],
+    "rule_engine_prediction": [
+      "PIN_RED_SHORT"
+    ],
+    "manual_review": true
+  },
+  "missingpart-B01:roi_direct": {
+    "ground_truth_parts": [
+      "WHEEL_BLUE_SMALL"
+    ],
+    "predicted_parts": [
+      "PIN_RED_SHORT"
+    ],
+    "confidence": 0.85,
+    "verifier_status": "conflict",
+    "checklist_fail_parts": [],
+    "checklist_uncertain_parts": [],
+    "rule_engine_prediction": [],
+    "manual_review": true
+  },
+  "missingpart-B01:roi_checklist": {
+    "ground_truth_parts": [
+      "WHEEL_BLUE_SMALL"
+    ],
+    "predicted_parts": [],
+    "confidence": 0.0,
+    "verifier_status": "unresolved",
+    "checklist_fail_parts": [],
+    "checklist_uncertain_parts": [
+      "ROD_GREEN_LONG",
+      "WHEEL_BLUE_LARGE",
+      "WHEEL_BLUE_SMALL",
+      "PIN_RED_SHORT"
+    ],
+    "rule_engine_prediction": [],
+    "manual_review": true
+  },
+  "wrongpart-B01:roi_direct": {
+    "ground_truth_parts": [
+      "PIN_RED_SHORT",
+      "PIN_YELLOW"
+    ],
+    "predicted_parts": [
+      "LINK_BLUE_5HOLE",
+      "LINK_GREEN_5HOLE"
+    ],
+    "confidence": 0.8,
+    "verifier_status": "conflict",
+    "checklist_fail_parts": [],
+    "checklist_uncertain_parts": [],
+    "rule_engine_prediction": [],
+    "manual_review": true
+  },
+  "wrongpart-B01:roi_checklist": {
+    "ground_truth_parts": [
+      "PIN_RED_SHORT",
+      "PIN_YELLOW"
+    ],
+    "predicted_parts": [
+      "LINK_BLUE_5HOLE",
+      "LINK_GREEN_5HOLE",
+      "LINK_RED_3HOLE",
+      "PIN_RED_SHORT",
+      "PIN_YELLOW",
+      "ROD_GREEN_LONG"
+    ],
+    "confidence": 0.9,
+    "verifier_status": "conflict",
+    "checklist_fail_parts": [
+      "LINK_BLUE_5HOLE",
+      "PIN_RED_SHORT",
+      "LINK_GREEN_5HOLE",
+      "ROD_GREEN_LONG",
+      "LINK_RED_3HOLE",
+      "PIN_YELLOW"
+    ],
+    "checklist_uncertain_parts": [],
+    "rule_engine_prediction": [
+      "LINK_BLUE_5HOLE",
+      "PIN_RED_SHORT",
+      "LINK_GREEN_5HOLE",
+      "ROD_GREEN_LONG",
+      "LINK_RED_3HOLE",
+      "PIN_YELLOW"
+    ],
+    "manual_review": true
+  }
+}

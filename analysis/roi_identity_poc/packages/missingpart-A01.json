@@ -1,0 +1,6121 @@
+{
+  "case_id": "missingpart-A01",
+  "model_id": "model03",
+  "step_id": "step03",
+  "primary_view": "front",
+  "available_views": [
+    "front",
+    "left",
+    "right",
+    "top",
+    "back",
+    "bottom"
+  ],
+  "error_type": "missingpart",
+  "full_candidate_count": 15,
+  "candidate_part_ids": [
+    "PIN_RED_SHORT",
+    "PIN_YELLOW",
+    "ROD_GREEN_LONG",
+    "LINK_RED_3HOLE",
+    "LINK_BLUE_5HOLE"
+  ],
+  "candidate_count": 5,
+  "reduction_ratio": 0.6666666666666667,
+  "localization_score": 0.7906677974875143,
+  "localization_status": "success",
+  "primary_bbox": [
+    {
+      "role": "reference",
+      "bbox": [
+        2789,
+        1715,
+        4079,
+        2382
+      ],
+      "color": "BLUE",
+      "score": 0.7906677974875143,
+      "candidate_part_id": "LINK_BLUE_5HOLE"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        3412,
+        5343,
+        3629,
+        5508
+      ],
+      "color": "RED",
+      "score": 0.682322415852461,
+      "candidate_part_id": "PIN_RED_SHORT"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        2970,
+        2866,
+        3958,
+        3239
+      ],
+      "color": "YELLOW",
+      "score": 0.6677825244247227,
+      "candidate_part_id": "PIN_YELLOW"
+    }
+  ],
+  "primary_test_roi": [],
+  "primary_reference_roi": [
+    "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\front\\reference_roi_01.png",
+    "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\front\\reference_roi_02.png",
+    "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\front\\reference_roi_03.png"
+  ],
+  "identity_rois": [
+    {
+      "part_id": "PIN_RED_SHORT",
+      "view": "left",
+      "score": 0.7422197675475958,
+      "roi_evidence": [
+        {
+          "color": "RED",
+          "bbox": [
+            298,
+            122,
+            334,
+            158
+          ],
+          "center": [
+            0.3008130081300813,
+            0.15820029027576196
+          ],
+          "area_ratio": 0.005994312483037748,
+          "circularity": 0.8924306047916466,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.6034150269963012,
+          "status": "success",
+          "score": 0.7422197675475958,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            298,
+            122,
+            334,
+            158
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            404,
+            660,
+            438,
+            712
+          ],
+          "center": [
+            0.7276422764227642,
+            0.9506531204644412
+          ],
+          "area_ratio": 0.0075282900869647305,
+          "circularity": 0.7343655966798529,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5909767454230297,
+          "status": "success",
+          "score": 0.7341348845249693,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            404,
+            660,
+            438,
+            712
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ]
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "view": "bottom",
+      "score": 0.6707839295678817,
+      "roi_evidence": [
+        {
+          "color": "YELLOW",
+          "bbox": [
+            122,
+            407,
+            142,
+            439
+          ],
+          "center": [
+            0.10249307479224377,
+            0.7243150684931506
+          ],
+          "area_ratio": 0.001034037870451182,
+          "circularity": 0.6529413220805064,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.493513737796741,
+          "status": "success",
+          "score": 0.6707839295678817,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            122,
+            407,
+            142,
+            439
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            58,
+            405,
+            68,
+            446
+          ],
+          "center": [
+            0.006925207756232687,
+            0.728595890410959
+          ],
+          "area_ratio": 0.0007233521800174553,
+          "circularity": 0.4008592916047914,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.43921376057117645,
+          "status": "success",
+          "score": 0.6354889443712647,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            58,
+            405,
+            68,
+            446
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ]
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "view": "right",
+      "score": 0.7133804820769759,
+      "roi_evidence": [
+        {
+          "color": "GREEN",
+          "bbox": [
+            342,
+            271,
+            376,
+            306
+          ],
+          "center": [
+            0.5959079283887468,
+            0.3952054794520548
+          ],
+          "area_ratio": 0.003237221034929755,
+          "circularity": 0.84290816283209,
+          "shape_family": "pin",
+          "position": "CENTER",
+          "component_score": 0.5590468955030399,
+          "status": "success",
+          "score": 0.7133804820769759,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            342,
+            271,
+            376,
+            306
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ]
+    },
+    {
+      "part_id": "LINK_RED_3HOLE",
+      "view": "left",
+      "score": 0.8026686098273166,
+      "roi_evidence": [
+        {
+          "color": "RED",
+          "bbox": [
+            363,
+            131,
+            400,
+            235
+          ],
+          "center": [
+            0.5670731707317073,
+            0.22060957910014514
+          ],
+          "area_ratio": 0.018850224786718113,
+          "circularity": 0.5539271802710142,
+          "shape_family": "bar",
+          "position": "TOP",
+          "component_score": 0.6964132458881793,
+          "status": "success",
+          "score": 0.8026686098273166,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            363,
+            131,
+            400,
+            235
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ]
+    },
+    {
+      "part_id": "LINK_BLUE_5HOLE",
+      "view": "bottom",
+      "score": 0.8087460671637656,
+      "roi_evidence": [
+        {
+          "color": "BLUE",
+          "bbox": [
+            330,
+            236,
+            471,
+            301
+          ],
+          "center": [
+            0.4743767313019391,
+            0.4597602739726027
+          ],
+          "area_ratio": 0.018778696922551512,
+          "circularity": 0.6051473436002656,
+          "shape_family": "bar",
+          "position": "CENTER",
+          "component_score": 0.7057631802519471,
+          "status": "success",
+          "score": 0.8087460671637656,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            330,
+            236,
+            471,
+            301
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            334,
+            523,
+            476,
+            584
+          ],
+          "center": [
+            0.4806094182825485,
+            0.9477739726027398
+          ],
+          "area_ratio": 0.018055344742534056,
+          "circularity": 0.6087976995065043,
+          "shape_family": "bar",
+          "position": "BOTTOM",
+          "component_score": 0.6974513491829765,
+          "status": "success",
+          "score": 0.8033433769689347,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            334,
+            523,
+            476,
+            584
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ]
+    }
+  ],
+  "supports_paired_swap_roi": false,
+  "candidate_evidence": {
+    "PIN_RED_SHORT": [
+      {
+        "view": "front",
+        "part_id": "PIN_RED_SHORT",
+        "score": 0.682322415852461,
+        "family": "pin",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              394,
+              617,
+              419,
+              636
+            ],
+            "center": [
+              0.5019493177387915,
+              0.7858361774744027
+            ],
+            "area_ratio": 0.0011443093893246578,
+            "circularity": 0.7348069389553704,
+            "shape_family": "pin",
+            "position": "BOTTOM",
+            "component_score": 0.5112652551576322,
+            "status": "success",
+            "score": 0.682322415852461,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              394,
+              617,
+              419,
+              636
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "left",
+        "part_id": "PIN_RED_SHORT",
+        "score": 0.7422197675475958,
+        "family": "pin",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              298,
+              122,
+              334,
+              158
+            ],
+            "center": [
+              0.3008130081300813,
+              0.15820029027576196
+            ],
+            "area_ratio": 0.005994312483037748,
+            "circularity": 0.8924306047916466,
+            "shape_family": "pin",
+            "position": "LEFT",
+            "component_score": 0.6034150269963012,
+            "status": "success",
+            "score": 0.7422197675475958,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              298,
+              122,
+              334,
+              158
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "RED",
+            "bbox": [
+              404,
+              660,
+              438,
+              712
+            ],
+            "center": [
+              0.7276422764227642,
+              0.9506531204644412
+            ],
+            "area_ratio": 0.0075282900869647305,
+            "circularity": 0.7343655966798529,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.5909767454230297,
+            "status": "success",
+            "score": 0.7341348845249693,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              404,
+              660,
+              438,
+              712
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "right",
+        "part_id": "PIN_RED_SHORT",
+        "score": 0.7056373668956952,
+        "family": "pin",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              422,
+              79,
+              454,
+              129
+            ],
+            "center": [
+              0.7979539641943734,
+              0.14246575342465753
+            ],
+            "area_ratio": 0.004081561153347581,
+            "circularity": 0.7305744809595853,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.5471344106087618,
+            "status": "success",
+            "score": 0.7056373668956952,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              422,
+              79,
+              454,
+              129
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "RED",
+            "bbox": [
+              397,
+              150,
+              428,
+              194
+            ],
+            "center": [
+              0.7327365728900256,
+              0.2356164383561644
+            ],
+            "area_ratio": 0.0031531373716848264,
+            "circularity": 0.5652889345449483,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.50247200405505,
+            "status": "success",
+            "score": 0.6766068026357825,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              397,
+              150,
+              428,
+              194
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "top",
+        "part_id": "PIN_RED_SHORT",
+        "score": 0.5204543943011105,
+        "family": "pin",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              318,
+              573,
+              377,
+              603
+            ],
+            "center": [
+              0.40353697749196143,
+              0.8167202572347267
+            ],
+            "area_ratio": 0.008767485861395146,
+            "circularity": 0.7221992905950273,
+            "shape_family": "pin",
+            "position": "BOTTOM",
+            "component_score": 0.6040334313864448,
+            "status": "success",
+            "score": 0.5204543943011105,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              318,
+              573,
+              377,
+              603
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "RED",
+            "bbox": [
+              413,
+              572,
+              464,
+              601
+            ],
+            "center": [
+              0.6961414790996785,
+              0.8143086816720257
+            ],
+            "area_ratio": 0.007444091769109087,
+            "circularity": 0.7431401834168123,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.5916791837972261,
+            "status": "success",
+            "score": 0.5125995251704715,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              413,
+              572,
+              464,
+              601
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "bottom",
+        "part_id": "PIN_RED_SHORT",
+        "score": 0.6116447147727636,
+        "family": "pin",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              632,
+              431,
+              667,
+              492
+            ],
+            "center": [
+              0.8192520775623269,
+              0.7902397260273972
+            ],
+            "area_ratio": 0.004771752741623345,
+            "circularity": 0.7231700352818277,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.5542809163266573,
+            "status": "success",
+            "score": 0.6116447147727636,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              632,
+              431,
+              667,
+              492
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "RED",
+            "bbox": [
+              632,
+              325,
+              666,
+              389
+            ],
+            "center": [
+              0.8185595567867036,
+              0.6113013698630136
+            ],
+            "area_ratio": 0.004942511289037301,
+            "circularity": 0.7224533590021214,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.5562720629133905,
+            "status": "success",
+            "score": 0.5939641044455236,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              632,
+              325,
+              666,
+              389
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      }
+    ],
+    "PIN_YELLOW": [
+      {
+        "view": "front",
+        "part_id": "PIN_YELLOW",
+        "score": 0.6677825244247227,
+        "family": "pin",
+        "colors": [
+          "YELLOW"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "YELLOW",
+            "bbox": [
+              343,
+              331,
+              457,
+              374
+            ],
+            "center": [
+              0.48927875243664715,
+              0.318259385665529
+            ],
+            "area_ratio": 0.01157947960534632,
+            "circularity": 0.49971701258091356,
+            "shape_family": "pin",
+            "position": "CENTER",
+            "component_score": 0.5946868975830117,
+            "status": "success",
+            "score": 0.6677825244247227,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              343,
+              331,
+              457,
+              374
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "YELLOW",
+            "bbox": [
+              377,
+              386,
+              420,
+              451
+            ],
+            "center": [
+              0.48635477582846004,
+              0.4308873720136519
+            ],
+            "area_ratio": 0.0065564936231363394,
+            "circularity": 0.658488060020209,
+            "shape_family": "pin",
+            "position": "CENTER",
+            "component_score": 0.563653782293246,
+            "status": "success",
+            "score": 0.6132735811255106,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              377,
+              386,
+              420,
+              451
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "left",
+        "part_id": "PIN_YELLOW",
+        "score": 0.6376813232534103,
+        "family": "pin",
+        "colors": [
+          "YELLOW"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "YELLOW",
+            "bbox": [
+              309,
+              232,
+              339,
+              263
+            ],
+            "center": [
+              0.3333333333333333,
+              0.31422351233671986
+            ],
+            "area_ratio": 0.0040650406504065045,
+            "circularity": 0.812490423756016,
+            "shape_family": "pin",
+            "position": "LEFT",
+            "component_score": 0.5633110928812846,
+            "status": "success",
+            "score": 0.6376813232534103,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              309,
+              232,
+              339,
+              263
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "YELLOW",
+            "bbox": [
+              370,
+              598,
+              378,
+              628
+            ],
+            "center": [
+              0.5365853658536586,
+              0.8447024673439768
+            ],
+            "area_ratio": 0.0008377877682985828,
+            "circularity": 0.28248497341478807,
+            "shape_family": "pin",
+            "position": "BOTTOM",
+            "component_score": 0.4169693417866899,
+            "status": "success",
+            "score": 0.5211131093837773,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              370,
+              598,
+              378,
+              628
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "right",
+        "part_id": "PIN_YELLOW",
+        "score": 0.5346864776129284,
+        "family": "pin",
+        "colors": [
+          "YELLOW"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "YELLOW",
+            "bbox": [
+              439,
+              552,
+              481,
+              617
+            ],
+            "center": [
+              0.8542199488491049,
+              0.8006849315068493
+            ],
+            "area_ratio": 0.0051956696913428866,
+            "circularity": 0.41845620918233273,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.4986371129782526,
+            "status": "success",
+            "score": 0.5346864776129284,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              439,
+              552,
+              481,
+              617
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "top",
+        "part_id": "PIN_YELLOW",
+        "score": 0.6077650101625147,
+        "family": "pin",
+        "colors": [
+          "YELLOW"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "YELLOW",
+            "bbox": [
+              377,
+              669,
+              386,
+              701
+            ],
+            "center": [
+              0.5128617363344051,
+              0.9726688102893891
+            ],
+            "area_ratio": 0.0006410190134510603,
+            "circularity": 0.19274408214019192,
+            "shape_family": "pin",
+            "position": "BOTTOM",
+            "component_score": 0.3965615540961766,
+            "status": "success",
+            "score": 0.6077650101625147,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              377,
+              669,
+              386,
+              701
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "YELLOW",
+            "bbox": [
+              405,
+              669,
+              416,
+              700
+            ],
+            "center": [
+              0.6061093247588425,
+              0.9718649517684887
+            ],
+            "area_ratio": 0.0006668665543160223,
+            "circularity": 0.18740844676917354,
+            "shape_family": "pin",
+            "position": "BOTTOM",
+            "component_score": 0.39581752128278497,
+            "status": "success",
+            "score": 0.6072813888338102,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              405,
+              669,
+              416,
+              700
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "bottom",
+        "part_id": "PIN_YELLOW",
+        "score": 0.6707839295678817,
+        "family": "pin",
+        "colors": [
+          "YELLOW"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "YELLOW",
+            "bbox": [
+              122,
+              407,
+              142,
+              439
+            ],
+            "center": [
+              0.10249307479224377,
+              0.7243150684931506
+            ],
+            "area_ratio": 0.001034037870451182,
+            "circularity": 0.6529413220805064,
+            "shape_family": "pin",
+            "position": "LEFT",
+            "component_score": 0.493513737796741,
+            "status": "success",
+            "score": 0.6707839295678817,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              122,
+              407,
+              142,
+              439
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "YELLOW",
+            "bbox": [
+              58,
+              405,
+              68,
+              446
+            ],
+            "center": [
+              0.006925207756232687,
+              0.728595890410959
+            ],
+            "area_ratio": 0.0007233521800174553,
+            "circularity": 0.4008592916047914,
+            "shape_family": "pin",
+            "position": "LEFT",
+            "component_score": 0.43921376057117645,
+            "status": "success",
+            "score": 0.6354889443712647,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              58,
+              405,
+              68,
+              446
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      }
+    ],
+    "ROD_GREEN_LONG": [
+      {
+        "view": "left",
+        "part_id": "ROD_GREEN_LONG",
+        "score": 0.45,
+        "family": "pin",
+        "colors": [],
+        "difference_supported": false,
+        "roi_evidence": [],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "right",
+        "part_id": "ROD_GREEN_LONG",
+        "score": 0.7133804820769759,
+        "family": "pin",
+        "colors": [
+          "GREEN"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "GREEN",
+            "bbox": [
+              342,
+              271,
+              376,
+              306
+            ],
+            "center": [
+              0.5959079283887468,
+              0.3952054794520548
+            ],
+            "area_ratio": 0.003237221034929755,
+            "circularity": 0.84290816283209,
+            "shape_family": "pin",
+            "position": "CENTER",
+            "component_score": 0.5590468955030399,
+            "status": "success",
+            "score": 0.7133804820769759,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              342,
+              271,
+              376,
+              306
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "top",
+        "part_id": "ROD_GREEN_LONG",
+        "score": 0.6706205151152589,
+        "family": "pin",
+        "colors": [
+          "GREEN"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "GREEN",
+            "bbox": [
+              449,
+              275,
+              460,
+              287
+            ],
+            "center": [
+              0.747588424437299,
+              0.32315112540192925
+            ],
+            "area_ratio": 0.0004859337682612876,
+            "circularity": 0.6859407942164308,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.49326233094655225,
+            "status": "success",
+            "score": 0.6706205151152589,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              449,
+              275,
+              460,
+              287
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "GREEN",
+            "bbox": [
+              430,
+              291,
+              444,
+              307
+            ],
+            "center": [
+              0.6913183279742765,
+              0.3520900321543408
+            ],
+            "area_ratio": 0.0005738154072021588,
+            "circularity": 0.5201991851349307,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.46121252961701314,
+            "status": "success",
+            "score": 0.6497881442510585,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              430,
+              291,
+              444,
+              307
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "back",
+        "part_id": "ROD_GREEN_LONG",
+        "score": 0.650078140631217,
+        "family": "pin",
+        "colors": [
+          "GREEN"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "GREEN",
+            "bbox": [
+              451,
+              385,
+              485,
+              424
+            ],
+            "center": [
+              0.6866666666666666,
+              0.41968325791855204
+            ],
+            "area_ratio": 0.0023881347410759177,
+            "circularity": 0.4090349681536556,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.4616586778941801,
+            "status": "success",
+            "score": 0.650078140631217,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              451,
+              385,
+              485,
+              424
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "GREEN",
+            "bbox": [
+              485,
+              528,
+              495,
+              546
+            ],
+            "center": [
+              0.7355555555555555,
+              0.7194570135746606
+            ],
+            "area_ratio": 0.0004474610356963298,
+            "circularity": 0.436950630869685,
+            "shape_family": "pin",
+            "position": "RIGHT",
+            "component_score": 0.44298338912014107,
+            "status": "success",
+            "score": 0.6379392029280917,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              485,
+              528,
+              495,
+              546
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "bottom",
+        "part_id": "ROD_GREEN_LONG",
+        "score": 0.620889381082238,
+        "family": "pin",
+        "colors": [
+          "GREEN"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "GREEN",
+            "bbox": [
+              385,
+              289,
+              416,
+              333
+            ],
+            "center": [
+              0.4743767313019391,
+              0.5325342465753424
+            ],
+            "area_ratio": 0.0032017227640116874,
+            "circularity": 0.765055837562849,
+            "shape_family": "pin",
+            "position": "CENTER",
+            "component_score": 0.5430327020627159,
+            "status": "success",
+            "score": 0.620889381082238,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              385,
+              289,
+              416,
+              333
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      }
+    ],
+    "LINK_RED_3HOLE": [
+      {
+        "view": "front",
+        "part_id": "LINK_RED_3HOLE",
+        "score": 0.45,
+        "family": "bar",
+        "colors": [],
+        "difference_supported": false,
+        "roi_evidence": [],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "left",
+        "part_id": "LINK_RED_3HOLE",
+        "score": 0.8026686098273166,
+        "family": "bar",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              363,
+              131,
+              400,
+              235
+            ],
+            "center": [
+              0.5670731707317073,
+              0.22060957910014514
+            ],
+            "area_ratio": 0.018850224786718113,
+            "circularity": 0.5539271802710142,
+            "shape_family": "bar",
+            "position": "TOP",
+            "component_score": 0.6964132458881793,
+            "status": "success",
+            "score": 0.8026686098273166,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              363,
+              131,
+              400,
+              235
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "right",
+        "part_id": "LINK_RED_3HOLE",
+        "score": 0.45,
+        "family": "bar",
+        "colors": [],
+        "difference_supported": false,
+        "roi_evidence": [],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "bottom",
+        "part_id": "LINK_RED_3HOLE",
+        "score": 0.7902280773961914,
+        "family": "bar",
+        "colors": [
+          "RED"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "RED",
+            "bbox": [
+              68,
+              310,
+              115,
+              540
+            ],
+            "center": [
+              0.046398891966759004,
+              0.7277397260273972
+            ],
+            "area_ratio": 0.021897412059348084,
+            "circularity": 0.3863698261245488,
+            "shape_family": "bar",
+            "position": "LEFT",
+            "component_score": 0.6772739652249098,
+            "status": "success",
+            "score": 0.7902280773961914,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              68,
+              310,
+              115,
+              540
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      }
+    ],
+    "LINK_BLUE_5HOLE": [
+      {
+        "view": "front",
+        "part_id": "LINK_BLUE_5HOLE",
+        "score": 0.7906677974875143,
+        "family": "bar",
+        "colors": [
+          "BLUE"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "BLUE",
+            "bbox": [
+              322,
+              198,
+              471,
+              275
+            ],
+            "center": [
+              0.4824561403508772,
+              0.12030716723549488
+            ],
+            "area_ratio": 0.020218350198590904,
+            "circularity": 0.38975228836549447,
+            "shape_family": "bar",
+            "position": "TOP",
+            "component_score": 0.6779504576730989,
+            "status": "success",
+            "score": 0.7906677974875143,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              322,
+              198,
+              471,
+              275
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "right",
+        "part_id": "LINK_BLUE_5HOLE",
+        "score": 0.45,
+        "family": "bar",
+        "colors": [],
+        "difference_supported": false,
+        "roi_evidence": [],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      },
+      {
+        "view": "bottom",
+        "part_id": "LINK_BLUE_5HOLE",
+        "score": 0.8087460671637656,
+        "family": "bar",
+        "colors": [
+          "BLUE"
+        ],
+        "difference_supported": true,
+        "roi_evidence": [
+          {
+            "color": "BLUE",
+            "bbox": [
+              330,
+              236,
+              471,
+              301
+            ],
+            "center": [
+              0.4743767313019391,
+              0.4597602739726027
+            ],
+            "area_ratio": 0.018778696922551512,
+            "circularity": 0.6051473436002656,
+            "shape_family": "bar",
+            "position": "CENTER",
+            "component_score": 0.7057631802519471,
+            "status": "success",
+            "score": 0.8087460671637656,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              330,
+              236,
+              471,
+              301
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          },
+          {
+            "color": "BLUE",
+            "bbox": [
+              334,
+              523,
+              476,
+              584
+            ],
+            "center": [
+              0.4806094182825485,
+              0.9477739726027398
+            ],
+            "area_ratio": 0.018055344742534056,
+            "circularity": 0.6087976995065043,
+            "shape_family": "bar",
+            "position": "BOTTOM",
+            "component_score": 0.6974513491829765,
+            "status": "success",
+            "score": 0.8033433769689347,
+            "difference_relation": "reference_only",
+            "reference_bbox": [
+              334,
+              523,
+              476,
+              584
+            ],
+            "test_bbox": null,
+            "matching_source": "paired_color_component_delta"
+          }
+        ],
+        "source": "expected_state+part_library+roi_spatial_local_evidence"
+      }
+    ]
+  },
+  "view_results": [
+    {
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "front",
+      "error_type": "missingpart",
+      "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_front_01.jpg",
+      "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+      "test_roi": [],
+      "reference_roi": [
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\front\\reference_roi_01.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\front\\reference_roi_02.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\front\\reference_roi_03.png"
+      ],
+      "bbox": [
+        {
+          "role": "reference",
+          "bbox": [
+            2789,
+            1715,
+            4079,
+            2382
+          ],
+          "color": "BLUE",
+          "score": 0.7906677974875143,
+          "candidate_part_id": "LINK_BLUE_5HOLE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            3412,
+            5343,
+            3629,
+            5508
+          ],
+          "color": "RED",
+          "score": 0.682322415852461,
+          "candidate_part_id": "PIN_RED_SHORT"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            2970,
+            2866,
+            3958,
+            3239
+          ],
+          "color": "YELLOW",
+          "score": 0.6677825244247227,
+          "candidate_part_id": "PIN_YELLOW"
+        }
+      ],
+      "localization_score": 0.7906677974875143,
+      "localization_status": "success",
+      "candidate_part_ids": [
+        "LINK_BLUE_5HOLE",
+        "PIN_RED_SHORT",
+        "PIN_YELLOW",
+        "LINK_RED_3HOLE"
+      ],
+      "candidate_count": 4,
+      "full_candidate_count": 15,
+      "reduction_ratio": 0.7333333333333334,
+      "roi_evidence": [
+        {
+          "color": "BLUE",
+          "bbox": [
+            322,
+            198,
+            471,
+            275
+          ],
+          "center": [
+            0.4824561403508772,
+            0.12030716723549488
+          ],
+          "area_ratio": 0.020218350198590904,
+          "circularity": 0.38975228836549447,
+          "shape_family": "bar",
+          "position": "TOP",
+          "component_score": 0.6779504576730989,
+          "status": "success",
+          "score": 0.7906677974875143,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            322,
+            198,
+            471,
+            275
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            394,
+            617,
+            419,
+            636
+          ],
+          "center": [
+            0.5019493177387915,
+            0.7858361774744027
+          ],
+          "area_ratio": 0.0011443093893246578,
+          "circularity": 0.7348069389553704,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.5112652551576322,
+          "status": "success",
+          "score": 0.682322415852461,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            394,
+            617,
+            419,
+            636
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            343,
+            331,
+            457,
+            374
+          ],
+          "center": [
+            0.48927875243664715,
+            0.318259385665529
+          ],
+          "area_ratio": 0.01157947960534632,
+          "circularity": 0.49971701258091356,
+          "shape_family": "pin",
+          "position": "CENTER",
+          "component_score": 0.5946868975830117,
+          "status": "success",
+          "score": 0.6677825244247227,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            343,
+            331,
+            457,
+            374
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            280,
+            176,
+            310,
+            187
+          ],
+          "center": [
+            0.28460038986354774,
+            0.026450511945392493
+          ],
+          "area_ratio": 0.0005721546946623289,
+          "circularity": 0.32429493022746364,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.4220109197287718,
+          "status": "success",
+          "score": 0.6196464094238467,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            280,
+            176,
+            310,
+            187
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            377,
+            386,
+            420,
+            451
+          ],
+          "center": [
+            0.48635477582846004,
+            0.4308873720136519
+          ],
+          "area_ratio": 0.0065564936231363394,
+          "circularity": 0.658488060020209,
+          "shape_family": "pin",
+          "position": "CENTER",
+          "component_score": 0.563653782293246,
+          "status": "success",
+          "score": 0.6132735811255106,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            377,
+            386,
+            420,
+            451
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            425,
+            602,
+            447,
+            618
+          ],
+          "center": [
+            0.5594541910331384,
+            0.757679180887372
+          ],
+          "area_ratio": 0.0009280881384348242,
+          "circularity": 0.7846298418235136,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.5185270700951381,
+          "status": "success",
+          "score": 0.5979191982116974,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            425,
+            602,
+            447,
+            618
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ],
+      "candidate_evidence": [
+        {
+          "part_id": "LINK_BLUE_5HOLE",
+          "score": 0.7906677974875143,
+          "family": "bar",
+          "colors": [
+            "BLUE"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "BLUE",
+              "bbox": [
+                322,
+                198,
+                471,
+                275
+              ],
+              "center": [
+                0.4824561403508772,
+                0.12030716723549488
+              ],
+              "area_ratio": 0.020218350198590904,
+              "circularity": 0.38975228836549447,
+              "shape_family": "bar",
+              "position": "TOP",
+              "component_score": 0.6779504576730989,
+              "status": "success",
+              "score": 0.7906677974875143,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                322,
+                198,
+                471,
+                275
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "LINK_RED_3HOLE",
+          "score": 0.45,
+          "family": "bar",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_RED_SHORT",
+          "score": 0.682322415852461,
+          "family": "pin",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                394,
+                617,
+                419,
+                636
+              ],
+              "center": [
+                0.5019493177387915,
+                0.7858361774744027
+              ],
+              "area_ratio": 0.0011443093893246578,
+              "circularity": 0.7348069389553704,
+              "shape_family": "pin",
+              "position": "BOTTOM",
+              "component_score": 0.5112652551576322,
+              "status": "success",
+              "score": 0.682322415852461,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                394,
+                617,
+                419,
+                636
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_YELLOW",
+          "score": 0.6677825244247227,
+          "family": "pin",
+          "colors": [
+            "YELLOW"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "YELLOW",
+              "bbox": [
+                343,
+                331,
+                457,
+                374
+              ],
+              "center": [
+                0.48927875243664715,
+                0.318259385665529
+              ],
+              "area_ratio": 0.01157947960534632,
+              "circularity": 0.49971701258091356,
+              "shape_family": "pin",
+              "position": "CENTER",
+              "component_score": 0.5946868975830117,
+              "status": "success",
+              "score": 0.6677825244247227,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                343,
+                331,
+                457,
+                374
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "YELLOW",
+              "bbox": [
+                377,
+                386,
+                420,
+                451
+              ],
+              "center": [
+                0.48635477582846004,
+                0.4308873720136519
+              ],
+              "area_ratio": 0.0065564936231363394,
+              "circularity": 0.658488060020209,
+              "shape_family": "pin",
+              "position": "CENTER",
+              "component_score": 0.563653782293246,
+              "status": "success",
+              "score": 0.6132735811255106,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                377,
+                386,
+                420,
+                451
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        }
+      ],
+      "dino_corroboration": {
+        "status": "success",
+        "selected_bbox": [
+          1820.40576171875,
+          1273.909912109375,
+          3059.37353515625,
+          2510.568115234375
+        ],
+        "score": 0.6044794853659929,
+        "detection_score": 0.19244365394115448,
+        "selection": {
+          "selected": {
+            "bbox": [
+              1820.40576171875,
+              1273.909912109375,
+              3059.37353515625,
+              2510.568115234375
+            ],
+            "label": "blue flat bar bar holes",
+            "detection_score": 0.19244365394115448,
+            "selection_score": 0.6044794853659929,
+            "candidate_index": 12
+          },
+          "candidates": [
+            {
+              "candidate_index": 0,
+              "bbox": [
+                972.6432495117188,
+                1329.182861328125,
+                2432.35400390625,
+                5675.56982421875
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar short red cylinder stick yellow pin bar 3",
+              "detection_score": 0.6204547882080078,
+              "normalized_detection_score": 0.6204547882080078,
+              "bbox_width": 1459.7107543945312,
+              "bbox_height": 4346.386962890625,
+              "bbox_area": 6344467.79249163,
+              "bbox_area_ratio": 0.13218416714804831,
+              "bbox_center_x": 1702.4986267089844,
+              "bbox_center_y": 3502.3763427734375,
+              "normalized_center_x": 0.2457417186358234,
+              "normalized_center_y": 0.5055393104465123,
+              "target_position_distance": 0.3090756177014342,
+              "position_distance": 0.3090756177014342,
+              "center_score": 0.6909243822985658,
+              "position_score": 0.6909243822985658,
+              "area_score": 0.6052162049816356,
+              "oversized_penalty": 0.6523020893506039,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.4108024115572249,
+              "selection_score": 0.4108024115572249,
+              "selected": false
+            },
+            {
+              "candidate_index": 1,
+              "bbox": [
+                905.8116455078125,
+                2908.298828125,
+                1985.5352783203125,
+                4143.1796875
+              ],
+              "bbox_was_clipped": false,
+              "label": "yellow pin head",
+              "detection_score": 0.3747730851173401,
+              "normalized_detection_score": 0.3747730851173401,
+              "bbox_width": 1079.7236328125,
+              "bbox_height": 1234.880859375,
+              "bbox_area": 1333330.047574997,
+              "bbox_area_ratio": 0.02777933904570312,
+              "bbox_center_x": 1445.6734619140625,
+              "bbox_center_y": 3525.7392578125,
+              "normalized_center_x": 0.2086711117081499,
+              "normalized_center_y": 0.5089115556888713,
+              "target_position_distance": 0.3268715542536326,
+              "position_distance": 0.3268715542536326,
+              "center_score": 0.6731284457463673,
+              "position_score": 0.6731284457463673,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5932367284600598,
+              "selection_score": 0.5932367284600598,
+              "selected": false
+            },
+            {
+              "candidate_index": 2,
+              "bbox": [
+                3192.52978515625,
+                2139.753173828125,
+                4162.25244140625,
+                4828.93310546875
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar yellow pin bar 3 holes",
+              "detection_score": 0.3331916928291321,
+              "normalized_detection_score": 0.3331916928291321,
+              "bbox_width": 969.72265625,
+              "bbox_height": 2689.179931640625,
+              "bbox_area": 2607758.7064447403,
+              "bbox_area_ratio": 0.05433149383190356,
+              "bbox_center_x": 3677.39111328125,
+              "bbox_center_y": 3484.3431396484375,
+              "normalized_center_x": 0.5308012576907116,
+              "normalized_center_y": 0.5029363654226959,
+              "target_position_distance": 0.25051227067063236,
+              "position_distance": 0.25051227067063236,
+              "center_score": 0.7494877293293676,
+              "position_score": 0.7494877293293676,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.6040102708981683,
+              "selection_score": 0.6040102708981683,
+              "selected": false
+            },
+            {
+              "candidate_index": 3,
+              "bbox": [
+                1770.44189453125,
+                1216.74853515625,
+                4486.25830078125,
+                5668.16064453125
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar flat bar 3 holes",
+              "detection_score": 0.3326795995235443,
+              "normalized_detection_score": 0.3326795995235443,
+              "bbox_width": 2715.81640625,
+              "bbox_height": 4451.412109375,
+              "bbox_area": 12089218.037620544,
+              "bbox_area_ratio": 0.25187348569492213,
+              "bbox_center_x": 3128.35009765625,
+              "bbox_center_y": 3442.45458984375,
+              "normalized_center_x": 0.4515516884607751,
+              "normalized_center_y": 0.4968900966864535,
+              "target_position_distance": 0.24766911199233024,
+              "position_distance": 0.24766911199233024,
+              "center_score": 0.7523308880076698,
+              "position_score": 0.7523308880076698,
+              "area_score": 0.31761977557613497,
+              "oversized_penalty": 1.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.21578556335827356,
+              "selection_score": 0.21578556335827356,
+              "selected": false
+            },
+            {
+              "candidate_index": 4,
+              "bbox": [
+                2985.718017578125,
+                2975.30224609375,
+                4083.784423828125,
+                3991.49658203125
+              ],
+              "bbox_was_clipped": false,
+              "label": "yellow pin head",
+              "detection_score": 0.3094879388809204,
+              "normalized_detection_score": 0.3094879388809204,
+              "bbox_width": 1098.06640625,
+              "bbox_height": 1016.1943359375,
+              "bbox_area": 1115848.8625144958,
+              "bbox_area_ratio": 0.023248215197676926,
+              "bbox_center_x": 3534.751220703125,
+              "bbox_center_y": 3483.3994140625,
+              "normalized_center_x": 0.5102123586465249,
+              "normalized_center_y": 0.502800146371608,
+              "target_position_distance": 0.24957186895657252,
+              "position_distance": 0.24957186895657252,
+              "center_score": 0.7504281310434275,
+              "position_score": 0.7504281310434275,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5995046205370409,
+              "selection_score": 0.5995046205370409,
+              "selected": false
+            },
+            {
+              "candidate_index": 5,
+              "bbox": [
+                4315.65673828125,
+                2854.44677734375,
+                4682.7001953125,
+                4052.90673828125
+              ],
+              "bbox_was_clipped": false,
+              "label": "short red cylinder stick",
+              "detection_score": 0.27085864543914795,
+              "normalized_detection_score": 0.27085864543914795,
+              "bbox_width": 367.04345703125,
+              "bbox_height": 1198.4599609375,
+              "bbox_area": 439886.88717603683,
+              "bbox_area_ratio": 0.009164847820572909,
+              "bbox_center_x": 4499.178466796875,
+              "bbox_center_y": 3453.6767578125,
+              "normalized_center_x": 0.6494195246531286,
+              "normalized_center_y": 0.4985099246265156,
+              "target_position_distance": 0.26812810549320126,
+              "position_distance": 0.26812810549320126,
+              "center_score": 0.7318718945067988,
+              "position_score": 0.7318718945067988,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5871397027145293,
+              "selection_score": 0.5871397027145293,
+              "selected": false
+            },
+            {
+              "candidate_index": 6,
+              "bbox": [
+                1674.82763671875,
+                2138.178955078125,
+                1853.28369140625,
+                2488.366943359375
+              ],
+              "bbox_was_clipped": false,
+              "label": "holes",
+              "detection_score": 0.22828452289104462,
+              "normalized_detection_score": 0.22828452289104462,
+              "bbox_width": 178.4560546875,
+              "bbox_height": 350.18798828125,
+              "bbox_area": 62493.16678762436,
+              "bbox_area_ratio": 0.0013020173597606134,
+              "bbox_center_x": 1764.0556640625,
+              "bbox_center_y": 2313.27294921875,
+              "normalized_center_x": 0.2546269722953955,
+              "normalized_center_y": 0.33390198458700204,
+              "target_position_distance": 0.21682696172289384,
+              "position_distance": 0.21682696172289384,
+              "center_score": 0.7831730382771062,
+              "position_score": 0.7831730382771062,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5914501641474854,
+              "selection_score": 0.5914501641474854,
+              "selected": false
+            },
+            {
+              "candidate_index": 7,
+              "bbox": [
+                1844.75927734375,
+                4454.2314453125,
+                3115.563720703125,
+                5759.162109375
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar bar holes",
+              "detection_score": 0.22012735903263092,
+              "normalized_detection_score": 0.22012735903263092,
+              "bbox_width": 1270.804443359375,
+              "bbox_height": 1304.9306640625,
+              "bbox_area": 1658311.686166525,
+              "bbox_area_ratio": 0.03455018707277754,
+              "bbox_center_x": 2480.1614990234375,
+              "bbox_center_y": 5106.69677734375,
+              "normalized_center_x": 0.3579909784964546,
+              "normalized_center_y": 0.7371098119722503,
+              "target_position_distance": 0.42712088072493337,
+              "position_distance": 0.42712088072493337,
+              "center_score": 0.5728791192750666,
+              "position_score": 0.5728791192750666,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5372452516252928,
+              "selection_score": 0.5372452516252928,
+              "selected": false
+            },
+            {
+              "candidate_index": 8,
+              "bbox": [
+                3146.8525390625,
+                2853.05908203125,
+                4643.78125,
+                4073.185302734375
+              ],
+              "bbox_was_clipped": false,
+              "label": "yellow pin head",
+              "detection_score": 0.21410858631134033,
+              "normalized_detection_score": 0.21410858631134033,
+              "bbox_width": 1496.9287109375,
+              "bbox_height": 1220.126220703125,
+              "bbox_area": 1826441.9707381725,
+              "bbox_area_ratio": 0.03805310683931317,
+              "bbox_center_x": 3895.31689453125,
+              "bbox_center_y": 3463.1221923828125,
+              "normalized_center_x": 0.5622570575247186,
+              "normalized_center_y": 0.49987329566726507,
+              "target_position_distance": 0.25128396708973455,
+              "position_distance": 0.25128396708973455,
+              "center_score": 0.7487160329102654,
+              "position_score": 0.7487160329102654,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5800007254898344,
+              "selection_score": 0.5800007254898344,
+              "selected": false
+            },
+            {
+              "candidate_index": 9,
+              "bbox": [
+                3069.567626953125,
+                2079.81103515625,
+                4255.06640625,
+                4856.48095703125
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar",
+              "detection_score": 0.20928728580474854,
+              "normalized_detection_score": 0.20928728580474854,
+              "bbox_width": 1185.498779296875,
+              "bbox_height": 2776.669921875,
+              "bbox_area": 3291738.802893162,
+              "bbox_area_ratio": 0.06858191519929922,
+              "bbox_center_x": 3662.3170166015625,
+              "bbox_center_y": 3468.14599609375,
+              "normalized_center_x": 0.5286254354217036,
+              "normalized_center_y": 0.5005984405447099,
+              "target_position_distance": 0.24873548406436163,
+              "position_distance": 0.24873548406436163,
+              "center_score": 0.7512645159356384,
+              "position_score": 0.7512645159356384,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5796735861448593,
+              "selection_score": 0.5796735861448593,
+              "selected": false
+            },
+            {
+              "candidate_index": 10,
+              "bbox": [
+                1656.0516357421875,
+                4520.369140625,
+                1846.1890869140625,
+                4867.9638671875
+              ],
+              "bbox_was_clipped": false,
+              "label": "holes",
+              "detection_score": 0.20477795600891113,
+              "normalized_detection_score": 0.20477795600891113,
+              "bbox_width": 190.137451171875,
+              "bbox_height": 347.5947265625,
+              "bbox_area": 66090.77534937859,
+              "bbox_area_ratio": 0.001376971935465601,
+              "bbox_center_x": 1751.120361328125,
+              "bbox_center_y": 4694.16650390625,
+              "normalized_center_x": 0.2527598673972467,
+              "normalized_center_y": 0.6775644491781538,
+              "target_position_distance": 0.41197811301456044,
+              "position_distance": 0.41197811301456044,
+              "center_score": 0.5880218869854396,
+              "position_score": 0.5880218869854396,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5379610629481422,
+              "selection_score": 0.5379610629481422,
+              "selected": false
+            },
+            {
+              "candidate_index": 11,
+              "bbox": [
+                3617.498046875,
+                2951.28955078125,
+                4082.301025390625,
+                3974.230224609375
+              ],
+              "bbox_was_clipped": false,
+              "label": "yellow pin head",
+              "detection_score": 0.19366338849067688,
+              "normalized_detection_score": 0.19366338849067688,
+              "bbox_width": 464.802978515625,
+              "bbox_height": 1022.940673828125,
+              "bbox_area": 475465.87204009295,
+              "bbox_area_ratio": 0.00990612015988465,
+              "bbox_center_x": 3849.8995361328125,
+              "bbox_center_y": 3462.7598876953125,
+              "normalized_center_x": 0.555701434199309,
+              "normalized_center_y": 0.49982099995602086,
+              "target_position_distance": 0.2504769268636238,
+              "position_distance": 0.2504769268636238,
+              "center_score": 0.7495230731363762,
+              "position_score": 0.7495230731363762,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5761134459822295,
+              "selection_score": 0.5761134459822295,
+              "selected": false
+            },
+            {
+              "candidate_index": 12,
+              "bbox": [
+                1820.40576171875,
+                1273.909912109375,
+                3059.37353515625,
+                2510.568115234375
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar bar holes",
+              "detection_score": 0.19244365394115448,
+              "normalized_detection_score": 0.19244365394115448,
+              "bbox_width": 1238.9677734375,
+              "bbox_height": 1236.658203125,
+              "bbox_area": 1532179.6604290009,
+              "bbox_area_ratio": 0.03192228236616967,
+              "bbox_center_x": 2439.8896484375,
+              "bbox_center_y": 1892.239013671875,
+              "normalized_center_x": 0.3521780670377454,
+              "normalized_center_y": 0.27312918788566326,
+              "target_position_distance": 0.1360369816889515,
+              "position_distance": 0.1360369816889515,
+              "center_score": 0.8639630183110485,
+              "position_score": 0.8639630183110485,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.6044794853659929,
+              "selection_score": 0.6044794853659929,
+              "selected": true
+            },
+            {
+              "candidate_index": 13,
+              "bbox": [
+                1365.7135009765625,
+                2028.4093017578125,
+                1870.8829345703125,
+                2546.28515625
+              ],
+              "bbox_was_clipped": false,
+              "label": "holes",
+              "detection_score": 0.18325133621692657,
+              "normalized_detection_score": 0.18325133621692657,
+              "bbox_width": 505.16943359375,
+              "bbox_height": 517.8758544921875,
+              "bbox_area": 261615.05208569765,
+              "bbox_area_ratio": 0.005450633355608896,
+              "bbox_center_x": 1618.2982177734375,
+              "bbox_center_y": 2287.3472290039062,
+              "normalized_center_x": 0.23358807993265554,
+              "normalized_center_y": 0.3301598194289703,
+              "target_position_distance": 0.2274124795285522,
+              "position_distance": 0.2274124795285522,
+              "center_score": 0.7725875204714479,
+              "position_score": 0.7725875204714479,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5797971473612473,
+              "selection_score": 0.5797971473612473,
+              "selected": false
+            },
+            {
+              "candidate_index": 14,
+              "bbox": [
+                961.9820556640625,
+                1311.15185546875,
+                4328.0810546875,
+                5756.6416015625
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar bar 3",
+              "detection_score": 0.18204906582832336,
+              "normalized_detection_score": 0.18204906582832336,
+              "bbox_width": 3366.0989990234375,
+              "bbox_height": 4445.48974609375,
+              "bbox_area": 14963958.584495127,
+              "bbox_area_ratio": 0.3117674275327304,
+              "bbox_center_x": 2645.0315551757812,
+              "bbox_center_y": 3533.896728515625,
+              "normalized_center_x": 0.3817886193960423,
+              "normalized_center_y": 0.5100890197049113,
+              "target_position_distance": 0.2679907019061834,
+              "position_distance": 0.2679907019061834,
+              "center_score": 0.7320092980938167,
+              "position_score": 0.7320092980938167,
+              "area_score": 0.2566015334992022,
+              "oversized_penalty": 1.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.15922267441383955,
+              "selection_score": 0.15922267441383955,
+              "selected": false
+            },
+            {
+              "candidate_index": 15,
+              "bbox": [
+                1829.457763671875,
+                1989.822998046875,
+                4265.4248046875,
+                5700.62451171875
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar",
+              "detection_score": 0.17951999604701996,
+              "normalized_detection_score": 0.17951999604701996,
+              "bbox_width": 2435.967041015625,
+              "bbox_height": 3710.801513671875,
+              "bbox_area": 9039390.18305558,
+              "bbox_area_ratio": 0.18833167760541075,
+              "bbox_center_x": 3047.4412841796875,
+              "bbox_center_y": 3845.2237548828125,
+              "normalized_center_x": 0.43987316457559,
+              "normalized_center_y": 0.5550265235107986,
+              "target_position_distance": 0.289535594604012,
+              "position_distance": 0.289535594604012,
+              "center_score": 0.710464405395988,
+              "position_score": 0.710464405395988,
+              "area_score": 0.42478249552693204,
+              "oversized_penalty": 1.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.21219397399282716,
+              "selection_score": 0.21219397399282716,
+              "selected": false
+            },
+            {
+              "candidate_index": 16,
+              "bbox": [
+                4719.93505859375,
+                2111.341796875,
+                5719.73876953125,
+                3052.94091796875
+              ],
+              "bbox_was_clipped": false,
+              "label": "head",
+              "detection_score": 0.16933578252792358,
+              "normalized_detection_score": 0.16933578252792358,
+              "bbox_width": 999.8037109375,
+              "bbox_height": 941.59912109375,
+              "bbox_area": 941414.2954850197,
+              "bbox_area_ratio": 0.01961394850758369,
+              "bbox_center_x": 5219.8369140625,
+              "bbox_center_y": 2582.141357421875,
+              "normalized_center_x": 0.7534406631152569,
+              "normalized_center_y": 0.37271093496274177,
+              "target_position_distance": 0.23857109031930057,
+              "position_distance": 0.23857109031930057,
+              "center_score": 0.7614289096806994,
+              "position_score": 0.7614289096806994,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5742243839257596,
+              "selection_score": 0.5742243839257596,
+              "selected": false
+            },
+            {
+              "candidate_index": 17,
+              "bbox": [
+                1062.7130126953125,
+                3191.908203125,
+                1213.9365234375,
+                3373.7392578125
+              ],
+              "bbox_was_clipped": false,
+              "label": "holes",
+              "detection_score": 0.16838786005973816,
+              "normalized_detection_score": 0.16838786005973816,
+              "bbox_width": 151.2235107421875,
+              "bbox_height": 181.8310546875,
+              "bbox_area": 27497.13045179844,
+              "bbox_area_ratio": 0.0005728904939881148,
+              "bbox_center_x": 1138.3247680664062,
+              "bbox_center_y": 3282.82373046875,
+              "normalized_center_x": 0.16430784758464292,
+              "normalized_center_y": 0.47384869088752163,
+              "target_position_distance": 0.32982358601441536,
+              "position_distance": 0.32982358601441536,
+              "center_score": 0.6701764139855846,
+              "position_score": 0.6701764139855846,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5512216755083438,
+              "selection_score": 0.5512216755083438,
+              "selected": false
+            },
+            {
+              "candidate_index": 18,
+              "bbox": [
+                1513.3553466796875,
+                3127.723876953125,
+                1675.5462646484375,
+                3331.0703125
+              ],
+              "bbox_was_clipped": false,
+              "label": "holes",
+              "detection_score": 0.15965484082698822,
+              "normalized_detection_score": 0.15965484082698822,
+              "bbox_width": 162.19091796875,
+              "bbox_height": 203.346435546875,
+              "bbox_area": 32980.94504702091,
+              "bbox_area_ratio": 0.0006871433342218767,
+              "bbox_center_x": 1594.4508056640625,
+              "bbox_center_y": 3229.3970947265625,
+              "normalized_center_x": 0.23014590151040162,
+              "normalized_center_y": 0.4661369940425177,
+              "target_position_distance": 0.29390800726917315,
+              "position_distance": 0.29390800726917315,
+              "center_score": 0.7060919927308269,
+              "position_score": 0.7060919927308269,
+              "area_score": 1.0,
+              "oversized_penalty": 0.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.5584539663481043,
+              "selection_score": 0.5584539663481043,
+              "selected": false
+            },
+            {
+              "candidate_index": 19,
+              "bbox": [
+                910.56396484375,
+                1255.740478515625,
+                5809.015625,
+                5762.1982421875
+              ],
+              "bbox_was_clipped": false,
+              "label": "blue flat bar yellow pin flat bar 3 holes",
+              "detection_score": 0.15842467546463013,
+              "normalized_detection_score": 0.15842467546463013,
+              "bbox_width": 4898.45166015625,
+              "bbox_height": 4506.457763671875,
+              "bbox_area": 22074665.513882518,
+              "bbox_area_ratio": 0.4599158466022198,
+              "bbox_center_x": 3359.789794921875,
+              "bbox_center_y": 3508.9693603515625,
+              "normalized_center_x": 0.48495811127625216,
+              "normalized_center_y": 0.5064909584803063,
+              "target_position_distance": 0.25230146838116607,
+              "position_distance": 0.25230146838116607,
+              "center_score": 0.7476985316188339,
+              "position_score": 0.7476985316188339,
+              "area_score": 0.17394486532922582,
+              "oversized_penalty": 1.0,
+              "boundary_penalty": 0.0,
+              "final_selection_score": 0.12949027086286355,
+              "selection_score": 0.12949027086286355,
+              "selected": false
+            }
+          ],
+          "rejected_candidates": [],
+          "selection_reason": "Selected candidate 12 with score 0.6045: detection=0.1924, position=0.8640, area=1.0000, oversized_penalty=0.0000, boundary_penalty=0.0000.",
+          "status": "success",
+          "target_position": "top",
+          "expected_area_range": [
+            0.0003,
+            0.08
+          ],
+          "weights": {
+            "confidence": 0.2,
+            "position": 0.25,
+            "area": 0.35,
+            "oversized": 0.15,
+            "boundary": 0.05
+          }
+        }
+      },
+      "supports_paired_roi": false,
+      "requires_manual_review": true,
+      "human_ground_truth_used": false
+    },
+    {
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "left",
+      "error_type": "missingpart",
+      "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_left_01.jpg",
+      "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_left_01.jpg",
+      "test_roi": [],
+      "reference_roi": [
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\left\\reference_roi_01.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\left\\reference_roi_02.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\left\\reference_roi_03.png"
+      ],
+      "bbox": [
+        {
+          "role": "reference",
+          "bbox": [
+            3144,
+            1134,
+            3464,
+            2035
+          ],
+          "color": "RED",
+          "score": 0.8026686098273166,
+          "candidate_part_id": "LINK_RED_3HOLE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            2581,
+            1057,
+            2892,
+            1368
+          ],
+          "color": "RED",
+          "score": 0.7422197675475958,
+          "candidate_part_id": "PIN_RED_SHORT"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            2676,
+            2009,
+            2936,
+            2278
+          ],
+          "color": "YELLOW",
+          "score": 0.6376813232534103,
+          "candidate_part_id": "PIN_YELLOW"
+        }
+      ],
+      "localization_score": 0.8200479381789393,
+      "localization_status": "success",
+      "candidate_part_ids": [
+        "LINK_RED_3HOLE",
+        "PIN_RED_SHORT",
+        "PIN_YELLOW",
+        "LINK_GREEN_5HOLE",
+        "ROD_GREEN_LONG"
+      ],
+      "candidate_count": 5,
+      "full_candidate_count": 15,
+      "reduction_ratio": 0.6666666666666667,
+      "roi_evidence": [
+        {
+          "color": "RED",
+          "bbox": [
+            273,
+            31,
+            359,
+            102
+          ],
+          "center": [
+            0.3008130081300813,
+            0.05152394775036284
+          ],
+          "area_ratio": 0.02556432676082929,
+          "circularity": 0.6157533706072252,
+          "shape_family": "unknown",
+          "position": "LEFT",
+          "component_score": 0.7231506741214451,
+          "status": "success",
+          "score": 0.8200479381789393,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            273,
+            31,
+            359,
+            102
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            363,
+            131,
+            400,
+            235
+          ],
+          "center": [
+            0.5670731707317073,
+            0.22060957910014514
+          ],
+          "area_ratio": 0.018850224786718113,
+          "circularity": 0.5539271802710142,
+          "shape_family": "bar",
+          "position": "TOP",
+          "component_score": 0.6964132458881793,
+          "status": "success",
+          "score": 0.8026686098273166,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            363,
+            131,
+            400,
+            235
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            335,
+            529,
+            463,
+            718
+          ],
+          "center": [
+            0.6382113821138211,
+            0.8599419448476052
+          ],
+          "area_ratio": 0.05186614275431579,
+          "circularity": 0.31745378911176503,
+          "shape_family": "unknown",
+          "position": "RIGHT",
+          "component_score": 0.663490757822353,
+          "status": "success",
+          "score": 0.7812689925845294,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            335,
+            529,
+            463,
+            718
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "WHITE",
+          "bbox": [
+            288,
+            110,
+            344,
+            167
+          ],
+          "center": [
+            0.3008130081300813,
+            0.15602322206095792
+          ],
+          "area_ratio": 0.00844867664932092,
+          "circularity": 0.8824063006140869,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.6320897182393288,
+          "status": "success",
+          "score": 0.7608583168555637,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            288,
+            110,
+            344,
+            167
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            298,
+            122,
+            334,
+            158
+          ],
+          "center": [
+            0.3008130081300813,
+            0.15820029027576196
+          ],
+          "area_ratio": 0.005994312483037748,
+          "circularity": 0.8924306047916466,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.6034150269963012,
+          "status": "success",
+          "score": 0.7422197675475958,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            298,
+            122,
+            334,
+            158
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            404,
+            660,
+            438,
+            712
+          ],
+          "center": [
+            0.7276422764227642,
+            0.9506531204644412
+          ],
+          "area_ratio": 0.0075282900869647305,
+          "circularity": 0.7343655966798529,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5909767454230297,
+          "status": "success",
+          "score": 0.7341348845249693,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            404,
+            660,
+            438,
+            712
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            387,
+            635,
+            458,
+            719
+          ],
+          "center": [
+            0.733739837398374,
+            0.9375907111756169
+          ],
+          "area_ratio": 0.011493032201729855,
+          "circularity": 0.17870220028782186,
+          "shape_family": "unknown",
+          "position": "RIGHT",
+          "component_score": 0.5294033425791875,
+          "status": "success",
+          "score": 0.6941121726764719,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            387,
+            635,
+            458,
+            719
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            375,
+            596,
+            405,
+            620
+          ],
+          "center": [
+            0.6016260162601627,
+            0.8374455732946299
+          ],
+          "area_ratio": 0.0030325557246864195,
+          "circularity": 0.614401874566119,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.5107873214718041,
+          "status": "success",
+          "score": 0.6820117589566727,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            375,
+            596,
+            405,
+            620
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            388,
+            132,
+            438,
+            220
+          ],
+          "center": [
+            0.6951219512195121,
+            0.2104499274310595
+          ],
+          "area_ratio": 0.0101360520136406,
+          "circularity": 0.15048338655778182,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5067973274820639,
+          "status": "success",
+          "score": 0.6794182628633415,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            388,
+            132,
+            438,
+            220
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            403,
+            670,
+            412,
+            688
+          ],
+          "center": [
+            0.6727642276422764,
+            0.9404934687953556
+          ],
+          "area_ratio": 0.0007787886296860066,
+          "circularity": 0.6531428439744029,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.49036342666595567,
+          "status": "success",
+          "score": 0.6687362273328712,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            403,
+            670,
+            412,
+            688
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            400,
+            152,
+            444,
+            220
+          ],
+          "center": [
+            0.7317073170731707,
+            0.22496371552975328
+          ],
+          "area_ratio": 0.007917684401807734,
+          "circularity": 0.20408475858740893,
+          "shape_family": "unknown",
+          "position": "RIGHT",
+          "component_score": 0.48978800674007844,
+          "status": "success",
+          "score": 0.668362204381051,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            400,
+            152,
+            444,
+            220
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            424,
+            665,
+            435,
+            685
+          ],
+          "center": [
+            0.7621951219512195,
+            0.9346879535558781
+          ],
+          "area_ratio": 0.0007669888019634913,
+          "circularity": 0.5577698841981524,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.4711413368641741,
+          "status": "success",
+          "score": 0.6562418689617131,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            424,
+            665,
+            435,
+            685
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            309,
+            232,
+            339,
+            263
+          ],
+          "center": [
+            0.3333333333333333,
+            0.31422351233671986
+          ],
+          "area_ratio": 0.0040650406504065045,
+          "circularity": 0.812490423756016,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.5633110928812846,
+          "status": "success",
+          "score": 0.6376813232534103,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            309,
+            232,
+            339,
+            263
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            380,
+            217,
+            396,
+            228
+          ],
+          "center": [
+            0.5934959349593496,
+            0.2779390420899855
+          ],
+          "area_ratio": 0.0006548904385995964,
+          "circularity": 0.4670504864399768,
+          "shape_family": "pin",
+          "position": "TOP",
+          "component_score": 0.4515962277704903,
+          "status": "success",
+          "score": 0.6009050136459659,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            380,
+            217,
+            396,
+            228
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            313,
+            391,
+            343,
+            419
+          ],
+          "center": [
+            0.34959349593495936,
+            0.5428156748911466
+          ],
+          "area_ratio": 0.004029641167238958,
+          "circularity": 0.9034018400734394,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.5810508826051748,
+          "status": "success",
+          "score": 0.5932672381730589,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            313,
+            391,
+            343,
+            419
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            370,
+            598,
+            378,
+            628
+          ],
+          "center": [
+            0.5365853658536586,
+            0.8447024673439768
+          ],
+          "area_ratio": 0.0008377877682985828,
+          "circularity": 0.28248497341478807,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.4169693417866899,
+          "status": "success",
+          "score": 0.5211131093837773,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            370,
+            598,
+            378,
+            628
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ],
+      "candidate_evidence": [
+        {
+          "part_id": "LINK_GREEN_5HOLE",
+          "score": 0.45,
+          "family": "bar",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "LINK_RED_3HOLE",
+          "score": 0.8026686098273166,
+          "family": "bar",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                363,
+                131,
+                400,
+                235
+              ],
+              "center": [
+                0.5670731707317073,
+                0.22060957910014514
+              ],
+              "area_ratio": 0.018850224786718113,
+              "circularity": 0.5539271802710142,
+              "shape_family": "bar",
+              "position": "TOP",
+              "component_score": 0.6964132458881793,
+              "status": "success",
+              "score": 0.8026686098273166,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                363,
+                131,
+                400,
+                235
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_RED_SHORT",
+          "score": 0.7422197675475958,
+          "family": "pin",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                298,
+                122,
+                334,
+                158
+              ],
+              "center": [
+                0.3008130081300813,
+                0.15820029027576196
+              ],
+              "area_ratio": 0.005994312483037748,
+              "circularity": 0.8924306047916466,
+              "shape_family": "pin",
+              "position": "LEFT",
+              "component_score": 0.6034150269963012,
+              "status": "success",
+              "score": 0.7422197675475958,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                298,
+                122,
+                334,
+                158
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "RED",
+              "bbox": [
+                404,
+                660,
+                438,
+                712
+              ],
+              "center": [
+                0.7276422764227642,
+                0.9506531204644412
+              ],
+              "area_ratio": 0.0075282900869647305,
+              "circularity": 0.7343655966798529,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.5909767454230297,
+              "status": "success",
+              "score": 0.7341348845249693,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                404,
+                660,
+                438,
+                712
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_YELLOW",
+          "score": 0.6376813232534103,
+          "family": "pin",
+          "colors": [
+            "YELLOW"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "YELLOW",
+              "bbox": [
+                309,
+                232,
+                339,
+                263
+              ],
+              "center": [
+                0.3333333333333333,
+                0.31422351233671986
+              ],
+              "area_ratio": 0.0040650406504065045,
+              "circularity": 0.812490423756016,
+              "shape_family": "pin",
+              "position": "LEFT",
+              "component_score": 0.5633110928812846,
+              "status": "success",
+              "score": 0.6376813232534103,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                309,
+                232,
+                339,
+                263
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "YELLOW",
+              "bbox": [
+                370,
+                598,
+                378,
+                628
+              ],
+              "center": [
+                0.5365853658536586,
+                0.8447024673439768
+              ],
+              "area_ratio": 0.0008377877682985828,
+              "circularity": 0.28248497341478807,
+              "shape_family": "pin",
+              "position": "BOTTOM",
+              "component_score": 0.4169693417866899,
+              "status": "success",
+              "score": 0.5211131093837773,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                370,
+                598,
+                378,
+                628
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "ROD_GREEN_LONG",
+          "score": 0.45,
+          "family": "pin",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        }
+      ],
+      "dino_corroboration": {
+        "status": "not_run",
+        "selected_bbox": null,
+        "score": 0.0
+      },
+      "supports_paired_roi": false,
+      "requires_manual_review": true,
+      "human_ground_truth_used": false
+    },
+    {
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "right",
+      "error_type": "missingpart",
+      "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_right_01.jpg",
+      "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_right_01.jpg",
+      "test_roi": [],
+      "reference_roi": [
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\right\\reference_roi_01.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\right\\reference_roi_02.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\right\\reference_roi_03.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\right\\reference_roi_04.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\right\\reference_roi_05.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\right\\reference_roi_06.png"
+      ],
+      "bbox": [
+        {
+          "role": "reference",
+          "bbox": [
+            2806,
+            3066,
+            3499,
+            4936
+          ],
+          "color": "GREEN",
+          "score": 0.6955011798161694,
+          "candidate_part_id": "LINK_GREEN_5HOLE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            3655,
+            684,
+            3932,
+            1117
+          ],
+          "color": "RED",
+          "score": 0.7056373668956952,
+          "candidate_part_id": "PIN_RED_SHORT"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            3802,
+            4780,
+            4165,
+            5343
+          ],
+          "color": "YELLOW",
+          "score": 0.5346864776129284,
+          "candidate_part_id": "PIN_YELLOW"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            2962,
+            2347,
+            3256,
+            2650
+          ],
+          "color": "GREEN",
+          "score": 0.7133804820769759,
+          "candidate_part_id": "ROD_GREEN_LONG"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            2477,
+            1871,
+            3732,
+            3152
+          ],
+          "color": "BLUE",
+          "score": 0.7773699419761356,
+          "candidate_part_id": "WHEEL_BLUE_LARGE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            2477,
+            1871,
+            3732,
+            3152
+          ],
+          "color": "BLUE",
+          "score": 0.7773699419761356,
+          "candidate_part_id": "WHEEL_BLUE_SMALL"
+        }
+      ],
+      "localization_score": 0.7889798098702883,
+      "localization_status": "success",
+      "candidate_part_ids": [
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL",
+        "ROD_GREEN_LONG",
+        "PIN_RED_SHORT",
+        "LINK_GREEN_5HOLE",
+        "PIN_YELLOW",
+        "LINK_BLUE_5HOLE",
+        "LINK_RED_3HOLE"
+      ],
+      "candidate_count": 8,
+      "full_candidate_count": 15,
+      "reduction_ratio": 0.4666666666666667,
+      "roi_evidence": [
+        {
+          "color": "RED",
+          "bbox": [
+            332,
+            661,
+            410,
+            730
+          ],
+          "center": [
+            0.6265984654731458,
+            0.9527397260273973
+          ],
+          "area_ratio": 0.015036961776968083,
+          "circularity": 0.686957657172482,
+          "shape_family": "wheel",
+          "position": "RIGHT",
+          "component_score": 0.6753535536465974,
+          "status": "success",
+          "score": 0.7889798098702883,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            332,
+            661,
+            410,
+            730
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            360,
+            72,
+            477,
+            249
+          ],
+          "center": [
+            0.7480818414322251,
+            0.21986301369863015
+          ],
+          "area_ratio": 0.026819185089163717,
+          "circularity": 0.305455591174556,
+          "shape_family": "unknown",
+          "position": "RIGHT",
+          "component_score": 0.6610911182349112,
+          "status": "success",
+          "score": 0.7797092268526923,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            360,
+            72,
+            477,
+            249
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            286,
+            216,
+            431,
+            364
+          ],
+          "center": [
+            0.5946291560102301,
+            0.3972602739726027
+          ],
+          "area_ratio": 0.05157481694285814,
+          "circularity": 0.8450680395949152,
+          "shape_family": "wheel",
+          "position": "CENTER",
+          "component_score": 0.769013607918983,
+          "status": "success",
+          "score": 0.7773699419761356,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            286,
+            216,
+            431,
+            364
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            400,
+            380,
+            516,
+            527
+          ],
+          "center": [
+            0.8491048593350383,
+            0.6212328767123287
+          ],
+          "area_ratio": 0.02893879410012963,
+          "circularity": 0.3598612130533475,
+          "shape_family": "unknown",
+          "position": "RIGHT",
+          "component_score": 0.6719722426106695,
+          "status": "success",
+          "score": 0.7758956590039199,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            400,
+            380,
+            516,
+            527
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "WHITE",
+          "bbox": [
+            333,
+            262,
+            384,
+            314
+          ],
+          "center": [
+            0.5946291560102301,
+            0.39452054794520547
+          ],
+          "area_ratio": 0.0035350173422555443,
+          "circularity": 0.9049042180362835,
+          "shape_family": "pin",
+          "position": "CENTER",
+          "component_score": 0.575168560385451,
+          "status": "success",
+          "score": 0.7238595642505432,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            333,
+            262,
+            384,
+            314
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            342,
+            271,
+            376,
+            306
+          ],
+          "center": [
+            0.5959079283887468,
+            0.3952054794520548
+          ],
+          "area_ratio": 0.003237221034929755,
+          "circularity": 0.84290816283209,
+          "shape_family": "pin",
+          "position": "CENTER",
+          "component_score": 0.5590468955030399,
+          "status": "success",
+          "score": 0.7133804820769759,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            342,
+            271,
+            376,
+            306
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            422,
+            79,
+            454,
+            129
+          ],
+          "center": [
+            0.7979539641943734,
+            0.14246575342465753
+          ],
+          "area_ratio": 0.004081561153347581,
+          "circularity": 0.7305744809595853,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5471344106087618,
+          "status": "success",
+          "score": 0.7056373668956952,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            422,
+            79,
+            454,
+            129
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            324,
+            354,
+            404,
+            570
+          ],
+          "center": [
+            0.6086956521739131,
+            0.6328767123287671
+          ],
+          "area_ratio": 0.04532459797498511,
+          "circularity": 0.39834908618045445,
+          "shape_family": "bar",
+          "position": "CENTER",
+          "component_score": 0.6796698172360909,
+          "status": "success",
+          "score": 0.6955011798161694,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            324,
+            354,
+            404,
+            570
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            397,
+            150,
+            428,
+            194
+          ],
+          "center": [
+            0.7327365728900256,
+            0.2356164383561644
+          ],
+          "area_ratio": 0.0031531373716848264,
+          "circularity": 0.5652889345449483,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.50247200405505,
+          "status": "success",
+          "score": 0.6766068026357825,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            397,
+            150,
+            428,
+            194
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            396,
+            171,
+            425,
+            194
+          ],
+          "center": [
+            0.7276214833759591,
+            0.25
+          ],
+          "area_ratio": 0.0013068002662649336,
+          "circularity": 0.5137416604685376,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.4690833354220192,
+          "status": "success",
+          "score": 0.6549041680243124,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            396,
+            171,
+            425,
+            194
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            419,
+            548,
+            475,
+            631
+          ],
+          "center": [
+            0.8209718670076727,
+            0.8075342465753425
+          ],
+          "area_ratio": 0.0060855551273517145,
+          "circularity": 0.20246442724351182,
+          "shape_family": "unknown",
+          "position": "RIGHT",
+          "component_score": 0.4665623245405988,
+          "status": "success",
+          "score": 0.6532655109513892,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            419,
+            548,
+            475,
+            631
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            421,
+            102,
+            450,
+            126
+          ],
+          "center": [
+            0.7915601023017903,
+            0.15616438356164383
+          ],
+          "area_ratio": 0.0011806747713975405,
+          "circularity": 0.4040676408956366,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.44557196282159656,
+          "status": "success",
+          "score": 0.6396217758340377,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            421,
+            102,
+            450,
+            126
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            439,
+            552,
+            481,
+            617
+          ],
+          "center": [
+            0.8542199488491049,
+            0.8006849315068493
+          ],
+          "area_ratio": 0.0051956696913428866,
+          "circularity": 0.41845620918233273,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.4986371129782526,
+          "status": "success",
+          "score": 0.5346864776129284,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            439,
+            552,
+            481,
+            617
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ],
+      "candidate_evidence": [
+        {
+          "part_id": "LINK_BLUE_5HOLE",
+          "score": 0.45,
+          "family": "bar",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "LINK_GREEN_5HOLE",
+          "score": 0.6955011798161694,
+          "family": "bar",
+          "colors": [
+            "GREEN"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "GREEN",
+              "bbox": [
+                324,
+                354,
+                404,
+                570
+              ],
+              "center": [
+                0.6086956521739131,
+                0.6328767123287671
+              ],
+              "area_ratio": 0.04532459797498511,
+              "circularity": 0.39834908618045445,
+              "shape_family": "bar",
+              "position": "CENTER",
+              "component_score": 0.6796698172360909,
+              "status": "success",
+              "score": 0.6955011798161694,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                324,
+                354,
+                404,
+                570
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "LINK_RED_3HOLE",
+          "score": 0.45,
+          "family": "bar",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_RED_SHORT",
+          "score": 0.7056373668956952,
+          "family": "pin",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                422,
+                79,
+                454,
+                129
+              ],
+              "center": [
+                0.7979539641943734,
+                0.14246575342465753
+              ],
+              "area_ratio": 0.004081561153347581,
+              "circularity": 0.7305744809595853,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.5471344106087618,
+              "status": "success",
+              "score": 0.7056373668956952,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                422,
+                79,
+                454,
+                129
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "RED",
+              "bbox": [
+                397,
+                150,
+                428,
+                194
+              ],
+              "center": [
+                0.7327365728900256,
+                0.2356164383561644
+              ],
+              "area_ratio": 0.0031531373716848264,
+              "circularity": 0.5652889345449483,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.50247200405505,
+              "status": "success",
+              "score": 0.6766068026357825,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                397,
+                150,
+                428,
+                194
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_YELLOW",
+          "score": 0.5346864776129284,
+          "family": "pin",
+          "colors": [
+            "YELLOW"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "YELLOW",
+              "bbox": [
+                439,
+                552,
+                481,
+                617
+              ],
+              "center": [
+                0.8542199488491049,
+                0.8006849315068493
+              ],
+              "area_ratio": 0.0051956696913428866,
+              "circularity": 0.41845620918233273,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.4986371129782526,
+              "status": "success",
+              "score": 0.5346864776129284,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                439,
+                552,
+                481,
+                617
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "ROD_GREEN_LONG",
+          "score": 0.7133804820769759,
+          "family": "pin",
+          "colors": [
+            "GREEN"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "GREEN",
+              "bbox": [
+                342,
+                271,
+                376,
+                306
+              ],
+              "center": [
+                0.5959079283887468,
+                0.3952054794520548
+              ],
+              "area_ratio": 0.003237221034929755,
+              "circularity": 0.84290816283209,
+              "shape_family": "pin",
+              "position": "CENTER",
+              "component_score": 0.5590468955030399,
+              "status": "success",
+              "score": 0.7133804820769759,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                342,
+                271,
+                376,
+                306
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "WHEEL_BLUE_LARGE",
+          "score": 0.7773699419761356,
+          "family": "wheel",
+          "colors": [
+            "BLUE"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "BLUE",
+              "bbox": [
+                286,
+                216,
+                431,
+                364
+              ],
+              "center": [
+                0.5946291560102301,
+                0.3972602739726027
+              ],
+              "area_ratio": 0.05157481694285814,
+              "circularity": 0.8450680395949152,
+              "shape_family": "wheel",
+              "position": "CENTER",
+              "component_score": 0.769013607918983,
+              "status": "success",
+              "score": 0.7773699419761356,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                286,
+                216,
+                431,
+                364
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "WHEEL_BLUE_SMALL",
+          "score": 0.7773699419761356,
+          "family": "wheel",
+          "colors": [
+            "BLUE"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "BLUE",
+              "bbox": [
+                286,
+                216,
+                431,
+                364
+              ],
+              "center": [
+                0.5946291560102301,
+                0.3972602739726027
+              ],
+              "area_ratio": 0.05157481694285814,
+              "circularity": 0.8450680395949152,
+              "shape_family": "wheel",
+              "position": "CENTER",
+              "component_score": 0.769013607918983,
+              "status": "success",
+              "score": 0.7773699419761356,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                286,
+                216,
+                431,
+                364
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        }
+      ],
+      "dino_corroboration": {
+        "status": "not_run",
+        "selected_bbox": null,
+        "score": 0.0
+      },
+      "supports_paired_roi": false,
+      "requires_manual_review": true,
+      "human_ground_truth_used": false
+    },
+    {
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "top",
+      "error_type": "missingpart",
+      "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_top_01.jpg",
+      "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_top_01.jpg",
+      "test_roi": [],
+      "reference_roi": [
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\top\\reference_roi_01.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\top\\reference_roi_02.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\top\\reference_roi_03.png"
+      ],
+      "bbox": [
+        {
+          "role": "reference",
+          "bbox": [
+            2754,
+            4962,
+            3265,
+            5222
+          ],
+          "color": "RED",
+          "score": 0.5204543943011105,
+          "candidate_part_id": "PIN_RED_SHORT"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            3265,
+            5794,
+            3343,
+            6071
+          ],
+          "color": "YELLOW",
+          "score": 0.6077650101625147,
+          "candidate_part_id": "PIN_YELLOW"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            3888,
+            2382,
+            3984,
+            2485
+          ],
+          "color": "GREEN",
+          "score": 0.6706205151152589,
+          "candidate_part_id": "ROD_GREEN_LONG"
+        }
+      ],
+      "localization_score": 0.8436997639209909,
+      "localization_status": "success",
+      "candidate_part_ids": [
+        "ROD_GREEN_LONG",
+        "PIN_YELLOW",
+        "PIN_RED_SHORT",
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL"
+      ],
+      "candidate_count": 5,
+      "full_candidate_count": 15,
+      "reduction_ratio": 0.6666666666666667,
+      "roi_evidence": [
+        {
+          "color": "WHITE",
+          "bbox": [
+            354,
+            226,
+            434,
+            297
+          ],
+          "center": [
+            0.5530546623794212,
+            0.29180064308681675
+          ],
+          "area_ratio": 0.021463797934264534,
+          "circularity": 0.7976904916999301,
+          "shape_family": "wheel",
+          "position": "TOP",
+          "component_score": 0.759538098339986,
+          "status": "success",
+          "score": 0.8436997639209909,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            354,
+            226,
+            434,
+            297
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            254,
+            145,
+            530,
+            505
+          ],
+          "center": [
+            0.5466237942122186,
+            0.39389067524115756
+          ],
+          "area_ratio": 0.1556693996133208,
+          "circularity": 0.12608212257487347,
+          "shape_family": "unknown",
+          "position": "CENTER",
+          "component_score": 0.6252164245149747,
+          "status": "success",
+          "score": 0.7563906759347336,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            254,
+            145,
+            530,
+            505
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "WHITE",
+          "bbox": [
+            367,
+            633,
+            377,
+            647
+          ],
+          "center": [
+            0.48231511254019294,
+            0.9003215434083601
+          ],
+          "area_ratio": 0.0006461885216240527,
+          "circularity": 0.7531305485076333,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.5087034662218273,
+          "status": "success",
+          "score": 0.6806572530441877,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            367,
+            633,
+            377,
+            647
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            449,
+            275,
+            460,
+            287
+          ],
+          "center": [
+            0.747588424437299,
+            0.32315112540192925
+          ],
+          "area_ratio": 0.0004859337682612876,
+          "circularity": 0.6859407942164308,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.49326233094655225,
+          "status": "success",
+          "score": 0.6706205151152589,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            449,
+            275,
+            460,
+            287
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            430,
+            291,
+            444,
+            307
+          ],
+          "center": [
+            0.6913183279742765,
+            0.3520900321543408
+          ],
+          "area_ratio": 0.0005738154072021588,
+          "circularity": 0.5201991851349307,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.46121252961701314,
+          "status": "success",
+          "score": 0.6497881442510585,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            430,
+            291,
+            444,
+            307
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            417,
+            138,
+            445,
+            209
+          ],
+          "center": [
+            0.6720257234726688,
+            0.15032154340836013
+          ],
+          "area_ratio": 0.007040870131615678,
+          "circularity": 0.33004365413893816,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5040196074729836,
+          "status": "success",
+          "score": 0.6112568097856481,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            417,
+            138,
+            445,
+            209
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "WHITE",
+          "bbox": [
+            177,
+            511,
+            184,
+            537
+          ],
+          "center": [
+            -0.13344051446945338,
+            0.7138263665594855
+          ],
+          "area_ratio": 0.0005066118009532573,
+          "circularity": 0.2156399433761172,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.3994606361871391,
+          "status": "success",
+          "score": 0.6096494135216404,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            177,
+            511,
+            184,
+            537
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            377,
+            669,
+            386,
+            701
+          ],
+          "center": [
+            0.5128617363344051,
+            0.9726688102893891
+          ],
+          "area_ratio": 0.0006410190134510603,
+          "circularity": 0.19274408214019192,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.3965615540961766,
+          "status": "success",
+          "score": 0.6077650101625147,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            377,
+            669,
+            386,
+            701
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            405,
+            669,
+            416,
+            700
+          ],
+          "center": [
+            0.6061093247588425,
+            0.9718649517684887
+          ],
+          "area_ratio": 0.0006668665543160223,
+          "circularity": 0.18740844676917354,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.39581752128278497,
+          "status": "success",
+          "score": 0.6072813888338102,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            405,
+            669,
+            416,
+            700
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "WHITE",
+          "bbox": [
+            134,
+            456,
+            149,
+            505
+          ],
+          "center": [
+            -0.25884244372990356,
+            0.6438906752411575
+          ],
+          "area_ratio": 0.0013182245841130674,
+          "circularity": 0.14171224379888425,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.3948202560611902,
+          "status": "success",
+          "score": 0.6066331664397736,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            134,
+            456,
+            149,
+            505
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            361,
+            192,
+            423,
+            229
+          ],
+          "center": [
+            0.5466237942122186,
+            0.20980707395498394
+          ],
+          "area_ratio": 0.004926541288861778,
+          "circularity": 0.32532596652917284,
+          "shape_family": "pin",
+          "position": "TOP",
+          "component_score": 0.47664695941660673,
+          "status": "success",
+          "score": 0.5504720804537444,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            361,
+            192,
+            423,
+            229
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            354,
+            190,
+            369,
+            204
+          ],
+          "center": [
+            0.44855305466237944,
+            0.18810289389067525
+          ],
+          "area_ratio": 0.000785765242294848,
+          "circularity": 0.6614309454235111,
+          "shape_family": "pin",
+          "position": "TOP",
+          "component_score": 0.4921082546133878,
+          "status": "success",
+          "score": 0.5419047843019575,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            354,
+            190,
+            369,
+            204
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            318,
+            573,
+            377,
+            603
+          ],
+          "center": [
+            0.40353697749196143,
+            0.8167202572347267
+          ],
+          "area_ratio": 0.008767485861395146,
+          "circularity": 0.7221992905950273,
+          "shape_family": "pin",
+          "position": "BOTTOM",
+          "component_score": 0.6040334313864448,
+          "status": "success",
+          "score": 0.5204543943011105,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            318,
+            573,
+            377,
+            603
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            413,
+            572,
+            464,
+            601
+          ],
+          "center": [
+            0.6961414790996785,
+            0.8143086816720257
+          ],
+          "area_ratio": 0.007444091769109087,
+          "circularity": 0.7431401834168123,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5916791837972261,
+          "status": "success",
+          "score": 0.5125995251704715,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            413,
+            572,
+            464,
+            601
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            361,
+            216,
+            424,
+            229
+          ],
+          "center": [
+            0.5482315112540193,
+            0.22909967845659163
+          ],
+          "area_ratio": 0.003003484248508597,
+          "circularity": 0.32296326407143267,
+          "shape_family": "pin",
+          "position": "TOP",
+          "component_score": 0.452136205920644,
+          "status": "success",
+          "score": 0.47924078264659903,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            361,
+            216,
+            424,
+            229
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ],
+      "candidate_evidence": [
+        {
+          "part_id": "PIN_RED_SHORT",
+          "score": 0.5204543943011105,
+          "family": "pin",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                318,
+                573,
+                377,
+                603
+              ],
+              "center": [
+                0.40353697749196143,
+                0.8167202572347267
+              ],
+              "area_ratio": 0.008767485861395146,
+              "circularity": 0.7221992905950273,
+              "shape_family": "pin",
+              "position": "BOTTOM",
+              "component_score": 0.6040334313864448,
+              "status": "success",
+              "score": 0.5204543943011105,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                318,
+                573,
+                377,
+                603
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "RED",
+              "bbox": [
+                413,
+                572,
+                464,
+                601
+              ],
+              "center": [
+                0.6961414790996785,
+                0.8143086816720257
+              ],
+              "area_ratio": 0.007444091769109087,
+              "circularity": 0.7431401834168123,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.5916791837972261,
+              "status": "success",
+              "score": 0.5125995251704715,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                413,
+                572,
+                464,
+                601
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_YELLOW",
+          "score": 0.6077650101625147,
+          "family": "pin",
+          "colors": [
+            "YELLOW"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "YELLOW",
+              "bbox": [
+                377,
+                669,
+                386,
+                701
+              ],
+              "center": [
+                0.5128617363344051,
+                0.9726688102893891
+              ],
+              "area_ratio": 0.0006410190134510603,
+              "circularity": 0.19274408214019192,
+              "shape_family": "pin",
+              "position": "BOTTOM",
+              "component_score": 0.3965615540961766,
+              "status": "success",
+              "score": 0.6077650101625147,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                377,
+                669,
+                386,
+                701
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "YELLOW",
+              "bbox": [
+                405,
+                669,
+                416,
+                700
+              ],
+              "center": [
+                0.6061093247588425,
+                0.9718649517684887
+              ],
+              "area_ratio": 0.0006668665543160223,
+              "circularity": 0.18740844676917354,
+              "shape_family": "pin",
+              "position": "BOTTOM",
+              "component_score": 0.39581752128278497,
+              "status": "success",
+              "score": 0.6072813888338102,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                405,
+                669,
+                416,
+                700
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "ROD_GREEN_LONG",
+          "score": 0.6706205151152589,
+          "family": "pin",
+          "colors": [
+            "GREEN"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "GREEN",
+              "bbox": [
+                449,
+                275,
+                460,
+                287
+              ],
+              "center": [
+                0.747588424437299,
+                0.32315112540192925
+              ],
+              "area_ratio": 0.0004859337682612876,
+              "circularity": 0.6859407942164308,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.49326233094655225,
+              "status": "success",
+              "score": 0.6706205151152589,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                449,
+                275,
+                460,
+                287
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "GREEN",
+              "bbox": [
+                430,
+                291,
+                444,
+                307
+              ],
+              "center": [
+                0.6913183279742765,
+                0.3520900321543408
+              ],
+              "area_ratio": 0.0005738154072021588,
+              "circularity": 0.5201991851349307,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.46121252961701314,
+              "status": "success",
+              "score": 0.6497881442510585,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                430,
+                291,
+                444,
+                307
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "WHEEL_BLUE_LARGE",
+          "score": 0.45,
+          "family": "wheel",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "WHEEL_BLUE_SMALL",
+          "score": 0.45,
+          "family": "wheel",
+          "colors": [],
+          "difference_supported": false,
+          "roi_evidence": [],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        }
+      ],
+      "dino_corroboration": {
+        "status": "not_run",
+        "selected_bbox": null,
+        "score": 0.0
+      },
+      "supports_paired_roi": false,
+      "requires_manual_review": true,
+      "human_ground_truth_used": false
+    },
+    {
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "back",
+      "error_type": "missingpart",
+      "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_back_01.jpg",
+      "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_back_01.jpg",
+      "test_roi": [],
+      "reference_roi": [
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\back\\reference_roi_01.png"
+      ],
+      "bbox": [
+        {
+          "role": "reference",
+          "bbox": [
+            3906,
+            3334,
+            4200,
+            3672
+          ],
+          "color": "GREEN",
+          "score": 0.650078140631217,
+          "candidate_part_id": "ROD_GREEN_LONG"
+        }
+      ],
+      "localization_score": 0.650078140631217,
+      "localization_status": "success",
+      "candidate_part_ids": [
+        "ROD_GREEN_LONG"
+      ],
+      "candidate_count": 1,
+      "full_candidate_count": 15,
+      "reduction_ratio": 0.9333333333333333,
+      "roi_evidence": [
+        {
+          "color": "GREEN",
+          "bbox": [
+            451,
+            385,
+            485,
+            424
+          ],
+          "center": [
+            0.6866666666666666,
+            0.41968325791855204
+          ],
+          "area_ratio": 0.0023881347410759177,
+          "circularity": 0.4090349681536556,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.4616586778941801,
+          "status": "success",
+          "score": 0.650078140631217,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            451,
+            385,
+            485,
+            424
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "WHITE",
+          "bbox": [
+            245,
+            518,
+            266,
+            528
+          ],
+          "center": [
+            0.21444444444444444,
+            0.6877828054298643
+          ],
+          "area_ratio": 0.000693815987933635,
+          "circularity": 0.46986646403515087,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.45264599265620065,
+          "status": "success",
+          "score": 0.6442198952265303,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            245,
+            518,
+            266,
+            528
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            485,
+            528,
+            495,
+            546
+          ],
+          "center": [
+            0.7355555555555555,
+            0.7194570135746606
+          ],
+          "area_ratio": 0.0004474610356963298,
+          "circularity": 0.436950630869685,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.44298338912014107,
+          "status": "success",
+          "score": 0.6379392029280917,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            485,
+            528,
+            495,
+            546
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            283,
+            530,
+            294,
+            549
+          ],
+          "center": [
+            0.2877777777777778,
+            0.7251131221719457
+          ],
+          "area_ratio": 0.000432378079436903,
+          "circularity": 0.36361571813954524,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.4281278696208703,
+          "status": "success",
+          "score": 0.6282831152535657,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            283,
+            530,
+            294,
+            549
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ],
+      "candidate_evidence": [
+        {
+          "part_id": "ROD_GREEN_LONG",
+          "score": 0.650078140631217,
+          "family": "pin",
+          "colors": [
+            "GREEN"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "GREEN",
+              "bbox": [
+                451,
+                385,
+                485,
+                424
+              ],
+              "center": [
+                0.6866666666666666,
+                0.41968325791855204
+              ],
+              "area_ratio": 0.0023881347410759177,
+              "circularity": 0.4090349681536556,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.4616586778941801,
+              "status": "success",
+              "score": 0.650078140631217,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                451,
+                385,
+                485,
+                424
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "GREEN",
+              "bbox": [
+                485,
+                528,
+                495,
+                546
+              ],
+              "center": [
+                0.7355555555555555,
+                0.7194570135746606
+              ],
+              "area_ratio": 0.0004474610356963298,
+              "circularity": 0.436950630869685,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.44298338912014107,
+              "status": "success",
+              "score": 0.6379392029280917,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                485,
+                528,
+                495,
+                546
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        }
+      ],
+      "dino_corroboration": {
+        "status": "not_run",
+        "selected_bbox": null,
+        "score": 0.0
+      },
+      "supports_paired_roi": false,
+      "requires_manual_review": true,
+      "human_ground_truth_used": false
+    },
+    {
+      "model_id": "model03",
+      "step_id": "step03",
+      "view_angle": "bottom",
+      "error_type": "missingpart",
+      "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-A01_bottom_01.jpg",
+      "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_bottom_01.jpg",
+      "test_roi": [],
+      "reference_roi": [
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\bottom\\reference_roi_01.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\bottom\\reference_roi_02.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\bottom\\reference_roi_03.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\bottom\\reference_roi_04.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\bottom\\reference_roi_05.png",
+        "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\output\\roi_identity_poc\\missingpart-A01\\bottom\\reference_roi_06.png"
+      ],
+      "bbox": [
+        {
+          "role": "reference",
+          "bbox": [
+            2858,
+            2044,
+            4079,
+            2607
+          ],
+          "color": "BLUE",
+          "score": 0.8087460671637656,
+          "candidate_part_id": "LINK_BLUE_5HOLE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            970,
+            3256,
+            6097,
+            4616
+          ],
+          "color": "GREEN",
+          "score": 0.691085286112335,
+          "candidate_part_id": "LINK_GREEN_5HOLE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            589,
+            2685,
+            996,
+            4676
+          ],
+          "color": "RED",
+          "score": 0.7902280773961914,
+          "candidate_part_id": "LINK_RED_3HOLE"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            5473,
+            3732,
+            5776,
+            4261
+          ],
+          "color": "RED",
+          "score": 0.6116447147727636,
+          "candidate_part_id": "PIN_RED_SHORT"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            1057,
+            3525,
+            1230,
+            3802
+          ],
+          "color": "YELLOW",
+          "score": 0.6707839295678817,
+          "candidate_part_id": "PIN_YELLOW"
+        },
+        {
+          "role": "reference",
+          "bbox": [
+            3334,
+            2503,
+            3603,
+            2884
+          ],
+          "color": "GREEN",
+          "score": 0.620889381082238,
+          "candidate_part_id": "ROD_GREEN_LONG"
+        }
+      ],
+      "localization_score": 0.8087460671637656,
+      "localization_status": "success",
+      "candidate_part_ids": [
+        "LINK_BLUE_5HOLE",
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL",
+        "LINK_RED_3HOLE",
+        "LINK_GREEN_5HOLE",
+        "PIN_YELLOW",
+        "ROD_GREEN_LONG",
+        "PIN_RED_SHORT"
+      ],
+      "candidate_count": 8,
+      "full_candidate_count": 15,
+      "reduction_ratio": 0.4666666666666667,
+      "roi_evidence": [
+        {
+          "color": "BLUE",
+          "bbox": [
+            330,
+            236,
+            471,
+            301
+          ],
+          "center": [
+            0.4743767313019391,
+            0.4597602739726027
+          ],
+          "area_ratio": 0.018778696922551512,
+          "circularity": 0.6051473436002656,
+          "shape_family": "bar",
+          "position": "CENTER",
+          "component_score": 0.7057631802519471,
+          "status": "success",
+          "score": 0.8087460671637656,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            330,
+            236,
+            471,
+            301
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            334,
+            523,
+            476,
+            584
+          ],
+          "center": [
+            0.4806094182825485,
+            0.9477739726027398
+          ],
+          "area_ratio": 0.018055344742534056,
+          "circularity": 0.6087976995065043,
+          "shape_family": "bar",
+          "position": "BOTTOM",
+          "component_score": 0.6974513491829765,
+          "status": "success",
+          "score": 0.8033433769689347,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            334,
+            523,
+            476,
+            584
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            115,
+            492,
+            205,
+            568
+          ],
+          "center": [
+            0.14127423822714683,
+            0.9075342465753424
+          ],
+          "area_ratio": 0.01499354912154214,
+          "circularity": 0.7724446477619555,
+          "shape_family": "wheel",
+          "position": "LEFT",
+          "component_score": 0.6919082935716678,
+          "status": "success",
+          "score": 0.7997403908215841,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            115,
+            492,
+            205,
+            568
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            68,
+            310,
+            115,
+            540
+          ],
+          "center": [
+            0.046398891966759004,
+            0.7277397260273972
+          ],
+          "area_ratio": 0.021897412059348084,
+          "circularity": 0.3863698261245488,
+          "shape_family": "bar",
+          "position": "LEFT",
+          "component_score": 0.6772739652249098,
+          "status": "success",
+          "score": 0.7902280773961914,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            68,
+            310,
+            115,
+            540
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            158,
+            382,
+            317,
+            458
+          ],
+          "center": [
+            0.24861495844875348,
+            0.7191780821917808
+          ],
+          "area_ratio": 0.021508462034682957,
+          "circularity": 0.602481871628125,
+          "shape_family": "bar",
+          "position": "LEFT",
+          "component_score": 0.720496374325625,
+          "status": "success",
+          "score": 0.7172746623224605,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            158,
+            382,
+            317,
+            458
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            112,
+            376,
+            704,
+            533
+          ],
+          "center": [
+            0.48476454293628807,
+            0.7782534246575342
+          ],
+          "area_ratio": 0.07179448260160133,
+          "circularity": 0.13051904678979415,
+          "shape_family": "bar",
+          "position": "BOTTOM",
+          "component_score": 0.6261038093579588,
+          "status": "success",
+          "score": 0.691085286112335,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            112,
+            376,
+            704,
+            533
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            240,
+            494,
+            311,
+            522
+          ],
+          "center": [
+            0.3012465373961219,
+            0.8698630136986302
+          ],
+          "area_ratio": 0.00335350813949076,
+          "circularity": 0.5812582054464523,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.5081704928329249,
+          "status": "success",
+          "score": 0.6803108203414012,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            240,
+            494,
+            311,
+            522
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            122,
+            407,
+            142,
+            439
+          ],
+          "center": [
+            0.10249307479224377,
+            0.7243150684931506
+          ],
+          "area_ratio": 0.001034037870451182,
+          "circularity": 0.6529413220805064,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.493513737796741,
+          "status": "success",
+          "score": 0.6707839295678817,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            122,
+            407,
+            142,
+            439
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "YELLOW",
+          "bbox": [
+            58,
+            405,
+            68,
+            446
+          ],
+          "center": [
+            0.006925207756232687,
+            0.728595890410959
+          ],
+          "area_ratio": 0.0007233521800174553,
+          "circularity": 0.4008592916047914,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.43921376057117645,
+          "status": "success",
+          "score": 0.6354889443712647,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            58,
+            405,
+            68,
+            446
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "GREEN",
+          "bbox": [
+            385,
+            289,
+            416,
+            333
+          ],
+          "center": [
+            0.4743767313019391,
+            0.5325342465753424
+          ],
+          "area_ratio": 0.0032017227640116874,
+          "circularity": 0.765055837562849,
+          "shape_family": "pin",
+          "position": "CENTER",
+          "component_score": 0.5430327020627159,
+          "status": "success",
+          "score": 0.620889381082238,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            385,
+            289,
+            416,
+            333
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            730,
+            385,
+            755,
+            393
+          ],
+          "center": [
+            0.9480609418282548,
+            0.666095890410959
+          ],
+          "area_ratio": 0.00027273934656395855,
+          "circularity": 0.27606969708717005,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.4086231812494835,
+          "status": "success",
+          "score": 0.6156050678121643,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            730,
+            385,
+            755,
+            393
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            127,
+            415,
+            144,
+            437
+          ],
+          "center": [
+            0.10734072022160665,
+            0.7294520547945206
+          ],
+          "area_ratio": 0.0005549652790953592,
+          "circularity": 0.6816805975416644,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.4932731854970248,
+          "status": "success",
+          "score": 0.6143195720326147,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            127,
+            415,
+            144,
+            437
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            63,
+            403,
+            69,
+            440
+          ],
+          "center": [
+            0.0110803324099723,
+            0.7217465753424658
+          ],
+          "area_ratio": 0.0003889500246651235,
+          "circularity": 0.25023266965122387,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.4049084092385588,
+          "status": "success",
+          "score": 0.6131904660050632,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            63,
+            403,
+            69,
+            440
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            632,
+            431,
+            667,
+            492
+          ],
+          "center": [
+            0.8192520775623269,
+            0.7902397260273972
+          ],
+          "area_ratio": 0.004771752741623345,
+          "circularity": 0.7231700352818277,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5542809163266573,
+          "status": "success",
+          "score": 0.6116447147727636,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            632,
+            431,
+            667,
+            492
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            632,
+            325,
+            666,
+            389
+          ],
+          "center": [
+            0.8185595567867036,
+            0.6113013698630136
+          ],
+          "area_ratio": 0.004942511289037301,
+          "circularity": 0.7224533590021214,
+          "shape_family": "pin",
+          "position": "RIGHT",
+          "component_score": 0.5562720629133905,
+          "status": "success",
+          "score": 0.5939641044455236,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            632,
+            325,
+            666,
+            389
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "BLUE",
+          "bbox": [
+            214,
+            0,
+            459,
+            15
+          ],
+          "center": [
+            0.38573407202216065,
+            0.012842465753424657
+          ],
+          "area_ratio": 0.005836622016468713,
+          "circularity": 0.11034691880757738,
+          "shape_family": "pin",
+          "position": "TOP",
+          "component_score": 0.4450271589673743,
+          "status": "success",
+          "score": 0.5502802936562486,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            214,
+            0,
+            459,
+            15
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            169,
+            435,
+            189,
+            456
+          ],
+          "center": [
+            0.16759002770083103,
+            0.7628424657534246
+          ],
+          "area_ratio": 0.0006142564413918719,
+          "circularity": 0.5829348666319806,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.4742651788437945,
+          "status": "success",
+          "score": 0.5444816390480443,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            169,
+            435,
+            189,
+            456
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "RED",
+          "bbox": [
+            207,
+            406,
+            252,
+            435
+          ],
+          "center": [
+            0.23753462603878117,
+            0.7200342465753424
+          ],
+          "area_ratio": 0.0027937995674116797,
+          "circularity": 0.8029940979845713,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.5455213141895603,
+          "status": "success",
+          "score": 0.5217634932499418,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            207,
+            406,
+            252,
+            435
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        },
+        {
+          "color": "ORANGE",
+          "bbox": [
+            215,
+            399,
+            243,
+            408
+          ],
+          "center": [
+            0.23684210526315788,
+            0.6909246575342466
+          ],
+          "area_ratio": 0.00036997685273023944,
+          "circularity": 0.37341855110064454,
+          "shape_family": "pin",
+          "position": "LEFT",
+          "component_score": 0.4293084208792569,
+          "status": "success",
+          "score": 0.49933639615254705,
+          "difference_relation": "reference_only",
+          "reference_bbox": [
+            215,
+            399,
+            243,
+            408
+          ],
+          "test_bbox": null,
+          "matching_source": "paired_color_component_delta"
+        }
+      ],
+      "candidate_evidence": [
+        {
+          "part_id": "LINK_BLUE_5HOLE",
+          "score": 0.8087460671637656,
+          "family": "bar",
+          "colors": [
+            "BLUE"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "BLUE",
+              "bbox": [
+                330,
+                236,
+                471,
+                301
+              ],
+              "center": [
+                0.4743767313019391,
+                0.4597602739726027
+              ],
+              "area_ratio": 0.018778696922551512,
+              "circularity": 0.6051473436002656,
+              "shape_family": "bar",
+              "position": "CENTER",
+              "component_score": 0.7057631802519471,
+              "status": "success",
+              "score": 0.8087460671637656,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                330,
+                236,
+                471,
+                301
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "BLUE",
+              "bbox": [
+                334,
+                523,
+                476,
+                584
+              ],
+              "center": [
+                0.4806094182825485,
+                0.9477739726027398
+              ],
+              "area_ratio": 0.018055344742534056,
+              "circularity": 0.6087976995065043,
+              "shape_family": "bar",
+              "position": "BOTTOM",
+              "component_score": 0.6974513491829765,
+              "status": "success",
+              "score": 0.8033433769689347,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                334,
+                523,
+                476,
+                584
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "LINK_GREEN_5HOLE",
+          "score": 0.691085286112335,
+          "family": "bar",
+          "colors": [
+            "GREEN"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "GREEN",
+              "bbox": [
+                112,
+                376,
+                704,
+                533
+              ],
+              "center": [
+                0.48476454293628807,
+                0.7782534246575342
+              ],
+              "area_ratio": 0.07179448260160133,
+              "circularity": 0.13051904678979415,
+              "shape_family": "bar",
+              "position": "BOTTOM",
+              "component_score": 0.6261038093579588,
+              "status": "success",
+              "score": 0.691085286112335,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                112,
+                376,
+                704,
+                533
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "LINK_RED_3HOLE",
+          "score": 0.7902280773961914,
+          "family": "bar",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                68,
+                310,
+                115,
+                540
+              ],
+              "center": [
+                0.046398891966759004,
+                0.7277397260273972
+              ],
+              "area_ratio": 0.021897412059348084,
+              "circularity": 0.3863698261245488,
+              "shape_family": "bar",
+              "position": "LEFT",
+              "component_score": 0.6772739652249098,
+              "status": "success",
+              "score": 0.7902280773961914,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                68,
+                310,
+                115,
+                540
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_RED_SHORT",
+          "score": 0.6116447147727636,
+          "family": "pin",
+          "colors": [
+            "RED"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "RED",
+              "bbox": [
+                632,
+                431,
+                667,
+                492
+              ],
+              "center": [
+                0.8192520775623269,
+                0.7902397260273972
+              ],
+              "area_ratio": 0.004771752741623345,
+              "circularity": 0.7231700352818277,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.5542809163266573,
+              "status": "success",
+              "score": 0.6116447147727636,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                632,
+                431,
+                667,
+                492
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "RED",
+              "bbox": [
+                632,
+                325,
+                666,
+                389
+              ],
+              "center": [
+                0.8185595567867036,
+                0.6113013698630136
+              ],
+              "area_ratio": 0.004942511289037301,
+              "circularity": 0.7224533590021214,
+              "shape_family": "pin",
+              "position": "RIGHT",
+              "component_score": 0.5562720629133905,
+              "status": "success",
+              "score": 0.5939641044455236,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                632,
+                325,
+                666,
+                389
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "PIN_YELLOW",
+          "score": 0.6707839295678817,
+          "family": "pin",
+          "colors": [
+            "YELLOW"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "YELLOW",
+              "bbox": [
+                122,
+                407,
+                142,
+                439
+              ],
+              "center": [
+                0.10249307479224377,
+                0.7243150684931506
+              ],
+              "area_ratio": 0.001034037870451182,
+              "circularity": 0.6529413220805064,
+              "shape_family": "pin",
+              "position": "LEFT",
+              "component_score": 0.493513737796741,
+              "status": "success",
+              "score": 0.6707839295678817,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                122,
+                407,
+                142,
+                439
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            },
+            {
+              "color": "YELLOW",
+              "bbox": [
+                58,
+                405,
+                68,
+                446
+              ],
+              "center": [
+                0.006925207756232687,
+                0.728595890410959
+              ],
+              "area_ratio": 0.0007233521800174553,
+              "circularity": 0.4008592916047914,
+              "shape_family": "pin",
+              "position": "LEFT",
+              "component_score": 0.43921376057117645,
+              "status": "success",
+              "score": 0.6354889443712647,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                58,
+                405,
+                68,
+                446
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "ROD_GREEN_LONG",
+          "score": 0.620889381082238,
+          "family": "pin",
+          "colors": [
+            "GREEN"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "GREEN",
+              "bbox": [
+                385,
+                289,
+                416,
+                333
+              ],
+              "center": [
+                0.4743767313019391,
+                0.5325342465753424
+              ],
+              "area_ratio": 0.0032017227640116874,
+              "circularity": 0.765055837562849,
+              "shape_family": "pin",
+              "position": "CENTER",
+              "component_score": 0.5430327020627159,
+              "status": "success",
+              "score": 0.620889381082238,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                385,
+                289,
+                416,
+                333
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "WHEEL_BLUE_LARGE",
+          "score": 0.7997403908215841,
+          "family": "wheel",
+          "colors": [
+            "BLUE"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "BLUE",
+              "bbox": [
+                115,
+                492,
+                205,
+                568
+              ],
+              "center": [
+                0.14127423822714683,
+                0.9075342465753424
+              ],
+              "area_ratio": 0.01499354912154214,
+              "circularity": 0.7724446477619555,
+              "shape_family": "wheel",
+              "position": "LEFT",
+              "component_score": 0.6919082935716678,
+              "status": "success",
+              "score": 0.7997403908215841,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                115,
+                492,
+                205,
+                568
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        },
+        {
+          "part_id": "WHEEL_BLUE_SMALL",
+          "score": 0.7997403908215841,
+          "family": "wheel",
+          "colors": [
+            "BLUE"
+          ],
+          "difference_supported": true,
+          "roi_evidence": [
+            {
+              "color": "BLUE",
+              "bbox": [
+                115,
+                492,
+                205,
+                568
+              ],
+              "center": [
+                0.14127423822714683,
+                0.9075342465753424
+              ],
+              "area_ratio": 0.01499354912154214,
+              "circularity": 0.7724446477619555,
+              "shape_family": "wheel",
+              "position": "LEFT",
+              "component_score": 0.6919082935716678,
+              "status": "success",
+              "score": 0.7997403908215841,
+              "difference_relation": "reference_only",
+              "reference_bbox": [
+                115,
+                492,
+                205,
+                568
+              ],
+              "test_bbox": null,
+              "matching_source": "paired_color_component_delta"
+            }
+          ],
+          "source": "expected_state+part_library+roi_spatial_local_evidence"
+        }
+      ],
+      "dino_corroboration": {
+        "status": "not_run",
+        "selected_bbox": null,
+        "score": 0.0
+      },
+      "supports_paired_roi": false,
+      "requires_manual_review": true,
+      "human_ground_truth_used": false
+    }
+  ],
+  "requires_manual_review": true,
+  "human_ground_truth_used": false
+}

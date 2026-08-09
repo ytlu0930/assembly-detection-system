@@ -1,0 +1,20 @@
+{
+  "experiment_id": "affected-part-prompt-ab-20260809",
+  "logical_packages": 18,
+  "successful_packages": 12,
+  "failed_packages": 6,
+  "skipped_packages": 0,
+  "physical_requests": 31,
+  "retry_requests": 0,
+  "duplicate_resume_requests": 13,
+  "provider": "azure_openai_chat_completions",
+  "model": "gpt-4o",
+  "api_version": "2024-12-01-preview",
+  "started_at": "2026-08-09T09:38:05.923693+08:00",
+  "finished_at": "2026-08-09T10:37:15.445415+08:00",
+  "budget_exceeded": true,
+  "gt_leakage_check": "PASS",
+  "audit_correction": "The first runner continued after its outer shell timeout. A resume process overlapped it and issued 13 duplicate physical requests before both processes completed. No further API request was made after discovery.",
+  "logical_result_artifacts": 18,
+  "request_budget": 18
+}

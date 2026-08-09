@@ -1,0 +1,18 @@
+{
+  "decision": "NO_CLEAR_IMPROVEMENT",
+  "semantic_recovered_checklist_signal": "PROMISING",
+  "success_checks": {
+    "exact_not_worse": true,
+    "at_least_not_worse": true,
+    "all_parts_not_worse": true,
+    "f1_better": true,
+    "false_confident_better": true,
+    "wrong_identity_escape_zero": true
+  },
+  "blocking_reason": "original checklist schema-valid rate is 0/3",
+  "recommended_production_method": "NONE",
+  "final_output_strategy": "DETERMINISTIC_ANNOTATION",
+  "gpt_image_recommendation": "DO_NOT_USE_FOR_THIS_OUTPUT",
+  "phase_2b_recommendation": "BLOCK",
+  "api_requests_during_evaluation": 0
+}

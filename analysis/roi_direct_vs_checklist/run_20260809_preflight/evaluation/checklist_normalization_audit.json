@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "checklist_schema_robustness": "PASS",
+  "raw_schema_valid": {
+    "valid": 0,
+    "total": 3,
+    "rate": 0.0
+  },
+  "normalized_schema_valid": {
+    "valid": 3,
+    "total": 3
+  },
+  "semantic_equivalence": "PASS",
+  "gt_used": false,
+  "api_requests_made": 0,
+  "responses": [
+    {
+      "logical_request_id": "EXP-002",
+      "raw_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\responses\\EXP-002_missingpart-A01_roi_checklist.json",
+      "raw_sha256_before": "4473ccfc7b2deb5bee0c92ace0cd1995e73c55b1f751f75ee4823b66489913b1",
+      "raw_sha256_after": "4473ccfc7b2deb5bee0c92ace0cd1995e73c55b1f751f75ee4823b66489913b1",
+      "raw_unchanged": true,
+      "normalization_status": "normalized",
+      "transformations_applied": [
+        "CHECK->status",
+        "missing_evidence_summary->deterministic_fallback",
+        "results->checks",
+        "string_confidence->float"
+      ],
+      "schema_valid_after": true,
+      "candidate_membership_valid": true,
+      "gt_used": false
+    },
+    {
+      "logical_request_id": "EXP-004",
+      "raw_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\responses\\EXP-004_missingpart-B01_roi_checklist.json",
+      "raw_sha256_before": "04ad08df3c892a0af6968d0d4731ddfefb57dc71d09329497f8bf92614c0218c",
+      "raw_sha256_after": "04ad08df3c892a0af6968d0d4731ddfefb57dc71d09329497f8bf92614c0218c",
+      "raw_unchanged": true,
+      "normalization_status": "normalized",
+      "transformations_applied": [
+        "check_result->status",
+        "missing_evidence_summary->deterministic_fallback",
+        "results->checks",
+        "string_confidence->float"
+      ],
+      "schema_valid_after": true,
+      "candidate_membership_valid": true,
+      "gt_used": false
+    },
+    {
+      "logical_request_id": "EXP-006",
+      "raw_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\responses\\EXP-006_wrongpart-B01_roi_checklist.json",
+      "raw_sha256_before": "d4ae79a8e01d22aed163c77e9f746f4ba2aab01c64e0ca2a43ec945bee281bca",
+      "raw_sha256_after": "d4ae79a8e01d22aed163c77e9f746f4ba2aab01c64e0ca2a43ec945bee281bca",
+      "raw_unchanged": true,
+      "normalization_status": "normalized",
+      "transformations_applied": [
+        "check_result->status",
+        "missing_evidence_summary->deterministic_fallback",
+        "results->checks",
+        "string_confidence->float"
+      ],
+      "schema_valid_after": true,
+      "candidate_membership_valid": true,
+      "gt_used": false
+    }
+  ],
+  "thesis_artifact_consolidation": {
+    "status": "PASS",
+    "artifact_count": 10,
+    "artifacts": [
+      {
+        "source": "figures/checklist_confusion_matrix.png",
+        "consolidated_path": "thesis_artifacts/figures/checklist_confusion_matrix.png",
+        "status": "verified",
+        "readable": true,
+        "sha256": "ad439d906fbbfb4a2f95297107398365b9a6e49bbe1b2c2ccb3dd9cde19136c4",
+        "copy_sha256": "ad439d906fbbfb4a2f95297107398365b9a6e49bbe1b2c2ccb3dd9cde19136c4"
+      },
+      {
+        "source": "figures/method_comparison_metrics.png",
+        "consolidated_path": "thesis_artifacts/figures/method_comparison_metrics.png",
+        "status": "verified",
+        "readable": true,
+        "sha256": "fcc4889388b6701dbe1100ca54a48674edad81eece28e557d935587b38bad420",
+        "copy_sha256": "fcc4889388b6701dbe1100ca54a48674edad81eece28e557d935587b38bad420"
+      },
+      {
+        "source": "figures/thesis_case_missingpart_A01.png",
+        "consolidated_path": "thesis_artifacts/figures/thesis_case_missingpart_A01.png",
+        "status": "verified",
+        "readable": true,
+        "sha256": "07a608041bb389b1bf65aa5a99e60f02881abf6499bc89378c4c9957834a3215",
+        "copy_sha256": "07a608041bb389b1bf65aa5a99e60f02881abf6499bc89378c4c9957834a3215"
+      },
+      {
+        "source": "figures/thesis_case_missingpart_B01.png",
+        "consolidated_path": "thesis_artifacts/figures/thesis_case_missingpart_B01.png",
+        "status": "verified",
+        "readable": true,
+        "sha256": "858b4bb1c487d5fb2b73dafbd25ef5b1a37c1e490d67bff14e35986694421d5d",
+        "copy_sha256": "858b4bb1c487d5fb2b73dafbd25ef5b1a37c1e490d67bff14e35986694421d5d"
+      },
+      {
+        "source": "figures/thesis_case_wrongpart_B01.png",
+        "consolidated_path": "thesis_artifacts/figures/thesis_case_wrongpart_B01.png",
+        "status": "verified",
+        "readable": true,
+        "sha256": "2c44d502adcc6036ce8671a9ffd3235f9eaabeca5ed24b812c75091989672ec4",
+        "copy_sha256": "2c44d502adcc6036ce8671a9ffd3235f9eaabeca5ed24b812c75091989672ec4"
+      },
+      {
+        "source": "thesis_tables/roi_direct_vs_checklist_metrics.csv",
+        "consolidated_path": "thesis_artifacts/thesis_tables/roi_direct_vs_checklist_metrics.csv",
+        "status": "verified",
+        "readable": true,
+        "sha256": "f3ab4d7ed94f51983bc13392abf3dfdee16736dae03c810c7f7894a1cca17be1",
+        "copy_sha256": "f3ab4d7ed94f51983bc13392abf3dfdee16736dae03c810c7f7894a1cca17be1"
+      },
+      {
+        "source": "thesis_tables/roi_direct_vs_checklist_cases.csv",
+        "consolidated_path": "thesis_artifacts/thesis_tables/roi_direct_vs_checklist_cases.csv",
+        "status": "verified",
+        "readable": true,
+        "sha256": "e3255c75a79a1a73d7393c0d69518a401d00762e921edbc8d436e295541090f8",
+        "copy_sha256": "e3255c75a79a1a73d7393c0d69518a401d00762e921edbc8d436e295541090f8"
+      },
+      {
+        "source": "thesis_tables/checklist_component_results.csv",
+        "consolidated_path": "thesis_artifacts/thesis_tables/checklist_component_results.csv",
+        "status": "verified",
+        "readable": true,
+        "sha256": "f8591c0cc483695aaadf2d0e872062c15dc37f8b90ff4f1b52fe750638ffda5e",
+        "copy_sha256": "f8591c0cc483695aaadf2d0e872062c15dc37f8b90ff4f1b52fe750638ffda5e"
+      },
+      {
+        "source": "thesis_tables/research_method_evolution.csv",
+        "consolidated_path": "thesis_artifacts/thesis_tables/research_method_evolution.csv",
+        "status": "verified",
+        "readable": true,
+        "sha256": "ee4371666bdacc9bf95c04e1a8d6e3356bf9596344acbcae80ee87e998a61f35",
+        "copy_sha256": "ee4371666bdacc9bf95c04e1a8d6e3356bf9596344acbcae80ee87e998a61f35"
+      },
+      {
+        "source": "thesis_tables/request_efficiency.csv",
+        "consolidated_path": "thesis_artifacts/thesis_tables/request_efficiency.csv",
+        "status": "verified",
+        "readable": true,
+        "sha256": "c8eb12e5d26ee2a1bb77f809fdd28525b7b339e3bbfa92ccad0a3f92528e0e23",
+        "copy_sha256": "c8eb12e5d26ee2a1bb77f809fdd28525b7b339e3bbfa92ccad0a3f92528e0e23"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "experiment_id": "affected-part-prompt-ab-20260809",
+  "max_physical_requests": 18,
+  "physical_request_counter": 31,
+  "reservations": [],
+  "historical_unallocated_requests": 31,
+  "initialization_source": "corrected api_request_audit.json after overlapping-process incident",
+  "budget_exhausted": true,
+  "created_at": null,
+  "updated_at": null
+}
