@@ -2,6 +2,7 @@ openai
 httpx
 opencv-python
 Pillow
+matplotlib
 jsonschema
 gradio
 torch
