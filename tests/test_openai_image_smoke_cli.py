@@ -6,7 +6,15 @@ from scripts.run_openai_image_smoke_test import main
 
 
 def test_smoke_cli_defaults_to_dry_run_without_network(tmp_path, capsys, monkeypatch):
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    for name in (
+        "OPENAI_API_KEY", "STEP_IMAGE_PROVIDER", "OPENAI_IMAGE_MODEL",
+        "ENABLE_OPENAI_IMAGE_API", "CONFIRM_OPENAI_IMAGE_API_EXECUTION",
+    ):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setattr(
+        "scripts.run_openai_image_smoke_test.load_dotenv",
+        lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("dry-run must not read .env")),
+    )
     with patch.object(socket, "create_connection") as connect:
         code = main(["--dry-run", "--output-dir", str(tmp_path / "run")])
     connect.assert_not_called()

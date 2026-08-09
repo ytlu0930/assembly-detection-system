@@ -1,4 +1,4 @@
-"""Unified Vision -> localization -> SOP -> visual-output pipeline."""
+"""DEPRECATED compatibility pipeline; canonical runtime is main.run_pipeline."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from utils.correction_sop_generator import generate_correction_sop
 from utils.error_report_adapter import adapt_vision_result
 from utils.image_annotator import annotate_image
 from utils.step_image_generator import MockStepImageProvider, generate_step_images as render_steps
+from utils.step_image_provider_factory import create_step_image_provider
 from utils.step_prompt_builder import build_step_prompts
 
 
@@ -47,6 +48,8 @@ def run_full_pipeline(
     analyzer: Callable[..., dict[str, Any]] | None = None,
     localizer: Any | None = None,
     image_provider: Any | None = None,
+    step_image_provider: str = "mock",
+    execute_image_api: bool = False,
     flowchart_builder: Callable[..., str] | None = None,
     output_dir: str | Path | None = None,
 ) -> dict[str, Any]:
@@ -171,12 +174,22 @@ def run_full_pipeline(
                 step_id=step_id,
                 view_angle=view_angle,
             )
-            manifest = render_steps(tasks, target / "step_images", image_provider or MockStepImageProvider())
+            active_provider = image_provider or create_step_image_provider(
+                step_image_provider,
+                enable_external_api=execute_image_api,
+            )
+            manifest = render_steps(
+                tasks,
+                target / "step_images",
+                active_provider,
+                execute_api=execute_image_api,
+            )
             for step, record in zip(sop["steps"], manifest):
                 step["generated_image"] = record.get("output_path")
                 step["image_generation_status"] = record.get("status")
-                if record.get("error"):
-                    warnings.append(f"Step image {step['step_number']} failed: {record['error']}")
+                provider_message = record.get("warning") or record.get("error")
+                if provider_message:
+                    warnings.append(f"Step image {step['step_number']} unavailable: {provider_message}")
 
         if generate_flowchart:
             try:

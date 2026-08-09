@@ -85,6 +85,9 @@ def adapt_vision_result(payload: dict[str, Any]) -> list[dict[str, Any]]:
         expected = item.get("expected_part", item.get("expected_state"))
         observed = item.get("observed_part", item.get("observed_state"))
         evidence = str(item.get("evidence") or item.get("description") or "").strip()
+        identity_status = str(item.get("identity_status") or "unresolved").lower()
+        if identity_status not in {"verified", "conflict", "uncertain", "unresolved"}:
+            identity_status = "unresolved"
 
         reports.append(
             {
@@ -101,6 +104,11 @@ def adapt_vision_result(payload: dict[str, Any]) -> list[dict[str, Any]]:
                 "role": item.get("role"),
                 "overall_error_type": overall,
                 "error_components": list(normalized_components),
+                "identity_status": identity_status,
+                "identity_confidence": _confidence(item.get("identity_confidence")),
+                "identity_evidence": deepcopy(item.get("identity_evidence") or []),
+                "verified_part_id": deepcopy(item.get("verified_part_id")),
+                "alternative_candidates": deepcopy(item.get("alternative_candidates") or []),
             }
         )
 
@@ -120,6 +128,11 @@ def adapt_vision_result(payload: dict[str, Any]) -> list[dict[str, Any]]:
                 "role": None,
                 "overall_error_type": overall,
                 "error_components": list(normalized_components),
+                "identity_status": "unresolved",
+                "identity_confidence": 0.0,
+                "identity_evidence": [],
+                "verified_part_id": None,
+                "alternative_candidates": [],
             }
         )
     return reports

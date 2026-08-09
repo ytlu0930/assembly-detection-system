@@ -1,3 +1,9 @@
+"""DEPRECATED — retained only for historical compatibility.
+
+The canonical runtime uses instruction_book_generator.py and does not import
+this module.
+"""
+
 import os
 import sys
 import platform

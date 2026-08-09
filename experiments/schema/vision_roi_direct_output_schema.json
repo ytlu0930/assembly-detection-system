@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "EXPERIMENT-ONLY. NOT THE PRODUCTION VISION SCHEMA.",
+  "title": "ROIDirectIdentityOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["error_type", "affected_parts", "confidence", "evidence_summary"],
+  "properties": {
+    "error_type": {"type": "string", "enum": ["missingpart", "wrongpart", "extrapart", "positionerror", "uncertain"]},
+    "affected_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["part_id", "confidence", "evidence_summary"],
+        "properties": {
+          "part_id": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "evidence_summary": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "evidence_summary": {"type": "string", "minLength": 1}
+  }
+}

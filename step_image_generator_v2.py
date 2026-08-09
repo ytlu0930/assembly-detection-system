@@ -77,6 +77,7 @@ class GenerationManifestV2:
     include_annotated_image: bool
     package_generation_allowed: bool
     package_requires_manual_review: bool
+    identity_verification_blocked: bool
     manual_review_override: bool
     requested_task_count: int
     successful_task_count: int
@@ -163,7 +164,7 @@ class StepImageGeneratorV2:
                 "quality": quality,
                 "output_format": output_format,
                 "max_requests_per_run": max_requests_per_run,
-            } if provider_name == "openai" else {}),
+            } if provider_name in {"openai", "azure_openai"} else {}),
         )
         self.model = model
         self.size = size
@@ -194,7 +195,10 @@ class StepImageGeneratorV2:
         if max_tasks is not None:
             raw_tasks = raw_tasks[: max(0, int(max_tasks))]
 
-        allowed = bool(package.get("generation_allowed", True)) or allow_manual_review
+        identity_verification_blocked = bool(package.get("identity_verification_blocked", False))
+        allowed = not identity_verification_blocked and (
+            bool(package.get("generation_allowed", True)) or allow_manual_review
+        )
         records: list[TaskRecord] = []
         standalone: list[str] = []
         assembly: list[str] = []
@@ -247,10 +251,15 @@ class StepImageGeneratorV2:
                         output_path=str(target),
                         metadata={**raw, "step_number": raw.get("sop_step_no")},
                         execute_api=self.execute_api,
+                        mask_path=raw.get("mask_path"),
                     )
                     record.status = result.status
                     record.output_path = result.output_path
-                    record.actual_api_operation = "images.edit" if self.provider.name == "openai" else "offline_mock"
+                    record.actual_api_operation = (
+                        "azure_http_images_edit" if self.provider.name == "azure_openai"
+                        else "images.edit" if self.provider.name == "openai"
+                        else "offline_mock"
+                    )
                     record.attempts = result.request_count
                     record.error_type = result.last_error_type
                     record.error_message = result.error
@@ -274,7 +283,7 @@ class StepImageGeneratorV2:
 
         success_count = sum(record.status == "success" for record in records)
         existing_count = sum(record.status == "existing" for record in records)
-        failed_count = sum(record.status in {"failed", "api_error", "timeout", "rate_limited", "invalid_response", "output_validation_failed", "not_configured"} for record in records)
+        failed_count = sum(record.status in {"failed", "api_error", "timeout", "rate_limited", "invalid_response", "output_validation_failed", "not_configured", "invalid_configuration", "invalid_request", "authentication_error", "permission_error", "deployment_or_endpoint_not_found", "service_error", "connection_error"} for record in records)
         skipped_count = len(records) - success_count - existing_count - failed_count
         manifest = GenerationManifestV2(
             schema_version="2.2", created_at=datetime.now().astimezone().isoformat(),
@@ -284,6 +293,7 @@ class StepImageGeneratorV2:
             input_fidelity="provider_managed", dry_run=dry_run, use_mask=False, include_annotated_image=False,
             package_generation_allowed=bool(package.get("generation_allowed", True)),
             package_requires_manual_review=bool(package.get("requires_manual_review", False)),
+            identity_verification_blocked=identity_verification_blocked,
             manual_review_override=allow_manual_review, requested_task_count=len(records),
             successful_task_count=success_count, existing_task_count=existing_count,
             failed_task_count=failed_count, skipped_task_count=skipped_count,
@@ -304,7 +314,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run provider-backed V2 step image generation.")
     parser.add_argument("--prompts-json", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path)
-    parser.add_argument("--image-provider", choices=["mock", "openai"], default="mock")
+    parser.add_argument("--image-provider", choices=["mock", "openai", "azure_openai"], default="mock")
     parser.add_argument("--execute-image-api", action="store_true")
     parser.add_argument("--confirm-cost", action="store_true")
     parser.add_argument("--dry-run", action="store_true")

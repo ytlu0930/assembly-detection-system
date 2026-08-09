@@ -21,6 +21,9 @@ class FakeLocalizer:
             "selected_bbox": [10, 10, 40, 40],
             "selected_detection_score": 0.95,
             "selected_selection_score": 0.95,
+            "estimated_count": 1,
+            "identity_relation_supported": True,
+            "identity_relation_confidence": 0.95,
             "annotated_image_path": kwargs["image_path"],
             "error_message": None,
         }
@@ -57,7 +60,7 @@ def test_canonical_main_localizes_all_parts_builds_swap_and_instruction_book(tmp
     localizer = FakeLocalizer()
     manifest = run_pipeline(parsed_json_path=parsed, output_dir=tmp_path / "out", localizer=localizer)
     assert manifest.status in {"success", "partial"}
-    assert len(localizer.calls) == 2
+    assert len(localizer.calls) == 4
     assert Path(manifest.final_instruction_path).is_file()
     assert Path(manifest.results_path).is_file()
     assert Path(manifest.correction_sop_path).is_file()

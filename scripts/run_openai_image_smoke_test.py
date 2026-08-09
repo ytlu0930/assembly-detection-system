@@ -41,8 +41,8 @@ def parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
-    if args.execute_api:
-        load_dotenv(ROOT / ".env")
+    if args.execute_api and not args.dry_run:
+        load_dotenv(ROOT / ".env", override=True)
     paths = resolve_run_output(
         "pipeline",
         "openai_step_image_smoke",

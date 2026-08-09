@@ -197,6 +197,7 @@ class OpenAIImageProvider:
         metadata: dict[str, Any] | None = None,
         *,
         execute_api: bool = False,
+        mask_path: str | Path | None = None,
     ) -> StepImageResult:
         """Execute one image edit only after code and both environment gates agree."""
         started = perf_counter()
@@ -240,7 +241,6 @@ class OpenAIImageProvider:
                         quality=self.quality,
                         size=self.size,
                         output_format=self.output_format,
-                        response_format="b64_json",
                         timeout=self.timeout_seconds,
                     )
                 data = getattr(response, "data", None)

@@ -1,0 +1,12 @@
+EXPERIMENTAL — NOT PRODUCTION
+
+Follow the reference-guided analysis order below:
+A. Compare the overall structure in the Correct Reference Image and Test Image.
+B. Locate each visual delta.
+C. Identify the expected part in the differing region.
+D. Determine the missing/extra/wrong/position/correct relation.
+E. Output all affected parts with a concise evidence summary.
+
+For affected-part identity, select only a canonical ID from the supplied Candidate affected parts list, or return UNKNOWN/UNRESOLVED. Never invent a part ID. UNKNOWN_EXTRA_PART is allowed for an extra object that is not in expected inventory. Candidate presence is not evidence by itself: every selected identity must still be supported by a localized reference/test difference. Do not guess a visually salient part.
+
+Do not output private chain-of-thought. Return only the structured JSON required by the supplied current production schema.

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "EXPERIMENTAL — NOT PRODUCTION. bbox intentionally excluded.",
+  "title": "ExperimentalAffectedPartsVisionOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["model_id", "step_id", "view_angle", "is_error", "overall_error_type", "error_components", "detected_parts", "relations", "summary"],
+  "properties": {
+    "model_id": {"type": "string", "minLength": 1},
+    "step_id": {"type": "string", "minLength": 1},
+    "view_angle": {"type": "string", "enum": ["top", "bottom", "front", "back", "left", "right"]},
+    "is_error": {"type": "boolean"},
+    "overall_error_type": {"$ref": "#/$defs/errorType"},
+    "error_components": {"type": "array", "items": {"$ref": "#/$defs/errorType"}, "uniqueItems": true},
+    "detected_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["part_id", "role", "error_type", "expected_part", "observed_part", "relation_type", "evidence", "confidence"],
+        "properties": {
+          "part_id": {"type": "string", "minLength": 1},
+          "role": {"type": "string", "enum": ["expected", "observed", "both"]},
+          "error_type": {"$ref": "#/$defs/errorType"},
+          "expected_part": {"type": ["string", "null"]},
+          "observed_part": {"type": ["string", "null"]},
+          "relation_type": {"type": "string", "enum": ["single", "swap", "replacement", "composite", "unknown"]},
+          "evidence": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relation_type", "part_ids", "evidence"],
+        "properties": {
+          "relation_type": {"type": "string", "enum": ["swap", "replacement", "composite"]},
+          "part_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}, "uniqueItems": true},
+          "evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "summary": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "errorType": {
+      "type": "string",
+      "enum": ["correct", "missingpart", "extrapart", "positionerror", "wrongpart", "criticalerror", "uncertain"]
+    }
+  }
+}

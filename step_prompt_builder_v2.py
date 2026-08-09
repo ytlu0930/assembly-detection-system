@@ -139,6 +139,7 @@ class PromptPackageV2:
     is_error: bool
     overall_error_type: str
     requires_manual_review: bool
+    identity_verification_blocked: bool
     generation_allowed: bool
     assembly_branch_start_image: Optional[str]
     standalone_branch_outputs: list[str]
@@ -175,13 +176,21 @@ class StepPromptBuilderV2:
             raise TypeError("correction_plan must be a list.")
 
         requires_manual_review = bool(sop.get("requires_manual_review", False))
-        generation_allowed = not (self.block_on_manual_review and requires_manual_review)
+        identity_verification_blocked = bool(sop.get("identity_verification_blocked", False))
+        generation_allowed = not identity_verification_blocked and not (
+            self.block_on_manual_review and requires_manual_review
+        )
 
         warnings: list[str] = []
         if requires_manual_review:
             warnings.append("此案例需要人工確認。")
             if self.block_on_manual_review:
                 warnings.append("圖片任務已建立，但後續生成器不得自動呼叫 API。")
+
+        if identity_verification_blocked:
+            warnings.append(
+                "Image generation is blocked until affected-part identity is verified."
+            )
 
         step_prompts: list[StepPromptV2] = []
         skipped_steps: list[dict[str, Any]] = []
@@ -250,6 +259,7 @@ class StepPromptBuilderV2:
             is_error=bool(sop.get("is_error", False)),
             overall_error_type=str(sop.get("overall_error_type", "uncertain")),
             requires_manual_review=requires_manual_review,
+            identity_verification_blocked=identity_verification_blocked,
             generation_allowed=generation_allowed,
             assembly_branch_start_image=self._optional_string(sop.get("test_image_path")),
             standalone_branch_outputs=standalone_outputs,

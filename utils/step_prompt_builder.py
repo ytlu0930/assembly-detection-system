@@ -29,14 +29,16 @@ def build_step_prompts(
         instruction = str(raw.get("visual_instruction") or raw.get("instruction") or "")
         affected = [str(value) for value in raw.get("affected_parts", [])]
         prompt = (
-            "Create one clear construction-toy repair instruction image. "
-            f"Perform only this step: {instruction} "
+            "Create one instructional correction illustration, not a collage or text-heavy layout. "
+            "Image 1 is the current assembly state. Image 2 is the correct reference state. "
+            f"Current action: {raw.get('action') or 'repair'}. Perform only this next SOP step: {instruction} "
             f"Target parts: {', '.join(affected) or 'identified local area'}. "
-            "Keep the vehicle body, background, camera viewpoint, lighting, colors, "
-            "part shapes, part counts, and every non-target part unchanged. "
+            f"Expected visual state: the target matches Image 2 after this action, while all other parts remain as in Image 1. "
+            "Modify only the target part and keep every non-target part unchanged. Preserve every non-target brick, camera angle, lighting, background, "
+            "brick colors, geometry, part shapes, and part counts. "
             "Show the removal, movement, swap, or installation direction with one clear red arrow. "
-            "Use a clean numbered assembly-manual style. Do not add nonexistent parts. "
-            "Do not show hands or people. Always compare against the correct reference image."
+            "Do not add nonexistent parts or unrelated parts. Produce only the next SOP state. "
+            "Do not show hands or people."
         )
         tasks.append(
             {

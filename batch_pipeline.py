@@ -66,7 +66,7 @@ def run_batch(
     image_provider: str = "mock",
     execute_image_api: bool = False,
     confirm_cost: bool = False,
-    max_image_requests: int = 0,
+    max_image_requests: int = 1,
     allow_manual_review: bool = False,
     overwrite: bool = False,
     pipeline_runner: Callable[..., PipelineManifest] = run_pipeline,
@@ -76,7 +76,7 @@ def run_batch(
         selected = selected[: max(0, int(limit))]
     run_root = Path(output_dir).expanduser().resolve() if output_dir else DEFAULT_BATCH_ROOT / datetime.now().strftime("%Y%m%d_%H%M%S")
     run_root.mkdir(parents=True, exist_ok=True)
-    live = bool(image_provider == "openai" and generate_images and execute_image_api and confirm_cost and max_image_requests > 0)
+    live = bool(image_provider in {"openai", "azure_openai"} and generate_images and execute_image_api and confirm_cost and max_image_requests > 0)
     cases: list[CaseResult] = []
     remaining = max(0, int(max_image_requests))
     for index, parsed in enumerate(selected, start=1):
@@ -112,10 +112,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--generate-images", action="store_true")
-    parser.add_argument("--image-provider", choices=["mock", "openai"], default="mock")
+    parser.add_argument("--image-provider", choices=["mock", "openai", "azure_openai"], default="mock")
     parser.add_argument("--execute-image-api", action="store_true")
     parser.add_argument("--confirm-cost", action="store_true")
-    parser.add_argument("--max-image-requests", type=int, default=0)
+    parser.add_argument("--max-image-requests", type=int, default=1)
     parser.add_argument("--allow-manual-review", action="store_true")
     parser.add_argument("--overwrite", action="store_true")
     return parser

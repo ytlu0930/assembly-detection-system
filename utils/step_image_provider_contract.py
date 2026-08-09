@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+from pathlib import Path
 from typing import Any, Protocol
 
 
@@ -42,5 +43,6 @@ class StepImageProvider(Protocol):
         metadata: dict[str, Any] | None = None,
         *,
         execute_api: bool = False,
+        mask_path: str | Path | None = None,
     ) -> StepImageResult:
         """Generate exactly one step image and return a structured result."""

@@ -92,6 +92,7 @@ def run_pipeline(
     confirm_cost: bool = False,
     provider: StepImageProvider | None = None,
     localizer: Any | None = None,
+    identity_verifier: Any | None = None,
     allow_manual_review: bool = False,
     overwrite: bool = False,
     image_quality: str = "low",
@@ -110,7 +111,7 @@ def run_pipeline(
     case_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = case_dir / "pipeline_manifest.json"
     external_authorized = bool(
-        image_provider == "openai" and generate_images and execute_image_api and confirm_cost
+        image_provider in {"openai", "azure_openai"} and generate_images and execute_image_api and confirm_cost
     )
     active_provider = provider or create_step_image_provider(
         image_provider,
@@ -119,7 +120,7 @@ def run_pipeline(
             "quality": image_quality,
             "size": image_size,
             "max_requests_per_run": image_max_requests,
-        } if image_provider == "openai" else {}),
+        } if image_provider in {"openai", "azure_openai"} else {}),
     )
     manifest = PipelineManifest(
         schema_version="2.0", created_at=datetime.now().astimezone().isoformat(),
@@ -131,7 +132,13 @@ def run_pipeline(
 
     try:
         started = perf_counter()
-        results_path = process_one(parsed_path, case_dir, overwrite=overwrite, localizer=localizer)
+        results_path = process_one(
+            parsed_path,
+            case_dir,
+            overwrite=overwrite,
+            localizer=localizer,
+            identity_verifier=identity_verifier,
+        )
         manifest.results_path = str(results_path)
         manifest.stages.append(_stage("localization_and_error_reports", "success", results_path, started))
         results = json.loads(results_path.read_text(encoding="utf-8"))
@@ -205,7 +212,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--image-stem")
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--generate-images", action="store_true", help="Generate images with the selected provider; provider defaults to mock.")
-    parser.add_argument("--image-provider", choices=["mock", "openai"], default="mock")
+    parser.add_argument("--image-provider", choices=["mock", "openai", "azure_openai"], default="mock")
     parser.add_argument("--execute-image-api", action="store_true")
     parser.add_argument("--confirm-cost", action="store_true")
     parser.add_argument("--image-dry-run", action="store_true")
