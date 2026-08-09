@@ -227,6 +227,22 @@ logs/
 huggingface/
 groundingdino_cache/
 
+# Offline experiment runtime/cache artifacts (curated metrics are committed)
+analysis/vision_prompt_ab/dry_run_plan.json
+analysis/vision_prompt_ab/packages/
+analysis/vision_prompt_ab/results/raw/
+analysis/vision_prompt_ab/results/verifier_localization/
+analysis/vision_prompt_ab/targeted_run_*/request_ledger.json
+analysis/vision_prompt_ab/targeted_run_*/requests/
+analysis/vision_prompt_ab/targeted_run_*/responses/
+analysis/vision_prompt_ab/targeted_run_*/run_manifest.json
+analysis/vision_prompt_ab/targeted_run_*/evaluation/verifier_localization/
+analysis/roi_direct_vs_checklist/run_*/figures/
+analysis/roi_direct_vs_checklist/run_*/packages/*/*/roi_images/
+analysis/roi_direct_vs_checklist/run_*/thesis_artifacts/
+azure_generation_*.json
+azure_generation_response.json
+
 # Large raw outputs
 logs/raw_responses/
 logs/compare_raw_responses/
