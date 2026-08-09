@@ -1,0 +1,144 @@
+{
+  "case_id": "missingpart-B01",
+  "method": "roi_direct",
+  "model_id": "model03",
+  "step_id": "step03",
+  "view_angle": "front",
+  "error_type": "missingpart",
+  "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\missingpart\\model03_step03\\model03_step03_missingpart-B01_front_01.jpg",
+  "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+  "test_roi_images": [],
+  "reference_roi_images": [
+    "roi_images/reference_roi_01.png",
+    "roi_images/reference_roi_02.png"
+  ],
+  "bbox_evidence": [
+    {
+      "role": "reference",
+      "bbox": [
+        2789,
+        1715,
+        4079,
+        2382
+      ],
+      "color": "BLUE",
+      "score": 0.7906677974875143,
+      "candidate_part_id": "LINK_BLUE_5HOLE"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        2970,
+        2866,
+        3958,
+        3239
+      ],
+      "color": "YELLOW",
+      "score": 0.6613988496628286,
+      "candidate_part_id": "PIN_YELLOW"
+    }
+  ],
+  "localization_score": 0.8028466342873746,
+  "localization_status": "success",
+  "localization_requires_manual_review": true,
+  "candidate_part_ids": [
+    "ROD_GREEN_LONG",
+    "PIN_YELLOW",
+    "WHEEL_BLUE_LARGE",
+    "WHEEL_BLUE_SMALL",
+    "PIN_RED_SHORT"
+  ],
+  "candidate_count": 5,
+  "full_candidate_count": 15,
+  "candidate_reduction_ratio": 0.6666666666666667,
+  "expected_state_summary": [
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 3
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 2
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "color": "GREEN",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "WHEEL_BLUE_LARGE",
+      "color": "BLUE",
+      "position": "LEFT",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "WHEEL_BLUE_LARGE",
+      "color": "BLUE",
+      "position": "RIGHT",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "WHEEL_BLUE_SMALL",
+      "color": "BLUE",
+      "position": "LEFT",
+      "orientation": "VERTICAL",
+      "expected_count": 2
+    },
+    {
+      "part_id": "WHEEL_BLUE_SMALL",
+      "color": "BLUE",
+      "position": "RIGHT",
+      "orientation": "VERTICAL",
+      "expected_count": 2
+    }
+  ],
+  "paired_roi_supported": false,
+  "inference_label_source": "frozen_roi_poc_expected_state_part_library_local_evidence",
+  "evaluation_labels_included": false,
+  "test_image_sha256": "7073c207ec0b0bbb09df748a167801dc676e0862139d6cfc5c504aa7f77b9d43",
+  "reference_image_sha256": "ea82588ca423fb7c6f640e29b56791e0cb4d7943da425711af44dfff65641abc",
+  "roi_image_sha256": {
+    "roi_images/reference_roi_01.png": "6da61ed5676e01d5b6e03b7e64dc2c85e875f9fcfd9145aac375d950f8a8c6eb",
+    "roi_images/reference_roi_02.png": "1776ce8156d10d2d1bf598d22c79a476510ebf71133ac9f70d3daf6f2e27406a"
+  },
+  "logical_request_id": "EXP-003",
+  "sequence": 3,
+  "prompt_source": "experiments/prompts/vision_roi_direct_identity.txt",
+  "prompt_sha256": "b0a43ba445a0d196489f295ff0805c3f64f33f5a47865bb780518763ad079bf6",
+  "schema_source": "experiments/schema/vision_roi_direct_output_schema.json",
+  "schema_sha256": "653f6d77375a0ffd9558a01c34680e8f04db474aa35456ad338e3164a5b75bdc",
+  "source_roi_package_sha256": "9ad16a2e972d3edd0dfacbf932be70804d64bd0fa1ee5663ce1f667984b0735e",
+  "automatic_retry": 0,
+  "contains_api_key": false
+}

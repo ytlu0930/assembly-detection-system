@@ -1,0 +1,145 @@
+{
+  "logical_request_id": "EXP-002",
+  "case_id": "missingpart-A01",
+  "source_raw_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\responses\\EXP-002_missingpart-A01_roi_checklist.json",
+  "normalization_status": "normalized",
+  "normalized_response": {
+    "checks": [
+      {
+        "part_id": "PIN_RED_SHORT",
+        "reference_present": true,
+        "test_present": false,
+        "reference_count": 6,
+        "test_count": 0,
+        "spatial_match": false,
+        "appearance_match": false,
+        "status": "FAIL",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "reference_present": true,
+        "test_present": true,
+        "reference_count": 2,
+        "test_count": 2,
+        "spatial_match": true,
+        "appearance_match": true,
+        "status": "PASS",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "status": "UNCERTAIN",
+        "confidence": 0.3,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "status": "UNCERTAIN",
+        "confidence": 0.3,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      },
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "reference_present": true,
+        "test_present": true,
+        "reference_count": 1,
+        "test_count": 1,
+        "spatial_match": true,
+        "appearance_match": true,
+        "status": "PASS",
+        "confidence": 0.9,
+        "evidence_summary": "No explicit evidence summary supplied in the response."
+      }
+    ]
+  },
+  "checks": [
+    {
+      "part_id": "PIN_RED_SHORT",
+      "reference_present": true,
+      "test_present": false,
+      "reference_count": 6,
+      "test_count": 0,
+      "spatial_match": false,
+      "appearance_match": false,
+      "status": "FAIL",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "reference_present": true,
+      "test_present": true,
+      "reference_count": 2,
+      "test_count": 2,
+      "spatial_match": true,
+      "appearance_match": true,
+      "status": "PASS",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.3,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "LINK_RED_3HOLE",
+      "reference_present": null,
+      "test_present": null,
+      "reference_count": null,
+      "test_count": null,
+      "spatial_match": null,
+      "appearance_match": null,
+      "status": "UNCERTAIN",
+      "confidence": 0.3,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    },
+    {
+      "part_id": "LINK_BLUE_5HOLE",
+      "reference_present": true,
+      "test_present": true,
+      "reference_count": 1,
+      "test_count": 1,
+      "spatial_match": true,
+      "appearance_match": true,
+      "status": "PASS",
+      "confidence": 0.9,
+      "evidence_summary": "No explicit evidence summary supplied in the response."
+    }
+  ],
+  "transformations_applied": [
+    "CHECK->status",
+    "missing_evidence_summary->deterministic_fallback",
+    "results->checks",
+    "string_confidence->float"
+  ],
+  "failure_reason": null,
+  "raw_sha256": "8e87d94c00f2904484e0b93fe4391662e729dbdf48967d0f155741765a21b115",
+  "normalized_sha256": "5b15f3eeaf943a7290186a563c671c7788244361716bbff7605d9c00b05ceff3",
+  "schema_valid_after_normalization": true,
+  "gt_used": false,
+  "candidate_membership_valid": true,
+  "input_mutated": false
+}

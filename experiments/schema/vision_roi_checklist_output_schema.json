@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "EXPERIMENT-ONLY. NOT THE PRODUCTION VISION SCHEMA.",
+  "title": "ROIComponentChecklistOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["checks"],
+  "properties": {
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["part_id", "reference_present", "test_present", "reference_count", "test_count", "spatial_match", "appearance_match", "status", "confidence", "evidence_summary"],
+        "properties": {
+          "part_id": {"type": "string", "minLength": 1},
+          "reference_present": {"type": ["boolean", "null"]},
+          "test_present": {"type": ["boolean", "null"]},
+          "reference_count": {"type": ["integer", "null"], "minimum": 0},
+          "test_count": {"type": ["integer", "null"], "minimum": 0},
+          "spatial_match": {"type": ["boolean", "null"]},
+          "appearance_match": {"type": ["boolean", "null"]},
+          "status": {"type": "string", "enum": ["PASS", "FAIL", "UNCERTAIN"]},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "evidence_summary": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

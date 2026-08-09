@@ -1,0 +1,6 @@
+stage,method,sample_size,exact_match,at_least_one_recall,all_parts_recall,precision,recall,f1,false_confident_080,candidate_reduction,gt_coverage,manual_review_rate,notes
+Stage 1,Free-form VLM,25,0.08,0.125,0.041666666666666664,0.12,0.09375,0.10526315789473684,0.88,,,,Historical baseline; denominators differ from targeted ROI stages.
+Stage 2,Reference+Candidate,3,0.0,0.3333333333333333,0.0,0.3333333333333333,0.25,0.28571428571428575,0.6666666666666666,,,,Targeted n=3; full-inventory candidate set remained weak.
+Stage 3,ROI candidate reduction,3,,,,,,,,0.6444444444444445,1.0,1.0,Identity inference not performed in this stage.
+Stage 4,ROI Direct,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.25,0.25,0.25,1.0,0.6444444444444445,1.0,1.0,Frozen ROI experiment n=3.
+Stage 5,ROI Checklist (normalized),3,0.3333333333333333,0.6666666666666666,0.6666666666666666,0.42857142857142855,0.75,0.5454545454545454,0.5714285714285714,0.6444444444444445,1.0,1.0,Post-hoc normalized analysis; original schema validity 0/3.

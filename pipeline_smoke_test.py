@@ -23,6 +23,8 @@ from pathlib import Path
 from typing import Any, Optional
 
 from utils.localization_pipeline import LocalizationPipeline
+from utils.error_report_adapter import adapt_vision_result
+from utils.affected_part_identity_verifier import AffectedPartIdentityVerifier
 
 
 ROOT_DIR = Path(__file__).resolve().parent
@@ -371,6 +373,8 @@ def process_one(
     max_detections: int = 10,
     device: str = "auto",
     overwrite: bool = False,
+    localizer: Any | None = None,
+    identity_verifier: Any | None = None,
 ) -> Path:
     """處理一份既有 Vision parsed JSON，回傳 results.json 路徑。"""
     parsed_path = Path(parsed_json_path).expanduser().resolve()
@@ -393,10 +397,12 @@ def process_one(
     expected_state_path, expected_state = resolve_expected_state(parsed_result)
 
     error_parts = extract_error_parts(parsed_result)
-    primary_error = choose_primary_error(error_parts)
-
+    error_reports = adapt_vision_result(parsed_result)
+    primary_error = error_reports[0] if error_reports else None
     localization_strategy: dict[str, Any] = {}
     localization_result: dict[str, Any] = {}
+    localization_results: list[dict[str, Any]] = []
+    identity_verification_results: list[dict[str, Any]] = []
 
     if primary_error is None:
         localization_result = {
@@ -406,46 +412,127 @@ def process_one(
             "error_message": None,
         }
     else:
-        localization_strategy = choose_localization_strategy(
-            error_part=primary_error,
-            test_image_path=test_image_path,
-            reference_image_path=reference_image_path,
-            expected_state=expected_state,
-        )
+        pipeline_error: str | None = None
+        try:
+            pipeline = localizer or LocalizationPipeline(device=device)
+        except Exception as exc:
+            pipeline = None
+            pipeline_error = f"{type(exc).__name__}: {exc}"
+        for index, report in enumerate(error_reports):
+            strategy = choose_localization_strategy(
+                error_part=report,
+                test_image_path=test_image_path,
+                reference_image_path=reference_image_path,
+                expected_state=expected_state,
+            )
+            localization_image = Path(strategy["image_path"])
+            try:
+                if pipeline is None:
+                    raise RuntimeError(pipeline_error or "Localization unavailable")
+                current = pipeline.localize(
+                    image_path=str(localization_image),
+                    text_prompt=str(strategy["prompt"]),
+                    box_threshold=box_threshold,
+                    text_threshold=text_threshold,
+                    target_position=str(strategy["target_position"]),
+                    max_detections=max_detections,
+                    output_dir=str(paths.annotated_dir / f"error_{index + 1:02d}"),
+                )
+                if not isinstance(current, dict):
+                    raise TypeError("LocalizationPipeline.localize() must return a dict.")
+            except Exception as exc:
+                current = {"status": "error", "selected_bbox": None, "annotated_image_path": None, "error_message": f"{type(exc).__name__}: {exc}"}
+            current.update({
+                "localization_role": strategy.get("localization_role"),
+                "localization_source_image": str(localization_image),
+                "localization_prompt": strategy.get("prompt"),
+                "target_position": strategy.get("target_position"),
+            })
+            bbox = current.get("selected_bbox")
+            report["bbox"] = [float(value) for value in bbox] if isinstance(bbox, list) and len(bbox) == 4 else None
+            report["localization_strategy"] = strategy
+            report["localization"] = current
 
-        localization_image = Path(localization_strategy["image_path"])
-        localization_prompt = str(localization_strategy["prompt"])
-        target_position = str(localization_strategy["target_position"])
+            reference_resolved = reference_image_path.resolve()
+            test_resolved = test_image_path.resolve()
+            current_resolved = localization_image.resolve()
+            counterpart_image = test_resolved if current_resolved == reference_resolved else reference_resolved
+            counterpart: dict[str, Any]
+            try:
+                if pipeline is None:
+                    raise RuntimeError(pipeline_error or "Localization unavailable")
+                counterpart = pipeline.localize(
+                    image_path=str(counterpart_image),
+                    text_prompt=str(strategy["prompt"]),
+                    box_threshold=box_threshold,
+                    text_threshold=text_threshold,
+                    target_position=str(strategy["target_position"]),
+                    max_detections=max_detections,
+                    output_dir=str(paths.annotated_dir / f"error_{index + 1:02d}" / "identity_counterpart"),
+                )
+                if not isinstance(counterpart, dict):
+                    raise TypeError("LocalizationPipeline.localize() must return a dict.")
+            except Exception as exc:
+                counterpart = {
+                    "status": "error",
+                    "selected_bbox": None,
+                    "error_message": f"{type(exc).__name__}: {exc}",
+                }
 
-        print("=" * 70)
-        print("Error-aware localization")
-        print("=" * 70)
-        print(f"Parsed JSON:       {parsed_path}")
-        print(f"Primary part:      {primary_error.get('part_id')}")
-        print(f"Error type:        {primary_error.get('error_type')}")
-        print(f"Localization image:{localization_image}")
-        print(f"Prompt:            {localization_prompt}")
-        print(f"Target position:   {target_position}")
+            if current_resolved == reference_resolved:
+                reference_localization, test_localization = current, counterpart
+            else:
+                reference_localization, test_localization = counterpart, current
 
-        pipeline = LocalizationPipeline(device=device)
-        localization_result = pipeline.localize(
-            image_path=str(localization_image),
-            text_prompt=localization_prompt,
-            box_threshold=box_threshold,
-            text_threshold=text_threshold,
-            target_position=target_position,
-            max_detections=max_detections,
-            output_dir=str(paths.annotated_dir),
-        )
-        if not isinstance(localization_result, dict):
-            raise TypeError("LocalizationPipeline.localize() must return a dict.")
-
-        localization_result["localization_role"] = localization_strategy.get(
-            "localization_role"
-        )
-        localization_result["localization_source_image"] = str(localization_image)
-        localization_result["localization_prompt"] = localization_prompt
-        localization_result["target_position"] = target_position
+            relation_supported = current.get("identity_relation_supported")
+            if not isinstance(relation_supported, bool):
+                relation_supported = counterpart.get("identity_relation_supported")
+            relation_confidence = current.get(
+                "identity_relation_confidence",
+                counterpart.get("identity_relation_confidence", 0.0),
+            )
+            candidate_evidence = current.get("candidate_evidence")
+            if not isinstance(candidate_evidence, list):
+                candidate_evidence = counterpart.get("candidate_evidence", [])
+            verification_input = {
+                "reference_localization": reference_localization,
+                "test_localization": test_localization,
+                "relation_supported": relation_supported,
+                "relation_confidence": relation_confidence,
+                "candidate_evidence": candidate_evidence,
+                "cross_view_consistency": parsed_result.get("identity_cross_view_evidence", []),
+            }
+            verifier = identity_verifier or AffectedPartIdentityVerifier()
+            verification = verifier.verify(
+                error_report=report,
+                test_image_metadata={
+                    **(parsed_result.get("test_image") if isinstance(parsed_result.get("test_image"), dict) else {}),
+                    **(parsed_result.get("file_info") if isinstance(parsed_result.get("file_info"), dict) else {}),
+                    "path": str(test_image_path),
+                },
+                reference_image_metadata={
+                    **(parsed_result.get("reference_image") if isinstance(parsed_result.get("reference_image"), dict) else {}),
+                    "path": str(reference_image_path),
+                },
+                expected_state=expected_state,
+                localization_evidence=verification_input,
+                part_library=PART_LIBRARY,
+            ).to_dict()
+            report.update(
+                {
+                    "identity_status": verification["identity_status"],
+                    "identity_confidence": verification["identity_confidence"],
+                    "identity_evidence": verification["evidence"],
+                    "verified_part_id": verification["verified_part_id"],
+                    "alternative_candidates": verification["alternative_candidates"],
+                    "requires_manual_review": verification["requires_manual_review"],
+                    "unresolved": verification["identity_status"] != "verified",
+                }
+            )
+            identity_verification_results.append(verification)
+            localization_results.append(current)
+        localization_strategy = error_reports[0]["localization_strategy"]
+        localization_result = localization_results[0]
 
     payload = {
         "schema_version": "1.1",
@@ -458,26 +545,23 @@ def process_one(
         "vision_result": parsed_result,
         "model_response": model_response,
         "error_parts": error_parts,
+        "error_reports": error_reports,
         "primary_error": primary_error,
         "localization_strategy": localization_strategy,
         "localization": localization_result,
+        "localizations": localization_results,
+        "identity_verifications": identity_verification_results,
     }
     save_json(paths.results_json, payload)
 
     localization_status = str(localization_result.get("status", "unknown"))
-    success = primary_error is None or localization_status in {
-        "success",
-        "no_detection",
-        "skipped",
-    }
+    success = True
 
     notes: list[str] = []
     if localization_result.get("error_message"):
         notes.append(str(localization_result["error_message"]))
-    if len(error_parts) > 1:
-        notes.append(
-            "Multiple error parts were present; localization used the highest-confidence part."
-        )
+    if len(error_reports) > 1:
+        notes.append(f"Localized {len(error_reports)} independent ErrorReports.")
 
     write_run_summary(
         paths=paths,

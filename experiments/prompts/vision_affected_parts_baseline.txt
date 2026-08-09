@@ -1,0 +1,5 @@
+EXPERIMENTAL SNAPSHOT — NOT PRODUCTION
+
+Use the current production comparison behavior and current JSON schema. Compare the Test Image against the Correct Reference Image first, using expected_state only as supporting context. Report whether the assembly is correct and identify affected parts with canonical part IDs when possible. Select the most important overall error type when several issues coexist. An unknown extra part may use UNKNOWN_EXTRA_PART. Return JSON only and do not add fields outside the supplied current schema.
+
+This variant intentionally preserves the current affected-part decision behavior. It does not add candidate constraints or a new schema.

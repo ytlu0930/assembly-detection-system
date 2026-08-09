@@ -1,0 +1,156 @@
+{
+  "experiment_run_directory": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight",
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "logical_request_ids": [
+    "EXP-001",
+    "EXP-002",
+    "EXP-003",
+    "EXP-004",
+    "EXP-005",
+    "EXP-006"
+  ],
+  "cases": [
+    "missingpart-A01",
+    "missingpart-B01",
+    "wrongpart-B01"
+  ],
+  "methods": [
+    "roi_direct",
+    "roi_checklist"
+  ],
+  "packages": [
+    {
+      "logical_request_id": "EXP-001",
+      "case_id": "missingpart-A01",
+      "method": "roi_direct",
+      "candidate_part_ids": [
+        "PIN_RED_SHORT",
+        "PIN_YELLOW",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "LINK_BLUE_5HOLE"
+      ],
+      "candidate_count": 5,
+      "candidate_reduction_ratio": 0.6666666666666667,
+      "localization_score": 0.7906677974875143,
+      "paired_roi_supported": false
+    },
+    {
+      "logical_request_id": "EXP-002",
+      "case_id": "missingpart-A01",
+      "method": "roi_checklist",
+      "candidate_part_ids": [
+        "PIN_RED_SHORT",
+        "PIN_YELLOW",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "LINK_BLUE_5HOLE"
+      ],
+      "candidate_count": 5,
+      "candidate_reduction_ratio": 0.6666666666666667,
+      "localization_score": 0.7906677974875143,
+      "paired_roi_supported": false
+    },
+    {
+      "logical_request_id": "EXP-003",
+      "case_id": "missingpart-B01",
+      "method": "roi_direct",
+      "candidate_part_ids": [
+        "ROD_GREEN_LONG",
+        "PIN_YELLOW",
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL",
+        "PIN_RED_SHORT"
+      ],
+      "candidate_count": 5,
+      "candidate_reduction_ratio": 0.6666666666666667,
+      "localization_score": 0.8028466342873746,
+      "paired_roi_supported": false
+    },
+    {
+      "logical_request_id": "EXP-004",
+      "case_id": "missingpart-B01",
+      "method": "roi_checklist",
+      "candidate_part_ids": [
+        "ROD_GREEN_LONG",
+        "PIN_YELLOW",
+        "WHEEL_BLUE_LARGE",
+        "WHEEL_BLUE_SMALL",
+        "PIN_RED_SHORT"
+      ],
+      "candidate_count": 5,
+      "candidate_reduction_ratio": 0.6666666666666667,
+      "localization_score": 0.8028466342873746,
+      "paired_roi_supported": false
+    },
+    {
+      "logical_request_id": "EXP-005",
+      "case_id": "wrongpart-B01",
+      "method": "roi_direct",
+      "candidate_part_ids": [
+        "LINK_BLUE_5HOLE",
+        "PIN_RED_SHORT",
+        "LINK_GREEN_5HOLE",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "PIN_YELLOW"
+      ],
+      "candidate_count": 6,
+      "candidate_reduction_ratio": 0.6,
+      "localization_score": 0.8540774542467293,
+      "paired_roi_supported": true
+    },
+    {
+      "logical_request_id": "EXP-006",
+      "case_id": "wrongpart-B01",
+      "method": "roi_checklist",
+      "candidate_part_ids": [
+        "LINK_BLUE_5HOLE",
+        "PIN_RED_SHORT",
+        "LINK_GREEN_5HOLE",
+        "ROD_GREEN_LONG",
+        "LINK_RED_3HOLE",
+        "PIN_YELLOW"
+      ],
+      "candidate_count": 6,
+      "candidate_reduction_ratio": 0.6,
+      "localization_score": 0.8540774542467293,
+      "paired_roi_supported": true
+    }
+  ],
+  "direct_prompt": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\experiments\\prompts\\vision_roi_direct_identity.txt",
+  "checklist_prompt": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\experiments\\prompts\\vision_roi_checklist_verification.txt",
+  "checklist_schema": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\experiments\\schema\\vision_roi_checklist_output_schema.json",
+  "rule_engine": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\utils\\roi_checklist_rule_engine.py",
+  "annotator": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\utils\\deterministic_correction_annotator.py",
+  "evaluation_script": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\scripts\\evaluate_roi_direct_vs_checklist.py",
+  "confusion_matrix_script": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\scripts\\render_checklist_confusion_matrix.py",
+  "thesis_figure_script": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\scripts\\render_roi_thesis_case_figure.py",
+  "thesis_table_directory": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\thesis_tables",
+  "gt_leakage": "PASS",
+  "pid_lock": "PASS",
+  "physical_request_hard_ceiling": 6,
+  "automatic_retry": 0,
+  "resume_protection": "PASS",
+  "environment_readiness": {
+    "provider": "azure_openai_chat_completions",
+    "model": "gpt-4o",
+    "api_version": "2024-12-01-preview",
+    "endpoint_configured": true,
+    "key_configured": true,
+    "deployment_configured": true,
+    "ready": true
+  },
+  "api_requests_actually_made": 0,
+  "production_prompt_modified_by_experiment": false,
+  "production_schema_modified_by_experiment": false,
+  "evaluation_labels_modified_by_experiment": false,
+  "source_images_modified_by_experiment": false,
+  "gpt_image_requests": 0,
+  "phase_2b_executed": false,
+  "dry_run_preflight": "PASS",
+  "focused_pytest": "14 passed",
+  "full_pytest": "213 passed, 19 subtests passed",
+  "compileall": "PASS",
+  "git_diff_check": "PASS"
+}

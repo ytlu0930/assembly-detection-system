@@ -1,0 +1,2 @@
+variant,case_id,image_id,view_angle,error_type,gt_status,ground_truth_part_ids,predicted_part_ids,predicted_confidence,prediction_count,has_unknown,is_composite_prediction,verifier_status,verified_part_id,verified_part_ids,requires_manual_review,candidate_constraint_status,candidate_constraint_violations,latency_seconds,source_result
+reference,correct-control,model03_step01_correct-01_front_01.jpg,front,correct,not_in_frozen_evaluation,,,,0,false,false,not_applicable,,,false,not_applicable,,297.028,analysis/vision_prompt_ab/results/raw/17_correct-control_reference.json

@@ -1,14 +1,16 @@
-from graphviz import Digraph
+"""Manual Graphviz installation check; optional dependency is loaded lazily."""
 
-d = Digraph("Flowchart")
 
-d.node("A", "開始")
-d.node("B", "分析圖片")
-d.node("C", "輸出結果")
+def main() -> int:
+    from graphviz import Digraph
+    diagram = Digraph("Flowchart")
+    diagram.node("A", "Start")
+    diagram.node("B", "Analyze image")
+    diagram.node("C", "Output result")
+    diagram.edges([("A", "B"), ("B", "C")])
+    diagram.render("graphviz_flowchart", format="png", cleanup=True)
+    return 0
 
-d.edge("A", "B")
-d.edge("B", "C")
 
-d.render("graphviz_flowchart", format="png", cleanup=True)
-
-print("完成")
+if __name__ == "__main__":
+    raise SystemExit(main())

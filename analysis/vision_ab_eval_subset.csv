@@ -1,0 +1,20 @@
+image_id,case_id,view_angle,error_type,ground_truth_part_ids,is_composite,include_reason
+model03_step01_correct-01_back_01.jpg,correct-control,back,correct,,false,confirmed; one image per available case/view
+model03_step03_missingpart-A01_front_01.jpg,missingpart-A01,front,missing,PIN_RED_SHORT,false,confirmed; one image per available case/view
+model03_step03_missingpart-A01_back_01.jpg,missingpart-A01,back,missing,PIN_RED_SHORT,false,confirmed; one image per available case/view
+model03_step03_missingpart-A01_top_01.jpg,missingpart-A01,top,missing,PIN_RED_SHORT,false,confirmed; one image per available case/view
+model03_step03_missingpart-A01_bottom_01.jpg,missingpart-A01,bottom,missing,PIN_RED_SHORT,false,confirmed; one image per available case/view
+model03_step03_missingpart-A01_left_01.jpg,missingpart-A01,left,missing,PIN_RED_SHORT,false,confirmed; one image per available case/view
+model03_step03_missingpart-A01_right_01.jpg,missingpart-A01,right,missing,PIN_RED_SHORT,false,confirmed; one image per available case/view
+model03_step03_missingpart-B01_front_01.jpg,missingpart-B01,front,missing,WHEEL_BLUE_SMALL,false,confirmed; one image per available case/view
+model03_step03_missingpart-B01_back_01.jpg,missingpart-B01,back,missing,WHEEL_BLUE_SMALL,false,confirmed; one image per available case/view
+model03_step03_missingpart-B01_top_01.jpg,missingpart-B01,top,missing,WHEEL_BLUE_SMALL,false,confirmed; one image per available case/view
+model03_step03_missingpart-B01_bottom_01.jpg,missingpart-B01,bottom,missing,WHEEL_BLUE_SMALL,false,confirmed; one image per available case/view
+model03_step03_missingpart-B01_left_01.jpg,missingpart-B01,left,missing,WHEEL_BLUE_SMALL,false,confirmed; one image per available case/view
+model03_step03_missingpart-B01_right_01.jpg,missingpart-B01,right,missing,WHEEL_BLUE_SMALL,false,confirmed; one image per available case/view
+model03_step03_wrongpart-B01_front_01.jpg,wrongpart-B01,front,wrongpart,PIN_RED_SHORT|PIN_YELLOW,true,confirmed; one image per available case/view
+model03_step03_wrongpart-B01_back_01.jpg,wrongpart-B01,back,wrongpart,PIN_RED_SHORT|PIN_YELLOW,true,confirmed; one image per available case/view
+model03_step03_wrongpart-B01_top_01.jpg,wrongpart-B01,top,wrongpart,PIN_RED_SHORT|PIN_YELLOW,true,confirmed; one image per available case/view
+model03_step03_wrongpart-B01_bottom_01.jpg,wrongpart-B01,bottom,wrongpart,PIN_RED_SHORT|PIN_YELLOW,true,confirmed; one image per available case/view
+model03_step03_wrongpart-B01_left_01.jpg,wrongpart-B01,left,wrongpart,PIN_RED_SHORT|PIN_YELLOW,true,confirmed; one image per available case/view
+model03_step03_wrongpart-B01_right_01.jpg,wrongpart-B01,right,wrongpart,PIN_RED_SHORT|PIN_YELLOW,true,confirmed; one image per available case/view

@@ -1,0 +1,19 @@
+You are performing component-level verification over a frozen ROI candidate list.
+
+For every candidate_part_id, produce exactly one CHECK result. Compare Correct Reference ROI/full image with Test ROI/full image. Do not directly choose the final affected part; code will apply deterministic rules after your observations.
+
+For each candidate report:
+- reference_present and test_present
+- reference_count and test_count when countable
+- spatial_match and appearance_match when comparable
+- PASS when the candidate is consistently present/count/position/appearance-matched
+- FAIL when there is observable mismatch
+- UNCERTAIN when evidence is occluded, ambiguous, outside the ROI, or insufficient
+
+Rules:
+- part_id must be copied exactly from candidate_part_ids; return all candidates once, in supplied order.
+- Do not use an identity outside the candidate list.
+- Use null rather than guessing.
+- Confidence must reflect the observable ROI comparison.
+- Do not return an affected-part conclusion and do not reveal chain-of-thought.
+- Return only an instance matching the experiment checklist schema. Never echo schema metadata such as $schema, title, type, properties, required, or $defs.

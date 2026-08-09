@@ -1,0 +1,20 @@
+{
+  "targeted_ab_preflight": "PASS",
+  "run_uuid": "183458bb-f570-4019-90bb-17e044b10268",
+  "targeted_runner": "scripts/run_targeted_affected_part_ab.py",
+  "logical_requests_planned": 6,
+  "physical_request_hard_ceiling": 6,
+  "automatic_retry": 0,
+  "pid_lock_status": "PASS",
+  "resume_protection_status": "PASS",
+  "environment_ready": true,
+  "api_requests_actually_made": 0,
+  "pytest": "188 passed, 19 subtests passed",
+  "compileall": "PASS",
+  "git_diff_check": "PASS",
+  "production_prompt_modified_by_preflight": false,
+  "production_schema_modified_by_preflight": false,
+  "ground_truth_modified_by_preflight": false,
+  "source_images_modified_by_preflight": false,
+  "phase_2b": "BLOCK"
+}

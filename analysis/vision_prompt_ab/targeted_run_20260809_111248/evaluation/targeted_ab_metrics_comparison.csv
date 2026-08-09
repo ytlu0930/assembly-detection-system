@@ -1,0 +1,19 @@
+metric,Reference,Reference+Candidate
+Exact Set Match,,0.0
+At-least-one Recall,,0.3333333333333333
+All-parts Recall,,0.0
+Part Precision,,0.3333333333333333
+Part Recall,,0.25
+Part F1,,0.28571428571428575
+Unknown Rate,,0.0
+False-confident Identity Rate @0.70,,0.6666666666666666
+False-confident Identity Rate @0.80,,0.6666666666666666
+False-confident Identity Rate @0.90,,0.6666666666666666
+False-confident Case Rate @0.80,,0.6666666666666666
+Candidate Violation Rate,,0.0
+Verifier Acceptance Rate,,0.0
+Verifier Conflict Rate,,0.3333333333333333
+Verifier Unresolved Rate,,0.6666666666666666
+Wrong Identity Escaped Verifier Count,0,0
+Wrong Identity Blocked Count,0,2
+Correct Identity Blocked Count,0,0

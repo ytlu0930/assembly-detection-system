@@ -1,0 +1,195 @@
+{
+  "case_id": "wrongpart-B01",
+  "method": "roi_direct",
+  "model_id": "model03",
+  "step_id": "step03",
+  "view_angle": "front",
+  "error_type": "wrongpart",
+  "test_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\wrongpart\\model03_step03\\model03_step03_wrongpart-B01_front_01.jpg",
+  "reference_image": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\input\\normal\\model03_step03\\model03_step03_correct-01_front_01.jpg",
+  "test_roi_images": [
+    "roi_images/test_roi_01.png",
+    "roi_images/test_roi_02.png",
+    "roi_images/test_roi_03.png"
+  ],
+  "reference_roi_images": [
+    "roi_images/reference_roi_01.png",
+    "roi_images/reference_roi_02.png",
+    "roi_images/reference_roi_03.png"
+  ],
+  "bbox_evidence": [
+    {
+      "role": "reference",
+      "bbox": [
+        2789,
+        1715,
+        4079,
+        2382
+      ],
+      "color": "BLUE",
+      "score": 0.7906677974875143,
+      "candidate_part_id": "LINK_BLUE_5HOLE"
+    },
+    {
+      "role": "test",
+      "bbox": [
+        3196,
+        823,
+        3507,
+        2546
+      ],
+      "color": "GREEN",
+      "score": 0.7906957813716792,
+      "candidate_part_id": "LINK_GREEN_5HOLE"
+    },
+    {
+      "role": "test",
+      "bbox": [
+        1619,
+        5568,
+        4910,
+        6426
+      ],
+      "color": "RED",
+      "score": 0.7968160916165881,
+      "candidate_part_id": "LINK_RED_3HOLE"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        3412,
+        5343,
+        3629,
+        5508
+      ],
+      "color": "RED",
+      "score": 0.682322415852461,
+      "candidate_part_id": "PIN_RED_SHORT"
+    },
+    {
+      "role": "reference",
+      "bbox": [
+        2970,
+        2866,
+        3958,
+        3239
+      ],
+      "color": "YELLOW",
+      "score": 0.7365464834289577,
+      "candidate_part_id": "PIN_YELLOW"
+    },
+    {
+      "role": "test",
+      "bbox": [
+        3516,
+        2849,
+        3655,
+        2953
+      ],
+      "color": "GREEN",
+      "score": 0.6803365191688584,
+      "candidate_part_id": "ROD_GREEN_LONG"
+    }
+  ],
+  "localization_score": 0.8540774542467293,
+  "localization_status": "success",
+  "localization_requires_manual_review": true,
+  "candidate_part_ids": [
+    "LINK_BLUE_5HOLE",
+    "PIN_RED_SHORT",
+    "LINK_GREEN_5HOLE",
+    "ROD_GREEN_LONG",
+    "LINK_RED_3HOLE",
+    "PIN_YELLOW"
+  ],
+  "candidate_count": 6,
+  "full_candidate_count": 15,
+  "candidate_reduction_ratio": 0.6,
+  "expected_state_summary": [
+    {
+      "part_id": "LINK_BLUE_5HOLE",
+      "color": "BLUE",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "LINK_GREEN_5HOLE",
+      "color": "GREEN",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "LINK_RED_3HOLE",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "CENTER",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "LEFT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 3
+    },
+    {
+      "part_id": "PIN_RED_SHORT",
+      "color": "RED",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 2
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "PIN_YELLOW",
+      "color": "YELLOW",
+      "position": "CENTER",
+      "orientation": "VERTICAL",
+      "expected_count": 1
+    },
+    {
+      "part_id": "ROD_GREEN_LONG",
+      "color": "GREEN",
+      "position": "RIGHT",
+      "orientation": "HORIZONTAL",
+      "expected_count": 1
+    }
+  ],
+  "paired_roi_supported": true,
+  "inference_label_source": "frozen_roi_poc_expected_state_part_library_local_evidence",
+  "evaluation_labels_included": false,
+  "test_image_sha256": "dac579867f21a032e5a51ba633e78415b9288eca52402c4c662fc9be5e8b557a",
+  "reference_image_sha256": "ea82588ca423fb7c6f640e29b56791e0cb4d7943da425711af44dfff65641abc",
+  "roi_image_sha256": {
+    "roi_images/test_roi_01.png": "118485037eba83ec7a4882442975f954cf0cf349817c908771c2939b8c412805",
+    "roi_images/test_roi_02.png": "e60bbbd7d9f1a31b0f1206516636927228440f92bad2002c800fd7615898920e",
+    "roi_images/test_roi_03.png": "c33ab5b235b58c32665f08c3947f9f1d25a9c346d8df4edabd7e5abbc6ae04c6",
+    "roi_images/reference_roi_01.png": "6da61ed5676e01d5b6e03b7e64dc2c85e875f9fcfd9145aac375d950f8a8c6eb",
+    "roi_images/reference_roi_02.png": "2fdc124ddbcdcb327cad35b0c2d2a4e21966f1c8f26273b45cc130f8d5c56a80",
+    "roi_images/reference_roi_03.png": "1776ce8156d10d2d1bf598d22c79a476510ebf71133ac9f70d3daf6f2e27406a"
+  },
+  "logical_request_id": "EXP-005",
+  "sequence": 5,
+  "prompt_source": "experiments/prompts/vision_roi_direct_identity.txt",
+  "prompt_sha256": "2dc5f350ad35829f878ec4a9fa822de99d6c01ee241c29dab7d4e2df2e1432d0",
+  "schema_source": "experiments/schema/vision_roi_direct_output_schema.json",
+  "schema_sha256": "653f6d77375a0ffd9558a01c34680e8f04db474aa35456ad338e3164a5b75bdc",
+  "source_roi_package_sha256": "1c863ccb3e5b787af8d87e983abd68d41b36385ceea026164dc83f1dc2a4496d",
+  "automatic_retry": 0,
+  "contains_api_key": false
+}

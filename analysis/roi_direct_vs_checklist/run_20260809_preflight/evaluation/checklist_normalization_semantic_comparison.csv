@@ -1,0 +1,4 @@
+logical_request_id,semantic_equal,differences,prior_recovery_path,new_normalized_path
+EXP-002,True,,C:\Users\mirro\OneDrive\Desktop\project\analysis\roi_direct_vs_checklist\run_20260809_preflight\evaluation\recovered_checklist\EXP-002.json,C:\Users\mirro\OneDrive\Desktop\project\analysis\roi_direct_vs_checklist\run_20260809_preflight\evaluation\normalized_checklist\EXP-002.json
+EXP-004,True,,C:\Users\mirro\OneDrive\Desktop\project\analysis\roi_direct_vs_checklist\run_20260809_preflight\evaluation\recovered_checklist\EXP-004.json,C:\Users\mirro\OneDrive\Desktop\project\analysis\roi_direct_vs_checklist\run_20260809_preflight\evaluation\normalized_checklist\EXP-004.json
+EXP-006,True,,C:\Users\mirro\OneDrive\Desktop\project\analysis\roi_direct_vs_checklist\run_20260809_preflight\evaluation\recovered_checklist\EXP-006.json,C:\Users\mirro\OneDrive\Desktop\project\analysis\roi_direct_vs_checklist\run_20260809_preflight\evaluation\normalized_checklist\EXP-006.json

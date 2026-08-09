@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "package_hits": [],
+  "inference_source_hits": [],
+  "candidate_identity_overlap_policy": "allowed_only_when_derived_by_frozen_roi_pipeline; no evaluation labels loaded",
+  "evaluation_labels_loaded": false
+}

@@ -1,0 +1,18 @@
+Metric,Baseline,Reference,Reference+Candidate,Reference_Delta,ReferenceCandidate_Delta
+exact_set_match_accuracy,0.0,,0.0,,0.0
+at_least_one_part_recall,0.5,,0.3333333333333333,,-0.16666666666666669
+all_parts_recall,0.0,,0.0,,0.0
+part_level_precision,0.3333333333333333,,0.3333333333333333,,0.0
+part_level_recall,0.3333333333333333,,0.25,,-0.08333333333333331
+part_level_f1,0.3333333333333333,,0.28571428571428575,,-0.04761904761904756
+unknown_part_rate,0.0,,0.0,,0.0
+composite_full_recall,0.0,,0.0,,0.0
+correct_control_false_positive_rate,,,,,
+False-confident Identity @0.70,0.6666666666666666,,0.6666666666666666,,0.0
+False-confident Identity @0.80,0.6666666666666666,,0.6666666666666666,,0.0
+False-confident Identity @0.90,0.6666666666666666,,0.6666666666666666,,0.0
+False-confident Case @0.80,1.0,,0.6666666666666666,,-0.33333333333333337
+Verifier Acceptance,0.0,,0.0,,0.0
+Verifier Conflict,0.5,,0.3333333333333333,,-0.16666666666666669
+Verifier Unresolved,0.5,,0.6666666666666666,,0.16666666666666663
+Verifier Wrong_Identity_Escaped_Verifier_Count,0,0,0,0,0

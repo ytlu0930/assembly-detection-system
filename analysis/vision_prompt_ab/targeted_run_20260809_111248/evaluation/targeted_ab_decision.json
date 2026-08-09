@@ -1,0 +1,20 @@
+{
+  "decision": "NO_CLEAR_IMPROVEMENT",
+  "recommended_variant": "NONE",
+  "next_experiment": "LOCALIZATION_GUIDED_ROI",
+  "phase_2b_recommendation": "BLOCK",
+  "reasons": [
+    "Reference primary denominator is zero because all three responses echoed schema metadata and failed validation.",
+    "Reference+Candidate exact match and all-parts recall are both zero.",
+    "Reference+Candidate retained high-confidence EYE_BALL errors for both missing-part cases.",
+    "wrongpart-B01 recovered only one of the two Ground Truth swap identities.",
+    "Candidate violation rate and verifier wrong-identity escape are zero, but all candidate sets cover the full inventory and are weak constraints."
+  ],
+  "candidate_success_checks": {
+    "candidate_violation_rate_zero": true,
+    "wrong_identity_escape_zero": true,
+    "exact_match_nonzero": false,
+    "all_parts_recall_nonzero": false
+  },
+  "api_requests_during_offline_evaluation": 0
+}

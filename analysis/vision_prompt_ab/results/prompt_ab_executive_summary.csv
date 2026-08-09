@@ -1,0 +1,4 @@
+Variant,Exact Match,At-least-one Recall,Part F1,False-confident @0.80,Unknown Rate,Wrong Escaped Verifier,Decision
+Baseline,0.0,0.5,0.3333333333333333,0.6666666666666666,0.0,0,NOT_SELECTED
+Reference,,,,,,0,NOT_SELECTED
+Reference+Candidate,0.0,0.3333333333333333,0.28571428571428575,0.6666666666666666,0.0,0,NOT_SELECTED

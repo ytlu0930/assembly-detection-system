@@ -1,0 +1,203 @@
+{
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "logical_request_id": "EXP-002",
+  "request_id": "e5af6de1-1635-47df-80ae-b52a164bb3ed",
+  "api_request_id": "chatcmpl-EAxCZ0oG7euAiDCEK3X4saeycZMgD",
+  "method": "roi_checklist",
+  "case_id": "missingpart-A01",
+  "raw_response": {
+    "id": "chatcmpl-EAxCZ0oG7euAiDCEK3X4saeycZMgD",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\n  \"results\": [\n    {\n      \"part_id\": \"PIN_RED_SHORT\",\n      \"reference_present\": true,\n      \"test_present\": false,\n      \"reference_count\": 6,\n      \"test_count\": 0,\n      \"spatial_match\": false,\n      \"appearance_match\": false,\n      \"confidence\": \"high\",\n      \"CHECK\": \"FAIL\"\n    },\n    {\n      \"part_id\": \"PIN_YELLOW\",\n      \"reference_present\": true,\n      \"test_present\": true,\n      \"reference_count\": 2,\n      \"test_count\": 2,\n      \"spatial_match\": true,\n      \"appearance_match\": true,\n      \"confidence\": \"high\",\n      \"CHECK\": \"PASS\"\n    },\n    {\n      \"part_id\": \"ROD_GREEN_LONG\",\n      \"reference_present\": null,\n      \"test_present\": null,\n      \"reference_count\": null,\n      \"test_count\": null,\n      \"spatial_match\": null,\n      \"appearance_match\": null,\n      \"confidence\": \"low\",\n      \"CHECK\": \"UNCERTAIN\"\n    },\n    {\n      \"part_id\": \"LINK_RED_3HOLE\",\n      \"reference_present\": null,\n      \"test_present\": null,\n      \"reference_count\": null,\n      \"test_count\": null,\n      \"spatial_match\": null,\n      \"appearance_match\": null,\n      \"confidence\": \"low\",\n      \"CHECK\": \"UNCERTAIN\"\n    },\n    {\n      \"part_id\": \"LINK_BLUE_5HOLE\",\n      \"reference_present\": true,\n      \"test_present\": true,\n      \"reference_count\": 1,\n      \"test_count\": 1,\n      \"spatial_match\": true,\n      \"appearance_match\": true,\n      \"confidence\": \"high\",\n      \"CHECK\": \"PASS\"\n    }\n  ]\n}",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": [],
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "content_filter_results": {
+          "hate": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "protected_material_code": {
+            "detected": false,
+            "filtered": false
+          },
+          "protected_material_text": {
+            "detected": false,
+            "filtered": false
+          },
+          "self_harm": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "sexual": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "violence": {
+            "filtered": false,
+            "severity": "safe"
+          }
+        }
+      }
+    ],
+    "created": 1786279559,
+    "model": "gpt-4o-2024-11-20",
+    "object": "chat.completion",
+    "moderation": null,
+    "service_tier": "default",
+    "system_fingerprint": "fp_1bb99812b9",
+    "usage": {
+      "completion_tokens": 382,
+      "prompt_tokens": 4187,
+      "total_tokens": 4569,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": null,
+        "cached_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 550,
+        "engine_ttlt_ms": 3790,
+        "pre_inference_ms": 1504,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 2410,
+        "service_ttlt_ms": 5616,
+        "total_duration_ms": 4132,
+        "user_visible_ttft_ms": 906
+      }
+    },
+    "prompt_filter_results": [
+      {
+        "prompt_index": 0,
+        "content_filter_results": {
+          "hate": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "jailbreak": {
+            "detected": false,
+            "filtered": false
+          },
+          "self_harm": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "sexual": {
+            "filtered": false,
+            "severity": "safe"
+          },
+          "violence": {
+            "filtered": false,
+            "severity": "safe"
+          }
+        }
+      }
+    ]
+  },
+  "parsed_response": {
+    "results": [
+      {
+        "part_id": "PIN_RED_SHORT",
+        "reference_present": true,
+        "test_present": false,
+        "reference_count": 6,
+        "test_count": 0,
+        "spatial_match": false,
+        "appearance_match": false,
+        "confidence": "high",
+        "CHECK": "FAIL"
+      },
+      {
+        "part_id": "PIN_YELLOW",
+        "reference_present": true,
+        "test_present": true,
+        "reference_count": 2,
+        "test_count": 2,
+        "spatial_match": true,
+        "appearance_match": true,
+        "confidence": "high",
+        "CHECK": "PASS"
+      },
+      {
+        "part_id": "ROD_GREEN_LONG",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "confidence": "low",
+        "CHECK": "UNCERTAIN"
+      },
+      {
+        "part_id": "LINK_RED_3HOLE",
+        "reference_present": null,
+        "test_present": null,
+        "reference_count": null,
+        "test_count": null,
+        "spatial_match": null,
+        "appearance_match": null,
+        "confidence": "low",
+        "CHECK": "UNCERTAIN"
+      },
+      {
+        "part_id": "LINK_BLUE_5HOLE",
+        "reference_present": true,
+        "test_present": true,
+        "reference_count": 1,
+        "test_count": 1,
+        "spatial_match": true,
+        "appearance_match": true,
+        "confidence": "high",
+        "CHECK": "PASS"
+      }
+    ]
+  },
+  "schema_validation_result": {
+    "status": "invalid",
+    "error_type": "ValidationError",
+    "message": "Additional properties are not allowed ('results' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$comment': 'EXPERIMENT-ONLY. NOT THE PRODUCTION VISION SCHEMA.',\n     'title': 'ROIComponentChecklistOutput',\n     'type': 'object',\n     'additionalProperties': False,\n     'required': ['checks'],\n     'properties': {'checks': {'type': 'array',\n                               'items': {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['part_id',\n                                                      'reference_present',\n                                                      'test_present',\n                                                      'reference_count',\n                                                      'test_count',\n                                                      'spatial_match',\n                                                      'appearance_match',\n                                                      'status',\n                                                      'confidence',\n                                                      'evidence_summary'],\n                                         'properties': {'part_id': {'type': 'string',\n                                                                    'minLength': 1},\n                                                        'reference_present': {'type': ['boolean',\n                                                                                       'null']},\n                                                        'test_present': {'type': ['boolean',\n                                                                                  'null']},\n                                                        'reference_count': {'type': ['integer',\n                                                                                     'null'],\n                                                                            'minimum': 0},\n                                                        'test_count': {'type': ['integer',\n                                                                                'null'],\n                                                                       'minimum': 0},\n                                                        'spatial_match': {'type': ['boolean',\n                                                                                   'null']},\n                                                        'appearance_match': {'type': ['boolean',\n                                                                                      'null']},\n                                                        'status': {'type': 'string',\n                                                                   'enum': ['PASS',\n                                                                            'FAIL',\n                                                                            'UNCERTAIN']},\n                                                        'confidence': {'type': 'number',\n                                                                       'minimum': 0,\n                                                                       'maximum': 1},\n                                                        'evidence_summary': {'type': 'string',\n                                                                             'minLength': 1}}}}}}\n\nOn instance:\n    {'results': [{'part_id': 'PIN_RED_SHORT',\n                  'reference_present': True,\n                  'test_present': False,\n                  'reference_count': 6,\n                  'test_count': 0,\n                  'spatial_match': False,\n                  'appearance_match': False,\n                  'confidence': 'high',\n                  'CHECK': 'FAIL'},\n                 {'part_id': 'PIN_YELLOW',\n                  'reference_present': True,\n                  'test_present': True,\n                  'reference_count': 2,\n                  'test_count': 2,\n                  'spatial_match': True,\n                  'appearance_match': True,\n                  'confidence': 'high',\n                  'CHECK': 'PASS'},\n                 {'part_id': 'ROD_GREEN_LONG',\n                  'reference_present': None,\n                  'test_present': None,\n                  'reference_count': None,\n                  'test_count': None,\n                  'spatial_match': None,\n                  'appearance_match': None,\n                  'confidence': 'low',\n                  'CHECK': 'UNCERTAIN'},\n                 {'part_id': 'LINK_RED_3HOLE',\n                  'reference_present': None,\n                  'test_present': None,\n                  'reference_count': None,\n                  'test_count': None,\n                  'spatial_match': None,\n                  'appearance_match': None,\n                  'confidence': 'low',\n                  'CHECK': 'UNCERTAIN'},\n                 {'part_id': 'LINK_BLUE_5HOLE',\n                  'reference_present': True,\n                  'test_present': True,\n                  'reference_count': 1,\n                  'test_count': 1,\n                  'spatial_match': True,\n                  'appearance_match': True,\n                  'confidence': 'high',\n                  'CHECK': 'PASS'}]}",
+    "sanitized_metadata_keys": []
+  },
+  "candidate_membership_result": {
+    "status": "violation",
+    "violations": [],
+    "missing_or_duplicate_candidate_checks": [
+      "PIN_RED_SHORT",
+      "PIN_YELLOW",
+      "ROD_GREEN_LONG",
+      "LINK_RED_3HOLE",
+      "LINK_BLUE_5HOLE"
+    ]
+  },
+  "rule_engine_result": null,
+  "verifier_result": {
+    "verifier_status": "unresolved",
+    "verified_part_ids": [],
+    "requires_manual_review": true,
+    "reason": "frozen_roi_package_requires_manual_review"
+  },
+  "request_duration_seconds": 119.372,
+  "http_api_error_type": null,
+  "usage": {
+    "input_tokens": 4187,
+    "output_tokens": 382,
+    "total_tokens": 4569
+  }
+}

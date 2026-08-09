@@ -1,0 +1,78 @@
+{
+  "experiment_type": "roi_direct_vs_checklist",
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "created_at": "2026-08-09T20:25:05.626025+08:00",
+  "mode": "preflight_only",
+  "cases": [
+    "missingpart-A01",
+    "missingpart-B01",
+    "wrongpart-B01"
+  ],
+  "methods": [
+    "roi_direct",
+    "roi_checklist"
+  ],
+  "logical_request_limit": 6,
+  "physical_request_hard_ceiling": 6,
+  "automatic_retry": 0,
+  "source_roi_freeze": {
+    "missingpart-A01": {
+      "path": "analysis/roi_identity_poc/packages/missingpart-A01.json",
+      "sha256": "1970f94f511a0326c14300855a3a97029c10fb941d4e1c1b5b4fb969a56ea436"
+    },
+    "missingpart-B01": {
+      "path": "analysis/roi_identity_poc/packages/missingpart-B01.json",
+      "sha256": "9ad16a2e972d3edd0dfacbf932be70804d64bd0fa1ee5663ce1f667984b0735e"
+    },
+    "wrongpart-B01": {
+      "path": "analysis/roi_identity_poc/packages/wrongpart-B01.json",
+      "sha256": "1c863ccb3e5b787af8d87e983abd68d41b36385ceea026164dc83f1dc2a4496d"
+    }
+  },
+  "runner_sha256": "cba8097b7f299bf3305f561c5f3c78705ec75b6d98ca6ca930d3cc35da65ea1f",
+  "planned_requests": [
+    {
+      "logical_request_id": "EXP-001",
+      "case_id": "missingpart-A01",
+      "method": "roi_direct",
+      "package_metadata": "packages/missingpart-A01/roi_direct/request_metadata.json"
+    },
+    {
+      "logical_request_id": "EXP-002",
+      "case_id": "missingpart-A01",
+      "method": "roi_checklist",
+      "package_metadata": "packages/missingpart-A01/roi_checklist/request_metadata.json"
+    },
+    {
+      "logical_request_id": "EXP-003",
+      "case_id": "missingpart-B01",
+      "method": "roi_direct",
+      "package_metadata": "packages/missingpart-B01/roi_direct/request_metadata.json"
+    },
+    {
+      "logical_request_id": "EXP-004",
+      "case_id": "missingpart-B01",
+      "method": "roi_checklist",
+      "package_metadata": "packages/missingpart-B01/roi_checklist/request_metadata.json"
+    },
+    {
+      "logical_request_id": "EXP-005",
+      "case_id": "wrongpart-B01",
+      "method": "roi_direct",
+      "package_metadata": "packages/wrongpart-B01/roi_direct/request_metadata.json"
+    },
+    {
+      "logical_request_id": "EXP-006",
+      "case_id": "wrongpart-B01",
+      "method": "roi_checklist",
+      "package_metadata": "packages/wrongpart-B01/roi_checklist/request_metadata.json"
+    }
+  ],
+  "api_requests_made": 0,
+  "execution_gates": [
+    "--execute-api",
+    "--confirm-six-requests",
+    "--run-uuid exact-manifest-value"
+  ],
+  "labels_join_policy": "evaluation_only_after_all_six_responses_are_frozen"
+}

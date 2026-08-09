@@ -1,0 +1,82 @@
+{
+  "experiment_id": "roi-direct-vs-checklist",
+  "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+  "max_physical_requests": 6,
+  "physical_request_counter": 6,
+  "reservations": [
+    {
+      "reservation_id": "7d289013-9956-4633-a9b7-9970a90b3cc9",
+      "request_id": "7d289013-9956-4633-a9b7-9970a90b3cc9",
+      "package_id": "EXP-001",
+      "logical_request_id": "EXP-001",
+      "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+      "pid": 34036,
+      "status": "completed",
+      "reserved_at": "2026-08-09T20:42:32.800991+08:00",
+      "explicit_retry": false,
+      "finished_at": "2026-08-09T20:44:04.424612+08:00"
+    },
+    {
+      "reservation_id": "e5af6de1-1635-47df-80ae-b52a164bb3ed",
+      "request_id": "e5af6de1-1635-47df-80ae-b52a164bb3ed",
+      "package_id": "EXP-002",
+      "logical_request_id": "EXP-002",
+      "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+      "pid": 34036,
+      "status": "completed",
+      "reserved_at": "2026-08-09T20:44:04.424612+08:00",
+      "explicit_retry": false,
+      "finished_at": "2026-08-09T20:46:03.804147+08:00"
+    },
+    {
+      "reservation_id": "4d116096-314d-4d81-961a-aa05a941792f",
+      "request_id": "4d116096-314d-4d81-961a-aa05a941792f",
+      "package_id": "EXP-003",
+      "logical_request_id": "EXP-003",
+      "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+      "pid": 34036,
+      "status": "completed",
+      "reserved_at": "2026-08-09T20:46:03.805147+08:00",
+      "explicit_retry": false,
+      "finished_at": "2026-08-09T20:46:56.468889+08:00"
+    },
+    {
+      "reservation_id": "a4728f82-efc4-4988-b61a-b74525247f25",
+      "request_id": "a4728f82-efc4-4988-b61a-b74525247f25",
+      "package_id": "EXP-004",
+      "logical_request_id": "EXP-004",
+      "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+      "pid": 34036,
+      "status": "completed",
+      "reserved_at": "2026-08-09T20:46:56.469897+08:00",
+      "explicit_retry": false,
+      "finished_at": "2026-08-09T20:47:54.599315+08:00"
+    },
+    {
+      "reservation_id": "eadf4ec6-324c-4c50-b600-0d1ca7dc4d3c",
+      "request_id": "eadf4ec6-324c-4c50-b600-0d1ca7dc4d3c",
+      "package_id": "EXP-005",
+      "logical_request_id": "EXP-005",
+      "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+      "pid": 34036,
+      "status": "completed",
+      "reserved_at": "2026-08-09T20:47:54.613379+08:00",
+      "explicit_retry": false,
+      "finished_at": "2026-08-09T20:49:26.097662+08:00"
+    },
+    {
+      "reservation_id": "46adf2b2-b090-4d2b-8c52-87437fed0695",
+      "request_id": "46adf2b2-b090-4d2b-8c52-87437fed0695",
+      "package_id": "EXP-006",
+      "logical_request_id": "EXP-006",
+      "run_uuid": "d9d0c3f0-7a57-41ed-872c-b2ab42f4db97",
+      "pid": 34036,
+      "status": "completed",
+      "reserved_at": "2026-08-09T20:49:26.097662+08:00",
+      "explicit_retry": false,
+      "finished_at": "2026-08-09T20:51:28.701346+08:00"
+    }
+  ],
+  "created_at": "2026-08-09T20:25:05.636647+08:00",
+  "updated_at": "2026-08-09T20:51:28.701346+08:00"
+}

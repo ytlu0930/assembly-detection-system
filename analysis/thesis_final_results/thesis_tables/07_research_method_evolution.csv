@@ -1,0 +1,6 @@
+stage,exact_match,at_least_one,all_parts,part_f1,false_confident_0_80,candidate_reduction,gt_coverage,eye_ball_retained,denominator
+Stage 1: Free-form VLM Baseline,0.08,,,0.105263,0.88,,,,25
+Stage 2: Prompt/Candidate Constraint,0,0.3333,0,0.2857,0.6667,,,,3
+Stage 3: ROI Candidate Reduction,,,,,,0.6444,1.0,0/3,3
+Stage 4: ROI Direct Classification,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.25,1.0,0.6444,1.0,0/3,3
+Stage 5: ROI Checklist Verification (recovered analysis),0.3333333333333333,0.6666666666666666,0.6666666666666666,0.5454545454545454,0.5714285714285714,0.6444,1.0,0/3,3

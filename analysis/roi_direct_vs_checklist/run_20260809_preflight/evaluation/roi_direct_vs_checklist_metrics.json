@@ -1,0 +1,140 @@
+{
+  "primary_semantic_rule": "experiment-only deterministic checklist normalization; exact-image confirmed labels joined after response freeze",
+  "original_schema_validity": {
+    "roi_direct": {
+      "valid": 3,
+      "total": 3,
+      "rate": 1.0
+    },
+    "roi_checklist": {
+      "valid": 0,
+      "total": 3,
+      "rate": 0.0
+    }
+  },
+  "normalized_analysis_schema_validity": {
+    "roi_direct": {
+      "valid": 3,
+      "total": 3,
+      "rate": 1.0
+    },
+    "roi_checklist": {
+      "valid": 3,
+      "total": 3,
+      "rate": 1.0
+    }
+  },
+  "semantic_metrics": {
+    "roi_direct": {
+      "denominator": 3,
+      "exact_set_match": 0.3333333333333333,
+      "at_least_one_recall": 0.3333333333333333,
+      "all_parts_recall": 0.3333333333333333,
+      "part_precision": 0.25,
+      "part_recall": 0.25,
+      "part_f1": 0.25,
+      "unknown_rate": 0.0,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "false_confident_case": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 1.0,
+      "verifier_unresolved": 0.0,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 2,
+      "correct_identity_blocked": 1
+    },
+    "roi_checklist": {
+      "denominator": 3,
+      "exact_set_match": 0.3333333333333333,
+      "at_least_one_recall": 0.6666666666666666,
+      "all_parts_recall": 0.6666666666666666,
+      "part_precision": 0.42857142857142855,
+      "part_recall": 0.75,
+      "part_f1": 0.5454545454545454,
+      "unknown_rate": 0.3333333333333333,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": 0.5714285714285714,
+        "0.80": 0.5714285714285714,
+        "0.90": 0.5714285714285714
+      },
+      "false_confident_case": {
+        "0.70": 0.5,
+        "0.80": 0.5,
+        "0.90": 0.5
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 0.6666666666666666,
+      "verifier_unresolved": 0.3333333333333333,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 2,
+      "correct_identity_blocked": 1
+    }
+  },
+  "strict_original_schema_metrics": {
+    "roi_direct": {
+      "denominator": 3,
+      "exact_set_match": 0.3333333333333333,
+      "at_least_one_recall": 0.3333333333333333,
+      "all_parts_recall": 0.3333333333333333,
+      "part_precision": 0.25,
+      "part_recall": 0.25,
+      "part_f1": 0.25,
+      "unknown_rate": 0.0,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "false_confident_case": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 1.0,
+      "verifier_unresolved": 0.0,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 2,
+      "correct_identity_blocked": 1
+    },
+    "roi_checklist": {
+      "denominator": 3,
+      "exact_set_match": 0.0,
+      "at_least_one_recall": 0.0,
+      "all_parts_recall": 0.0,
+      "part_precision": null,
+      "part_recall": 0.0,
+      "part_f1": null,
+      "unknown_rate": 1.0,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": null,
+        "0.80": null,
+        "0.90": null
+      },
+      "false_confident_case": {
+        "0.70": null,
+        "0.80": null,
+        "0.90": null
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 0.0,
+      "verifier_unresolved": 1.0,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 3,
+      "correct_identity_blocked": 0
+    }
+  },
+  "api_requests_during_evaluation": 0
+}

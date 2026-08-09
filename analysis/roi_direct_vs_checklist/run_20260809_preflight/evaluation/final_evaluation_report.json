@@ -1,0 +1,272 @@
+{
+  "logical_requests": 6,
+  "physical_requests": 6,
+  "retry_requests": 0,
+  "successful_requests": 6,
+  "schema_valid_requests": 3,
+  "original_schema_validity": {
+    "roi_direct": {
+      "valid": 3,
+      "total": 3,
+      "rate": 1.0
+    },
+    "roi_checklist": {
+      "valid": 0,
+      "total": 3,
+      "rate": 0.0
+    }
+  },
+  "normalized_analysis_schema_validity": {
+    "roi_direct": {
+      "valid": 3,
+      "total": 3,
+      "rate": 1.0
+    },
+    "roi_checklist": {
+      "valid": 3,
+      "total": 3,
+      "rate": 1.0
+    }
+  },
+  "semantic_metrics": {
+    "roi_direct": {
+      "denominator": 3,
+      "exact_set_match": 0.3333333333333333,
+      "at_least_one_recall": 0.3333333333333333,
+      "all_parts_recall": 0.3333333333333333,
+      "part_precision": 0.25,
+      "part_recall": 0.25,
+      "part_f1": 0.25,
+      "unknown_rate": 0.0,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "false_confident_case": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 1.0,
+      "verifier_unresolved": 0.0,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 2,
+      "correct_identity_blocked": 1
+    },
+    "roi_checklist": {
+      "denominator": 3,
+      "exact_set_match": 0.3333333333333333,
+      "at_least_one_recall": 0.6666666666666666,
+      "all_parts_recall": 0.6666666666666666,
+      "part_precision": 0.42857142857142855,
+      "part_recall": 0.75,
+      "part_f1": 0.5454545454545454,
+      "unknown_rate": 0.3333333333333333,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": 0.5714285714285714,
+        "0.80": 0.5714285714285714,
+        "0.90": 0.5714285714285714
+      },
+      "false_confident_case": {
+        "0.70": 0.5,
+        "0.80": 0.5,
+        "0.90": 0.5
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 0.6666666666666666,
+      "verifier_unresolved": 0.3333333333333333,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 2,
+      "correct_identity_blocked": 1
+    }
+  },
+  "strict_original_schema_metrics": {
+    "roi_direct": {
+      "denominator": 3,
+      "exact_set_match": 0.3333333333333333,
+      "at_least_one_recall": 0.3333333333333333,
+      "all_parts_recall": 0.3333333333333333,
+      "part_precision": 0.25,
+      "part_recall": 0.25,
+      "part_f1": 0.25,
+      "unknown_rate": 0.0,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "false_confident_case": {
+        "0.70": 1.0,
+        "0.80": 1.0,
+        "0.90": null
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 1.0,
+      "verifier_unresolved": 0.0,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 2,
+      "correct_identity_blocked": 1
+    },
+    "roi_checklist": {
+      "denominator": 3,
+      "exact_set_match": 0.0,
+      "at_least_one_recall": 0.0,
+      "all_parts_recall": 0.0,
+      "part_precision": null,
+      "part_recall": 0.0,
+      "part_f1": null,
+      "unknown_rate": 1.0,
+      "manual_review_rate": 1.0,
+      "false_confident_identity": {
+        "0.70": null,
+        "0.80": null,
+        "0.90": null
+      },
+      "false_confident_case": {
+        "0.70": null,
+        "0.80": null,
+        "0.90": null
+      },
+      "verifier_acceptance": 0.0,
+      "verifier_conflict": 0.0,
+      "verifier_unresolved": 1.0,
+      "wrong_identity_escaped": 0,
+      "wrong_identity_blocked": 3,
+      "correct_identity_blocked": 0
+    }
+  },
+  "checklist_component_metrics": {
+    "TN": 3,
+    "FP": 4,
+    "FN": 0,
+    "TP": 3,
+    "UNCERTAIN": 6,
+    "resolved_count": 10,
+    "total_count": 16,
+    "accuracy": 0.6,
+    "precision": 0.42857142857142855,
+    "recall": 1.0,
+    "f1": 0.6,
+    "uncertain_rate": 0.375
+  },
+  "cases": [
+    {
+      "case_id": "missingpart-A01",
+      "error_type": "missingpart",
+      "ground_truth_parts": "PIN_RED_SHORT",
+      "full_candidate_count": 15,
+      "roi_candidate_count": 5,
+      "candidate_reduction": 0.6666666666666667,
+      "localization_score": 0.7906677974875143,
+      "direct_prediction": "PIN_RED_SHORT",
+      "direct_confidence": 0.68,
+      "direct_exact_match": true,
+      "direct_verifier_status": "conflict",
+      "checklist_prediction": "PIN_RED_SHORT",
+      "checklist_confidence": 0.9,
+      "checklist_exact_match": true,
+      "checklist_verifier_status": "conflict",
+      "checklist_uncertain_count": 2,
+      "annotated_result_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\cases\\missingpart_A01_result.png"
+    },
+    {
+      "case_id": "missingpart-B01",
+      "error_type": "missingpart",
+      "ground_truth_parts": "WHEEL_BLUE_SMALL",
+      "full_candidate_count": 15,
+      "roi_candidate_count": 5,
+      "candidate_reduction": 0.6666666666666667,
+      "localization_score": 0.8028466342873746,
+      "direct_prediction": "PIN_RED_SHORT",
+      "direct_confidence": 0.85,
+      "direct_exact_match": false,
+      "direct_verifier_status": "conflict",
+      "checklist_prediction": "",
+      "checklist_confidence": 0.0,
+      "checklist_exact_match": false,
+      "checklist_verifier_status": "unresolved",
+      "checklist_uncertain_count": 4,
+      "annotated_result_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\cases\\missingpart_B01_result.png"
+    },
+    {
+      "case_id": "wrongpart-B01",
+      "error_type": "wrongpart",
+      "ground_truth_parts": "PIN_RED_SHORT|PIN_YELLOW",
+      "full_candidate_count": 15,
+      "roi_candidate_count": 6,
+      "candidate_reduction": 0.6,
+      "localization_score": 0.8540774542467293,
+      "direct_prediction": "LINK_BLUE_5HOLE|LINK_GREEN_5HOLE",
+      "direct_confidence": 0.8,
+      "direct_exact_match": false,
+      "direct_verifier_status": "conflict",
+      "checklist_prediction": "LINK_BLUE_5HOLE|LINK_GREEN_5HOLE|LINK_RED_3HOLE|PIN_RED_SHORT|PIN_YELLOW|ROD_GREEN_LONG",
+      "checklist_confidence": 0.9,
+      "checklist_exact_match": false,
+      "checklist_verifier_status": "conflict",
+      "checklist_uncertain_count": 0,
+      "annotated_result_path": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\cases\\wrongpart_B01_result.png"
+    }
+  ],
+  "candidate_reduction_recap": {
+    "counts": [
+      5,
+      5,
+      6
+    ],
+    "mean_reduction": 0.6444444444444445,
+    "confirmed_gt_coverage": 1.0,
+    "eye_ball_retained": "0/3"
+  },
+  "figures": {
+    "confusion_matrix": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\checklist_confusion_matrix.png",
+    "method_comparison": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\method_comparison_metrics.png",
+    "annotated_results": {
+      "missingpart-A01": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\cases\\missingpart_A01_result.png",
+      "missingpart-B01": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\cases\\missingpart_B01_result.png",
+      "wrongpart-B01": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\cases\\wrongpart_B01_result.png"
+    },
+    "thesis_case_figures": {
+      "missingpart-A01": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\thesis_case_missingpart_A01.png",
+      "missingpart-B01": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\thesis_case_missingpart_B01.png",
+      "wrongpart-B01": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\figures\\thesis_case_wrongpart_B01.png"
+    }
+  },
+  "thesis_tables": {
+    "roi_direct_vs_checklist_metrics.csv": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\thesis_tables\\roi_direct_vs_checklist_metrics.csv",
+    "roi_direct_vs_checklist_cases.csv": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\thesis_tables\\roi_direct_vs_checklist_cases.csv",
+    "checklist_component_results.csv": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\thesis_tables\\checklist_component_results.csv",
+    "research_method_evolution.csv": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\thesis_tables\\research_method_evolution.csv",
+    "request_efficiency.csv": "C:\\Users\\mirro\\OneDrive\\Desktop\\project\\analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\thesis_tables\\request_efficiency.csv"
+  },
+  "decision": {
+    "decision": "NO_CLEAR_IMPROVEMENT",
+    "semantic_recovered_checklist_signal": "PROMISING",
+    "success_checks": {
+      "exact_not_worse": true,
+      "at_least_not_worse": true,
+      "all_parts_not_worse": true,
+      "f1_better": true,
+      "false_confident_better": true,
+      "wrong_identity_escape_zero": true
+    },
+    "blocking_reason": "original checklist schema-valid rate is 0/3",
+    "recommended_production_method": "NONE",
+    "final_output_strategy": "DETERMINISTIC_ANNOTATION",
+    "gpt_image_recommendation": "DO_NOT_USE_FOR_THIS_OUTPUT",
+    "phase_2b_recommendation": "BLOCK",
+    "api_requests_during_evaluation": 0
+  },
+  "production_prompt_changed": false,
+  "production_schema_changed": false,
+  "ground_truth_changed": false,
+  "source_images_changed": false,
+  "api_requests_during_offline_evaluation": 0,
+  "gpt_image_requests": 0,
+  "phase_2b_executed": false
+}

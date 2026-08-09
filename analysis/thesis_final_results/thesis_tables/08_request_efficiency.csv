@@ -1,0 +1,7 @@
+method,case_id,request_count,latency_seconds,input_tokens,output_tokens,total_tokens
+roi_direct,missingpart-A01,1,91.625,4238,107,4345
+roi_checklist,missingpart-A01,1,119.372,4187,382,4569
+roi_direct,missingpart-B01,1,52.66,3975,101,4076
+roi_checklist,missingpart-B01,1,58.139,3924,392,4316
+roi_direct,wrongpart-B01,1,91.486,6722,162,6884
+roi_checklist,wrongpart-B01,1,122.59,6671,458,7129

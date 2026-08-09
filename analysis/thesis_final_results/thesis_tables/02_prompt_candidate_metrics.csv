@@ -1,0 +1,4 @@
+method,sample_size,exact_match,at_least_one_recall,all_parts_recall,f1,false_confident_080,notes
+Baseline,2,0.0,0.5,0.0,0.3333333333333333,0.6666666666666666,N/A fields have no schema-valid denominator.
+Reference,0,,,,,,N/A fields have no schema-valid denominator.
+Reference+Candidate,3,0.0,0.3333333333333333,0.0,0.28571428571428575,0.6666666666666666,N/A fields have no schema-valid denominator.

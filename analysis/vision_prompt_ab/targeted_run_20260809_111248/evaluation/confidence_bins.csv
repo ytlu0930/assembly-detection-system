@@ -1,0 +1,11 @@
+variant,bin,prediction_count,correct_count,incorrect_count,empirical_accuracy
+Reference,0.00-0.49,0,0,0,
+Reference,0.50-0.69,0,0,0,
+Reference,0.70-0.79,0,0,0,
+Reference,0.80-0.89,0,0,0,
+Reference,0.90-1.00,0,0,0,
+Reference+Candidate,0.00-0.49,0,0,0,
+Reference+Candidate,0.50-0.69,0,0,0,
+Reference+Candidate,0.70-0.79,0,0,0,
+Reference+Candidate,0.80-0.89,0,0,0,
+Reference+Candidate,0.90-1.00,3,1,2,0.3333333333333333

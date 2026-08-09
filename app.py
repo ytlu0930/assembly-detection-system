@@ -1,288 +1,94 @@
-import json
+"""Gradio UI for the canonical ``main.run_pipeline`` contract."""
+
+from __future__ import annotations
+
 from pathlib import Path
+from typing import Any, Callable
 
 import gradio as gr
 
-from utils.current_state_analyzer import (
-    analyze_image,
-    parse_filename,
-    PROJECT_ROOT,
-    GROUND_TRUTH_DIR,
-)
-
-# 如果 flowchart_generator.py 在專案根目錄
-from flowchart_generator import generate_flowchart
-
-
-def run_analysis(image, step):
-
-    if image is None:
-        flowchart = generate_flowchart(
-            step_id=step,
-            error_reports=[]
-        )
-
-        return (
-            None,
-            flowchart,
-            "請先上傳圖片",
-            {}
-        )
-
-    try:
-
-        # ------------------------
-        # 解析圖片名稱
-        # ------------------------
-
-        info = parse_filename(image)
-
-        # ------------------------
-        # Ground Truth JSON
-        # ------------------------
-
-        expected_state = (
-            GROUND_TRUTH_DIR
-            / info["model_id"]
-            / f"{info['step_id']}.json"
-        )
-
-        # ------------------------
-        # Reference Image
-        # ------------------------
-
-        reference_image = (
-            PROJECT_ROOT
-            / "input"
-            / "normal"
-            / f"{info['model_id']}_{info['step_id']}"
-            / (
-                f"{info['model_id']}_{info['step_id']}"
-                f"_correct-01_{info['view_angle']}_01.jpg"
-            )
-        )
-
-        # ------------------------
-        # Reference 不存在
-        # ------------------------
-
-        if not reference_image.exists():
-
-            flowchart = generate_flowchart(
-                step_id=step,
-                error_reports=[]
-            )
-
-            return (
-                image,
-                flowchart,
-                f"找不到 Reference Image：\n{reference_image}",
-                {}
-            )
-
-        # ------------------------
-        # Ground Truth 不存在
-        # ------------------------
-
-        if not expected_state.exists():
-
-            flowchart = generate_flowchart(
-                step_id=step,
-                error_reports=[]
-            )
-
-            return (
-                image,
-                flowchart,
-                f"找不到 Ground Truth：\n{expected_state}",
-                {}
-            )
-
-        # ------------------------
-        # 呼叫 Vision API
-        # ------------------------
-
-        result = analyze_image(
-            image_path=image,
-            reference_image_path=str(reference_image),
-            expected_state_path=str(expected_state),
-            filename_info=info,
-        )
-
-        # ------------------------
-        # Vision API 失敗
-        # ------------------------
-
-        if not result["success"]:
-
-            flowchart = generate_flowchart(
-                step_id=step,
-                error_reports=[]
-            )
-
-            return (
-                image,
-                flowchart,
-                json.dumps(result, ensure_ascii=False, indent=2),
-                {}
-            )
-
-        # ------------------------
-        # Vision 回傳結果
-        # ------------------------
-
-        model = result["model_response"]
-
-        summary = model["summary"]
-
-        confidence = {}
-
-        for part in model["detected_parts"]:
-
-            confidence[part["part_id"]] = part["confidence"]
-
-        # ------------------------
-        # 找出真正錯誤
-        # ------------------------
-
-        error_reports = []
-
-        for part in model["detected_parts"]:
-
-            if part["error_type"] != "correct":
-
-                error_reports.append(
-                    {
-                        "part_id": part["part_id"],
-                        "error_type": part["error_type"],
-                        "confidence": part["confidence"],
-                    }
-                )
-
-        # ------------------------
-        # 產生流程圖
-        # ------------------------
-
-        flowchart = generate_flowchart(
-            step_id=model["step_id"],
-            error_reports=error_reports,
-        )
-
-        # ------------------------
-        # 目前先顯示原圖
-        # (之後再接 image_annotator)
-        # ------------------------
-
-        annotated_image = image
-
-        return (
-            annotated_image,
-            flowchart,
-            summary,
-            confidence,
-        )
-
-    except Exception as e:
-
-        flowchart = generate_flowchart(
-            step_id=step,
-            error_reports=[]
-        )
-
-        return (
-            image,
-            flowchart,
-            str(e),
-            {}
-        )
-with gr.Blocks(title="積木組裝引導系統") as demo:
-
-    gr.Markdown("# 🧩 積木組裝引導系統")
-
-    with gr.Row():
-
-        # ==========================
-        # 左側：圖片上傳
-        # ==========================
-
-        with gr.Column(scale=1):
-
-            image_input = gr.Image(
-                type="filepath",
-                label="上傳積木圖片",
-            )
-
-            step = gr.Dropdown(
-                choices=[
-                    "step_01",
-                    "step_02",
-                    "step_03",
-                    "step_04",
-                    "step_05",
-                ],
-                value="step_01",
-                label="目前步驟",
-            )
-
-            analyze_btn = gr.Button(
-                "開始分析",
-                variant="primary",
-            )
-
-        # ==========================
-        # 中間：標記圖片
-        # ==========================
-
-        with gr.Column(scale=1):
-
-            annotated_output = gr.Image(
-                label="標記後圖片",
-                interactive=False,
-                height=450,
-            )
-
-        # ==========================
-        # 右側：流程圖
-        # ==========================
-
-        with gr.Column(scale=1):
-
-            flowchart_output = gr.Image(
-                label="流程圖",
-                interactive=False,
-                height=450,
-            )
-
-    gr.Markdown("---")
-
-    with gr.Row():
-
-        with gr.Column(scale=2):
-
-            suggestion_output = gr.Textbox(
-                label="修正建議",
-                lines=8,
-                interactive=False,
-            )
-
-        with gr.Column(scale=1):
-
-            confidence_output = gr.Label(
-                label="信心分數",
-            )
-
-    analyze_btn.click(
-        fn=run_analysis,
-        inputs=[
-            image_input,
-            step,
-        ],
-        outputs=[
-            annotated_output,
-            flowchart_output,
-            suggestion_output,
-            confidence_output,
-        ],
+from main import run_pipeline
+from utils.current_state_analyzer import parse_filename
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+def _parsed_json_for_upload(image: str, analyzer: Callable[..., dict[str, Any]] | None = None) -> Path:
+    image_path = Path(image).resolve()
+    if image_path.suffix.lower() == ".json":
+        return image_path
+    info = parse_filename(image_path)
+    if not all(info.get(key) for key in ("model_id", "step_id", "view_angle")):
+        raise ValueError("Uploaded filename must contain model, step, and view angle.")
+    normal_dir = PROJECT_ROOT / "input" / "normal" / f"{info['model_id']}_{info['step_id']}"
+    candidates = sorted(normal_dir.glob(f"*correct*_{info['view_angle']}_*.jpg"))
+    if not candidates:
+        raise FileNotFoundError("Correct reference image was not found for the uploaded filename.")
+    expected = PROJECT_ROOT / "ground_truth" / info["model_id"] / f"{info['step_id']}.json"
+    if analyzer is None:
+        from utils.current_state_analyzer import analyze_image
+        analyzer = analyze_image
+    analysis = analyzer(
+        image_path=str(image_path), reference_image_path=str(candidates[0]),
+        expected_state_path=str(expected), filename_info=info,
     )
+    if not analysis.get("success") or not analysis.get("parsed_json_path"):
+        raise RuntimeError(str(analysis.get("error") or "Vision analysis failed"))
+    parsed = Path(str(analysis["parsed_json_path"]))
+    return parsed if parsed.is_absolute() else PROJECT_ROOT / parsed
 
-demo.launch()
+
+def run_analysis(
+    image: str | None,
+    step: str | None = None,
+    *,
+    pipeline_runner: Callable[..., Any] = run_pipeline,
+    analyzer: Callable[..., dict[str, Any]] | None = None,
+):
+    if image is None:
+        return None, None, "Please upload an image.", {}
+    try:
+        parsed = _parsed_json_for_upload(image, analyzer=analyzer)
+        output = PROJECT_ROOT / "output" / "ui_runs" / parsed.stem
+        manifest = pipeline_runner(parsed_json_path=parsed, output_dir=output, image_provider="mock")
+        message = "Pipeline completed."
+        if manifest.warnings:
+            message += "\n\nWarnings:\n" + "\n".join(manifest.warnings)
+        if manifest.errors:
+            message = "\n".join(manifest.errors)
+        return (
+            manifest.annotated_image_path or image,
+            manifest.final_instruction_path,
+            message,
+            {"status": manifest.status},
+        )
+    except Exception as exc:
+        return image, None, f"{type(exc).__name__}: {exc}", {}
+
+
+def build_demo() -> gr.Blocks:
+    with gr.Blocks(title="Assembly Correction SOP") as demo:
+        gr.Markdown("# Assembly Correction SOP")
+        with gr.Row():
+            with gr.Column():
+                image_input = gr.Image(type="filepath", label="Assembly image")
+                step = gr.Dropdown(choices=[f"step_{value:02d}" for value in range(1, 6)], value="step_01", label="Step")
+                analyze_btn = gr.Button("Analyze", variant="primary")
+            annotated_output = gr.Image(label="Localized / annotated image", interactive=False)
+            final_output = gr.Image(label="Final assembly instruction book", interactive=False)
+        suggestion_output = gr.Textbox(label="Pipeline result", lines=8, interactive=False)
+        status_output = gr.Label(label="Status")
+        analyze_btn.click(
+            fn=run_analysis,
+            inputs=[image_input, step],
+            outputs=[annotated_output, final_output, suggestion_output, status_output],
+        )
+    return demo
+
+
+demo = build_demo()
+
+
+if __name__ == "__main__":
+    demo.launch()

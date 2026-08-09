@@ -1,0 +1,11 @@
+metric,roi_direct,roi_checklist,delta,preferred_direction,winner
+Exact Set Match,0.3333333333333333,0.3333333333333333,0.0,higher,tie
+At-least-one Recall,0.3333333333333333,0.6666666666666666,0.3333333333333333,higher,roi_checklist
+All-parts Recall,0.3333333333333333,0.6666666666666666,0.3333333333333333,higher,roi_checklist
+Part Precision,0.25,0.42857142857142855,0.17857142857142855,higher,roi_checklist
+Part Recall,0.25,0.75,0.5,higher,roi_checklist
+Part F1,0.25,0.5454545454545454,0.2954545454545454,higher,roi_checklist
+Unknown Rate,0.0,0.3333333333333333,0.3333333333333333,lower,roi_direct
+False-confident @0.80,1.0,0.5714285714285714,-0.4285714285714286,lower,roi_checklist
+Manual Review Rate,1.0,1.0,0.0,lower,tie
+Wrong Identity Escaped Verifier,0,0,0,lower,tie

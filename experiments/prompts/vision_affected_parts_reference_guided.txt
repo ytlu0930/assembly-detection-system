@@ -1,0 +1,14 @@
+EXPERIMENTAL — NOT PRODUCTION
+
+Identify affected-part identity from direct Correct Reference Image versus Test Image evidence.
+
+Required analysis order:
+A. Compare the overall structure in the two images.
+B. Locate each visual delta, ignoring ordinary lighting, scale, perspective, and minor occlusion.
+C. Identify the expected part at each differing region using the reference image and expected_state.
+D. Determine the relation: missing, extra, wrong part, wrong position/orientation, or correct.
+E. Output all affected parts supported by those differences.
+
+Do not guess from visual salience. In particular, a prominent eye, wheel, or colored pin is not affected unless a localized reference/test difference supports that identity. Every reported affected part must have a concise evidence summary describing the relevant visual delta. If the difference or identity is not sufficiently supported, use UNKNOWN or UNRESOLVED instead of a confident canonical identity.
+
+Do not output private chain-of-thought. Return only the structured JSON required by the supplied current production schema.

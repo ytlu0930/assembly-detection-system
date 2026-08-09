@@ -1,40 +1,36 @@
+"""Manual Azure image-generation smoke script (never runs during pytest)."""
+
+import argparse
+import base64
+import os
+from pathlib import Path
+
 from dotenv import load_dotenv
 from openai import AzureOpenAI
-from pathlib import Path
-import os
-import base64
 
-# 強制讀取 project/.env
-env_path = Path(__file__).resolve().parents[1] / ".env"
-load_dotenv(dotenv_path=env_path)
 
-endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-api_key = os.getenv("AZURE_OPENAI_API_KEY")
-image_deployment = os.getenv("IMAGE_DEPLOYMENT")
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--execute", action="store_true", help="Explicitly authorize one paid image call")
+    args = parser.parse_args()
+    if not args.execute:
+        print("Dry run only. Re-run with --execute after provider and budget approval; planned calls: 1")
+        return 0
+    root = Path(__file__).resolve().parents[1]
+    load_dotenv(dotenv_path=root / ".env")
+    endpoint, api_key, deployment = (
+        os.getenv("AZURE_OPENAI_ENDPOINT"), os.getenv("AZURE_OPENAI_API_KEY"), os.getenv("IMAGE_DEPLOYMENT")
+    )
+    if not all((endpoint, api_key, deployment)):
+        raise EnvironmentError("Azure endpoint, API key, and image deployment are required")
+    client = AzureOpenAI(api_version="2025-04-01-preview", azure_endpoint=endpoint, api_key=api_key)
+    result = client.images.generate(model=deployment, prompt="One clean construction instruction card", size="1024x1024")
+    output = root / "output" / "manual_image_smoke.png"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_bytes(base64.b64decode(result.data[0].b64_json))
+    print(output)
+    return 0
 
-print("ENV path:", env_path)
-print("Endpoint:", endpoint)
-print("Image deployment:", image_deployment)
-print("API key loaded:", api_key is not None)
 
-client = AzureOpenAI(
-    api_version="2025-04-01-preview",
-    azure_endpoint=endpoint,
-    api_key=api_key
-)
-
-result = client.images.generate(
-    model=image_deployment,
-    prompt="一隻可愛的黑貓坐在書桌前",
-    size="1024x1024"
-)
-
-image_base64 = result.data[0].b64_json
-
-output_path = Path(__file__).resolve().parents[1] / "output" / "output.png"
-output_path.parent.mkdir(exist_ok=True)
-
-with open(output_path, "wb") as f:
-    f.write(base64.b64decode(image_base64))
-
-print(f"圖片生成成功：{output_path}")
+if __name__ == "__main__":
+    raise SystemExit(main())

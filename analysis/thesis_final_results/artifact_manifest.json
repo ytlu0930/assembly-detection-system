@@ -1,0 +1,421 @@
+[
+  {
+    "stage": "01_freeform_baseline",
+    "artifact_type": "png",
+    "file_path": "01_freeform_baseline/baseline_confidence_calibration.png",
+    "source_artifacts": [
+      "analysis\\affected_part_baseline\\affected_part_baseline_metrics.json",
+      "analysis/affected_part_baseline_predictions.csv"
+    ],
+    "sha256": "50140446a7bb29266ef4775e7cb226d260e21428f97da79897a397bc3804875b",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "01_freeform_baseline",
+    "artifact_type": "png",
+    "file_path": "01_freeform_baseline/baseline_false_confident_rate.png",
+    "source_artifacts": [
+      "analysis\\affected_part_baseline\\affected_part_baseline_metrics.json",
+      "analysis/affected_part_baseline_predictions.csv"
+    ],
+    "sha256": "f38c1ce71d1db83e8e591698c0159b2949000a2029d124d08ad8b3e41b3db7ee",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "01_freeform_baseline",
+    "artifact_type": "png",
+    "file_path": "01_freeform_baseline/baseline_identity_metrics.png",
+    "source_artifacts": [
+      "analysis\\affected_part_baseline\\affected_part_baseline_metrics.json",
+      "analysis/affected_part_baseline_predictions.csv"
+    ],
+    "sha256": "32bb7270224fe5ec169448cc76206b8dbd89caa9e6845432b49fbfb4672d53db",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "01_freeform_baseline",
+    "artifact_type": "png",
+    "file_path": "01_freeform_baseline/missingpart_A01_multiview_predictions.png",
+    "source_artifacts": [
+      "analysis\\affected_part_baseline\\affected_part_baseline_metrics.json",
+      "analysis/affected_part_baseline_predictions.csv"
+    ],
+    "sha256": "3b0036def8f30d0ce51614945b73ac9086883d5e68491953b9f3c456521e6a6c",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "02_prompt_candidate",
+    "artifact_type": "png",
+    "file_path": "02_prompt_candidate/candidate_constraint_failure_A01.png",
+    "source_artifacts": [
+      "analysis\\vision_prompt_ab\\results\\affected_part_prompt_ab_metrics.json",
+      "analysis\\vision_prompt_ab\\targeted_run_20260809_111248\\evaluation\\targeted_ab_metrics.json"
+    ],
+    "sha256": "7e5f5b4e14237d93387572e55a914707a8580359a713a75c0a4e71d21d772662",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "02_prompt_candidate",
+    "artifact_type": "png",
+    "file_path": "02_prompt_candidate/prompt_ab_metrics.png",
+    "source_artifacts": [
+      "analysis\\vision_prompt_ab\\results\\affected_part_prompt_ab_metrics.json",
+      "analysis\\vision_prompt_ab\\targeted_run_20260809_111248\\evaluation\\targeted_ab_metrics.json"
+    ],
+    "sha256": "58a27a485cec6be9ffcb8c4f6aa3ac5ef3b409d32f4688af5aaaa5d94a4de127",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "02_prompt_candidate",
+    "artifact_type": "png",
+    "file_path": "02_prompt_candidate/targeted_candidate_metrics.png",
+    "source_artifacts": [
+      "analysis\\vision_prompt_ab\\results\\affected_part_prompt_ab_metrics.json",
+      "analysis\\vision_prompt_ab\\targeted_run_20260809_111248\\evaluation\\targeted_ab_metrics.json"
+    ],
+    "sha256": "2b5c19b878c93a8fbf82505fe6e7f982937369f89fb4d52cde81a6c8390c4bd4",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "03_roi_candidate_reduction",
+    "artifact_type": "png",
+    "file_path": "03_roi_candidate_reduction/roi_candidate_reduction.png",
+    "source_artifacts": [
+      "analysis\\roi_identity_poc\\candidate_reduction.csv"
+    ],
+    "sha256": "e9f6ab86c3db821089d3e3485c5ac8c8a69dbb21796119fc97fcf1874733ad3a",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "03_roi_candidate_reduction",
+    "artifact_type": "png",
+    "file_path": "03_roi_candidate_reduction/roi_gt_coverage.png",
+    "source_artifacts": [
+      "analysis\\roi_identity_poc\\candidate_reduction.csv"
+    ],
+    "sha256": "55dbf6a9bcc3d4154a090aebc56616acc857f9cf0e126675094dccc1e772571d",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "03_roi_candidate_reduction",
+    "artifact_type": "png",
+    "file_path": "03_roi_candidate_reduction/roi_localization_scores.png",
+    "source_artifacts": [
+      "analysis\\roi_identity_poc\\candidate_reduction.csv"
+    ],
+    "sha256": "de68547c3fba16a4564fb046ffb96896c44346fcdab6fa9b8fceeee89e219d88",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "03_roi_candidate_reduction",
+    "artifact_type": "png",
+    "file_path": "03_roi_candidate_reduction/roi_method_summary.png",
+    "source_artifacts": [
+      "analysis\\roi_identity_poc\\candidate_reduction.csv"
+    ],
+    "sha256": "37886c28fdcf4917ec3f7357734d0376d2bd152d70e0a934693ad02e9f6c2ddb",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "04_roi_direct_vs_checklist",
+    "artifact_type": "png",
+    "file_path": "04_roi_direct_vs_checklist/checklist_confusion_matrix.png",
+    "source_artifacts": [
+      "analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\evaluation\\final_evaluation_report.json"
+    ],
+    "sha256": "ad439d906fbbfb4a2f95297107398365b9a6e49bbe1b2c2ccb3dd9cde19136c4",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "04_roi_direct_vs_checklist",
+    "artifact_type": "png",
+    "file_path": "04_roi_direct_vs_checklist/direct_vs_checklist_metrics.png",
+    "source_artifacts": [
+      "analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\evaluation\\final_evaluation_report.json"
+    ],
+    "sha256": "03ba66b53be5af4ec44e32241d4de0d3c5585ffcf662b1d8415586a66a2e2a7f",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "04_roi_direct_vs_checklist",
+    "artifact_type": "png",
+    "file_path": "04_roi_direct_vs_checklist/false_confident_comparison.png",
+    "source_artifacts": [
+      "analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\evaluation\\final_evaluation_report.json"
+    ],
+    "sha256": "8acc754352c24a5d6c69c4bb9fbd38b1770b71d8c0f3c8b32342552dcfd7de11",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "04_roi_direct_vs_checklist",
+    "artifact_type": "png",
+    "file_path": "04_roi_direct_vs_checklist/manual_review_and_uncertainty.png",
+    "source_artifacts": [
+      "analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\evaluation\\final_evaluation_report.json"
+    ],
+    "sha256": "8c62a3d49c3b32d3c7c3b3b91c39998cd3193fab07178cca46dbbb8682279fa5",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "05_final_case_results",
+    "artifact_type": "png",
+    "file_path": "05_final_case_results/missingpart_A01_result.png",
+    "source_artifacts": [
+      "analysis/roi_direct_vs_checklist/run_20260809_preflight/figures"
+    ],
+    "sha256": "edd1d283cd2dc0c39b9d31bc9df8e96a30e72ecde2da45117a06b5a1baa2b98e",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "05_final_case_results",
+    "artifact_type": "png",
+    "file_path": "05_final_case_results/missingpart_B01_result.png",
+    "source_artifacts": [
+      "analysis/roi_direct_vs_checklist/run_20260809_preflight/figures"
+    ],
+    "sha256": "230555339177c3ce4cd655825add67111536f8bf37f8b9325610d7ff1c1ffc18",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "05_final_case_results",
+    "artifact_type": "png",
+    "file_path": "05_final_case_results/thesis_case_missingpart_A01.png",
+    "source_artifacts": [
+      "analysis/roi_direct_vs_checklist/run_20260809_preflight/figures"
+    ],
+    "sha256": "96f113ba40e6cfdb0ee510c65982d871b0b1d7d28c55ffbd68ae970a4772cb32",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "05_final_case_results",
+    "artifact_type": "png",
+    "file_path": "05_final_case_results/thesis_case_missingpart_B01.png",
+    "source_artifacts": [
+      "analysis/roi_direct_vs_checklist/run_20260809_preflight/figures"
+    ],
+    "sha256": "c80bb8af8b6b3802c5e39ccefc42f23ac6171bf5cb57c73d8b49dd959d95f41f",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "05_final_case_results",
+    "artifact_type": "png",
+    "file_path": "05_final_case_results/thesis_case_wrongpart_B01.png",
+    "source_artifacts": [
+      "analysis/roi_direct_vs_checklist/run_20260809_preflight/figures"
+    ],
+    "sha256": "742ea87c662b3b3481bb0ee1815794dd6ef52a1648f33af01ef3f5b3b33e30f7",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "05_final_case_results",
+    "artifact_type": "png",
+    "file_path": "05_final_case_results/wrongpart_B01_result.png",
+    "source_artifacts": [
+      "analysis/roi_direct_vs_checklist/run_20260809_preflight/figures"
+    ],
+    "sha256": "b526d229cd044d9b3262a53768da1e539109127f47b63e4760c368d96f4ceec8",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "06_research_evolution",
+    "artifact_type": "png",
+    "file_path": "06_research_evolution/research_method_evolution.png",
+    "source_artifacts": [
+      "analysis\\affected_part_baseline\\affected_part_baseline_metrics.json",
+      "analysis\\vision_prompt_ab\\results\\affected_part_prompt_ab_metrics.json",
+      "analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\evaluation\\final_evaluation_report.json"
+    ],
+    "sha256": "12eeb2c9999ec93cc33bf5f17e8b4470c0c30e9790dea01c8ed317e321946ae8",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "06_research_evolution",
+    "artifact_type": "png",
+    "file_path": "06_research_evolution/research_pipeline_evolution.png",
+    "source_artifacts": [
+      "analysis\\affected_part_baseline\\affected_part_baseline_metrics.json",
+      "analysis\\vision_prompt_ab\\results\\affected_part_prompt_ab_metrics.json",
+      "analysis\\roi_direct_vs_checklist\\run_20260809_preflight\\evaluation\\final_evaluation_report.json"
+    ],
+    "sha256": "b8bee7a230eab984ec553a1fc7bd520b792a252dd0122083afcc13e8b1323f07",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "figure",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "root",
+    "artifact_type": "csv",
+    "file_path": "figure_validation.csv",
+    "source_artifacts": [
+      "derived consolidation metadata"
+    ],
+    "sha256": "7e0675b43b4d260b9041f9a43a87e559180b8c6b60cea7057b912cbc5eb6114a",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "root",
+    "artifact_type": "md",
+    "file_path": "README.md",
+    "source_artifacts": [
+      "derived consolidation metadata"
+    ],
+    "sha256": "421a54f0d00e2682101859dce5f9a8cab04a225898731f87b2ddd9bc5f515589",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/01_baseline_metrics.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "4f70a4133dc047d37dff8317bfba665afb68ac106b568a2954416fd10aa23a18",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/02_prompt_candidate_metrics.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "db42c05bb21508af9e8f3435ddfbb123ffb2deb9199701c1ccb6439cdd186342",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/03_roi_candidate_reduction.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "78d7ad7528fd92b1ea86504147d4c79a99993d7b5793c51c19276d74ec4097d4",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/04_direct_vs_checklist_metrics.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "f3ab4d7ed94f51983bc13392abf3dfdee16736dae03c810c7f7894a1cca17be1",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/05_checklist_component_results.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "f8591c0cc483695aaadf2d0e872062c15dc37f8b90ff4f1b52fe750638ffda5e",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/06_case_results.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "e3255c75a79a1a73d7393c0d69518a401d00762e921edbc8d436e295541090f8",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/07_research_method_evolution.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "ee4371666bdacc9bf95c04e1a8d6e3356bf9596344acbcae80ee87e998a61f35",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/08_request_efficiency.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "c8eb12e5d26ee2a1bb77f809fdd28525b7b339e3bbfa92ccad0a3f92528e0e23",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  },
+  {
+    "stage": "thesis_tables",
+    "artifact_type": "csv",
+    "file_path": "thesis_tables/master_experiment_summary.csv",
+    "source_artifacts": [
+      "frozen evaluation CSV/JSON artifacts"
+    ],
+    "sha256": "368c92137b792f98bafd0cc3a69c3a4e7bb7c495fac32aab3e842cd22648f7fd",
+    "created_at": "2026-08-09T14:30:22.000860+00:00",
+    "thesis_usage": "table or audit metadata",
+    "notes": "Derived offline; no API. Different-stage comparisons are directional."
+  }
+]

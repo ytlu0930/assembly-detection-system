@@ -1004,3 +1004,161 @@ Step Coverage：
 - Batch Results 建立
 - Failure Analysis
 - 專題論文撰寫與整理
+
+## 2026-08-04 Vision Part / SOP Integration
+
+- GitHub sync confirmed `32375ae` is still `origin/main`; no pull delta.
+- Isolated work is on `mirror-vision-part-sop-integration-20260804`.
+- 2026-07-01 baseline: 58 unique images, error-type accuracy 55/58, affected-part at-least-one hit 8/32, composite full recall 0/16, unknown-part rate 9/43.
+- Production Prompt and Schema were not changed because a controlled paid A/B has not been approved or run.
+- Added a backward-compatible all-parts ErrorReport adapter, structured local-first SOP generator, provider-neutral step prompt/image interfaces, SOP-driven flowchart, full pipeline, and fixed UI adapter contract.
+- Gradio now calls the UI adapter instead of rebuilding reports and flowcharts.
+- Existing API smoke modules now require explicit `--execute`; pytest performs no paid calls.
+- Validation: 66 tests and 19 subtests passed. Representative four-case offline full-pipeline and UI mock smoke tests passed.
+- Remaining: human review of six extrapart views and wrongpart-A01 multiplicity; validate the selected image provider; approve a small Prompt/Schema A/B before production contract changes.
+
+## 2026-08-04 Post-Commit Review Preparation
+
+- Integration branch committed and pushed at `8a59f85`; `main` was not merged.
+- Draft PR body prepared locally; GitHub CLI is not installed, so the Draft PR must be created manually.
+- A 39-row affected-parts annotation workflow and review guide were created. Extrapart canonical identity and wrongpart-A01 multiplicity remain pending review.
+- Formal image provider selected: OpenAI Image API / GPT Image 2 (model id: `gpt-image-2`), using Image Editing at `/v1/images/edits`.
+- A disabled `OpenAIImageProvider` stub and explicit provider factory were implemented. Runtime remains `MockStepImageProvider`.
+- No OpenAI client was initialized, no API key was read, and no image API request was executed. Real integration and formal image-quality evaluation remain pending.
+- Experimental Prompt and Schema candidates were created under `experiments/`; neither is production and formal analyzer defaults are unchanged.
+- The A/B runner defaults to dry-run and refuses API execution without a separately approved adapter. No Vision or image API experiment was executed.
+- These post-commit review artifacts remain a second, uncommitted working-tree batch for human inspection.
+
+## 2026-08-04 GPT Image 2 Adapter Implementation
+
+- Replaced the disabled stub with a guarded `gpt-image-2` Images Edit adapter using ordered current-state and correct-reference inputs.
+- Runtime remains `MockStepImageProvider`; selecting OpenAI cannot execute without two environment confirmations plus explicit code-level execution.
+- Added lazy client creation, dependency injection, input/output validation, Base64/Pillow verification, redaction, finite 2/4-second retry backoff, request/step budgets, and structured provider statuses.
+- Step generation is sequential and stops after a disabled/failed edit while preserving text SOP, annotation, flowchart, and the unchanged UI contract.
+- Added a one-request smoke CLI that defaults to dry-run and writes standard output-manager artifacts.
+- Adapter implemented: yes. API configured: not asserted. API smoke tested: no. Image quality validated: no.
+- Production Vision Prompt/Schema, Ground Truth, input images, and `main` remain unchanged. No commit/push/merge was performed for this batch.
+
+## 2026-08-08 Pipeline Convergence
+
+- Safely stashed the second batch, fetched A's main at `e4646adc7b35b3eddea47b5d137475c90f0482a6`, rebased without conflict, and restored the stash without conflict.
+- Established `main.run_pipeline` as the only formal full-pipeline entry.
+- Integrated multi-ErrorReport Localization, canonical SOP aliases/swap support, V2 editing prompts, provider-backed V2 image generation, and instruction-book output.
+- Replaced duplicated batch orchestration with calls to `run_pipeline` and changed Gradio to display `manifest.final_instruction_path`.
+- Marked `flowchart_generator.py` and `utils.integration_pipeline.py` deprecated for runtime purposes.
+- Added malformed API-key preflight; Mock remains default and no real API request was made.
+
+## 2026-08-08 Azure GPT Image 2 Provider
+
+- Azure GPT Image 2 Provider selected for the teacher-hosted deployment.
+- Azure adapter implemented with single-image multipart edit, configurable Bearer/api-key authentication, endpoint validation, optional mask, response validation, error mapping, retry, timeout, and request budget.
+- Azure API configured: pending user verification.
+- Azure API smoke test: pending; Codex executed dry-run only.
+- Image quality validation: pending.
+- OpenAI Platform adapter retained as an alternate provider.
+- Mock default retained for main, batch, UI, and tests.
+- No real Azure or OpenAI image API request was executed by Codex.
+
+## 2026-08-08 OpenAI GPT Image 2 Phase 2A E2E Validation
+
+- OpenAI Platform single-image smoke prerequisites were confirmed: `gpt-image-2`, Images Edit, configured key, and both environment execution gates.
+- Canonical `main.py` → `StepImageGeneratorV2` → `OpenAIImageProvider` Phase 2A completed with one authorized real request in an isolated output directory.
+- The generation manifest records provider `openai`, model `gpt-image-2`, one requested/successful task, zero failed tasks, and operation `images.edit`.
+- The generated Step 1 PNG passed Pillow validation at 1536 × 1024, and the instruction book was generated and embedded that real image for Step 1.
+- Pipeline status is `partial` only because localization reliability is low and manual review is required; all five pipeline stages succeeded with no recorded errors.
+- Semantic image quality remains under manual review. The generated white eyeball-like part follows the current prompt, but that localization target may not match the intended missing red-pin correction.
+- Full multi-step Phase 2B and batch image generation were not executed.
+- Offline validation: compileall passed; pytest reported 139 passed, 19 subtests passed, and one dry-run key-configuration assertion failure. No program/test fix was made.
+- Detailed evidence: `docs/openai_e2e_phase2_validation.md`.
+
+## 2026-08-08 Affected-Part Identity Verifier
+
+- Implemented an evidence-based identity gate between paired test/reference localization and Correction SOP generation.
+- Extended ErrorReports with identity status, confidence, evidence, verified ID, and ranked alternative candidates without hardcoded mappings.
+- Valid taxonomy membership, high Vision confidence, and expected-inventory presence are no longer sufficient to create a named repair target.
+- Conflict/uncertain/unresolved identities now force manual review and hard-block SOP image tasks, prompt generation, and provider calls even with manual-review override.
+- missingpart-A01 regression preserves the original `EYE_BALL` prediction, rejects it as a conflict from equal test/reference evidence, leaves `verified_part_id` empty, produces no eye task, and makes zero provider calls.
+- A fully offline canonical rerun independently observed eight eye candidates in both test/reference images and reached the same fail-closed `conflict` result; its mock manifest contains zero tasks and `execute_api=false`.
+- Fixed OpenAI smoke dry-run environment isolation: dry-run does not load the project `.env`, and the test cannot read a real local key.
+- Offline validation: 155 tests and 19 subtests passed. No OpenAI/Azure API or GPT Image request was made.
+- Production Vision Prompt, Vision Schema, Ground Truth, and source images were unchanged. Phase 2B remains blocked.
+
+## 2026-08-09 Affected-Part Baseline and Prompt A/B Preparation
+
+- Established an offline identity baseline from 25 confirmed review rows and the latest matching 2026-07-01 parsed JSON; the 19-image A/B evaluation subset contains confirmed cases only.
+- Baseline results: Exact Set Match 8.00%, part-level F1 10.53%, and false-confident identity rate 88.00% at thresholds 0.70, 0.80, and 0.90. The 0.90-1.00 confidence bin has 12.00% empirical identity accuracy.
+- Prepared baseline, reference-guided, and reference+candidate experimental prompts under the current schema. Deterministic candidates use expected state/part library evidence only and never use human Ground Truth.
+- Generated six-case × three-variant dry-run packages: 18 estimated requests, zero executed. Real A/B execution remains pending explicit authorization.
+- Extrapart-A01 and wrongpart-A01 remain second-review cases and are excluded from primary accuracy despite appearing in dry-run demonstration packages.
+- Production Prompt, Schema, Ground Truth, source images, SOP behavior, and verifier thresholds remain unchanged. Phase 2B remains blocked.
+- Validation passed: 17 focused A/B tests, 19 verifier/regression tests, and 172 full-suite tests plus 19 subtests. The legacy fixed pytest output directories remain inaccessible due to Windows ACL, while fresh isolated pytest directories pass.
+
+## 2026-08-09 Affected-Part Prompt A/B Execution
+
+- A/B PARTIAL: executed the frozen Baseline / Reference / Reference+Candidate packages with Azure OpenAI `gpt-4o` and the current schema. Eighteen logical artifacts were recorded: 12 success and 6 failed.
+- Primary execution metrics use only exact-image confirmed Ground Truth. Successful denominators were Baseline 2, Reference 0, and Reference+Candidate 3; unconfirmed extrapart-A01/wrongpart-A01 and the non-frozen front correct-control were excluded.
+- Reference error cases failed schema validation. Candidate produced no A01 improvement (`EYE_BALL`, 0.95, verifier conflict), and false-confident identity remained 66.67% on its evaluable confirmed rows.
+- Production verifier acceptance remained 0 and wrong-identity escape remained 0; verifier thresholds were unchanged.
+- Request audit incident: the first shell timeout left its Python child running, and a resume process overlapped it. Reconstructed physical requests are 31, above the intended 18 budget. No further API request was made after discovery; the runner now uses an exclusive execution lock.
+- Decision: `NO_CLEAR_IMPROVEMENT`; no production Prompt/Schema/Ground Truth/source-image change. GPT Image generation and Phase 2B were not executed. Phase 2B remains blocked.
+- Post-run validation: 33 focused tests passed; full suite passed 173 tests and 19 subtests; compileall and diff check passed.
+
+## 2026-08-09 Prompt A/B Offline Forensic and Safety Hardening
+
+- Recovered all five Reference validation failures for analysis from the validator's retained instance payload; every call had returned parseable JSON, but schema metadata at the top level violated `additionalProperties: false`. Recovery artifacts are explicitly excluded from primary metrics.
+- Confirmed missingpart-A01 Candidate included both `EYE_BALL` and `PIN_RED_SHORT` and covered the complete 15/15 canonical inventory, so `EYE_BALL` was in-set but semantically wrong. The candidate constraint was therefore weak rather than violated.
+- Added deterministic experimental Candidate membership enforcement. Out-of-set predictions are marked `violation`, receive no verified ID, require manual review, and are never mapped to a nearest candidate. Added normal and high-confidence Candidate Violation Rate metrics.
+- Added a PID-aware exclusive lock, experiment run UUID, atomic persistent pre-request reservation ledger, hard physical budget, completed-package resume skip, and explicit-retry-only behavior for attempted packages. The corrected incident count of 31 remains persisted and blocks further requests under the exhausted 18-request ledger.
+- Prepared, but did not execute, the six-request targeted Reference/Reference+Candidate plan for missingpart-A01, missingpart-B01, and wrongpart-B01.
+- No production Prompt or Schema was changed. No API or Phase 2B execution occurred. Phase 2B remains blocked.
+
+## 2026-08-09 Targeted A/B Offline Evaluation
+
+- The user-executed targeted Vision A/B completed exactly six logical and six physical requests with zero retries; the ledger and all six raw/parsed response artifacts are present, and no request-audit incident occurred.
+- Offline evaluation joined exact-image confirmed frozen Ground Truth after inference only. No API, resume, retry, GPT Image, or Phase 2B execution occurred during evaluation.
+- Reference schema validity was 0/3 because every response repeated the `$schema`/`title`/`type` metadata echo. Reference primary metric denominators are therefore null/N/A.
+- Reference+Candidate schema validity was 3/3, but Exact Match was 0%, At-least-one Recall 33.33%, All-parts Recall 0%, Part F1 28.57%, and false-confident identity rate at 0.80 was 66.67%.
+- missingpart-A01 and missingpart-B01 remained high-confidence `EYE_BALL` errors. wrongpart-B01 recovered `PIN_RED_SHORT` but missed the second swap identity `PIN_YELLOW`.
+- All Candidate lists covered 15/15 inventory IDs and are weak constraints. Candidate violation rate was 0%, verifier acceptance 0%, and wrong-identity escape 0; all Candidate cases remained blocked for review.
+- Decision: `NO_CLEAR_IMPROVEMENT`; recommended prompt variant: `NONE`; next experiment: `LOCALIZATION_GUIDED_ROI`; Phase 2B remains `BLOCK`.
+- Production Vision Prompt, production Vision Schema, Ground Truth, and source images were unchanged by this offline evaluation.
+- Offline validation passed: 37 focused tests; isolated no-network smoke test; 192 full-suite tests plus 19 subtests; compileall; and git diff check. A mocked Hugging Face socket attempt caused one initial full-suite ordering failure, but no real connection occurred and the fully offline rerun passed.
+
+## 2026-08-09 Localization-Guided ROI Identity PoC
+
+- Added an offline paired Test/Correct-Reference ROI pipeline using color-component deltas, assembly-relative position, expected state, part library, optional cached Grounding DINO corroboration, and the existing bbox selector.
+- Added deterministic ROI candidate reduction without review CSV, Ground Truth, case-ID rules, A01 exceptions, or hardcoded target identities. Low localization evidence fails closed with no candidates.
+- Across missingpart-A01, missingpart-B01, and wrongpart-B01, candidate counts fell from 15 to 5, 5, and 6 (64.44% mean reduction), while evaluation-only confirmed-GT coverage remained 3/3. `EYE_BALL` was excluded from all three reduced sets.
+- missingpart-A01's top-view evidence includes the absent red short-pin location; missingpart-B01 retains a bottom-view small-wheel ROI; wrongpart-B01 retains both red/yellow identities and paired reference/test swap evidence. Cross-view false positives remain, so every package requires manual review.
+- Production Vision Prompt/Schema, Ground Truth, source images, GPT Image, and Phase 2B were untouched. No external API request was made; Phase 2B remains blocked.
+
+## 2026-08-09 ROI Direct vs Checklist Preflight
+
+- Prepared the fixed three-case, two-method ROI Direct versus component-checklist experiment as exactly six logical request packages (`EXP-001`–`EXP-006`). No API request was executed.
+- Froze existing ROI PoC packages, candidates, bboxes, crops, full source images, prompts, schemas, and runner with SHA-256 validation. Localization was not rerun and no bbox was manually selected.
+- Added experiment-only Direct/Checklist prompts and schemas, dynamic candidate membership enforcement, schema-metadata sanitization, a deterministic checklist rule engine, fail-closed UNCERTAIN behavior, and paired wrongpart/swap handling.
+- Added PID/process lock verification, fresh isolated ledger, pre-transport reservation, hard physical ceiling 6, SDK retry 0, schema retry 0, and resume no-resend behavior. The 31/18 incident ledger and targeted ledger are not reused.
+- Added offline affected-part evaluation, checklist resolved-only confusion matrix with separate UNCERTAIN count, Direct/Checklist comparison chart, deterministic correction annotations, four-panel case figures, and stable thesis CSV contracts. Matplotlib has an OpenCV offline fallback in the current venv.
+- Final preflight run: `analysis/roi_direct_vs_checklist/run_20260809_preflight`; UUID `d9d0c3f0-7a57-41ed-872c-b2ab42f4db97`; environment ready; GT leakage audit PASS; physical requests 0.
+- Production Vision Prompt/Schema, Ground Truth, source images, GPT Image, and Phase 2B were untouched. Phase 2B remains blocked.
+
+## 2026-08-09 ROI Direct vs Checklist Offline Evaluation
+
+- The user-executed experiment completed exactly six logical and six physical requests with six completed reservations, zero retries, six response artifacts, and no request incident. This follow-up performed no API request, resume, or retry.
+- Froze all six response artifacts with SHA-256 before loading labels. Exact-image confirmed Ground Truth was joined only after the label-free snapshot passed integrity checks.
+- Direct original schema validity was 3/3; Checklist was 0/3 because every response returned `results` plus categorical fields instead of the experiment schema. Raw responses remain unchanged. A label-free analysis-only recovery enabled deterministic rule-engine semantic evaluation while remaining excluded from original schema-valid counts.
+- Direct metrics: Exact Match 33.33%, at-least-one/all-parts recall 33.33%, Part F1 25.00%, false-confident identity @0.80 100.00%.
+- Recovered Checklist semantic metrics: Exact Match 33.33%, at-least-one/all-parts recall 66.67%, Part F1 54.55%, false-confident identity @0.80 57.14%, Unknown Rate 33.33%.
+- Checklist component resolved-only metrics: TN=3, FP=4, FN=0, TP=3, accuracy 60.00%, precision 42.86%, recall 100.00%, F1 60.00%; six of 16 checks were UNCERTAIN.
+- missingpart-A01 was identified by both methods; missingpart-B01 Direct was a false-confident red-pin error while Checklist failed closed; wrongpart-B01 Checklist contained both swap identities but also four false positives.
+- Deterministic annotations and thesis figures were generated without GPT Image. Unverified frozen ROI proposals are labeled as such; final correction panels do not assert a bbox because every result remains conflict/unresolved and requires manual review.
+- Decision: `NO_CLEAR_IMPROVEMENT`; recommended production method `NONE`; deterministic fail-closed annotation retained; Phase 2B remains `BLOCK`.
+- Production Vision Prompt/Schema, Ground Truth, and source images were unchanged. No GPT Image or Phase 2B execution occurred during evaluation.
+
+## 2026-08-09 Checklist Schema Robustness and Thesis Consolidation
+
+- Added an experiment-only, fail-closed Checklist response normalizer and removed duplicated normalization logic from the evaluator. It handles only the observed contract aliases/types, validates exact candidate membership, has no Ground Truth input, and does not alter raw responses.
+- Reparsed `EXP-002`, `EXP-004`, and `EXP-006` directly from stored raw message content. Original model schema compliance remains 0/3; deterministic normalized analysis compliance is 3/3.
+- Raw response SHA-256 values were identical before and after normalization. Normalized semantic fields were 3/3 identical to the prior label-free recovery; no identity, status, observation, or confidence was changed semantically.
+- Consolidated the confusion matrix, comparison chart, three case figures, and five thesis tables under the run's `thesis_artifacts/` directory with a SHA-256 manifest.
+- Added `docs/thesis_experiment_summary.md`. Production Prompt/Schema, Ground Truth, source images, GPT Image, API execution, and Phase 2B remain untouched; Phase 2B remains blocked.
